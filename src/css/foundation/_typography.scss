@@ -1,0 +1,43 @@
+@each $scale, $setting in $type-scale {
+	.#{$scale} {
+		font-family: map-get($setting, typeface), sans-serif;
+		line-height: rem-calc(( map-get( $setting, size ) / 4 ) + map-get( $setting, size ));
+		font-size: rem-calc(map-get($setting, size));
+		font-weight: map-get($setting, font);
+		text-transform: map-get($setting, case);
+		letter-spacing: if(map-get( $setting, spacing ) == 0, 0, rem-calc(map-get($setting, spacing)));
+		margin: 0;
+	}
+}
+
+h1 {
+	@extend .h1;
+}
+
+h2 {
+	@extend .h2;
+}
+
+h3 {
+	@extend .h3;
+}
+
+h4 {
+	@extend .h4;
+}
+
+h5 {
+	@extend .h5;
+}
+
+h6 {
+	@extend .h6;
+}
+
+body {
+	@extend .body-1;
+}
+
+button, input[type="submit"], input[type="reset"], .button {
+	@extend .button;
+}

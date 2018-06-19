@@ -1,0 +1,38 @@
+:root {
+	--gutter: #{em-calc( $xs-gutter )};
+	--margin: #{em-calc( $xs-margin )};
+
+	--primary-color: #{$primary-color};
+	--primary-color-variant: #{$primary-color-variant};
+	--secondary-color: #{$secondary-color};
+	--secondary-color-variant: #{$secondary-color-variant};
+	--background-color: #{$background-color};
+	--surface-color: #{$surface-color};
+	--error-color: #{$error-color};
+	--font-on-primary: #{$font-on-primary};
+	--font-on-secondary: #{$font-on-secondary};
+	--font-on-background: #{$font-on-background};
+	--font-on-surface: #{$font-on-surface};
+	--font-on-error: #{$font-on-error};
+	--border-radius: #{$surface-corner};
+
+	@media #{$sm-and-up} {
+		--gutter: #{em-calc( $sm-gutter )};
+		--margin: #{em-calc( $sm-margin )};
+	}
+
+	@media #{$md-and-up} {
+		--gutter: #{em-calc( $md-gutter )};
+		--margin: #{em-calc( $md-margin )};
+	}
+
+	@media #{$lg-and-up} {
+		--gutter: #{em-calc( $lg-gutter )};
+		--margin: #{em-calc( $lg-margin )};
+	}
+
+	@media #{$xl-and-up} {
+		--gutter: #{em-calc( $xl-gutter )};
+		--margin: #{em-calc( $xl-margin )};
+	}
+}

@@ -1,0 +1,278 @@
+/**************************************
+ * Color
+ **************************************/
+$primary-color: $blue;
+$primary-color-variant: $blue-a400;
+$secondary-color: $teal;
+$secondary-color-variant: $teal-a400;
+$background-color: $white;
+$surface-color: $white;
+$error-color: $pink-a700;
+$font-on-primary: $white;
+$font-on-secondary: $black;
+$font-on-background: $black;
+$font-on-surface: $black;
+$font-on-error: $white;
+
+/**************************************
+ * Grid
+ **************************************/
+$xs-max-width: 599px !default;
+$xs-columns: 12 !default; // Should actually be 4 but makes it harder to give an element a styling
+$xs-margin: 16 !default;
+$xs-gutter: $xs-margin !default;
+
+$sm-min-width: 600px !default;
+$sm-max-width: 1023px !default;
+$sm-columns: 12 !default;
+$sm-margin: 24 !default;
+$sm-gutter: $sm-margin !default;
+
+$md-min-width: 1024px !default;
+$md-max-width: 1439px !default;
+$md-columns: $sm-columns !default;
+$md-margin: $sm-margin !default;
+$md-gutter: $sm-margin !default;
+
+$lg-min-width: 1440px !default;
+$lg-max-width: 1919px !default;
+$lg-columns: $sm-columns !default;
+$lg-margin: $sm-margin !default;
+$lg-gutter: $sm-margin !default;
+
+$xl-min-width: 1920px !default;
+$xl-columns: $sm-columns !default;
+$xl-margin: $sm-margin !default;
+$xl-gutter: $sm-margin !default;
+
+$breakpoints: (
+	xs: (
+		min-width: 0,
+		max-width: 599,
+		columns: $xl-columns,
+		margin: $xs-margin,
+		gutter: $xs-gutter,
+		portrait: (
+			min-width: 0,
+			max-width: 359,
+			columns: $xl-columns,
+			margin: $xs-margin,
+			gutter: $xs-gutter
+		),
+		landscape: (
+			min-width: 480,
+			max-width: 599,
+			columns: $xl-columns,
+			margin: $xs-margin,
+			gutter: $xs-gutter
+		)
+	),
+	sm: (
+		min-width: 600,
+		max-width: 1023,
+		columns: $sm-columns,
+		margin: $sm-margin,
+		gutter: $sm-gutter,
+		portrait: (
+			min-width: 600,
+			max-width: 959,
+			columns: $sm-columns,
+			margin: $sm-margin,
+			gutter: $sm-gutter
+		),
+		landscape: (
+			min-width: 600,
+			max-width: 1023,
+			columns: $sm-columns,
+			margin: $sm-margin,
+			gutter: $sm-gutter
+		)
+	),
+	md: (
+		min-width: 1024,
+		max-width: 1439,
+		columns: $md-columns,
+		margin: $md-margin,
+		gutter: $md-gutter,
+		landscape: (
+			min-width: 1024,
+			max-width: 1439,
+			columns: $md-columns,
+			margin: $md-margin,
+			gutter: $md-gutter
+		)
+	),
+	lg: (
+		min-width: 1440,
+		max-width: 1919,
+		columns: $lg-columns,
+		margin: $lg-margin,
+		gutter: $lg-gutter,
+		landscape: (
+			min-width: 1440,
+			max-width: 1919,
+			columns: $lg-columns,
+			margin: $lg-margin,
+			gutter: $lg-gutter
+		)
+	),
+	xlarge: (
+		min-width: 1920,
+		columns: $xl-columns,
+		margin: $xl-margin,
+		gutter: $xl-gutter,
+		landscape: (
+			min-width: 1920,
+			columns: $xl-columns,
+			margin: $xl-margin,
+			gutter: $xl-gutter
+		)
+	)
+) !default;
+
+/**************************************
+ * Typography
+ * https://material.io/design/typography/the-type-system.html
+ **************************************/
+$font-size: 16 !default;
+$type-scale: (
+	h1: (
+		typeface: 'Roboto',
+		font: 300,
+		size: 96,
+		case: none,
+		spacing: -1.5
+	),
+	h2: (
+		typeface: 'Roboto',
+		font: 300,
+		size: 60,
+		case: none,
+		spacing: -.5
+	),
+	h3: (
+		typeface: 'Roboto',
+		font: 400,
+		size: 48,
+		case: none,
+		spacing: 0
+	),
+	h4: (
+		typeface: 'Roboto',
+		font: 400,
+		size: 34,
+		case: none,
+		spacing: .25
+	),
+	h5: (
+		typeface: 'Roboto',
+		font: 400,
+		size: 24,
+		case: none,
+		spacing: 0
+	),
+	h6: (
+		typeface: 'Roboto',
+		font: 500,
+		size: 20,
+		case: none,
+		spacing: .15
+	),
+	subtitle-1: (
+		typeface: 'Roboto',
+		font: 400,
+		size: 16,
+		case: none,
+		spacing: .15
+	),
+	subtitle-2: (
+		typeface: 'Roboto',
+		font: 500,
+		size: 14,
+		case: none,
+		spacing: .1
+	),
+	body-1: (
+		typeface: 'Roboto',
+		font: 400,
+		size: 16,
+		case: none,
+		spacing: .5
+	),
+	body-2: (
+		typeface: 'Roboto',
+		font: 400,
+		size: 14,
+		case: none,
+		spacing: .25
+	),
+	button: (
+		typeface: 'Roboto',
+		font: 500,
+		size: 14,
+		case: uppercase,
+		spacing: .75
+	),
+	caption: (
+		typeface: 'Roboto',
+		font: 400,
+		size: 12,
+		case: none,
+		spacing: .4
+	),
+	overline: (
+		typeface: 'Roboto',
+		font: 400,
+		size: 10,
+		case: uppercase,
+		spacing: 1.5
+	)
+) !default;
+
+/**************************************
+ * Shadow & elevation
+ **************************************/
+$elevation-umbra-color: rgba(#000, .14) !default;
+$elevation-penumbra-color: rgba(#000, .12) !default;
+$elevation-ambient-color: rgba(#000, .2) !default;
+
+$elevation-umbra-map: (
+	1: 0px 0px 2px 0px,
+	2: 0px 0px 2px 0px,
+	3: 0px 3px 3px 0px,
+	4: 0px 2px 4px 0px,
+	6: 0px 6px 10px 0px,
+	8: 0px 8px 10px 1px,
+	9: 0px 9px 12px 1px,
+	12: 0px 12px 17px 2px,
+	16: 0px 16px 24px 2px,
+	24: 0px 24px 38px 3px
+);
+
+$elevation-penumbra-map: (
+	1: 0px 2px 2px 0px,
+	2: 0px 3px 4px 0px,
+	3: 0px 3px 4px 0px,
+	4: 0px 4px 5px 0px,
+	6: 0px 1px 18px 0px,
+	8: 0px 3px 14px 3px,
+	9: 0px 3px 16px 2px,
+	12: 0px 5px 22px 4px,
+	16: 0px 6px 30px 5px,
+	24: 0px 9px 46px 8px
+);
+
+$elevation-ambient-map: (
+	1: 0px 1px 3px 0px,
+	2: 0px 1px 5px 0px,
+	3: 0px 1px 8px 0px,
+	4: 0px 1px 10px 0px,
+	6: 0px 3px 5px 0px,
+	8: 0px 4px 15px 0px,
+	9: 0px 5px 6px 0px,
+	12: 0px 7px 8px 0px,
+	16: 0px 8px 10px 0px,
+	24: 0px 11px 15px 0px
+);
+
+$surface-corner: 4px;

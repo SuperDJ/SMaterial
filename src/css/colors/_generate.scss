@@ -1,0 +1,29 @@
+@each $color-name, $color-swatch in $colors {
+	@each $color-type, $color-value in $color-swatch {
+		@if( $color-type == 'base' ) {
+			.#{$color-name}, .#{$color-name}-500 {
+				background: $color-value !important;
+			}
+
+			.text--#{$color-name}, .text--#{$color-name}-500, .text--#{$color-name} .icon, .text--#{$color-name}-500 .icon, .icon--#{$color-name}, .icon--#{$color-name}-500 {
+				color: $color-value !important;
+			}
+		} @else if( $color-name == 'shaded' ) {
+			.#{$color-type} {
+				background: $color-value !important;
+			}
+
+			.text--#{$color-type}, .text--#{$color-type} .icon, .icon--#{$color-type} {
+				color: $color-value !important;
+			}
+		} @else if( $color-type != '500' ) {
+			.#{$color-name}-#{$color-type} {
+				background: $color-value !important;
+			}
+
+			.text--#{$color-name}-#{$color-type}, .text--#{$color-name}-#{$color-type} .icon, .icon--#{$color-name}-#{$color-type} {
+				color: $color-value !important;
+			}
+		}
+	}
+}

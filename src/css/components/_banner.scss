@@ -1,0 +1,108 @@
+.banner {
+	background: var(--background-color);
+	@extend .body-2;
+	border-bottom: em-calc(1px) solid rgba($font-on-surface , .12);
+
+	&__single-line {
+		height: em-calc(54px);
+		display: grid;
+		grid-template-columns: 1fr auto;
+		padding: em-calc(10px) em-calc(8px) em-calc(8px) em-calc(16px);
+
+		@media #{$md-and-up} {
+			height: em-calc(52px);
+			padding: em-calc(8px) em-calc(8px) em-calc(8px) em-calc(24px);
+		}
+
+		&__content {
+			grid-column-start: 1;
+			line-height: calc( #{em-calc(56px)} - #{em-calc(10px)} - #{em-calc(8px)} );
+
+			@media #{$md-and-up} {
+				line-height: calc( #{em-calc(52px)} - #{em-calc(8px)} - #{em-calc(8px)} );
+			}
+		}
+
+		&__actions {
+			grid-column-start: 2;
+			margin-left: em-calc(36px);
+
+			@media #{$md-and-up} {
+				margin-left: em-calc(90px);
+			}
+
+			> .button {
+				margin-left: em-calc(8px);
+			}
+		}
+	}
+
+	&__multi-line {
+		vertical-align: em-calc(36px);
+		height: em-calc(122px);
+
+		@media #{$md-and-up} {
+			display: grid;
+			grid-template-columns: 1fr auto;
+		}
+
+		&__content {
+			width: 100%;
+			padding: em-calc(24px) em-calc(16px) em-calc(12px) em-calc(16px);
+
+			@media #{$md-and-up} {
+				grid-column-start: 1;
+			}
+		}
+
+		&__actions {
+			width: 100%;
+			padding: 0 em-calc(8px) em-calc(8px) em-calc(16px);
+			text-align: right;
+
+			@media #{$md-and-up} {
+				grid-column-start: 2;
+				margin-left: em-calc(90px);
+			}
+
+			> .button {
+				margin-left: em-calc(8px);	
+			}
+		}
+	}
+
+	&__image-multi-line {
+		height: em-calc(120px);
+		display: grid;
+		grid-template-columns: calc( #{em-calc(40px)} + #{em-calc(16px)}) 1fr;
+
+		&__image {
+			grid-column-start: 1;
+			grid-row: 1 / 2;
+			padding: em-calc(24px) 0 0 em-calc(16px);
+
+			img {
+				width: em-calc(40px);
+				height: em-calc(40px);
+				border-radius: 50%;
+			}
+		}
+
+		&__content {
+			grid-column-start: 2;
+			grid-row-start: 1;
+			padding: em-calc(24px) em-calc(16px) 0 em-calc(16px); 
+			margin: 0 0 em-calc(20px) 0;
+		}
+
+		&__actions {
+			grid-column-start: 2;
+			grid-row-start: 2;
+			text-align: right;
+
+			> .button {
+				margin-left: em-calc(8px);	
+			}
+		}
+	}
+}

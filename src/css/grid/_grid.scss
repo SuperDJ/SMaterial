@@ -1,0 +1,105 @@
+.container {
+	width: 100%;
+}
+
+.row {
+	display: grid;
+
+	$xs-columns-render: '';
+	@for $i from 1 through $xs-columns {
+		$xs-columns-render: $xs-columns-render + 1fr + ' ';
+	}
+	grid-template-columns: unquote( $xs-columns-render );
+	grid-gap: var(--gutter);
+	margin: 0 var(--margin);
+
+	@media #{$sm-and-up} {
+		$sm-columns-render: '';
+		@for $i from 1 through $sm-columns {
+			$sm-columns-render: $sm-columns-render + 1fr + ' ';
+		}
+		grid-template-columns: unquote( $sm-columns-render );
+	}
+
+	@media #{$md-and-up} {
+		$md-columns-render: '';
+		@for $i from 1 through $md-columns {
+			$md-columns-render: $md-columns-render + 1fr + ' ';
+		}
+		grid-template-columns: unquote( $md-columns-render );
+	}
+
+	@media #{$lg-and-up} {
+		$lg-columns-render: '';
+		@for $i from 1 through $lg-columns {
+			$lg-columns-render: $lg-columns-render + 1fr + ' ';
+		}
+		grid-template-columns: unquote( $lg-columns-render );
+	}
+
+	@media #{$xl-and-up} {
+		$xl-columns-render: '';
+		@for $i from 1 through $xl-columns {
+			$xl-columns-render: $xl-columns-render + 1fr + ' ';
+		}
+		grid-template-columns: unquote( $xl-columns-render );
+	}
+}
+
+@for $i from 1 through $xs-columns {
+	.xs#{$i} {
+		grid-column: auto / span $i;
+	}
+
+	.offset-xs#{$i} {
+		grid-column-start: $i;
+	}
+}
+
+@media #{$sm-and-up} {
+	@for $i from 1 through $sm-columns {
+		.sm#{$i} {
+			grid-column: auto / span $i;
+		}
+
+		.offset-sm#{$i} {
+			grid-column-start: $i;
+		}
+	}
+}
+
+@media #{$md-and-up} {
+	@for $i from 1 through $md-columns {
+		.md#{$i} {
+			grid-column: auto / span $i;
+		}
+
+		.offset-md#{$i} {
+			grid-column-start: $i;
+		}
+	}
+}
+
+@media #{$lg-and-up} {
+	@for $i from 1 through $lg-columns {
+		.lg#{$i} {
+			grid-column: auto / span $i;
+		}
+
+		.offset-lg#{$i} {
+			grid-column-start: $i;
+		}
+	}
+}
+
+@media #{$xl-and-up} {
+	@for $i from 1 through $xl-columns {
+		.xl#{$i} {
+			grid-column: auto / span $i;
+		}
+
+		.offset-xl#{$i} {
+			grid-column-start: $i;
+		}
+	}
+}

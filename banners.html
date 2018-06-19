@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Banners</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="./dist/css/material-css.css">
+
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="language" content="EN">
+        <meta name="author" content="Derkjan Super">
+    </head>
+
+    <body>
+        <header class="app-bar app-bar--fixed">
+            <i class="material-icons icon">menu</i>
+
+            <div class="app-bar__title">Banners</div>
+
+            <div class="app-bar__actions">
+                <a href="#">Test</a>
+
+                <i class="material-icons icon">person</i>
+            </div>
+        </header>
+
+        <main class="container">
+            <article class="row">
+                <section class="xs12">
+                    <h1 class="xs12 text--red-400">Banners</h1>
+
+                   <p>
+                       There are a couple of different banners that you can use.
+                   </p>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12">Single line</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        The default banner consist of text and a action or <a href="./buttons.html">button</a>.
+                    </p>
+
+                    <p>
+                        To make a banner you always need to use the base class <code>.banner</code>.
+                        For the single line banner you also need to use the additional class <code>.banner__single-line</code>.
+                        For the elements within the banner you need to use the classes <code>.banner__single-line__content</code> and 
+                        <code>.banner__single-line__actions</code> accordingly.
+                    </p>
+
+                    <p>
+                        For desktop a single line banner can also supports mutliple actions
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="banner banner__single-line">
+                        <div class="banner__single-line__content">
+                            One line text string with one action
+                        </div>
+
+                        <div class="banner__single-line__actions">
+                            <button class="button button__text">
+                                Action
+                            </button>
+
+                            <button class="button button__text md-down-hide">
+                                Action
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <artile class="row">
+                <h2 class="xs12">Multi line</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        The multi line banner consists of 2 lines of content and can container multiple actions.
+                    </p>
+
+                    <p>
+                        For the multi line banner you need to use the class <code>.banner__multi-line</code>.
+                        The content and actions you need to use the same classes as for the single line except it is now <code>multi-line</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="banner banner__multi-line">
+                        <div class="banner__multi-line__content">
+                            Two line text string with two actions. One to two <br>lines is preferable on mobile and tablet.
+                        </div>
+
+                        <div class="banner__multi-line__actions">
+                            <button class="button button__text">
+                                Action
+                            </button>
+
+                            <button class="button button__text">
+                                Action
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </artile>
+
+            <articel class="row">
+                <h2 class="xs12">Image multi line</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        Next to the single and multi line there is also an image with multi line banner.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="banner banner__image-multi-line">
+                        <div class="banner__image-multi-line__image">
+                            <img src="http://via.placeholder.com/40x40" alt="placeholder">
+                        </div>
+
+                        <div class="banner__image-multi-line__content">
+                                Two line text string with two actions. One to two <br>lines is preferable on mobile and tablet.    
+                        </div>
+
+                        <div class="banner__image-multi-line__actions">
+                            <button class="button button__text">
+                                Action
+                            </button>
+
+                            <button class="button button__text">
+                                Action
+                            </button>    
+                        </div>
+                    </div>
+                </section>
+            </articel>
+        </main>
+
+        <script src="./dist/js/material-js.js"></script>
+    </body>
+</html>
