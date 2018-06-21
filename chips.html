@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chips</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="./dist/css/material-css.css">
+
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="language" content="EN">
+        <meta name="author" content="Derkjan Super">
+    </head>
+
+    <body>
+        <header class="app-bar app-bar--fixed">
+            <i class="material-icons icon">menu</i>
+
+            <div class="app-bar__title">Chips</div>
+
+            <div class="app-bar__actions">
+                <a href="#">Test</a>
+
+                <i class="material-icons icon">person</i>
+            </div>
+        </header>
+
+        <main class="container">
+            <article class="row">
+                <section class="xs12">
+                    <h1 class="xs12 text--red-400">Chips</h1>
+
+                    <p>
+                        There are a couple types of chips that you can use. For now you can use the <a href="#chip">default</a>, <a href="#outlined">outlined</a>, and <a href="#input">input</a>.
+                    </p>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="chip">Chip</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the default chip all you need to use is the class <code>.chip</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="chip">Chip</div>
+                </section>
+            </article>
+    
+            <article class="row">
+                <h2 class="xs12" id="outlined">Outlined Chip</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the outlined chip you also need to use the class <code>.chip--outlined</code>
+                        The outlined chip can also contain a icon or image. These elemtents do not require any additional classes.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="chip chip--outlined"><img src="//via.placeholder.com/24x24" alt="chip placeholder"> Chip</div>
+                </section>
+            </article>
+
+            <article class="row">
+                    <h2 class="xs12" id="input">Input Chip</h2>
+    
+                    <section class="xs12 sm6">
+                        <p>
+                            For the input chip you also need to use the class <code>.chip--input</code>
+                            The input can also contain a icon or image. These elemtns do not require any additional classes.
+                            The close action however does need the class <code>.chip--input--close</code>.
+                        </p>
+                    </section>
+    
+                    <section class="xs12 sm6">
+                        <div class="chip chip--input"><img src="//via.placeholder.com/24x24" alt="chip placeholder"> Chip <i class="material-icons chip--input--close">cancel</i></div>
+                    </section>
+                </article>
+        </main>
+
+        <script src="./dist/js/material-js.js"></script>
+    </body>
+</html>

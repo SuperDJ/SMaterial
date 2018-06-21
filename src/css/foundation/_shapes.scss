@@ -1,6 +1,6 @@
 .shape {
 	&--square {
-		border-radius: em-calc($surface-corner);
+		border-radius: rem-calc($surface-corner);
 	}
 
 	&--circle {

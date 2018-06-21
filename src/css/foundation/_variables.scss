@@ -1,6 +1,6 @@
 :root {
-	--gutter: #{em-calc( $xs-gutter )};
-	--margin: #{em-calc( $xs-margin )};
+	--gutter: #{rem-calc( $xs-gutter )};
+	--margin: #{rem-calc( $xs-margin )};
 
 	--primary-color: #{$primary-color};
 	--primary-color-variant: #{$primary-color-variant};
@@ -17,22 +17,22 @@
 	--border-radius: #{$surface-corner};
 
 	@media #{$sm-and-up} {
-		--gutter: #{em-calc( $sm-gutter )};
-		--margin: #{em-calc( $sm-margin )};
+		--gutter: #{rem-calc( $sm-gutter )};
+		--margin: #{rem-calc( $sm-margin )};
 	}
 
 	@media #{$md-and-up} {
-		--gutter: #{em-calc( $md-gutter )};
-		--margin: #{em-calc( $md-margin )};
+		--gutter: #{rem-calc( $md-gutter )};
+		--margin: #{rem-calc( $md-margin )};
 	}
 
 	@media #{$lg-and-up} {
-		--gutter: #{em-calc( $lg-gutter )};
-		--margin: #{em-calc( $lg-margin )};
+		--gutter: #{rem-calc( $lg-gutter )};
+		--margin: #{rem-calc( $lg-margin )};
 	}
 
 	@media #{$xl-and-up} {
-		--gutter: #{em-calc( $xl-gutter )};
-		--margin: #{em-calc( $xl-margin )};
+		--gutter: #{rem-calc( $xl-gutter )};
+		--margin: #{rem-calc( $xl-margin )};
 	}
 }

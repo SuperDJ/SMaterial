@@ -27,3 +27,19 @@
 		}
 	}
 }
+
+.primary {
+	background: var(--primary-color) !important;
+}
+
+.secondary {
+	background: var(--secondary-color) !important;
+}
+
+.text--primary, .text--primary .icon, .icon--primary {
+	color: var(--primary-color) !important;
+}
+
+.text--secondary, .text--secondary .icon, .icon--secondary {
+	color: var(--secondary-color) !important;
+}

@@ -1,0 +1,51 @@
+.card {
+    background: var(--surface-color);
+    width: 100%;
+    @extend .z1;
+    border-radius: var(--border-radius);
+    padding: rem-calc(16px) rem-calc(16px) rem-calc(8px) rem-calc(16px);
+    transition: box-shadow $easing-standard .1s;
+
+    &:hover {
+        @extend .z8;
+    }
+
+    &__thumbnail img {
+        @include responsive-ratio(1,1);     
+    }
+
+    &__header {
+        @extend .h6;
+        color: rgba($black, .84);
+    }
+
+    &__subheader {
+        color: rgba($black, .54);
+    }
+
+    &__media {
+
+    }
+
+    &__text {
+
+    }
+
+    &__actions {
+        margin: 0 rem-calc(-8px) 0 rem-calc(-8px);
+    }
+
+    &--outlined {
+        border: rem-calc(1px) solid rgba($black, .12);        
+    }
+
+    &--top {
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+    }
+
+    &--bottom {
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+    }
+}

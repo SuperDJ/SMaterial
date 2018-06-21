@@ -131,8 +131,14 @@ $breakpoints: (
 ) !default;
 
 /**************************************
+ * Motion
+ **************************************/
+$easing-standard: cubic-bezier(0.4, 0.0, 0.2, 1);
+$easing-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);
+$easing-accelerate: cubic-bezier(0.4, 0.0, 1, 1);
+
+/**************************************
  * Typography
- * https://material.io/design/typography/the-type-system.html
  **************************************/
 $font-size: 16 !default;
 $type-scale: (

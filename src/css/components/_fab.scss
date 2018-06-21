@@ -1,0 +1,55 @@
+.fab {
+	@extend %button;
+	width: rem-calc(56px);
+	height: rem-calc(56px);
+	padding: 0 rem-calc(16px);
+	border-radius: 50%;
+	background: var(--primary-color);
+	@extend .z6;
+	color: var(--font-on-primary);
+	text-align: center;
+	cursor: pointer;
+	transition: background $easing-standard .1s;
+
+	&:hover {
+		background: rgba($primary-color, .92);
+	}
+
+	&:active {
+		background: rgba($primary-color, .32);
+	}
+
+	.icon {
+		font-size: rem-calc(24px);
+		width: rem-calc(24px);
+		vertical-align: middle;
+	}
+
+	&--mini {
+		width: rem-calc(40px);
+		height: rem-calc(40px);
+		padding: 0 rem-calc(8px);
+	}
+
+	&__extended {
+		width: auto;
+		height: rem-calc(48px);
+		border-radius: rem-calc(32px);
+
+		&--icon-left {
+			padding: 0 rem-calc(20px) 0 rem-calc(16px);
+
+			.icon {
+				margin-right: rem-calc(8px);
+			}
+		}
+
+		&--icon-right {
+			padding: 0 rem-calc(16px) 0 rem-calc(20px);
+
+			.icon {
+				margin-left: rem-calc(8px);
+			}
+		}
+	}
+}

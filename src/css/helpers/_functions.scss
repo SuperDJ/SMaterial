@@ -24,6 +24,6 @@
 	{
 		@return ( $sp + 0px ) / ( $default + 0px ) * 1em;
 	} @else {
-		@warn 'Wrong argument parsed to em-calc';
+		@warn 'Wrong argument parsed to rem-calc';
 	}
 }

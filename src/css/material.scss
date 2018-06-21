@@ -3,15 +3,14 @@
 
 @import 'helpers/index';
 
+@import 'grid/index';
+
 @import 'foundation/normalize';
 @import 'foundation/typography';
 @import 'foundation/shapes';
 @import 'foundation/shadows';
 
-@import 'grid/index';
 
 @import 'foundation/variables';
 
-@import 'components/app-bar';
-@import 'components/banner';
-@import 'components/buttons';
+@import 'components/index';

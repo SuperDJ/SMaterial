@@ -6,19 +6,19 @@
 
 		$umbra-shadow: '';
 		@each $px in $umbra {
-			$umbra-shadow: $umbra-shadow + (if( $px == 0, 0, em-calc( $px ) ) ) + ' ';
+			$umbra-shadow: $umbra-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
 		}
 		$umbra-shadow: $umbra-shadow + ' ' + $elevation-umbra-color;
 
 		$penumbra-shadow: '';
 		@each $px in $penumbra {
-			$penumbra-shadow: $penumbra-shadow + (if( $px == 0, 0, em-calc( $px ) ) ) + ' ';
+			$penumbra-shadow: $penumbra-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
 		}
 		$penumbra-shadow: $penumbra-shadow + ' ' + $elevation-penumbra-color;
 
 		$ambient-shadow: '';
 		@each $px in $ambient {
-			$ambient-shadow: $ambient-shadow + (if( $px == 0, 0, em-calc( $px ) ) ) + ' ';
+			$ambient-shadow: $ambient-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
 		}
 		$ambient-shadow: $ambient-shadow + ' ' + $elevation-ambient-color;
 

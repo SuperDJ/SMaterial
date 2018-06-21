@@ -1,0 +1,37 @@
+.chip {
+    height: rem-calc(32px);
+    padding: 0 rem-calc(12px);
+    border-radius: rem-calc(16px);
+    background: rgba($black, .12);
+    @extend %body-2;
+    line-height: rem-calc(32px);
+    display: inline-block;
+    color: #{$black}de;
+
+    &--outlined {
+        border: rem-calc(1px) solid rgba($black, .12);
+        background: transparent;
+        padding: 0 rem-calc(12px) 0 rem-calc(4px);
+    }
+
+    &--input {
+        padding: 0 rem-calc(8px) 0 rem-calc(6px); 
+
+        &--close {
+            width: rem-calc(16px);
+            height: rem-calc(16px);
+            margin-left: rem-calc(8px);
+            font-size: rem-calc(16px);
+        }
+    }
+
+    &--outlined, &--input {
+        img, .icon {
+            margin-right: rem-calc(8px);
+            border-radius: 50%;
+            width: rem-calc(24px);
+            height: rem-calc(24px);
+            vertical-align: middle;
+        }
+    }
+}

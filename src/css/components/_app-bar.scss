@@ -1,8 +1,8 @@
 .app-bar {
 	background: var(--primary-color);
 	color: var(--font-on-primary);
-	height: em-calc(56px);
-	padding: em-calc(16px);
+	height: rem-calc(56px);
+	padding: rem-calc(16px);
 	width: 100%;
 	@extend .z4;
 	display: grid;
@@ -10,8 +10,8 @@
 
 	&__title {
 		grid-column-start: 2;
-		@extend .h6;
-		margin-left: em-calc(32px);
+		@extend %h6;
+		margin-left: rem-calc(32px);
 	}
 
 	&__actions {
@@ -20,7 +20,7 @@
 		display: flex;
 
 		* {
-			margin-left: em-calc(24px);
+			margin-left: rem-calc(24px);
 		}
 	}
 
@@ -29,7 +29,7 @@
 		top: 0;
 		
 		+ .container {
-			margin-top: em-calc(56px);
+			margin-top: rem-calc(56px);
 		}	
 	}
 
