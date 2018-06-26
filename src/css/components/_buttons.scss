@@ -8,7 +8,8 @@
 	border-radius: var(--border-radius);
 	position: relative;
 	overflow: hidden;
-	transition: background .1s $easing-standard ;
+	transition: background .1s $easing-standard;
+	user-select: none;
 
 	&__contained {
 		padding: 0 rem-calc(16px);
@@ -26,7 +27,7 @@
 			background: rgba($primary-color, .32);
 		}
 
-		&:disabled, &--disabled {
+		&:disabled {
 			color: rgba($black, .38);
 			background: rgba($black, .12);
 			box-shadow: unset;
@@ -54,9 +55,7 @@
 	}
 
 	.icon {
-		width: rem-calc(18px);
-		height: rem-calc(18px);
-		font-size: rem-calc(18px);
+		@include chain(width, height, font-size, rem-calc(18px));
 		vertical-align: middle;
 	}
 
@@ -112,6 +111,10 @@
 
 		&:active {
 			background: rgba($primary-color, .16)
+		}
+
+		&:disabled {
+			color: rgba($black, .38);
 		}
 	}
 

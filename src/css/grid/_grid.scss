@@ -4,45 +4,24 @@
 
 .row {
 	display: grid;
-
-	$xs-columns-render: '';
-	@for $i from 1 through $xs-columns {
-		$xs-columns-render: $xs-columns-render + 1fr + ' ';
-	}
-	grid-template-columns: unquote( $xs-columns-render );
+	grid-template-columns: repeat($xs-columns, 1fr);
 	grid-gap: var(--gutter);
 	margin: 0 var(--margin);
 
 	@media #{$sm-and-up} {
-		$sm-columns-render: '';
-		@for $i from 1 through $sm-columns {
-			$sm-columns-render: $sm-columns-render + 1fr + ' ';
-		}
-		grid-template-columns: unquote( $sm-columns-render );
+		grid-template-columns: repeat($sm-columns, 1fr);
 	}
 
 	@media #{$md-and-up} {
-		$md-columns-render: '';
-		@for $i from 1 through $md-columns {
-			$md-columns-render: $md-columns-render + 1fr + ' ';
-		}
-		grid-template-columns: unquote( $md-columns-render );
+		grid-template-columns: repeat($md-columns, 1fr);
 	}
 
 	@media #{$lg-and-up} {
-		$lg-columns-render: '';
-		@for $i from 1 through $lg-columns {
-			$lg-columns-render: $lg-columns-render + 1fr + ' ';
-		}
-		grid-template-columns: unquote( $lg-columns-render );
+		grid-template-columns: repeat($lg-columns, 1fr);
 	}
 
 	@media #{$xl-and-up} {
-		$xl-columns-render: '';
-		@for $i from 1 through $xl-columns {
-			$xl-columns-render: $xl-columns-render + 1fr + ' ';
-		}
-		grid-template-columns: unquote( $xl-columns-render );
+		grid-template-columns: repeat($xl-columns, 1fr);
 	}
 }
 
@@ -54,6 +33,18 @@
 	.offset-xs#{$i} {
 		grid-column-start: $i;
 	}
+
+	.xs__text--right {
+		text-align: right;
+	}
+
+	.xs__text--left {
+		text-align: left
+	}
+
+	.xs__text--center {
+		text-align: center;
+	}
 }
 
 @media #{$sm-and-up} {
@@ -64,6 +55,18 @@
 
 		.offset-sm#{$i} {
 			grid-column-start: $i;
+		}
+
+		.sm__text--right {
+			text-align: right;
+		}
+
+		.sm__text--left {
+			text-align: left
+		}
+
+		.sm__text--center {
+			text-align: center;
 		}
 	}
 }
@@ -77,6 +80,18 @@
 		.offset-md#{$i} {
 			grid-column-start: $i;
 		}
+
+		.md__text--right {
+			text-align: right;
+		}
+
+		.md__text--left {
+			text-align: left
+		}
+
+		.md__text--center {
+			text-align: center;
+		}
 	}
 }
 
@@ -89,6 +104,18 @@
 		.offset-lg#{$i} {
 			grid-column-start: $i;
 		}
+
+		.lg__text--right {
+			text-align: right;
+		}
+
+		.lg__text--left {
+			text-align: left
+		}
+
+		.lg__text--center {
+			text-align: center;
+		}
 	}
 }
 
@@ -100,6 +127,18 @@
 
 		.offset-xl#{$i} {
 			grid-column-start: $i;
+		}
+
+		.xl__text--right {
+			text-align: right;
+		}
+
+		.xl__text--left {
+			text-align: left
+		}
+
+		.xl__text--center {
+			text-align: center;
 		}
 	}
 }

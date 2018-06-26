@@ -1,37 +1,75 @@
 .chip {
+    $el: &;
     height: rem-calc(32px);
     padding: 0 rem-calc(12px);
     border-radius: rem-calc(16px);
     background: rgba($black, .12);
     @extend %body-2;
     line-height: rem-calc(32px);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     color: #{$black}de;
+    cursor: pointer;
+    user-select: none;
+    transition: background .1s $easing-standard;
+
+    &:hover {
+        background: rgba($black, .08);
+    }
+
+    &:active {
+        background: rgba($black, .32);
+    }
+
+    &:disabled {
+        color: rgba($black, .38);
+        background: rgba($black, .12);
+    }
+
+    &__thumbnail {
+        @include chain(width, height, font-size, rem-calc(24px));
+        margin-right: rem-calc(8px);
+        border-radius: 50%; 
+        color: #{$black}de;
+    }
+
+    &--thumbnail {
+        padding-left: rem-calc(6px);
+    }
+
+    &__remove {
+        @include chain(width, height, font-size, rem-calc(16px));
+        margin-left: rem-calc(8px);
+        color: #{$black}de;
+    }
+
+    &--remove {
+        padding-right: rem-calc(8px);
+    }
 
     &--outlined {
         border: rem-calc(1px) solid rgba($black, .12);
         background: transparent;
-        padding: 0 rem-calc(12px) 0 rem-calc(4px);
-    }
 
-    &--input {
-        padding: 0 rem-calc(8px) 0 rem-calc(6px); 
+        &:hover {
+            background: rgba($black, .04);
+        }
 
-        &--close {
-            width: rem-calc(16px);
-            height: rem-calc(16px);
-            margin-left: rem-calc(8px);
-            font-size: rem-calc(16px);
+        &:active {
+            background: rgba($black, .16)
+        }
+
+        &:disabled {
+			color: rgba($black, .38);
+            background: rgba($black, .12);
         }
     }
 
-    &--outlined, &--input {
-        img, .icon {
-            margin-right: rem-calc(8px);
-            border-radius: 50%;
-            width: rem-calc(24px);
-            height: rem-calc(24px);
-            vertical-align: middle;
-        }
+    &--outlined#{&}--thumbnail {
+        padding-left: rem-calc(4px); 
+    }
+
+    &--outlined#{&}--remove {
+        padding-right: rem-calc(6px);
     }
 }

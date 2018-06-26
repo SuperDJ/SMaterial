@@ -10,6 +10,7 @@
 	text-align: center;
 	cursor: pointer;
 	transition: background $easing-standard .1s;
+	user-select: none;
 
 	&:hover {
 		background: rgba($primary-color, .92);
@@ -20,14 +21,12 @@
 	}
 
 	.icon {
-		font-size: rem-calc(24px);
-		width: rem-calc(24px);
+		@include chain(font-size, width, rem-calc(24px));
 		vertical-align: middle;
 	}
 
 	&--mini {
-		width: rem-calc(40px);
-		height: rem-calc(40px);
+		@include chain(width, height, rem-calc(40px));
 		padding: 0 rem-calc(8px);
 	}
 

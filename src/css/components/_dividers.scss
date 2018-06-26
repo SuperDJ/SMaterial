@@ -1,0 +1,6 @@
+.divider, hr, hr.divider {
+    width: 100%;
+    height: rem-calc(1px);
+    background: rgba($black, .12);    
+    border: none 0;
+}

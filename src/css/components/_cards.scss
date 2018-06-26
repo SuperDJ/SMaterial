@@ -40,12 +40,10 @@
     }
 
     &--top {
-        border-top-left-radius: var(--border-radius);
-        border-top-right-radius: var(--border-radius);
+        @include chain(border-top-left-radius, border-top-right-radius, var(--border-radius));
     }
 
     &--bottom {
-        border-bottom-left-radius: var(--border-radius);
-        border-bottom-right-radius: var(--border-radius);
+        @include chain(border-bottom-left-radius, border-bottom-right-radius, var(--border-radius));
     }
 }

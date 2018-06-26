@@ -1,8 +1,8 @@
 .app-bar {
-	background: var(--primary-color);
-	color: var(--font-on-primary);
-	height: rem-calc(56px);
-	padding: rem-calc(16px);
+	background: var(--app-bar-background);
+	color: var(--app-bar-font-color);
+	height: var(--app-bar-height);
+	padding: var(--app-bar-padding);
 	width: 100%;
 	@extend .z4;
 	display: grid;
@@ -11,7 +11,7 @@
 	&__title {
 		grid-column-start: 2;
 		@extend %h6;
-		margin-left: rem-calc(32px);
+		margin: var(--app-bar-title-margin);
 	}
 
 	&__actions {
@@ -20,7 +20,7 @@
 		display: flex;
 
 		* {
-			margin-left: rem-calc(24px);
+			margin-left: var(--app-bar-actions-margin);
 		}
 	}
 
@@ -29,11 +29,20 @@
 		top: 0;
 		
 		+ .container {
-			margin-top: rem-calc(56px);
+			margin-top: var(--app-bar-height);
 		}	
 	}
 
 	.icon {
 		cursor: pointer;
 	}
+}
+
+:root {
+	--app-bar-background: var(--primary-color);
+	--app-bar-font-color: var(--font-on-primary);
+	--app-bar-height: #{rem-calc(56px)};
+	--app-bar-padding: #{rem-calc(16px)};
+	--app-bar-title-margin: 0 0 0 #{rem-calc(32px)};
+	--app-bar-actions-margin: #{rem-calc(24px)};
 }
