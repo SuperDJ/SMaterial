@@ -80,13 +80,72 @@
     &--two-line {
         height: rem-calc(64px);
 
+        #{$el}__content {
+            padding: rem-calc(16) 0 0 rem-calc(16px); 
+        }
+
         &#{$el}--support {
             height: rem-calc(72px);
+
+            #{$el}__support__icon {
+                padding: rem-calc(16px);
+            }
+
+            #{$el}__support__image {
+                padding: rem-calc(16px) 0 0 rem-calc(16px);
+
+                img {
+                    @include chain(width, height, rem-calc(40px));
+                }
+
+                &--large {
+                    padding: rem-calc(8px) 0;
+                    img {
+                        width: rem-calc(100px);
+                        height: rem-calc(56px);
+                    }
+                }
+            }
+
+            #{$el}__control {
+                padding: rem-calc(24px) rem-calc(16px) 0 rem-calc(16px);
+            }
         }
     }
 
     &--three-line {
+        height: rem-calc(88px);
 
+        #{$el}__content {
+            padding: rem-calc(16) 0 0 rem-calc(16px); 
+        }
+
+        &#{$el}--support {
+            #{$el}__support__icon {
+                padding: rem-calc(16px);
+            }
+
+            #{$el}__support__image {
+                padding: rem-calc(16px) 0 0 rem-calc(16px);
+
+                img {
+                    @include chain(width, height, rem-calc(40px));
+                }
+
+                &--large {
+                    padding: rem-calc(16px) rem-calc(4px) rem-calc(16px) 0;
+
+                    img {
+                        width: rem-calc(100px);
+                        height: rem-calc(56px);
+                    }
+                }
+            }
+
+            #{$el}__control {
+                padding: rem-calc(16px) rem-calc(16px) 0 rem-calc(16px);
+            }
+        }
     }
 
     &__support {
