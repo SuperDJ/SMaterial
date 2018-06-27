@@ -113,10 +113,13 @@ module.exports = env => {
 			}
 		},
 		plugins: [
-			new MiniCSSExtractPlugin( {
-				filename: 'dist/css/[name].css'
+			new MiniCSSExtractPlugin({
+				filename: 'dist/css/[name].css',
 			}),
-			new CleanWebpackPlugin(['./dist/js', './dist/fonts', './dist/css']),
+			new MiniCSSExtractPlugin({
+				filename: 'docs/dist/css/[name].css'
+			}),
+			new CleanWebpackPlugin(['./dist/js', './dist/css']),
 		]
 	}
 };

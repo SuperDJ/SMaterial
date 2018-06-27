@@ -7,8 +7,9 @@
 
     &--single-line {
         grid-column-start: 2;
+        height: rem-calc(48px);
 
-        #{$el}__text {
+        #{$el}__content {
             @include chain(height, line-height, rem-calc(48px));
         }
 
@@ -16,13 +17,72 @@
             padding: rem-calc(12px) rem-calc(16px);
         }
 
-        &--support-icon {
-            @include chain(height, line-height, rem-calc(56px));
+        &#{$el}--support {
+            height: rem-calc(56px);
+
+            #{$el}__support__icon {
+                padding: rem-calc(16px);
+            }
+
+            #{$el}__support__image {
+                padding: rem-calc(8px) 0 rem-calc(8px) rem-calc(16px);
+                overflow: hidden;
+
+                img {
+                    @include chain(width, height, rem-calc(40px));
+                    border-radius: 50%;
+                }
+            } 
+
+            #{$el}__content {
+                @include chain(height, line-height, rem-calc(56px));
+            }
+
+            #{$el}__control {
+                padding: rem-calc(16px);
+            }
+
+            &--large {
+                height: rem-calc(72px);
+
+                #{$el}__support__image {
+                    padding: rem-calc(8px) 0 rem-calc(8px) rem-calc(16px);
+    
+                    img {
+                        @include chain(width, height, rem-calc(56px));
+                    }
+                }
+                
+                #{$el}__support__image--large {
+                    padding: rem-calc(8px) 0;
+
+                    img {
+                        width: rem-calc(100px);
+                        height: rem-calc(56px);
+                    }
+                }
+
+                #{$el}__support__image, #{$el}__support__image--large {
+                    overflow: hidden;
+                }
+    
+                #{$el}__content {
+                    @include chain(height, line-height, rem-calc(72px));
+                }
+    
+                #{$el}__control {
+                    padding: rem-calc(24px) rem-calc(16px);
+                }
+            }
         }
     }
 
     &--two-line {
+        height: rem-calc(64px);
 
+        &#{$el}--support {
+            height: rem-calc(72px);
+        }
     }
 
     &--three-line {
@@ -33,18 +93,38 @@
         grid-column-start: 1;
     }
 
-    &__text {
+    &__content {
         grid-column-start: 2;
         @extend %body-1;
         color: #{$black}de;
         padding-left: rem-calc(16px);
+
+        &__title {
+            @extend %body-1;
+            color: #{$black}de;
+        }
+
+        &__text {
+            @extend %body-2;
+            color: #{$black}99;
+        }
+
+        .overline {
+            @extend %overline;
+            color: #{$black}99;
+        }
+
+        &__title, &__text, .overline {
+            width: 100%;
+            display: block;
+        }
     }
 
     &__control {
         grid-column-start: 3;
     }
 
-    &__item {
+    &--single-line, &--two-line, &--three-line {
         display: grid;
         grid-template-columns: auto 1fr auto;
     }
