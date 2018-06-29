@@ -1,0 +1,57 @@
+.progress {
+    $el: &;
+
+    &--determinate, &--indeterminate {
+        width: 100%;
+        height: rem-calc(4px);
+        background: rgba($primary-color, .6);
+
+        #{$el}__bar {
+            height: 100%;
+            background: $primary-color;
+        }
+    }
+
+    &--determinate #{$el}__bar {
+        width: 0%;
+        height: 100%;
+        background: $primary-color;
+        transition: width .1s $easing-accelerate;
+    }
+
+    &--indeterminate {
+        position: relative;
+        overflow: hidden;
+
+        #{$el}__bar {
+            position: absolute;
+            width: rem-calc(122px);
+            transition: unset;
+            animation: indeterminate 2s infinite;
+        }
+    }
+
+    @keyframes indeterminate {
+        from {
+            width: 20%;
+            left: -20%;
+        }
+        to {
+            width: 40%;
+            left: 100%;
+        }
+    }
+
+    @keyframes dash {
+        50% {
+          stroke-dashoffset: 0;
+        }
+        100% {
+          stroke-dashoffset: -var(--progress-circle-stroke);
+        }  
+      }
+}
+
+:root {
+    --progress-circle-stroke: 130;
+}

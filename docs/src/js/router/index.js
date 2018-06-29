@@ -65,6 +65,30 @@ const routes = [
 				component: () => import('@/pages/lists')
 			},
 			{
+				path: 'menus',
+				name: 'menus',
+				meta: {
+					title: 'Menus'
+				},
+				component: () => import('@/pages/menus')
+			},
+			{
+				path: 'progress-indicators',
+				name: 'progress',
+				meta: {
+					title: 'Progress indicators'
+				},
+				component: () => import('@/pages/progress')
+			},
+			{
+				path: 'selection-controls',
+				name: 'selection',
+				meta: {
+					title: 'Selection controls'
+				},
+				component: () => import('@/pages/selection')
+			},
+			{
 				path: 'typography',
 				name: 'typography',
 				meta: {

@@ -94,7 +94,7 @@
             <section class="xs12 sm6">
                 <banner multiLineImage>
                     <div slot="image">
-                        <img src="http://via.placeholder.com/40x40" alt="placeholder">
+                        <img src="//via.placeholder.com/40x40" alt="placeholder">
                     </div>
 
                     <div slot="content">

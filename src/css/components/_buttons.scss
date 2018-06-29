@@ -16,7 +16,6 @@
 		background: var(--primary-color);
 		color: var(--font-on-primary);
 		@extend .z2;
-		transition: box-shadow .1s $easing-standard;
 
 		&:hover {
 			background: rgba($primary-color, .92);

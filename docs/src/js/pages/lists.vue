@@ -49,21 +49,21 @@
                     </li>
                     <li class="list--single-line list--support">
                         <div class="list__support__image">
-                            <img src="http://via.placeholder.com/40x40">
+                            <img src="//via.placeholder.com/40x40">
                         </div>
                         <span class="list__content">Singe line item</span>
                         <m-icon class="list__control">more_vert</m-icon>
                     </li>
                     <li class="list--single-line list--support--large">
                         <div class="list__support__image">
-                            <img src="http://via.placeholder.com/56x56">
+                            <img src="//via.placeholder.com/56x56">
                         </div>
                         <span class="list__content">Singe line item</span>
                         <m-icon class="list__control">more_vert</m-icon>
                     </li>
                     <li class="list--single-line list--support--large">
                         <div class="list__support__image--large">
-                            <img src="http://via.placeholder.com/100x56">
+                            <img src="//via.placeholder.com/100x56">
                         </div>
                         <span class="list__content">Singe line item</span>
                         <m-icon class="list__control">more_vert</m-icon>
@@ -103,7 +103,7 @@
                     </li>
                     <li class="list--two-line list--support">
                         <div class="list__support__image">
-                            <img src="http://via.placeholder.com/40x40">
+                            <img src="//via.placeholder.com/40x40">
                         </div>
                         <div class="list__content">
                             <span class="list__content__title">Two line item</span>
@@ -113,7 +113,7 @@
                     </li>
                     <li class="list--two-line list--support">
                         <div class="list__support__image">
-                            <img src="http://via.placeholder.com/40x40" class="shape--circle">
+                            <img src="//via.placeholder.com/40x40" class="shape--circle">
                         </div>
                         <div class="list__content">
                             <span class="list__content__title">Two line item</span>
@@ -123,7 +123,7 @@
                     </li>
                      <li class="list--two-line list--support">
                         <div class="list__support__image--large">
-                            <img src="http://via.placeholder.com/100x56">
+                            <img src="//via.placeholder.com/100x56">
                         </div>
                         <div class="list__content">
                             <span class="list__content__title">Two line item</span>
@@ -167,7 +167,7 @@
                     </li>
                     <li class="list--three-line list--support">
                         <div class="list__support__image">
-                            <img src="http://via.placeholder.com/40x40">
+                            <img src="//via.placeholder.com/40x40">
                         </div>
                         <div class="list__content">
                             <span class="list__content__title">Three line item</span>
@@ -177,7 +177,7 @@
                     </li>
                     <li class="list--three-line list--support">
                         <div class="list__support__image">
-                            <img src="http://via.placeholder.com/40x40" class="shape--circle">
+                            <img src="//via.placeholder.com/40x40" class="shape--circle">
                         </div>
                         <div class="list__content">
                             <span class="list__content__title">Three line item</span>
@@ -187,7 +187,7 @@
                     </li>
                      <li class="list--three-line list--support">
                         <div class="list__support__image--large">
-                            <img src="http://via.placeholder.com/100x56">
+                            <img src="//via.placeholder.com/100x56">
                         </div>
                         <div class="list__content">
                             <span class="list__content__title">Two line item</span>
