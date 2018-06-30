@@ -8,8 +8,6 @@ for( let i = 0; i < buttons.length; i++ )
 {
 	let button = buttons[i];
 
-	console.log(button);
-
 	button.addEventListener('click', e => {
 		let rect = e.target.getBoundingClientRect(),
 			x = Math.ceil( e.clientX - rect.left ),
@@ -17,4 +15,13 @@ for( let i = 0; i < buttons.length; i++ )
 
 		console.log(x, y);
 	})
+}
+
+let tooltips = document.querySelectorAll('.tooltip__content');
+
+for( let i = 0; i < tooltips.length; i++ )
+{
+	let tooltip = tooltips[i];
+	let width = tooltip.getBoundingClientRect().width;
+	tooltip.style.setProperty('--tooltip-width', `${width}px`);
 }

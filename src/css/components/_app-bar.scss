@@ -27,6 +27,7 @@
 	&--fixed {
 		position: fixed;
 		top: 0;
+		z-index: 1;
 		
 		+ .container {
 			margin-top: var(--app-bar-height);

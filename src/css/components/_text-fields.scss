@@ -1,0 +1,40 @@
+.text-field {
+    min-height: rem-calc(56px);
+    @include chain(border-top-left-radius, border-top-right-radius, var(--border-radius));
+    width: 100%;
+    position: relative;
+    
+    &--filled {
+        padding: rem-calc(16px) rem-calc(12px) 0 rem-calc(12px);
+        background: rgba($black, .04);
+
+        + input:active {
+            background: rgba($black, .16);
+        }
+
+        + input:focus {
+            background: rgba($black, .12);
+        }
+
+        + input:hover {
+            border-bottom: rem-calc(1px) solid rgba($black, .38);
+        }
+    }
+
+    &__label {
+        cursor: pointer;
+        pointer-events: none;
+        color: #{$black}99;
+        @extend %body-1;
+
+        &:active {
+            color: var(--primary-color-variant);    
+        }
+    }
+
+    &__input {
+        color: #{$black}de;
+        @extend %body-1;
+        background: transparent;
+    }
+}

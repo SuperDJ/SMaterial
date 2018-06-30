@@ -89,6 +89,38 @@ const routes = [
 				component: () => import('@/pages/selection')
 			},
 			{
+				path: 'bottom-sheet',
+				name: 'bottom-sheet',
+				meta: {
+					title: 'Sheet bottom'
+				},
+				component: () => import('@/pages/sheet')
+			},
+			{
+				path: 'snackbars',
+				name: 'snackbar',
+				meta: {
+					title: 'Snackbars'
+				},
+				component: () => import('@/pages/snackbars')
+			},
+			{
+				path: 'text-fields',
+				name: 'text-fields',
+				meta: {
+					title: 'Text fields'
+				},
+				component: () => import('@/pages/text-fields')
+			},
+			{
+				path: 'tooltips',
+				name: 'tooltips',
+				meta: {
+					title: 'Tooltips'
+				},
+				component: () => import('@/pages/tooltips')
+			},
+			{
 				path: 'typography',
 				name: 'typography',
 				meta: {

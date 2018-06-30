@@ -26,7 +26,10 @@
                     <input type="checkbox" class="checkbox">
                     Checkbox
                 </label>
-
+                <label>
+                    <input type="checkbox" checked disabled class="checkbox">
+                    Disabled checkbox
+                </label>
                 <label>
                     <input type="checkbox" disabled class="checkbox">
                     Disabled checkbox
@@ -54,8 +57,8 @@
                     Disabled Radio
                 </label>
                 <label>
-                    <input type="radio" class="radio" name="t1">
-                    Radio
+                    <input type="radio" disabled class="radio" name="t1">
+                    Disabled Radio
                 </label>
             </section>
         </article>
@@ -76,7 +79,11 @@
                     Switch
                 </label>
                 <label>
-                    <input type="checkbox" disabled checked class="switch">
+                    <input type="checkbox" disabled checked  class="switch">
+                    Disabled Switch
+                </label>
+                <label>
+                    <input type="checkbox" disabled  class="switch">
                     Disabled Switch
                 </label>
             </section>
