@@ -2,15 +2,15 @@
     <button 
         class="button" 
         :class="{
-            'button__contained': contained, 
-            'button__contained--icon-left': iconLeft && contained,
-            'button__contained--icon-right': iconRight && contained,
-            'button__outlined' : outlined, 
-            'button__outlined--icon-left': iconLeft && outlined,
-            'button__outlined--icon-right': iconRight && outlined,
-            'button__text': text,
-            'button__text--icon-left': iconLeft && text,
-            'button__text--icon-right': iconRight && text,
+            'button--contained': contained, 
+            'button--contained--icon-left': iconLeft && contained,
+            'button--contained--icon-right': iconRight && contained,
+            'button--outlined' : outlined, 
+            'button--outlined--icon-left': iconLeft && outlined,
+            'button--outlined--icon-right': iconRight && outlined,
+            'button--text': text,
+            'button--text--icon-left': iconLeft && text,
+            'button--text--icon-right': iconRight && text,
         }"
     >
         <slot></slot>

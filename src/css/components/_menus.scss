@@ -8,6 +8,7 @@
     background: var(--background-color);
     @extend .z8;
     user-select: none;
+    overflow: auto;
 
     &__item, a {
         display: grid;

@@ -12,7 +12,7 @@ const routes = [
                 path: '',
 				name: 'index',
 				meta: {
-					title: 'Home'
+					title: 'Introduction'
 				},
                 component: () => import('@/pages')
 			},
@@ -23,6 +23,22 @@ const routes = [
 					title: 'Banners'
 				},
 				component: () => import('@/pages/banners')
+			},
+			{
+				path: 'bottom-navigation',
+				name: 'bottom-nav',
+				meta: {
+					title: 'Bottom navigation'
+				},
+				component: () => import('@/pages/bottom-nav')
+			},
+			{
+				path: 'bottom-sheet',
+				name: 'bottom-sheet',
+				meta: {
+					title: 'Bottom sheet'
+				},
+				component: () => import('@/pages/bottom-sheet')
 			},
 			{
 				path: 'buttons',
@@ -89,20 +105,20 @@ const routes = [
 				component: () => import('@/pages/selection')
 			},
 			{
-				path: 'bottom-sheet',
-				name: 'bottom-sheet',
-				meta: {
-					title: 'Sheet bottom'
-				},
-				component: () => import('@/pages/sheet')
-			},
-			{
 				path: 'snackbars',
-				name: 'snackbar',
+				name: 'snackbars',
 				meta: {
 					title: 'Snackbars'
 				},
 				component: () => import('@/pages/snackbars')
+			},
+			{
+				path: 'tabs',
+				name: 'tabs',
+				meta: {
+					title: 'Tabs',
+				},
+				component: () => import('@/pages/tabs')
 			},
 			{
 				path: 'text-fields',

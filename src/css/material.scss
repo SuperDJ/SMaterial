@@ -1,7 +1,8 @@
 @import 'colors/index';
-@import 'foundation/settings';
 
 @import 'helpers/index';
+
+@import 'foundation/settings';
 
 @import 'grid/index';
 
@@ -10,7 +11,9 @@
 @import 'foundation/shapes';
 @import 'foundation/shadows';
 
-
 @import 'foundation/variables';
+@import 'foundation/ripple';
+@import 'foundation/iconography';
 
 @import 'components/index';
+@import 'foundation/flex';

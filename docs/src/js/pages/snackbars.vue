@@ -1,8 +1,6 @@
 <template>
     <div>
         <article class="row">
-            <h1 class="xs12 text--red-400">Snackbar</h1>
-
             <section class="xs12 sm6">
                 <p>
                     The snackbar comes in two varieties

@@ -82,19 +82,20 @@
 	}
 
 	&__actions > * {
-		margin-left: rem-calc(8px);
+		margin: var(--banner__actions-margin);
 	}
 }
 
 :root {
 	--banner--single-line-height: #{rem-calc(54px)};
-	--banner--single-line-padding: #{rem-calc(10px)} #{rem-calc(8px)} #{rem-calc(8px)} #{rem-calc(16px)};
-	--banner--single-line__actions-margin: 0 0 0 #{rem-calc(36px)};
+	--banner--single-line-padding: #{rem-calc(10px) rem-calc(8px) rem-calc(8px) rem-calc(16px)};
+	--banner--single-line__actions-margin: #{0 0 rem-calc(8px) rem-calc(36px)};
 	--banner--multi-line-height: #{rem-calc(122px)};
+	--banner__actions-margin: #{0 0 rem-calc(8px) rem-calc(8px)};
 	
 	@media #{$md-up} {
 		--banner--single-line-height: #{rem-calc(52px)};
-		--banner--single-line-padding: #{rem-calc(8px)} #{rem-calc(8px)} #{rem-calc(8px)} #{rem-calc(24px)};
+		--banner--single-line-padding: #{rem-calc(8px) rem-calc(8px) rem-calc(8px) rem-calc(24px)};
 		--banner--single-line__actions-margin: 0 0 0 #{rem-calc(90px)};
 		--banner--multi-line-hieght: #{rem-calc(90px)};
 	}

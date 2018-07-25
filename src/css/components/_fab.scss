@@ -1,54 +1,68 @@
 .fab {
 	@extend %button;
-	width: rem-calc(56px);
-	height: rem-calc(56px);
-	padding: 0 rem-calc(16px);
+	@include chain(width, height, var(--fab-size));
+	padding: var(--fab-padding);
 	border-radius: 50%;
 	background: var(--primary-color);
 	@extend .z6;
 	color: var(--font-on-primary);
 	text-align: center;
 	cursor: pointer;
-	transition: background $easing-standard .1s;
 	user-select: none;
-
-	&:hover {
-		background: rgba($primary-color, .92);
-	}
-
-	&:active {
-		background: rgba($primary-color, .32);
-	}
+	position: relative;
+	display: inline-block;
+	@extend %ripple;
+	--ripple--hover-background: var(--fab--hover-background);
+	--ripple--active-background: var(--fab--active-background);
+	--icon-color: var(--font-primary-color);
 
 	.icon {
-		@include chain(font-size, width, rem-calc(24px));
+		@include chain(font-size, width, var(--fab__icon-size));
 		vertical-align: middle;
 	}
 
 	&--mini {
-		@include chain(width, height, rem-calc(40px));
-		padding: 0 rem-calc(8px);
+		@include chain(width, height, var(--fab--mini-size));
+		padding: var(--fab--mini-padding);
 	}
 
-	&__extended {
+	&--extended {
 		width: auto;
-		height: rem-calc(48px);
-		border-radius: rem-calc(32px);
+		height: var(--fab--extended-height);
+		border-radius: var(--fab--extended-border-radius);
 
 		&--icon-left {
-			padding: 0 rem-calc(20px) 0 rem-calc(16px);
+			padding: var(--fab--extended--icon-left-padding);
 
 			.icon {
-				margin-right: rem-calc(8px);
+				margin-right: var(--fab--extended--icon-left__icon-margin-right);
 			}
 		}
 
 		&--icon-right {
-			padding: 0 rem-calc(16px) 0 rem-calc(20px);
+			padding: var(--fab--extended--icon-right-padding);
 
 			.icon {
-				margin-left: rem-calc(8px);
+				margin-left: var(--fav--extended--icon-right__icon-margin-left);
 			}
 		}
 	}
+}
+
+:root {
+	--fab-size: #{rem-calc(56px)}; 
+	--fab-padding: #{0 rem-calc(16px)};
+	--fab__icon-size: #{rem-calc(24px)};
+	--fab--hover-background: #{rgba($white, .08)};
+	--fab--active-background: #{rgba($white, .32)};
+
+	--fab--mini-size: #{rem-calc(40px)};
+	--fab--mini-padding: #{0 rem-calc(8px)};
+
+	--fab--extended-height: #{rem-calc(48px)};
+	--fab--extended-border-radius: #{rem-calc(32px)};
+	--fab--extended--icon-left-padding: #{0 rem-calc(20px) 0 rem-calc(16px)};
+	--fav--extended--icon-left__icon-margin-right: #{rem-calc(8px)};
+	--fab--extended--icon-right-padding: #{0 rem-calc(16px) 0 rem-calc(20px)};
+	--fav--extended--icon-right__icon-margin-left: #{rem-calc(8px)};
 }

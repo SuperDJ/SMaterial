@@ -1,0 +1,36 @@
+%ripple {
+    position: relative;
+    overflow: hidden;
+
+    &:after {
+        content: '';
+        @include chain(width, height, 100%);
+        @include chain(top, left, 0);
+        position: absolute;
+        background: transparent;
+        transition: background .1s $easing-standard;
+    }
+
+    &:hover:after {
+        background: var(--ripple--hover-background);
+    }
+
+    // &:focus:after {
+    //     background: var(--ripple-focus-background);
+    // }
+
+    &:active:after {
+        background: var(--ripple--active-background);
+    }
+
+    // &:disabled:after {
+    //     background: var(--ripple-disabled-background);
+    // }
+}
+
+:root {
+    --ripple--hover-background: #{rgba($white, .08)};
+    //--ripple--focus-background: #{rgba($white, .24)};
+    --ripple--active-background: #{rgba($white, .32)};
+   // --ripple--disabled-background: #{rgba($white, .38)};
+}

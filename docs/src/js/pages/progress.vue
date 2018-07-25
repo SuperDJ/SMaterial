@@ -1,8 +1,6 @@
 <template>
     <div>
         <article class="row">
-            <h1 class="xs12 text--red-400">Progress indicators</h1>
-
             <section class="xs12 sm6">
                 <p>
                     There are a couple types of progress indicators that you can use. For now you can use the

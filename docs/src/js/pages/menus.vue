@@ -1,8 +1,6 @@
 <template>
     <div>
         <article class="row">
-            <h1 class="xs12 text--red-400">Menu</h1>
-
             <section class="xs12 sm6">
                 <p>
                     There are a couple types of FAB's that you can use. For now you can use the 

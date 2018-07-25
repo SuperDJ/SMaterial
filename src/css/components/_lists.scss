@@ -2,15 +2,15 @@
     $el: &;
     list-style-type: none;
     width: 100%;
-    padding: rem-calc(8px) 0;
+    padding: var(--list-padding);
     margin: 0;
 
     &--single-line {
         grid-column-start: 2;
-        height: rem-calc(48px);
+        height: var(--list--single-line-height);
 
         #{$el}__content {
-            @include chain(height, line-height, rem-calc(48px));
+            @include chain(height, line-height, var(--list--single-line__content-height));
         }
 
         #{$el}__control {
@@ -78,72 +78,73 @@
     }
 
     &--two-line {
-        height: rem-calc(64px);
+        height: var(--list--two-line-height);
 
         #{$el}__content {
-            padding: rem-calc(16) 0 0 rem-calc(16px); 
+            padding: var(--list--two-line__content-padding); 
         }
 
         &#{$el}--support {
-            height: rem-calc(72px);
+            height: var(--list--two-line__support-height);
 
             #{$el}__support__icon {
-                padding: rem-calc(16px);
+                padding: var(--list--two-line__support__icon-padding);
             }
 
             #{$el}__support__image {
-                padding: rem-calc(16px) 0 0 rem-calc(16px);
+                padding: var(--list--two-line__support__image-padding);
 
                 img {
-                    @include chain(width, height, rem-calc(40px));
+                    @include chain(width, height, var(--list--two-line__support__image__img-size));
                 }
 
                 &--large {
-                    padding: rem-calc(8px) 0;
+                    padding: var(--list--two-line__support__image--large-padding);
+
                     img {
-                        width: rem-calc(100px);
-                        height: rem-calc(56px);
+                        width: var(--list--two-line__support__image--large__img-width);
+                        height: var(--list--two-line__support__image--large__img-height);
                     }
                 }
             }
 
             #{$el}__control {
-                padding: rem-calc(24px) rem-calc(16px) 0 rem-calc(16px);
+                padding: var(--list--two-line__support__contol-padding);
             }
         }
     }
 
     &--three-line {
-        height: rem-calc(88px);
+        height: var(--list--three-line-height);
 
         #{$el}__content {
-            padding: rem-calc(16) 0 0 rem-calc(16px); 
+            padding: variable-exists(--list--three-line__content-padding); 
         }
 
         &#{$el}--support {
             #{$el}__support__icon {
-                padding: rem-calc(16px);
+                padding: var(--list--three-line__support__icon-padding);
             }
 
             #{$el}__support__image {
-                padding: rem-calc(16px) 0 0 rem-calc(16px);
+                padding: var(--list--three-line__support__image-padding);
 
                 img {
-                    @include chain(width, height, rem-calc(40px));
+                    @include chain(width, height, var(--list--three-line__support__image__img-size));
                 }
 
                 &--large {
-                    padding: rem-calc(16px) rem-calc(4px) rem-calc(16px) 0;
+                    padding: var(--list--three-line__support__image--large-padding);
 
                     img {
-                        width: rem-calc(100px);
-                        height: rem-calc(56px);
+                        width: var(--list--three-line__support__image--large__img-width);
+                        height: var(--list--three-line__support__image--large__img-height);
                     }
                 }
             }
 
             #{$el}__control {
-                padding: rem-calc(16px) rem-calc(16px) 0 rem-calc(16px);
+                padding: var(--list--three-line__support__control-padding);
             }
         }
     }
@@ -155,22 +156,22 @@
     &__content {
         grid-column-start: 2;
         @extend %body-1;
-        color: #{$black}de;
-        padding-left: rem-calc(16px);
+        color: var(--list__content-color);
+        padding-left: var(--list__content-padding-left);
 
         &__title {
             @extend %body-1;
-            color: #{$black}de;
+            color: var(--list__content__title-color);
         }
 
         &__text {
             @extend %body-2;
-            color: #{$black}99;
+            color: var(--list__content__text-color);
         }
 
         .overline {
             @extend %overline;
-            color: #{$black}99;
+            color: var(--list__content__overline-color);
         }
 
         &__title, &__text, .overline {
@@ -189,6 +190,42 @@
     }
 
     &--divider {
-        border-bottom: rem-calc(1px) solid rgba($black, .12);
+        border-bottom: var(--list-divider-border-bottom);
     }
+}
+
+:root {
+    --list-padding: #{rem-calc(8px) 0};
+
+    --list--single-line-height: #{rem-calc(48px)};
+    --list--single-line__content-height: var(--list--single-line-height);
+
+    --list--two-line-height: #{rem-calc(64px)};
+    --list--two-line__content-padding: #{rem-calc(16) 0 0 rem-calc(16px)};
+    --list--two-line__support-height: #{rem-calc(72px)};
+    --list--two-line__support__icon-padding: #{rem-calc(16px)};
+    --list--two-line__support__image-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
+    --list--two-line__support__image__img-size: #{rem-calc(40px)};
+    --list--two-line__support__image--large-padding: #{rem-calc(8px) 0};
+    --list--two-line__support__image--large__img-width: #{rem-calc(100px)};
+    --list--two-line__support__image--large__img-height: #{rem-calc(56px)};
+    --list--two-line__support__contol-padding: #{rem-calc(24px) rem-calc(16px) 0 rem-calc(16px)};
+
+    --list--three-line-height: #{rem-calc(88px)};
+    --list--three-line__content-padding: #{rem-calc(16) 0 0 rem-calc(16px)};
+    --list--three-line__support__icon-padding: #{rem-calc(16px)};
+    --list--three-line__support__image-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
+    --list--three-line__support__image__img-size: #{rem-calc(40px)};
+    --list--three-line__support__image--large-padding: #{rem-calc(16px) rem-calc(4px) rem-calc(16px) 0};
+    --list--three-line__support__image--large__img-width: #{rem-calc(100px)};
+    --list--three-line__support__image--large__img-height: #{rem-calc(56px)};
+    --list--three-line__support__control-padding: #{rem-calc(16px) rem-calc(16px) 0 rem-calc(16px)};
+
+    --list__content-color: #{$black}de;
+    --list__content-padding-left: #{rem-calc(16px)}; 
+    --list__content__title-color: var(--list__content-color);
+    --list__content__text-color: #{$black}99;
+    --list__content__overline-color: var(--list__content__text-color); 
+
+    --list-divider-border-bottom: #{rem-calc(1px) solid rgba($black, .12)};
 }

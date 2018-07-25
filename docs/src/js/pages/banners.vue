@@ -2,8 +2,6 @@
     <div>
         <article class="row">
             <section class="xs12">
-                <h1 class="xs12 text--red-400">Banners</h1>
-
                 <p>
                     There are a couple of different banners that you can use.
                 </p>
@@ -41,9 +39,9 @@
                             Action
                         </m-button>
 
-                        <button class="button button__text md-down-hide">
+                        <m-button text class="md-down-hide">
                             Action
-                        </button>
+                        </m-button>
                     </div>
                 </banner>
             </section>

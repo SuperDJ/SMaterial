@@ -2,8 +2,6 @@
     <div>
         <article class="row">
             <section class="xs12">
-                <h1 class="xs12 text--red-400">FAB</h1>
-
                 <p>
                     There are a couple types of FAB's that you can use. For now you can use the 
                     <a href="#fab">default</a>, <a href="#fab">mini</a> and <a href="#extended-fab">extended</a>.
@@ -44,23 +42,23 @@
 
             <section class="xs12 sm6">
                 <p>
-                    For the extended fab you can add the class <code>.fab__extended</code>.
+                    For the extended fab you can add the class <code>.fab--extended</code>.
                     When adding in an icon you can change the style depending on the position of the icon by using one of the follow classes:
-                    <code>.fab__extended--icon-left</code> or <code>.fab__extended--icon-right</code>
+                    <code>.fab--extended--icon-left</code> or <code>.fab--extended--icon-right</code>
                 </p>
             </section>
 
             <section class="xs12 sm6">
-                <button class="fab fab__extended">
+                <button class="fab fab--extended">
                     Extended fab
                 </button>
 
-                <button class="fab fab__extended fab__extended--icon-left">
+                <button class="fab fab--extended fab--extended--icon-left">
                     <i class="material-icons icon">person</i>
                     Person
                 </button>
 
-                <button class="fab fab__extended fab__extended--icon-right">
+                <button class="fab fab--extended fab--extended--icon-right">
                     Person
                     <i class="material-icons icon">person</i>
                 </button>

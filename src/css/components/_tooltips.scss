@@ -21,10 +21,11 @@
     &:hover {
         #{$el}__content {
             opacity: 1;
+            transition: all 75ms $easing-decelerate;
         }
 
         #{$el}--left {
-            left: calc(-1 * (var( --tooltip-width) + var(--tooltip-distance)));
+            left: calc(-1 * (var(--tooltip-width) + var(--tooltip-distance)));
         }
     
         #{$el}--top {

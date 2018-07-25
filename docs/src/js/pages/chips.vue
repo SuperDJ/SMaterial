@@ -2,8 +2,6 @@
     <div>
         <article class="row">
             <section class="xs12">
-                <h1 class="xs12 text--red-400">Chips</h1>
-
                 <p>
                     There are a couple types of chips that you can use. For now you can use the <a href="#chip">default</a>, <a href="#outlined">outlined</a>, and <a href="#input">input</a>.
                 </p>

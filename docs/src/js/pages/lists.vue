@@ -1,8 +1,6 @@
 <template>
     <div>
         <article class="row">
-            <h1 class="xs12 text--red-400">Lists</h1>
-
             <section class="xs12 sm6">
                 <p>
                     The list elements can consits of a few elements. However the textarea makes the biggest difference.

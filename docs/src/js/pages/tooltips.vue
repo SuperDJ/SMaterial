@@ -1,8 +1,6 @@
 <template>
     <div>
         <article class="row">
-            <h1 class="xs12 text--red-400">Text fields</h1>
-
             <section class="xs12 sm6">
                 <p>
                     The tooltip can be used to give extra information about something.

@@ -2,8 +2,6 @@
     <div>
         <article class="row">
             <section class="xs12">
-                <h1 class="xs12 text--red-400">Buttons</h1>
-
                 <p>
                     There are 3 types of buttons you can choose from which are: <a href="#contained">contained</a>, <a href="#outlined">outline</a> and <a href="#text">text</a>.
                 </p>

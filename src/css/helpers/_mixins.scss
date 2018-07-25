@@ -13,10 +13,10 @@
     }
 }
 
-@mixin chain($args...)
+@mixin chain( $arguments... )
 {
-    @for $i from 1 through (length($args) - 1) {
-        $property: nth($args, $i);
-        #{$property}: nth($args, length($args));
+    @for $i from 1 through ( length( $arguments ) - 1 ) {
+        $property: nth( $arguments, $i );
+        #{$property}: nth( $arguments, length( $arguments ) );
     }
 }

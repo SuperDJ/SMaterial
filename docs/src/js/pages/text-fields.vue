@@ -1,8 +1,6 @@
 <template>
     <div>
         <article class="row">
-            <h1 class="xs12 text--red-400">Text fields</h1>
-
             <section class="xs12 sm6">
                 <p>
                     The text field comes in two varieties
@@ -22,53 +20,92 @@
             </section>
 
             <section class="xs12 sm6">
-                <div class="text-field text-field--filled">
-                    <label class="text-field__label">Label</label>
-                    <input type="text" class="text-field__input">
+                <div class="row">
+                    <div class="xs12">
+                        <div class="text-field text-field--filled">
+                            <input type="text" id="text-filled" class="text-field__input">
+                            <label class="text-field__label" for="text-filled">Label</label>
+                        </div>
+                    </div>
+
+                    <div class="xs12">
+                        <div class="text-field text-field--filled">
+                            <textarea id="textarea-filled" class="text-field__input"></textarea>
+                            <label class="text-field__label" for="textarea-filled">Label</label>
+                        </div>
+                    </div>
+
+                    <div class="xs12">
+                        <div class="text-field text-field--filled">
+                            <input type="date" id="date-filled" class="text-field__input">
+                            <label class="text-field__label" for="date-filled">Label</label>
+                        </div>
+                    </div>
+
+                    <div class="xs12">
+                        <div class="text-field text-field--filled">
+                            <input type="number" id="number-filled" class="text-field__input">
+                            <label class="text-field__label" for="number-filled">Label</label>
+                        </div>
+                    </div>
+
+                    <div class="xs12">
+                        <div class="text-field text-field--filled">
+                            <input type="text" id="disabled-filled" class="text-field__input" disabled>
+                            <label class="text-field__label" for="disabled-filled">Label</label>
+                        </div>
+                    </div>
                 </div>
             </section> 
         </article>
 
         <article class="row">
-            <h2 class="xs12" id="two-line">Snackbar two line</h2>
+            <h2 class="xs12" id="outlined">Outlined text field</h2>
 
             <section class="xs12 sm6">
-                <p>
-                    For the snackbar all you need to do is use a container class 
-                    <code>.snackbard</code> to contain a class <code>.snackbar__content</code>
-                    and or <code>.snackbar__action</code>.
-                </p>
-
-                <p>
-                    To apply styling for the two line snackbar, you also need to add the class 
-                    <code>.snackbar--two-line</code>.
-                    If you happen to have a long action you may wish to also apply the class
-                    <code>.snackbar--two-line--long-action</code>.
+                 <p>
+                    For the outlined text field all you need to do is use the 
+                    classes <code>.text-field</code> and <code>.text-field--outlined</code>.
                 </p>
             </section>
 
             <section class="xs12 sm6">
-                <div class="snackbar snackbar--two-line">
-                   <div class="snackbar__content">
-                       Two line message <br> with action.
-                   </div>                   
-                   <div class="snackbar__actions">
-                       <m-button text>
-                           Actions
-                       </m-button>
-                   </div>
-               </div>
+                 <div class="row">
+                    <div class="xs12">
+                        <div class="text-field text-field--outlined">
+                            <input type="text" id="text-outlined" class="text-field__input">
+                            <label class="text-field__label" for="text-outlined">Label</label>
+                        </div>
+                    </div>
 
-               <div class="snackbar snackbar--two-line snackbar--two-line--long-action">
-                   <div class="snackbar__content">
-                       Two line message<br> with action.
-                   </div>
-                   <div class="snackbar__actions">
-                       <m-button text>
-                           A very long action
-                       </m-button>
-                   </div>
-               </div>
+                    <div class="xs12">
+                        <div class="text-field text-field--outlined">
+                            <textarea id="textarea-outlined" class="text-field__input"></textarea>
+                            <label class="text-field__label" for="textarea-outlined">Label</label>
+                        </div>
+                    </div>
+
+                    <div class="xs12">
+                        <div class="text-field text-field--outlined">
+                            <input type="date" id="date-outlined" class="text-field__input">
+                            <label class="text-field__label" for="date-outlined">Label</label>
+                        </div>
+                    </div>
+
+                    <div class="xs12">
+                        <div class="text-field text-field--outlined">
+                            <input type="number" id="number-outlined" class="text-field__input">
+                            <label class="text-field__label" for="number-outlined">Label</label>
+                        </div>
+                    </div>
+
+                    <div class="xs12">
+                        <div class="text-field text-field--outlined">
+                            <input type="text" id="disabled-outlined" class="text-field__input" disabled>
+                            <label class="text-field__label" for="disabled-outlined">Label</label>
+                        </div>
+                    </div>
+                </div>
             </section> 
         </article> 
     </div>    

@@ -2,8 +2,6 @@
     <div>
         <article class="row">
             <section class="xs12">
-                <h1 class="xs12 text--red-400">Typography</h1>
-
                 <p>
                     If you're looking for a specific font I would recommend to look at Google Fonts.
                     However for this framework and for Material Design in general Roboto is used.

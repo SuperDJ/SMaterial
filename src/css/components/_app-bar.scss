@@ -11,7 +11,7 @@
 	&__title {
 		grid-column-start: 2;
 		@extend %h6;
-		margin: var(--app-bar-title-margin);
+		margin: var(--app-bar__title-margin);
 	}
 
 	&__actions {
@@ -20,7 +20,7 @@
 		display: flex;
 
 		* {
-			margin-left: var(--app-bar-actions-margin);
+			margin: var(--app-bar__actions-margin);
 		}
 	}
 
@@ -44,6 +44,6 @@
 	--app-bar-font-color: var(--font-on-primary);
 	--app-bar-height: #{rem-calc(56px)};
 	--app-bar-padding: #{rem-calc(16px)};
-	--app-bar-title-margin: 0 0 0 #{rem-calc(32px)};
-	--app-bar-actions-margin: #{rem-calc(24px)};
+	--app-bar__title-margin: 0 0 0 #{rem-calc(32px)};
+	--app-bar__actions-margin: 0 0 0 #{rem-calc(24px)};
 }

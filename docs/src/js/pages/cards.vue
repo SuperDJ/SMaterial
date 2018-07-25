@@ -2,8 +2,6 @@
     <div>
     <article class="row">
             <section class="xs12">
-                <h1 class="xs12 text--red-400">Card</h1>
-
                 <p>
                     There are a couple types of Card's that you can use. For now you can use the 
                 </p>
