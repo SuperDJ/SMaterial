@@ -17,7 +17,7 @@
             <router-view></router-view>
         </main>
 
-        <nav class="drawer">
+        <nav class="drawer" id="drawer">
             <ul class="drawer__menu">
                 <li v-for="(item, i) in menu" :key="i">
                     <router-link 
@@ -30,12 +30,13 @@
                         <m-icon class="drawer__item__icon" v-if="item.icon">{{ item.icon }}</m-icon>
                         <span class="drawer__item__content">{{ item.title }}</span>
                     </router-link>
+
                     <div class="drawer__item drawer__item--parent" v-else>
                         <m-icon class="drawer__item__icon" v-if="item.icon">{{ item.icon }}</m-icon>
                         <span class="drawer__item__content">{{ item.title }}</span>
                     </div>
 
-                    <ul v-if="item.children">
+                    <ul v-if="item.children" class="drawer__item__children">
                         <li v-for="(child, i) in item.children" :key="i">
                             <router-link 
                                 class="drawer__item"
@@ -47,6 +48,7 @@
                                 <m-icon class="drawer__item__icon" v-if="child.icon">{{ child.icon }}</m-icon>
                                 <span class="drawer__item__content">{{ child.title }}</span>
                             </router-link>
+                            
                             <div class="drawer__item drawer__item--parent" v-else>
                                 <m-icon class="drawer__item__icon" v-if="child.icon">{{ child.icon }}</m-icon>
                                 <span class="drawer__item__content">{{ child.title }}</span>
@@ -115,6 +117,10 @@
                             {
                                 to: 'chips',
                                 title: 'Chips',
+                            },
+                            {
+                                to: 'tables',
+                                title: 'Data tables'
                             },
                             {
                                 to: 'lists',

@@ -3,8 +3,8 @@
     width: 100%;
     @extend .z1;
     border-radius: var(--border-radius);
-    padding: rem-calc(16px) rem-calc(16px) rem-calc(8px) rem-calc(16px);
     transition: box-shadow $easing-standard .1s;
+    display: block;
 
     &:hover {
         @extend .z8;
@@ -17,6 +17,7 @@
     &__header {
         @extend .h6;
         color: rgba($black, .84);
+        padding: rem-calc(16px) rem-calc(16px) rem-calc(16px) rem-calc(16px);
     }
 
     &__subheader {
@@ -28,11 +29,16 @@
     }
 
     &__text {
-
+        color: #{$black}99;
+        padding: rem-calc(16px) rem-calc(16px) rem-calc(8px) rem-calc(16px);
     }
 
     &__actions {
-        margin: 0 rem-calc(-8px) 0 rem-calc(-8px);
+        margin: 0 rem-calc(8px) 0 rem-calc(8px);
+    }
+
+    &__actions, &__media, &__text, &__actions {
+        width: 100%;
     }
 
     &--outlined {

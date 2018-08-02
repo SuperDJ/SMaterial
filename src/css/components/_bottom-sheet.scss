@@ -5,12 +5,13 @@
     min-height: rem-calc(56px);
     max-height: 50%;
     list-style-type: none;
-    //position: fixed;
+    position: fixed;
     z-index: 2;
     bottom: 0;
     margin: 0;
     padding: 0;
     @extend .z8;
+    background: var(--background-color);
 
     &--list {
         #{$el}__item {

@@ -1,17 +1,18 @@
 .tabs {
     $el: &;
-    display: flex;
+    display: grid;
+    grid-auto-columns: max-content;
     background: var(--tabs-background);
     width: 100%;
+    grid-auto-flow: column;
 
     &__tab {
-        display: inline-block;
-        width: auto;
-        min-width: var(--tabs__tab-min-width);
-        max-width: var(--tabs__tab-max-width);
+        display: block;
         text-align: center;
         transition: border-bottom .1s $easing-standard;
         position: relative;
+        min-width: var(--tabs__tab-min-width);
+        max-width: var(--tabs__tab-max-width);
         @extend %ripple;
         --ripple--hover-background: var(--tabs__tab--hover-background);
         --ripple--active-background: var(--tabs__tab--active-background);
@@ -68,10 +69,6 @@
         #{$el}__tab{
             &:first-child {
                 margin-left: rem-calc(52px);
-            }
-
-            &:last-child {
-                margin-right: rem-calc(52px);
             }
         }
     }

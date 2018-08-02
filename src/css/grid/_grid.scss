@@ -1,5 +1,15 @@
 .container {
+	margin-top: var(--app-bar-height);
 	width: 100%;
+
+	@media #{$sm-and-up} {
+		width: 80%;
+		margin: var(--app-bar-height) auto 0 auto;
+	}
+
+	&--fluid {
+		width: 100%;
+	}
 }
 
 .row {
@@ -35,15 +45,15 @@
 	}
 
 	.xs__text--right {
-		text-align: right;
+		text-align: right !important; 
 	}
 
 	.xs__text--left {
-		text-align: left
+		text-align: left !important;
 	}
 
 	.xs__text--center {
-		text-align: center;
+		text-align: center !important; 
 	}
 }
 
@@ -58,15 +68,15 @@
 		}
 
 		.sm__text--right {
-			text-align: right;
+			text-align: right !important; 
 		}
 
 		.sm__text--left {
-			text-align: left
+			text-align: left !important;
 		}
 
 		.sm__text--center {
-			text-align: center;
+			text-align: center !important; 
 		}
 	}
 }
@@ -82,15 +92,15 @@
 		}
 
 		.md__text--right {
-			text-align: right;
+			text-align: right !important; 
 		}
 
 		.md__text--left {
-			text-align: left
+			text-align: left !important;
 		}
 
 		.md__text--center {
-			text-align: center;
+			text-align: center !important; 
 		}
 	}
 }
@@ -106,15 +116,15 @@
 		}
 
 		.lg__text--right {
-			text-align: right;
+			text-align: right !important; 
 		}
 
 		.lg__text--left {
-			text-align: left
+			text-align: left !important;
 		}
 
 		.lg__text--center {
-			text-align: center;
+			text-align: center !important; 
 		}
 	}
 }
@@ -130,15 +140,15 @@
 		}
 
 		.xl__text--right {
-			text-align: right;
+			text-align: right !important; 
 		}
 
 		.xl__text--left {
-			text-align: left
+			text-align: left !important;
 		}
 
 		.xl__text--center {
-			text-align: center;
+			text-align: center !important; 
 		}
 	}
 }

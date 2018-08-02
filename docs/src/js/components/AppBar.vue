@@ -1,6 +1,6 @@
 <template>
     <header class="app-bar" :class="{ 'app-bar--fixed' : fixed }">
-        <m-icon>menu</m-icon>
+        <m-icon data-trigger="drawer">menu</m-icon>
 
         <div class="app-bar__title">
             <slot name="title"></slot>

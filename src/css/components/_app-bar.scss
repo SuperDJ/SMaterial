@@ -1,7 +1,7 @@
 .app-bar {
 	background: var(--app-bar-background);
 	color: var(--app-bar-font-color);
-	height: var(--app-bar-height);
+	min-height: var(--app-bar-height); // Min height to allow more content in the appbar
 	padding: var(--app-bar-padding);
 	width: 100%;
 	@extend .z4;
@@ -27,15 +27,12 @@
 	&--fixed {
 		position: fixed;
 		top: 0;
-		z-index: 1;
-		
-		+ .container {
-			margin-top: var(--app-bar-height);
-		}	
+		z-index: 1;	
 	}
 
 	.icon {
 		cursor: pointer;
+		color: var(--app-bar-font-color);
 	}
 }
 

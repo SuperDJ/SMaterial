@@ -1,6 +1,7 @@
 .button {
 	@extend %button;
 	height: var(--button-height);
+	line-height: var(--button-height);
 	min-width: var(--button-min-width);
 	max-width: 100%;
 	cursor: pointer;
@@ -9,6 +10,7 @@
 	position: relative;
 	overflow: hidden;
 	user-select: none;
+	display: inline-block;
 	@extend %ripple;
 
 	&--contained {
@@ -22,6 +24,7 @@
 
 		&:hover { 
 			@extend .z8;
+			color: var(--font-on-primary);
 		}
 
 		&:disabled {
@@ -104,6 +107,10 @@
 		--ripple--active-background: var(--button--text--outlined--active-background);
 		--icon-color: var(--button--text--outlined-color);
 		color: var(--button--text--outlined-color);
+
+		&:hover {
+			color: var(--button--text--outlined-color);
+		}
 
 		&:disabled {
 			color: rgba($black, .38);

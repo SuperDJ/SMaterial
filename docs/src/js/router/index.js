@@ -73,6 +73,14 @@ const routes = [
 				component: () => import('@/pages/chips')
 			},
 			{
+				path: 'data-tables',
+				name: 'tables',
+				meta: {
+					title: 'Data tables'
+				},
+				component: () => import('@/pages/data-tables')
+			},
+			{
 				path: 'lists',
 				name: 'lists',
 				meta: {
