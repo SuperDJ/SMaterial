@@ -12,7 +12,7 @@
 
         <main class="container">
             <div class="row">
-                <h1 class="xs12">{{ title() }}</h1>
+                <h1 class="xs12 h1">{{ title() }}</h1>
             </div>
             <router-view></router-view>
         </main>

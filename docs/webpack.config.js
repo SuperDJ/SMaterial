@@ -2,6 +2,8 @@ const path = require('path'),
 	{ VueLoaderPlugin } = require('vue-loader'),
 	CleanWebpackPlugin = require('clean-webpack-plugin');
 
+	console.log(process.env);
+
 module.exports = env => {
 	return {
 		entry: {

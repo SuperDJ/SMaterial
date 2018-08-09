@@ -29,6 +29,23 @@ if( appBars )
 }
 
 /**************************************
+ * Banners
+ */
+
+const banners = document.getElementsByClassName( 'banner' );
+
+if( banners )
+{
+	for( let i = 0; i < banners.length; i++ )
+	{
+		let banner = banners[i];
+
+		// Set role
+		banner.setAttribute( 'role', 'banner' );
+	}
+}
+
+/**************************************
 * Buttons
 /**************************************/
 
@@ -39,6 +56,9 @@ if( buttons )
 	for( let i = 0; i < buttons.length; i++ )
 	{
 		let button = buttons[i];
+
+		// Set role
+		button.setAttribute('role', 'button');
 
 		button.addEventListener( 'click', e => {
 			let rect = e.target.getBoundingClientRect(),
@@ -62,10 +82,59 @@ if( dataTables )
 	{
 		let dataTable = dataTables[i];
 
+		dataTable.setAttribute( 'role', 'table');
+
+		const rows = dataTable.querySelectorAll( 'tr' );
+		const columnheaders = dataTable.querySelectorAll( 'th' );
+
+		for( let i = 0; i < rows.length; i++ )
+		{
+			let row = rows[i];
+			row.setAttribute( 'role', 'row' );
+		}
+
+		for( let i = 0; i < columnheaders.length; i++ )
+		{
+			let columnheader = columnheaders[i];
+			columnheader.setAttribute( 'role', 'columnheader' ); 
+		}
+
 		let container = document.createElement( 'div' );
 		dataTable.parentNode.insertBefore( container, dataTable );
 		container.classList.add( 'data-table--responsive' );
 		container.appendChild(dataTable);
+	}
+}
+
+/**************************************
+ * Dialogs
+ **************************************/
+
+const dialogs = document.getElementsByClassName( 'dialog' );
+
+if( dialogs )
+{
+	for( let i = 0; i < dialogs.length; i++ )
+	{
+		let dialog = dialogs[i];
+		dialog.setAttribute( 'role', 'dialog' );
+	}
+}
+
+/**************************************
+ * Dividers
+ **************************************/
+
+const dividers = document.getElementsByClassName( 'divider' );
+
+if( dividers )
+{
+	for( let i = 0; i < dividers.length; i++ )
+	{
+		let divider = dividers[i];
+
+		divider.setAttribute( 'role' , 'separator' );
+		divider.setAttribute( 'aria-orientation' , 'horizontal' );
 	}
 }
 
@@ -144,7 +213,77 @@ if( menus )
 }
 
 /**************************************
+ * Progress
+ **************************************/
+
+const progressBars = document.getElementsByClassName( 'progress' );
+
+if( progressBars )
+{
+	for( let i = 0; i < progressBars.length; i++ )
+	{
+		let progressBar = progressBars[i];
+		let progressBarWidth = progressBar.getBoundingClientRect().width;
+		let progress = progressBar.querySelector( '.progress__bar' );
+
+		console.log(progressBar.tagName);
+	
+		if( progress )
+		{
+			let progressWidth = progress.getBoundingClientRect().width;
+			progressBar.setAttribute( 'aria-valuenow', (progressWidth / progressBarWidth * 100) );
+			console.log(progressWidth / progressBarWidth * 100);
+		}
+
+		progressBar.setAttribute( 'role', 'progressbar' );
+		progressBar.setAttribute( 'aria-valuemin', '0' );
+		progressBar.setAttribute( 'aria-valuemax', '100' );
+	}
+}
+
+/************************************** 
+ * Selection 
+ **************************************/
+
+const switches = document.getElementsByClassName( 'switch' );
+
+if( switches )
+{
+	for( let i = 0; i < switches.length; i++ )
+	{
+		let switchElement = switches[i];
+
+		switchElement.setAttribute( 'role', 'switch' );
+		switchElement.setAttribute( 'aria-checked', switchElement.checked );
+		switchElement.setAttribute( 'aria-disabled', switchElement.disabled );
+
+		switchElement.addEventListener( 'click', () => {
+			switchElement.setAttribute( 'aria-checked', switchElement.checked );
+		});
+	}
+}
+
+const checkboxes = document.getElementsByClassName( 'switch' );
+
+if( checkboxes )
+{
+	for( let i = 0; i < checkboxes.length; i++ )
+	{
+		let checkbox = checkboxes[i];
+
+		checkbox.setAttribute( 'role', 'switch' );
+		checkbox.setAttribute( 'aria-checked', checkbox.checked );
+		checkbox.setAttribute( 'aria-disabled', checkbox.disabled );
+
+		checkbox.addEventListener( 'click', () => {
+			checkbox.setAttribute( 'aria-checked', checkbox.checked );
+		});
+	}
+}
+
+/**************************************
 * Tabs
+* TODO add aria
 **************************************/
 
 const tabs = document.getElementsByClassName( 'tabs__tab' );
@@ -215,15 +354,29 @@ if( textFields )
 * Tooltips
 **************************************/
 
-const tooltips = document.getElementsByClassName( 'tooltip__content' );
+const tooltips = document.getElementsByClassName( 'tooltip' );
 
 if( tooltips )
 {
 	for( let i = 0; i < tooltips.length; i++ )
 	{
 		let tooltip = tooltips[i];
-		let width = tooltip.getBoundingClientRect().width;
-		tooltip.style.setProperty( '--tooltip-width', `${width}px` );
+		let content = tooltip.querySelector( '.tooltip__content' );
+		let width = content.getBoundingClientRect().width;
+		let id = `tooltip-${i}`;
+		
+		// Element triggering tooltip
+		let controller = tooltip.childNodes.forEach( controller => {
+			if( controller.classList !== undefined && !controller.classList.contains( 'tooltip__content' ) )
+			{
+				controller.setAttribute( 'aria-describedby', id );
+				controller.setAttribute( 'aria-haspopup', true );
+			}
+		});
+
+		content.setAttribute( 'id', id );
+		content.setAttribute( 'role', 'tooltip' );
+		content.style.setProperty( '--tooltip-width', `${width}px` );
 	}
 }
 
@@ -286,3 +439,22 @@ if( triggers )
 		}
 	}
 }
+
+/**************************************
+ * Typography
+ **************************************/
+
+ const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+ headings.forEach( heading => {
+	let headers = document.getElementsByClassName( heading );
+
+	if( headers )
+	{
+		for( let i = 0; i < headers.length; i++ )
+		{
+			let header = headers[i];
+			header.setAttribute( 'role', 'heading' );
+		}
+	}
+ });

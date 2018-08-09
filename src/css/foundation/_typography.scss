@@ -1,7 +1,7 @@
 @each $scale, $setting in $type-scale {
 	%#{$scale} {
 		font-family: var(#{--#{$scale}-font-family}), sans-serif;
-		line-height: rem-calc(( map-get( $setting, size ) / 4 ) + map-get( $setting, size ));
+		line-height: rem-calc(( map-get( $setting, size ) * 1.4 ) );
 		font-size: rem-calc(map-get($setting, size));
 		font-weight: map-get($setting, font);
 		text-transform: map-get($setting, case);

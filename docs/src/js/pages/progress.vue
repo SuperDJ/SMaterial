@@ -21,7 +21,7 @@
             </section>
 
             <section class="xs12 sm6">
-                <div class="progress--determinate">
+                <div class="progress progress--determinate">
                     <div class="progress__bar" style="width:40%"></div>
                 </div>
             </section>
@@ -39,7 +39,7 @@
             </section>
 
             <section class="xs12 sm6">
-                <div class="progress--indeterminate">
+                <div class="progress progress--indeterminate">
                     <div class="progress__bar"></div>
                 </div>
             </section>

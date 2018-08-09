@@ -76,7 +76,7 @@
             }
 
             &:disabled {
-                border: var(--text-field--filled__input--disabled-background);
+                border: var(--text-field--outlined__input--disabled-border);
 
                 + #{$el}__label {
                     color: var(--text-field--outlined__input--disabled__label-color);

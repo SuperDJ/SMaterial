@@ -30,6 +30,7 @@
 		width: auto;
 		height: var(--fab--extended-height);
 		border-radius: var(--fab--extended-border-radius);
+		padding: var(--fab--extended-padding);
 
 		&--icon-left {
 			padding: var(--fab--extended--icon-left-padding);
@@ -61,6 +62,7 @@
 
 	--fab--extended-height: #{rem-calc(48px)};
 	--fab--extended-border-radius: #{rem-calc(32px)};
+	--fab--extended-padding: #{0 rem-calc(20px)};
 	--fab--extended--icon-left-padding: #{0 rem-calc(20px) 0 rem-calc(16px)};
 	--fab--extended--icon-left__icon-margin-right: #{rem-calc(8px)};
 	--fab--extended--icon-right-padding: #{0 rem-calc(16px) 0 rem-calc(20px)};

@@ -1,10 +1,12 @@
+//TODO add <progress> tag styling
 .progress {
     $el: &;
+    width: 100%;
+    height: rem-calc(4px);
+    background: rgba($primary-color, .6);
+    appearance: none;
 
     &--determinate, &--indeterminate {
-        width: 100%;
-        height: rem-calc(4px);
-        background: rgba($primary-color, .6);
 
         #{$el}__bar {
             height: 100%;
@@ -14,12 +16,10 @@
 
     &--determinate #{$el}__bar {
         width: 0;
-        height: 100%;
-        background: $primary-color;
         transition: width .1s $easing-accelerate;
     }
 
-    &--indeterminate {
+    :indeterminate, &--indeterminate {
         position: relative;
         overflow: hidden;
 
