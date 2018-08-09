@@ -3,7 +3,8 @@
     min-height: var(--text-field-height);
     width: 100%;
     position: relative;
-    
+    margin: rem-calc(8px) 0;
+
     &--filled {
         #{$el}__input {
             padding: var(--text-field--filled__input-padding);
@@ -27,16 +28,17 @@
                 background: var(--text-field--filled__input--active-background);
             }
 
+            /*
             &:invalid {
                 border-bottom: var(--text-field--filled__input--invalid-border-bottom);
-            }
+            }*/
 
             &:disabled {
                 border-bottom: unset;
                 background: var(--text-field--filled__input--disabled-background);
 
                 + #{$el}__label {
-                    color: var(--text-field--filled__input--disabled__label-color); 
+                    color: var(--text-field--filled__input--disabled__label-color);
                 }
             }
         }
@@ -81,9 +83,10 @@
                 }
             }
 
+            /*
             &:invalid {
-                border: var(--text-field--outlined__input--invalid-border);    
-            }
+                border: var(--text-field--outlined__input--invalid-border);
+            }*/
         }
 
         input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"] input[type="week"] {
@@ -102,15 +105,15 @@
 
     &--active {
         &#{$el}--filled #{$el}__input {
-            border-bottom: var(--text-field--filled__input--focus-border-bottom);
-    
+            //border-bottom: var(--text-field--filled__input--focus-border-bottom);
+
             + #{$el}__label {
                 top: var(--text-field--filled__input--focus__label-top);
             }
         }
 
         &#{$el}--outlined #{$el}__input {
-            border: var(--text-field--outlined__input--focus-border);
+            //border: var(--text-field--outlined__input--focus-border);
 
             + #{$el}__label {
                 top: var(--text-field--outlined__input--focus__label-top);
@@ -118,9 +121,9 @@
         }
 
         &#{$el}--filled #{$el}__input + #{$el}__label, &#{$el}--outlined #{$el}__input + #{$el}__label {
-            color: $primary-color;
+            //color: $primary-color;
             font-size: var(--text-field__input--focus__label-font-size);
-        } 
+        }
     }
 
     &__label {
@@ -130,7 +133,7 @@
         @extend %body-1;
         position: absolute;
         transition: top .1s $easing-standard, color .1s $easing-standard;
-        top: calc( ( var(--text-field-height) / 2 ) - ( var(--text-field__label-font-size) / 2 ) );
+        top: calc( ( var(--text-field__input-height) / 2 ) - ( var(--text-field__label-font-size) / 2 ) );
     }
 
     &__input {
@@ -139,7 +142,7 @@
         width: 100%;
         position: absolute;
         @include chain(left, top, 0);
-        min-height: var(--text-field-height);
+        min-height: var(--text-field__input-height);
 
         &:hover {
             cursor: pointer;
@@ -147,20 +150,40 @@
 
         &:focus {
             caret-color: var(--text-field__input--focus-caret-color);
-            
+
             + #{$el}__label {
                 color: var(--text-field__input--focus__label-color);
                 font-size: var(--text-field__input--focus__label-font-size);
             }
         }
+    }
 
-        &:invalid {
-            + #{$el}__label {
-                color: var(--text-field--invalid-color);
-            }
+    &__assitive-text {
+        display: block;
+        width: 100%;
+        color: #{$black}99;
+        @extend %caption;
+        @include chain(height, line-height, var(--text-field__assitive-text-height));
+        padding: var(--text-field__assitive-text-padding);
+        position: absolute;
+        bottom: 0;
+    }
+
+    &--assitive-text {
+        --text-field-height: var(--text-field--assitive-text-height);
+    }
+
+    &--invalid {
+        #{$el}__input {
+            border-color: var(--text-field--invalid-color);
+            caret-color: var(--text-field--invalid-color);
+        }
+
+        #{$el}__label, #{$el}__assitive-text {
+            color: var(--text-field--invalid-color);
         }
     }
-    
+
     textarea {
         resize: none;
     }
@@ -169,13 +192,13 @@
 :root {
     --text-field--active-color: #{$primary-color};
     --text-field--invalid-color: var(--error-color);
-    --text-field-height: #{rem-calc(56px)};
+    --text-field-height: var(--text-field__input-height);
     --text-field__label-font-size: #{rem-calc( map-get( map-get( $type-scale, body-1 ), size ) )};
 
     --text-field--filled__input-padding-top: #{rem-calc(20px)};
     --text-field--filled__input-padding-sides: #{rem-calc(12px)};
     --text-field--filled__input-padding: #{var(--text-field--filled__input-padding-top) var(--text-field--filled__input-padding-sides) 0 var(--text-field--filled__input-padding-sides)};
-    --text-field--filled__input-background: #{rgba($black, .1)}; 
+    --text-field--filled__input-background: #{rgba($black, .1)};
     --text-field--filled__input--hover-border-bottom: #{rem-calc(1px) solid rgba($black, .12)};
     --text-field--filled__input--focus-border-bottom: #{rem-calc(2px) solid var(--text-field--active-color)};
     --text-field--filled__input--focus__label-top: #{calc(#{rem-calc(20px)} - var(--text-field__input--focus__label-font-size))}; // 20px for baseline, 12px for font-size
@@ -198,8 +221,13 @@
 
     --text-field__label-color: #{$black}99;
 
+    --text-field__input-height: #{rem-calc(56px)};
     --text-field__input-color: #{$black}de;
     --text-field__input--focus-caret-color: var(--text-field--active-color);
     --text-field__input--focus__label-color: var(--text-field--active-color);
     --text-field__input--focus__label-font-size: #{rem-calc(12px)};
+
+    --text-field__assitive-text-padding: 0 var(--text-field--filled__input-padding-sides);
+    --text-field__assitive-text-height: #{rem-calc(16px)};
+    --text-field--assitive-text-height: calc(var(--text-field-height) + var(--text-field__assitive-text-height));
 }

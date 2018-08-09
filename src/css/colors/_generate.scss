@@ -8,7 +8,7 @@
 			.text--#{$color-name}, .text--#{$color-name}-500, .text--#{$color-name} .icon, .text--#{$color-name}-500 .icon, .icon--#{$color-name}, .icon--#{$color-name}-500 {
 				color: $color-value !important;
 			}
-		} @else if( $color-name == 'shaded' ) {
+		} @else if( str-index( $color-name, 'shades' ) ) {
 			.#{$color-type} {
 				background: $color-value !important;
 			}

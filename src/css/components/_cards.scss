@@ -34,7 +34,11 @@
     }
 
     &__actions {
-        margin: 0 rem-calc(8px) 0 rem-calc(8px);
+        padding: 0 rem-calc(8px) rem-calc(8px) rem-calc(8px);
+
+        > * {
+            margin-right: rem-calc(8px);
+        }
     }
 
     &__actions, &__media, &__text, &__actions {

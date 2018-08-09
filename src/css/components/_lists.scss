@@ -32,7 +32,7 @@
                     @include chain(width, height, rem-calc(40px));
                     border-radius: 50%;
                 }
-            } 
+            }
 
             #{$el}__content {
                 @include chain(height, line-height, rem-calc(56px));
@@ -47,12 +47,12 @@
 
                 #{$el}__support__image {
                     padding: rem-calc(8px) 0 rem-calc(8px) rem-calc(16px);
-    
+
                     img {
                         @include chain(width, height, rem-calc(56px));
                     }
                 }
-                
+
                 #{$el}__support__image--large {
                     padding: rem-calc(8px) 0;
 
@@ -65,11 +65,11 @@
                 #{$el}__support__image, #{$el}__support__image--large {
                     overflow: hidden;
                 }
-    
+
                 #{$el}__content {
                     @include chain(height, line-height, rem-calc(72px));
                 }
-    
+
                 #{$el}__control {
                     padding: rem-calc(24px) rem-calc(16px);
                 }
@@ -81,7 +81,7 @@
         height: var(--list--two-line-height);
 
         #{$el}__content {
-            padding: var(--list--two-line__content-padding); 
+            padding: var(--list--two-line__content-padding);
         }
 
         &#{$el}--support {
@@ -118,7 +118,7 @@
         height: var(--list--three-line-height);
 
         #{$el}__content {
-            padding: variable-exists(--list--three-line__content-padding); 
+            padding: var(--list--three-line__content-padding);
         }
 
         &#{$el}--support {
@@ -222,10 +222,10 @@
     --list--three-line__support__control-padding: #{rem-calc(16px) rem-calc(16px) 0 rem-calc(16px)};
 
     --list__content-color: #{$black}de;
-    --list__content-padding-left: #{rem-calc(16px)}; 
+    --list__content-padding-left: #{rem-calc(16px)};
     --list__content__title-color: var(--list__content-color);
     --list__content__text-color: #{$black}99;
-    --list__content__overline-color: var(--list__content__text-color); 
+    --list__content__overline-color: var(--list__content__text-color);
 
     --list-divider-border-bottom: #{rem-calc(1px) solid rgba($black, .12)};
 }

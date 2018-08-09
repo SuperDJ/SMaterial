@@ -14,7 +14,7 @@
 	@extend %ripple;
 	--ripple--hover-background: var(--fab--hover-background);
 	--ripple--active-background: var(--fab--active-background);
-	--icon-color: var(--font-primary-color);
+	--icon-color: var(--font-on-primary);
 
 	.icon {
 		@include chain(font-size, width, var(--fab__icon-size));
@@ -43,14 +43,14 @@
 			padding: var(--fab--extended--icon-right-padding);
 
 			.icon {
-				margin-left: var(--fav--extended--icon-right__icon-margin-left);
+				margin-left: var(--fab--extended--icon-right__icon-margin-left);
 			}
 		}
 	}
 }
 
 :root {
-	--fab-size: #{rem-calc(56px)}; 
+	--fab-size: #{rem-calc(56px)};
 	--fab-padding: #{0 rem-calc(16px)};
 	--fab__icon-size: #{rem-calc(24px)};
 	--fab--hover-background: #{rgba($white, .08)};
@@ -62,7 +62,7 @@
 	--fab--extended-height: #{rem-calc(48px)};
 	--fab--extended-border-radius: #{rem-calc(32px)};
 	--fab--extended--icon-left-padding: #{0 rem-calc(20px) 0 rem-calc(16px)};
-	--fav--extended--icon-left__icon-margin-right: #{rem-calc(8px)};
+	--fab--extended--icon-left__icon-margin-right: #{rem-calc(8px)};
 	--fab--extended--icon-right-padding: #{0 rem-calc(16px) 0 rem-calc(20px)};
-	--fav--extended--icon-right__icon-margin-left: #{rem-calc(8px)};
+	--fab--extended--icon-right__icon-margin-left: #{rem-calc(8px)};
 }

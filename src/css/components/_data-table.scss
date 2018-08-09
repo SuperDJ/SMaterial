@@ -9,8 +9,8 @@
         text-align: left;
         transition: color .1s $easing-standard;
         cursor: pointer;
-        
-        &:hover {
+
+        &:hover, &:hover .icon {
             color: $black;
         }
     }
@@ -23,6 +23,11 @@
     td, th {
         @include chain(height, line-height, rem-calc(48px));
         border-bottom: rem-calc(1px) solid rgba($black, .12);
+
+		.icon {
+			vertical-align: middle;
+			@include chain(width, height, font-size, rem-calc(18px));
+		}
     }
 
     &--hover {

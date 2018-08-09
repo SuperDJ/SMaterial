@@ -24,12 +24,12 @@
     &__thumbnail {
         @include chain(width, height, font-size, var(--chip__thumbnail-size));
         margin: var(--chip__thumbnail-margin);
-        border-radius: 50%; 
+        border-radius: 50%;
         color: var(--chip__thumbnail-color);
     }
 
     &--thumbnail {
-        padding-left: var(--chip--thumbail-padding-left);
+        padding-left: var(--chip__thumbnail-padding-left);
     }
 
     &__remove {
@@ -56,15 +56,15 @@
 
         &:disabled {
 			color: var(--chip--outlined--disabled-color);
-            background: var(--chip-outlined--disabled-background);
+            background: var(--chip--outlined--disabled-background);
         }
 
         &#{$el}--thumbnail {
-            padding-left: var(--chip--outlined--thumbnail-padding-left); 
+            padding-left: var(--chip--outlined--thumbnail-padding-left);
         }
-    
+
         &#{$el}--remove {
-            padding-right: var(--chip--loutlined--thumbnail-padding-right);
+            padding-right: var(--chip--outlined--remove-padding-right);
         }
     }
 }
@@ -72,17 +72,17 @@
 :root {
     --chip-height: #{rem-calc(32px)};
     --chip-padding: #{0 rem-calc(12px)};
-    --chip-background: #{rgba($black, .12)}; 
+    --chip-background: #{rgba($black, .12)};
     --chip-color: #{#{$black}de};
     --chip--hover-background: #{rgba($black, .08)};
     --chip--active-background: #{rgba($black, .32)};
     --chip--disabled-color: #{rgba($black, .38)};
     --chip--disabled-background: #{rgba($black, .12)};
 
-    --chip__thumnail-size: #{rem-calc(24px)};
+    --chip__thumbnail-size: #{rem-calc(24px)};
     --chip__thumbnail-color: #{var(--chip-color)};
     --chip__thumbnail-margin: #{0 rem-calc(8px) 0 0};
-    --chip--thumbail-padding-left: #{rem-calc(6px)};
+    --chip__thumbnail-padding-left: #{rem-calc(6px)};
 
     --chip__remove-size: #{rem-calc(16px)};
     --chip__remove-margin: #{0 0 0 rem-calc(8px)};
@@ -90,10 +90,10 @@
     --chip--remove-padding-right: #{rem-calc(8px)};
 
     --chip--outlined-border: #{rem-calc(1px) solid rgba($black, .12)};
-    --chip--outline--hover-background: #{rgba($black, .04)};
-    --chip--outline--active-background: #{rgba($black, .16)};
-    --chip--outline--disabled-color: #{rgba($black, .38)};
-    --chip--outline--disabled-background: #{rgba($black, .12)};
+    --chip--outlined--hover-background: #{rgba($black, .04)};
+    --chip--outlined--active-background: #{rgba($black, .16)};
+    --chip--outlined--disabled-color: #{rgba($black, .38)};
+    --chip--outlined--disabled-background: #{rgba($black, .12)};
     --chip--outlined--thumbnail-padding-left: #{rem-calc(4px)};
     --chip--outlined--remove-padding-right: #{rem-calc(6px)};
 }

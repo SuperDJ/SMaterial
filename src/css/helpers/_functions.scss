@@ -1,5 +1,5 @@
 /**
-	Convert unit to rem
+ *	Convert unit to rem
  */
 @function rem-calc( $sp, $default: $font-size ) {
 	@if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) != null )
@@ -14,7 +14,7 @@
 }
 
 /**
-	Convert unit to em
+ *	Convert unit to em
  */
 @function em-calc( $sp, $default: $font-size ) {
 	@if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) != null )

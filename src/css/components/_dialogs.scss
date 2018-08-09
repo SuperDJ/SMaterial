@@ -1,7 +1,7 @@
 .dialog {
     border-radius: var(--border-radius);
     @extend .z24;
-    background: var(--white);
+    background: $white;
     @extend %body-2;
     color: #{$black}99 ;
 
@@ -19,7 +19,7 @@
         height: rem-calc(52px);
 
         > * {
-            margin-left: rem-calc(8px)    
+            margin-left: rem-calc(8px)
         }
     }
 }

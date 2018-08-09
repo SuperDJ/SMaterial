@@ -11,6 +11,7 @@
 	overflow: hidden;
 	user-select: none;
 	display: inline-block;
+    vertical-align: middle;
 	@extend %ripple;
 
 	&--contained {

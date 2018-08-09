@@ -4,7 +4,7 @@
     position: fixed;
     margin-left: -102%;
     margin-right: rem-calc(56px); // Make sure there is some room left on the right side of the screen
-    background: var(--background-color); 
+    background: var(--background-color);
     @extend .z16;
     top: 0;
     left: 0;
@@ -31,7 +31,7 @@
             grid-column-start: 1;
             margin: 0 rem-calc(24px) 0 rem-calc(8px);
         }
-    
+
         &__content {
             grid-column-start: 2;
             @include chain(height, line-height, rem-calc(48px));
@@ -40,7 +40,6 @@
             margin: 0 rem-calc(8px) 0 rem-calc(8px);
             font-weight: 500;
         }
-        
 
         &:hover {
             background: rgba($black, .04);
@@ -57,10 +56,10 @@
 
         &--active {
             background: rgba($primary-color, .12);
-            color: $primary-color;
+            color: var(--primary-color);
 
             #{$el}__item__icon, #{$el}__item__content {
-                color: $primary-color;
+                color: var(--primary-color);
             }
 
             &:hover {
@@ -72,11 +71,11 @@
             }
         }
 
-        &__children {  
+        &__children {
             #{$el}__item__content {
                 font-weight: 400;
             }
-    
+
             &--active {
                 height: var(--drawer__item__children-height);
             }
@@ -90,7 +89,6 @@
     ul {
         list-style-type: none;
         padding: rem-calc(8px) 0;
-        list-style-type: none;
         margin: 0;
         width: 100%;
 
@@ -99,4 +97,8 @@
             padding: 0;
         }
     }
+}
+
+:root {
+	--drawer__item__children-height: auto;
 }

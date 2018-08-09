@@ -13,7 +13,7 @@
     }
 
     &--determinate #{$el}__bar {
-        width: 0%;
+        width: 0;
         height: 100%;
         background: $primary-color;
         transition: width .1s $easing-accelerate;
@@ -47,8 +47,8 @@
           stroke-dashoffset: 0;
         }
         100% {
-          stroke-dashoffset: -var(--progress-circle-stroke);
-        }  
+          stroke-dashoffset: var(--progress-circle-stroke);
+        }
       }
 }
 
