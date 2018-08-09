@@ -1,0 +1,159 @@
+.button {
+	@extend %button;
+	height: var(--button-height);
+	line-height: var(--button-height);
+	min-width: var(--button-min-width);
+	max-width: 100%;
+	cursor: pointer;
+	border: none;
+	border-radius: var(--button-border-radius);
+	position: relative;
+	overflow: hidden;
+	user-select: none;
+	display: inline-block;
+	@extend %ripple;
+
+	&--contained {
+		--ripple--hover-background: var(--button--contained--hover-background);
+		--ripple--active-background: var(--button--contained--active-background);
+		--icon-color: var(--font-on-primary);
+		padding: var(--button--contained-padding);
+		background: var(--primary-color);
+		color: var(--font-on-primary);
+		@extend .z2;
+
+		&:hover { 
+			@extend .z8;
+			color: var(--font-on-primary);
+		}
+
+		&:disabled {
+			color: var(--button--contained--disabled-color);
+			background: var(--button--contained--disabled-background);
+			box-shadow: unset;
+
+			&:hover {
+				box-shadow: unset;
+			}
+		}
+
+		&--icon-left {
+			padding: var(--button--contained--icon-left-padding);
+
+			.icon {
+				margin: var(--button--contained--icon-left__icon-margin);
+			}
+		}
+
+		&--icon-right {
+			padding: var(--button--contained--icon-right-padding);
+
+			.icon {
+				margin: var(--button--contained--icon-right__icon-margin);
+			}
+		}
+	}
+
+	.icon {
+		@include chain(width, height, font-size, var(--button__icon-size));
+		vertical-align: middle;
+	}
+
+	&--outlined {
+		border: var(--button--outlined-border);
+		padding: var(--button--outlined-padding);
+		background: transparent;
+
+		&--icon-left {
+			padding: var(--button--outlined--icon-left-padding);
+
+			.icon {
+				margin: var(--button--outlined--icon-left__icon-margin);
+			}
+		}
+
+		&--icon-right {
+			padding: var(--button--outlined--icon-right-padding);
+
+			.icon {
+				margin: var(--button--outlined--icon-right__icon-margin);
+			}
+		}
+	}
+
+	&--text {
+		padding: var(--button--text-padding);
+		background: transparent;
+
+		&--icon-left {
+			padding: var(--button--text--icon-left-padding);
+
+			.icon {
+				margin: var(--button--text--icon-left__icon-margin);
+			}
+		}
+
+		&--icon-right {
+			padding: var(--button--text--icon-right-padding);
+
+			.icon {
+				margin: var(--button--text--icon-right__icon-margin);
+			}
+		}
+	}
+
+	&--text, &--outlined {
+		--ripple--hover-background: var(--button--text--outlined--hover-background);
+		--ripple--active-background: var(--button--text--outlined--active-background);
+		--icon-color: var(--button--text--outlined-color);
+		color: var(--button--text--outlined-color);
+
+		&:hover {
+			color: var(--button--text--outlined-color);
+		}
+
+		&:disabled {
+			color: rgba($black, .38);
+			background: unset;
+		}
+	}
+
+	&--fluid {
+		width: 100%;
+	}
+}
+
+:root {
+	--button-height: #{rem-calc(36px)};
+	--button-min-width: #{rem-calc(64px)};
+	--button-border-radius: var(--border-radius);
+
+	--button__icon-size: #{rem-calc(18px)};
+
+	--button--contained-padding: #{0 rem-calc(16px)};
+	--button--contained--hover-background: #{rgba($white, .08)};
+	--button--contained--active-background: #{rgba($white, .32)};
+	--button--contained--disabled-color: #{rgba($black, .38)};
+	--button--contained--disabled-background: #{rgba($black, .12)};
+	--button--contained--icon-left-padding: #{0 rem-calc(16px) 0 rem-calc(12px)};
+	--button--contained--icon-left__icon-margin: #{0 rem-calc(8px) 0 0};
+	--button--contained--icon-right-padding: #{0 rem-calc(12px) 0 rem-calc(16px)};
+	--button--contained--icon-right__icon-margin: #{0 0 0 rem-calc(8px)};
+
+	--button--outlined-border: #{rem-calc(1px) solid rgba($black, .12)};
+	--button--outlined-padding: #{0 rem-calc(16px)};
+	--button--outlined--icon-left-padding: #{0 rem-calc(16px) 0 rem-calc(12px)}; 
+	--button--outlined--icon-left__icon-margin: #{0 rem-calc(8px) 0 0};
+	--button--outlined--icon-right-padding: #{0 rem-calc(12px) 0 rem-calc(16px)};
+	--button--outlined--icon-right__icon-margin: #{0 0 0 rem-calc(8px)};
+
+	--button--text-padding: #{0 rem-calc(8px)};
+	--button--text--icon-left-padding: #{0 rem-calc(8px) 0 rem-calc(4px)}; 
+	--button--text--icon-left__icon-margin: #{0 rem-calc(4px) 0 0};
+	--button--text--icon-right-padding: #{0 rem-calc(4px) 0 rem-calc(8px)};
+	--button--text--icon-right__icon-margin: #{0 0 0 rem-calc(4px)};
+
+	--button--text--outlined--hover-background: #{rgba($primary-color, .08)}; 
+	--button--text--outlined--active-background: #{rgba($primary-color, .32)};
+	--button--text--outlined-color: var(--primary-color) ;
+}

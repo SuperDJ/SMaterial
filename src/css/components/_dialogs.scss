@@ -1,0 +1,25 @@
+.dialog {
+    border-radius: var(--border-radius);
+    @extend .z24;
+    background: var(--white);
+    @extend %body-2;
+    color: #{$black}99 ;
+
+    &__header {
+        height: rem-calc(64px);
+        @extend %h6;
+        color: #{$black}de;
+    }
+
+    &__content {
+        overflow: auto;
+    }
+
+    &__actions {
+        height: rem-calc(52px);
+
+        > * {
+            margin-left: rem-calc(8px)    
+        }
+    }
+}

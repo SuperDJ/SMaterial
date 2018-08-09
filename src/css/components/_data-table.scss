@@ -1,0 +1,38 @@
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, th a {
+        font-size: rem-calc(12px);
+        color: #{$black}99;
+        font-weight: 500;
+        text-align: left;
+        transition: color .1s $easing-standard;
+        cursor: pointer;
+        
+        &:hover {
+            color: $black;
+        }
+    }
+
+    td {
+        color: #{$black}de;
+        font-size: rem-calc(14px);
+    }
+
+    td, th {
+        @include chain(height, line-height, rem-calc(48px));
+        border-bottom: rem-calc(1px) solid rgba($black, .12);
+    }
+
+    &--hover {
+        tbody tr:hover {
+            transition: background .1s $easing-standard;
+            background: rgba($black, .12);
+        }
+    }
+
+    &--responsive {
+        overflow-x: auto;
+    }
+}

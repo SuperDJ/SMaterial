@@ -1,0 +1,22 @@
+@mixin responsive-ratio($x,$y, $pseudo: false) 
+{
+    $padding: unquote( ( $y / $x ) * 100 + '%' );
+    @if $pseudo 
+    {
+        &:before {
+            @include pseudo($pos: relative);
+            width: 100%;
+            padding-top: $padding;
+        }
+    } @else {
+        padding-top: $padding;
+    }
+}
+
+@mixin chain( $arguments... )
+{
+    @for $i from 1 through ( length( $arguments ) - 1 ) {
+        $property: nth( $arguments, $i );
+        #{$property}: nth( $arguments, length( $arguments ) );
+    }
+}

@@ -1,0 +1,154 @@
+.container {
+	margin-top: var(--app-bar-height);
+	width: 100%;
+
+	@media #{$sm-and-up} {
+		width: 80%;
+		margin: var(--app-bar-height) auto 0 auto;
+	}
+
+	&--fluid {
+		width: 100%;
+	}
+}
+
+.row {
+	display: grid;
+	grid-template-columns: repeat($xs-columns, 1fr);
+	grid-gap: var(--gutter);
+	margin: 0 var(--margin);
+
+	@media #{$sm-and-up} {
+		grid-template-columns: repeat($sm-columns, 1fr);
+	}
+
+	@media #{$md-and-up} {
+		grid-template-columns: repeat($md-columns, 1fr);
+	}
+
+	@media #{$lg-and-up} {
+		grid-template-columns: repeat($lg-columns, 1fr);
+	}
+
+	@media #{$xl-and-up} {
+		grid-template-columns: repeat($xl-columns, 1fr);
+	}
+}
+
+@for $i from 1 through $xs-columns {
+	.xs#{$i} {
+		grid-column: auto / span $i;
+	}
+
+	.offset-xs#{$i} {
+		grid-column-start: $i;
+	}
+
+	.xs__text--right {
+		text-align: right !important; 
+	}
+
+	.xs__text--left {
+		text-align: left !important;
+	}
+
+	.xs__text--center {
+		text-align: center !important; 
+	}
+}
+
+@media #{$sm-and-up} {
+	@for $i from 1 through $sm-columns {
+		.sm#{$i} {
+			grid-column: auto / span $i;
+		}
+
+		.offset-sm#{$i} {
+			grid-column-start: $i;
+		}
+
+		.sm__text--right {
+			text-align: right !important; 
+		}
+
+		.sm__text--left {
+			text-align: left !important;
+		}
+
+		.sm__text--center {
+			text-align: center !important; 
+		}
+	}
+}
+
+@media #{$md-and-up} {
+	@for $i from 1 through $md-columns {
+		.md#{$i} {
+			grid-column: auto / span $i;
+		}
+
+		.offset-md#{$i} {
+			grid-column-start: $i;
+		}
+
+		.md__text--right {
+			text-align: right !important; 
+		}
+
+		.md__text--left {
+			text-align: left !important;
+		}
+
+		.md__text--center {
+			text-align: center !important; 
+		}
+	}
+}
+
+@media #{$lg-and-up} {
+	@for $i from 1 through $lg-columns {
+		.lg#{$i} {
+			grid-column: auto / span $i;
+		}
+
+		.offset-lg#{$i} {
+			grid-column-start: $i;
+		}
+
+		.lg__text--right {
+			text-align: right !important; 
+		}
+
+		.lg__text--left {
+			text-align: left !important;
+		}
+
+		.lg__text--center {
+			text-align: center !important; 
+		}
+	}
+}
+
+@media #{$xl-and-up} {
+	@for $i from 1 through $xl-columns {
+		.xl#{$i} {
+			grid-column: auto / span $i;
+		}
+
+		.offset-xl#{$i} {
+			grid-column-start: $i;
+		}
+
+		.xl__text--right {
+			text-align: right !important; 
+		}
+
+		.xl__text--left {
+			text-align: left !important;
+		}
+
+		.xl__text--center {
+			text-align: center !important; 
+		}
+	}
+}

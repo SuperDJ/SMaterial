@@ -1,0 +1,214 @@
+@media #{$xs-only} {
+	.xs-only-show {
+		display: block;
+	}
+
+	.xs-only-hide {
+		display: none;
+	}
+}
+
+@media #{$sm-only} {
+	.sm-only-show {
+		display: block;
+	}
+
+	.sm-only-hide {
+		display: none;
+	}
+}
+
+@media #{$md-only} {
+	.md-only-show {
+		display: block;
+	}
+
+	.md-only-hide {
+		display: none;
+	}
+}
+
+@media #{$lg-only} {
+	.lg-only-show {
+		display: block;
+	}
+
+	.lg-only-hide {
+		display: none;
+	}
+}
+
+@media #{$xl-only} {
+	.xl-only-show {
+		display: block;
+	}
+	.xl-only-hide {
+		display: none;
+	}
+}
+
+@media #{$xs-up} {
+	.xs-up-show {
+		display: block;
+	}
+	.xs-up-hide {
+		display: none;
+	}
+}
+@media #{$sm-up} {
+	.sm-up-show {
+		display: block;
+	}
+
+	.sm-up-hide {
+		display: none;
+	}
+}
+
+@media #{$md-up} {
+	.md-up-show {
+		display: block;
+	}
+
+	.md-up-hide {
+		display: none;
+	}
+}
+
+@media #{$lg-up} {
+	.lg-up-show {
+		display: block;
+	}
+
+	.lg-up-hide {
+		display: none;
+	}
+}
+
+@media #{$sm-and-up} {
+	.sm-and-up-show {
+		display: block;
+	}
+
+	.sm-and-up-hide {
+		display: none;
+	}
+}
+
+@media #{$md-and-up} {
+	.md-and-up-show {
+		display: block;
+	}
+
+	.md-and-up-hide {
+		display: none;
+	}
+}
+
+@media #{$lg-and-up} {
+	.lg-and-up-show {
+		display: block;
+	}
+
+	.lg-and-up-hide {
+		display: none;
+	}
+}
+
+@media #{$lg-and-up} {
+	.lg-and-up-show {
+		display: block;
+	}
+
+	.lg-and-up-hide {
+		display: none;
+	}
+}
+
+@media #{$xl-and-up} {
+	.xl-and-up-show {
+		display: block;
+	}
+
+	.xl-and-up-hide {
+		display: none;
+	}
+}
+
+@media #{$sm-down} {
+	.sm-down-show {
+		display: block;
+	}
+	.sm-down-hide {
+		display: none;
+	}
+}
+
+@media #{$md-down} {
+	.md-down-show {
+		display: block;
+	}
+
+	.md-down-hide {
+		display: none;
+	}
+}
+
+@media #{$lg-down} {
+	.lg-down-show {
+		display: block;
+	}
+
+	.lg-down-hide {
+		display: none;
+	}
+}
+
+@media #{$xl-down} {
+	.xl-down-show {
+		display: block;
+	}
+	.xl-down-hide {
+		display: none;
+	}
+}
+
+@media #{$xs-and-down} {
+	.xs-and-down-show {
+		display: block;
+	}
+
+	.xs-and-down-hide {
+		display: none;
+	}
+}
+
+@media #{$sm-and-down} {
+	.sm-and-down-show {
+		display: block;
+	}
+
+	.sm-and-down-hide {
+		display: none;
+	}
+}
+
+@media #{$md-and-down} {
+	.md-and-down-show {
+		display: block;
+	}
+
+	.md-and-down-hide {
+		display: none;
+	}
+}
+
+@media #{$lg-and-down} {
+	.lg-and-down-show {
+		display: block;
+	}
+
+	.lg-and-down-hide {
+		display: none;
+	}
+}

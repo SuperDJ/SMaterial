@@ -1,0 +1,205 @@
+.text-field {
+    $el: &;
+    min-height: var(--text-field-height);
+    width: 100%;
+    position: relative;
+    
+    &--filled {
+        #{$el}__input {
+            padding: var(--text-field--filled__input-padding);
+            background: var(--text-field--filled__input-background);
+            @include chain(border-top-left-radius, border-top-right-radius, var(--border-radius));
+            transition: border-bottom .1s $easing-standard, background .1s $easing-standard;
+
+            &:hover {
+                border-bottom: var(--text-field--filled__input--hover-border-bottom);
+            }
+
+            &:focus {
+                border-bottom: var(--text-field--filled__input--focus-border-bottom);
+
+                + #{$el}__label {
+                    top: var(--text-field--filled__input--focus__label-top);
+                }
+            }
+
+            &:active {
+                background: var(--text-field--filled__input--active-background);
+            }
+
+            &:invalid {
+                border-bottom: var(--text-field--filled__input--invalid-border-bottom);
+            }
+
+            &:disabled {
+                border-bottom: unset;
+                background: var(--text-field--filled__input--disabled-background);
+
+                + #{$el}__label {
+                    color: var(--text-field--filled__input--disabled__label-color); 
+                }
+            }
+        }
+
+        input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"] input[type="week"] {
+            + #{$el}__label {
+                top: var(--text-field--filled__input--focus__label-top);
+                font-size: var(--text-field__input--focus__label-font-size);
+            }
+        }
+
+        #{$el}__label {
+            left: var(--text-field--filled__input-padding-sides);
+        }
+    }
+
+    &--outlined {
+        #{$el}__input {
+            background: transparent;
+            border: var(--text-field--outlined__input-border);
+            border-radius: var(--border-radius);
+            padding: var(--text-field--outlined__input-padding);
+            transition: border .1s $easing-standard;
+
+            &:focus {
+                border: var(--text-field--outlined__input--focus-border);
+
+                + #{$el}__label {
+                    top: var(--text-field--outlined__input--focus__label-top);
+                }
+            }
+
+            &:active {
+                border: var(--text-field--outlined__input--active-border);
+            }
+
+            &:disabled {
+                border: var(--text-field--filled__input--disabled-background);
+
+                + #{$el}__label {
+                    color: var(--text-field--outlined__input--disabled__label-color);
+                }
+            }
+
+            &:invalid {
+                border: var(--text-field--outlined__input--invalid-border);    
+            }
+        }
+
+        input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"] input[type="week"] {
+            + #{$el}__label {
+                top: var(--text-field--outlined__input--focus__label-top);
+                font-size: var(--text-field__input--focus__label-font-size)
+            }
+        }
+
+        #{$el}__label {
+            background: var(--background-color);
+            padding: 0 rem-calc(4px);
+            left: rem-calc(8px);
+        }
+    }
+
+    &--active {
+        &#{$el}--filled #{$el}__input {
+            border-bottom: var(--text-field--filled__input--focus-border-bottom);
+    
+            + #{$el}__label {
+                top: var(--text-field--filled__input--focus__label-top);
+            }
+        }
+
+        &#{$el}--outlined #{$el}__input {
+            border: var(--text-field--outlined__input--focus-border);
+
+            + #{$el}__label {
+                top: var(--text-field--outlined__input--focus__label-top);
+            }
+        }
+
+        &#{$el}--filled #{$el}__input + #{$el}__label, &#{$el}--outlined #{$el}__input + #{$el}__label {
+            color: $primary-color;
+            font-size: var(--text-field__input--focus__label-font-size);
+        } 
+    }
+
+    &__label {
+        cursor: pointer;
+        pointer-events: none;
+        color: var(--text-field__label-color);
+        @extend %body-1;
+        position: absolute;
+        transition: top .1s $easing-standard, color .1s $easing-standard;
+        top: calc( ( var(--text-field-height) / 2 ) - ( var(--text-field__label-font-size) / 2 ) );
+    }
+
+    &__input {
+        color: var(--text-field__input-color);
+        @extend %body-1;
+        width: 100%;
+        position: absolute;
+        @include chain(left, top, 0);
+        min-height: var(--text-field-height);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            caret-color: var(--text-field__input--focus-caret-color);
+            
+            + #{$el}__label {
+                color: var(--text-field__input--focus__label-color);
+                font-size: var(--text-field__input--focus__label-font-size);
+            }
+        }
+
+        &:invalid {
+            + #{$el}__label {
+                color: var(--text-field--invalid-color);
+            }
+        }
+    }
+    
+    textarea {
+        resize: none;
+    }
+}
+
+:root {
+    --text-field--active-color: #{$primary-color};
+    --text-field--invalid-color: var(--error-color);
+    --text-field-height: #{rem-calc(56px)};
+    --text-field__label-font-size: #{rem-calc( map-get( map-get( $type-scale, body-1 ), size ) )};
+
+    --text-field--filled__input-padding-top: #{rem-calc(20px)};
+    --text-field--filled__input-padding-sides: #{rem-calc(12px)};
+    --text-field--filled__input-padding: #{var(--text-field--filled__input-padding-top) var(--text-field--filled__input-padding-sides) 0 var(--text-field--filled__input-padding-sides)};
+    --text-field--filled__input-background: #{rgba($black, .1)}; 
+    --text-field--filled__input--hover-border-bottom: #{rem-calc(1px) solid rgba($black, .12)};
+    --text-field--filled__input--focus-border-bottom: #{rem-calc(2px) solid var(--text-field--active-color)};
+    --text-field--filled__input--focus__label-top: #{calc(#{rem-calc(20px)} - var(--text-field__input--focus__label-font-size))}; // 20px for baseline, 12px for font-size
+    --text-field--filled__input--active-background: #{rgba($black, .16)};
+    --text-field--filled__input--invalid-border-bottom: #{rem-calc(2px) solid var(--text-field--invalid-color)};
+    --text-field--filled__input--disabled-background: #{rgba($black, .04)};
+    --text-field--filled__input--disabled__label-color: #{rgba($black, .38)};
+    --text-field--filled__label-left: #{var(--text-field--filled__input-padding-sides)};
+
+    --text-field--outlined__input-padding-top: #{rem-calc(16px)};
+    --text-field--outlined__input-padding-sides: #{rem-calc(12px)};
+    --text-field--outlined__input-border: #{rem-calc(1px) solid rgba($black, .12)};
+    --text-field--outlined__input-padding: #{var(--text-field--outlined__input-padding-top) var(--text-field--outlined__input-padding-sides)};
+    --text-field--outlined__input--focus-border: #{rem-calc(2px) solid var(--text-field--active-color)};
+    --text-field--outlined__input--focus__label-top: #{calc( -1 * ( var(--text-field__label-font-size) / 2 ) )};
+    --text-field--outlined__input--active-border: #{rem-calc(2px) solid $black};
+    --text-field--outlined__input--disabled-border: #{rem-calc(1px) solid rgba($black, .38)};
+    --text-field--outlined__input--disabled__label-color: #{rgba($black, .38)};
+    --text-field--outlined__input--invalid-border: #{rem-calc(2px) solid var(--text-field--invalid-color)};
+
+    --text-field__label-color: #{$black}99;
+
+    --text-field__input-color: #{$black}de;
+    --text-field__input--focus-caret-color: var(--text-field--active-color);
+    --text-field__input--focus__label-color: var(--text-field--active-color);
+    --text-field__input--focus__label-font-size: #{rem-calc(12px)};
+}

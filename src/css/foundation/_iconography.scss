@@ -1,0 +1,17 @@
+.icon {
+    color: var(--icon-color);
+
+    &:active {
+        color: var(--icon--active-color);
+    }
+
+    &:focus:active {
+        color: var(--icon--active--focus-color);
+    }
+}
+
+:root {
+    --icon-color: #{rgba($black, .38)};
+    --icon--active-color: #{rgba($black, .54)};
+    --icon--active--focus-color: #{rgba($black, .87)};
+}

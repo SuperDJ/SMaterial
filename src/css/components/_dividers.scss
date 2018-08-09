@@ -1,0 +1,11 @@
+.divider, hr, hr.divider {
+    width: 100%;
+    height: var(--divider-height);
+    background: var(--divider-background);    
+    border: none 0;
+}
+
+:root {
+    --divider-height: #{rem-calc(1px)};
+    --divider-background: #{rgba($black, .12)};
+}

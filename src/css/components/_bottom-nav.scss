@@ -1,0 +1,90 @@
+.bottom-nav {
+    $el: &;
+    width: 100%;
+    background: $primary-color;
+    height: var(--bottom-nav-height);
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    @extend .z8;
+
+    ul {
+        @include chain(margin, padding, 0);
+        list-style-type: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    &__item {
+        min-width: var(--bottom-nav__item-min-width);
+        max-width: var(--bottom-nav__item-max-width);
+        height: var(--bottom-nav-height);
+        padding: var(--bottom-nav__item-padding);
+        display: grid;
+        grid-template-rows: var(--bottom-nav__icon-size) auto;
+        text-align: center;
+
+        &__icon {
+            grid-row-start: 1;
+
+            .icon {
+                @include chain(width, height, font-size, var(--bottom-nav__icon-size));
+            }
+        }
+
+        &__text {
+            grid-row-start: 2;
+            font-size: var(--bottom-nav__item__text-font-size);
+        }
+
+        &__icon, &__text {
+            color: rgba($white, .54);
+            transition: color .1s $easing-standard;
+        }
+
+        &:hover, &#{$el}__item--active {
+            #{$el}__item__icon, #{$el}__item__text {
+                color: $white;
+            }
+        }
+    }
+
+    &--icon-only {
+        #{$el}__item {
+            padding: var(--bottom-nav--icon-only__item-padding);
+        }
+
+        #{$el}__item__text {
+            display: none;
+        }
+
+        #{$el}__item--active {
+            padding: var(--bottom-nav--icon-only__item--active-padding);
+
+            #{$el}__item__text {
+                display: block;
+            }
+        }
+    }
+}
+
+:root {
+    --bottom-nav-height: #{rem-calc(56px)};
+
+    --bottom-nav__icon-size: #{rem-calc(24px)};
+
+    --bottom-nav__item-min-width: #{rem-calc(80px)};
+    --bottom-nav__item-max-width: #{rem-calc(168px)};
+    --bottom-nav__item-padding: #{rem-calc(8px)} #{rem-calc(12px)} #{rem-calc(12px)} #{rem-calc(12px)};
+    --bottom-nav__item__text-font-size: #{rem-calc(12px)};
+
+    --bottom-nav--icon-only__item-padding: #{rem-calc(16px)} #{rem-calc(12px)};
+    --bottom-nav--icon-only__item--active-padding: #{rem-calc(8px)} #{rem-calc(12px)} #{rem-calc(12px)} #{rem-calc(12px)};
+}

@@ -1,0 +1,55 @@
+html, body {
+    font-size: $font-size + 0px;
+    padding: 0;
+    margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+	outline: none;
+    border: none;
+    
+    &:disabled {
+        cursor: not-allowed !important;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color .1s $easing-standard;
+
+    &:hover {
+        color: var(--secondary-color);
+    }
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/**************************************
+ * Scrollbar 
+ **************************************/
+::-webkit-scrollbar, ::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-button, ::-webkit-scrollbar-corner, ::-webkit-resizer {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: rem-calc(3px);
+    height: rem-calc(3px);
+
+    @media #{$sm-up} {
+        width: rem-calc(10px);
+        height: rem-calc(10px);
+    }
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba($black, .2);
+}
