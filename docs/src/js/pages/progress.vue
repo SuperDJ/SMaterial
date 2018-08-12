@@ -24,6 +24,20 @@
                 <div class="progress progress--determinate">
                     <div class="progress__bar" style="width:40%"></div>
                 </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="progress progress--determinate">
+    &lt;div class="progress__bar" style="width:40%">&lt;/div>
+&lt;/div>
+
+&lt;progress min="0" max="100" value="40" class="progress progress--determinate">
+    &lt;div class="progress progress--determinate">
+        &lt;div class="progress__bar" style="width:40%">&lt;/div>
+    &lt;/div>
+&lt;/progress>
+    </code>
+</pre>
             </section>
         </article>
 
@@ -42,7 +56,65 @@
                 <div class="progress progress--indeterminate">
                     <div class="progress__bar"></div>
                 </div>
+
+<pre class="language-html"> 
+    <code>
+&lt;div class="progress progress--indeterminate">
+    &lt;div class="progress__bar" style="width:40%">&lt;/div>
+&lt;/div>
+
+&lt;progress min="0" max="100" value="40" class="progress progress--indeterminate">
+    &lt;div class="progress progress--indeterminate">
+        &lt;div class="progress__bar" style="width:40%">&lt;/div>
+    &lt;/div>
+&lt;/progress>
+    </code>
+</pre>
             </section>
+        </article>
+
+        <article class="row">
+            <h2 class="xs12">Support</h2>
+
+            <div class="xs12">
+                <table class="data-table data-table--hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Chrome</th>
+                            <th>Firefox</th>
+                            <th>Edge</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>.progress.progress--determinate</td>
+                            <td><m-icon class="text--green">check</m-icon></td>
+                            <td><m-icon class="text--green">check</m-icon></td>
+                            <td><m-icon class="text--green">check</m-icon></td>
+                        </tr>
+                        <tr>
+                            <td>progress.progress.progress--determinate</td>
+                            <td><m-icon class="text--green">check</m-icon></td>
+                            <td><m-icon class="text--red">clear</m-icon></td>
+                            <td><m-icon class="text--red">clear</m-icon></td>
+                        </tr>
+                        <tr>
+                            <td>.progress.progress--indeterminate</td>
+                            <td><m-icon class="text--green">check</m-icon></td>
+                            <td><m-icon class="text--green">check</m-icon></td>
+                            <td><m-icon class="text--green">check</m-icon></td> 
+                        </tr>
+                        <tr>
+                            <td>progress.progress.progress--indeterminate</td>
+                            <td><m-icon class="text--red">clear</m-icon></td>
+                            <td><m-icon class="text--red">clear</m-icon></td>
+                            <td><m-icon class="text--red">clear</m-icon></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </article>
     </div>    
 </template>

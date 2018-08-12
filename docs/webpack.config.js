@@ -8,6 +8,7 @@ module.exports = env => {
 	return {
 		entry: {
 			'app': './src/js/app.js',
+			'prism': './src/js/prism.js'
 		},
 		output: {
 			path: __dirname,

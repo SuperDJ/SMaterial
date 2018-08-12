@@ -20,3 +20,13 @@
         #{$property}: nth( $arguments, length( $arguments ) );
     }
 }
+
+@mixin progress-bar-value {
+    &::-webkit-progress-value {
+        @content;
+    }    
+
+    &::-moz-progress-bar {
+        @content;
+    }
+}

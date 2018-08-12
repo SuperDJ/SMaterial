@@ -3,14 +3,22 @@
     $el: &;
     width: 100%;
     height: rem-calc(4px);
-    background: rgba($primary-color, .6);
+    background: var(--progress-background);
     appearance: none;
+
+    &::-webkit-progress-bar {
+        background: var(--progress-background);
+    }
+
+    @include progress-bar-value {
+        background: var(--progress-bar-background);
+    }
 
     &--determinate, &--indeterminate {
 
         #{$el}__bar {
             height: 100%;
-            background: $primary-color;
+            background: var(--progress-bar-background);
         }
     }
 
@@ -19,7 +27,7 @@
         transition: width .1s $easing-accelerate;
     }
 
-    :indeterminate, &--indeterminate {
+    &:indeterminate, &--indeterminate {
         position: relative;
         overflow: hidden;
 
@@ -52,6 +60,15 @@
       }
 }
 
+// Fix styling for the progress HTML element
+progress.progress {
+    background: none;
+}
+
 :root {
+    --progress-background: #{rgba($primary-color, .6)};
+
+    --progress-bar-background: #{var(--primary-color)};
+
     --progress-circle-stroke: 130;
 }

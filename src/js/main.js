@@ -228,11 +228,10 @@ if( progressBars )
 
 		console.log(progressBar.tagName);
 	
+		// If element has a progressbar child
 		if( progress )
 		{
-			let progressWidth = progress.getBoundingClientRect().width;
-			progressBar.setAttribute( 'aria-valuenow', (progressWidth / progressBarWidth * 100) );
-			console.log(progressWidth / progressBarWidth * 100);
+			progressBar.setAttribute( 'aria-valuenow', progress.style.width.replace('%', '') );
 		}
 
 		progressBar.setAttribute( 'role', 'progressbar' );
@@ -286,25 +285,27 @@ if( checkboxes )
 * TODO add aria
 **************************************/
 
-const tabs = document.getElementsByClassName( 'tabs__tab' );
+const tabBars = document.getElementsByClassName( 'tabs' );
 
-if( tabs )
+if( tabBars )
 {
-	for( let i = 0; i < tabs.length; i++ )
+	for( let i = 0; i < tabBars.length; i++ )
 	{
-		let tab = tabs[i];
-		let width = tab.getBoundingClientRect().width;
+		let tabBar = tabBars[i];
 
-		tab.style.setProperty( '--tabs__tab-width', `${width}px` );
+		tabBar.setAttribute( 'role', 'tablist' );
 
-		tab.addEventListener( 'click', e => {
-			let rect = e.target.getBoundingClientRect(),
-			left = Math.ceil( e.clientX - rect.left ),
-			top = Math.ceil( e.clientY - rect.top );
+		let tabs = tabBar.getElementsByClassName( 'tabs__tab' );
 
-			tab.style.setProperty( '--tabs__tab__ripple-left', `${left}px` );
-			tab.style.setProperty( '--tabs__tab__ripple-top', `${top}px` );
-		});
+		if( tabs )
+		{
+			for( let j = 0; j < tabs.length; j++ )
+			{
+				let tab = tabs[j];
+
+				tab.setAttribute( 'role', 'tab' );
+			}
+		}
 	}
 }
 
@@ -444,9 +445,9 @@ if( triggers )
  * Typography
  **************************************/
 
- const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
- headings.forEach( heading => {
+headings.forEach( heading => {
 	let headers = document.getElementsByClassName( heading );
 
 	if( headers )
@@ -457,4 +458,13 @@ if( triggers )
 			header.setAttribute( 'role', 'heading' );
 		}
 	}
- });
+});
+
+ /*************************************
+  * Functions
+  *************************************/
+
+function tag( element )
+{
+	return element.tagName;
+}

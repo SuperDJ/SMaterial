@@ -49,7 +49,7 @@
 		"webpack-merge": "^4.1.4"
 	},
 	"browserslist": [
-		"> 5%"
+		"> 2.9%"
 	],
 	"dependencies": {}
 }

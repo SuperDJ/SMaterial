@@ -27,3 +27,64 @@
 		@warn 'Wrong argument parsed to rem-calc';
 	}
 }
+
+@function explode($string, $delimiter) {
+	$result: ();
+	@if $delimiter == "" {
+		@for $i from 1 through str-length($string) {
+			$result: append($result, str-slice($string, $i, $i));
+		}
+		@return $result;
+	}
+	$exploding: true;
+	@while $exploding {
+		$d-index: str-index($string, $delimiter);
+		@if $d-index {
+			@if $d-index > 1 {
+				$result: append($result, str-slice($string, 1, $d-index - 1));
+				$string: str-slice($string, $d-index + str-length($delimiter));
+			} @else if $d-index == 1 {
+				$string: str-slice($string, 1, $d-index + str-length($delimiter));
+			} @else {
+				$result: append($result, $string);
+				$exploding: false;
+			}
+		} @else {
+			$result: append($result, $string);
+			$exploding: false;
+		}
+	}
+	@return $result;
+}
+
+@function number($value) {
+	@if type-of($value) == 'number' {
+	  @return $value;
+	} @else if type-of($value) != 'string' {
+	  $_: log('Value for `to-number` should be a number or a string.');
+	}
+	
+	$result: 0;
+	$digits: 0;
+	$minus: str-slice($value, 1, 1) == '-';
+	$numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
+	
+	@for $i from if($minus, 2, 1) through str-length($value) {
+	  $character: str-slice($value, $i, $i);
+	  
+	  @if not (index(map-keys($numbers), $character) or $character == '.') {
+		@return to-length(if($minus, -$result, $result), str-slice($value, $i))
+	  }
+	  
+	  @if $character == '.' {
+		$digits: 1; 
+	  } @else if $digits == 0 {
+		$result: $result * 10 + map-get($numbers, $character);  
+	  } @else {
+		$digits: $digits * 10;
+		$result: $result + map-get($numbers, $character) / $digits;
+	  }
+	}
+	
+	@return if($minus, -$result, $result);;
+  }
