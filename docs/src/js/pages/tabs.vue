@@ -3,18 +3,18 @@
         <article class="row">
             <section class="xs12 sm6">
                 <p>
-                    There are a few variatens of tabs. You have fixed and scrollable tabs. 
+                    There are a few variatens of tabs. You have fixed and scrollable tabs.
                     But there are also text only tabs or text and icon tabs.
                 </p>
             </section>
         </article>
 
         <article class="row">
-            <h2 class="xs12" id="tabs">Tabs text only</h2>
+            <h2 class="xs12" id="fixed">Tabs text only</h2>
 
             <section class="xs12 sm6">
                 <p>
-                    For the filled text field all you need to do is use the 
+                    For the filled text field all you need to do is use the
                     classes <code>.text-field</code> and <code>.text-field--filled</code>.
                 </p>
             </section>
@@ -32,7 +32,7 @@
                             <a href="#/tabs" class="tabs__tab">
                                 <span class="tabs__content">Example</span>
                             </a>
-                        </div>    
+                        </div>
                     </div>
 
                     <div class="xs12">
@@ -66,15 +66,15 @@
                         </div>
                     </div>
                 </div>
-            </section> 
+            </section>
         </article>
 
         <article class="row">
-            <h2 class="xs12" id="tabs">Tabs text only</h2>
+            <h2 class="xs12" id="scrollable">Tabs text only</h2>
 
             <section class="xs12 sm6">
                 <p>
-                    For the filled text field all you need to do is use the 
+                    For the filled text field all you need to do is use the
                     classes <code>.text-field</code> and <code>.text-field--filled</code>.
                 </p>
             </section>
@@ -86,10 +86,25 @@
                             <a href="#/tabs" class="tabs__tab tabs__tab--active">
                                 <span class="tabs__content">Example</span>
                             </a>
-                            <a href="#/tabs" class="tabs__tab" v-for="i in 10" :key="i">
+                            <a href="#/tabs" class="tabs__tab">
                                 <span class="tabs__content">Example</span>
                             </a>
-                        </div>    
+                            <a href="#/tabs" class="tabs__tab">
+                                <span class="tabs__content">Example</span>
+                            </a>
+                            <a href="#/tabs" class="tabs__tab">
+                                <span class="tabs__content">Example</span>
+                            </a>
+                            <a href="#/tabs" class="tabs__tab">
+                                <span class="tabs__content">Example</span>
+                            </a>
+                            <a href="#/tabs" class="tabs__tab">
+                                <span class="tabs__content">Example</span>
+                            </a>
+                            <a href="#/tabs" class="tabs__tab">
+                                <span class="tabs__content">Example</span>
+                            </a>
+                        </div>
                     </div>
 
                     <div class="xs12">
@@ -116,7 +131,7 @@
                         </div>
                     </div>
                 </div>
-            </section> 
+            </section>
         </article>
-    </div>    
+    </div>
 </template>

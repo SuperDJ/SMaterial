@@ -58,11 +58,15 @@ body, .body-1 {
 	@extend %overline;
 }
 
+p {
+	@extend %body-1;
+	margin: 0 0 calc( #{map-get( map-get($type-scale, body-1), size ) + 0px } * .75 ) 0;
+}
+
 :root {
 	--font-family: #{$font-family};
 
 	@each $scale, $setting in $type-scale {
 		--#{$scale}-font-family: #{if( map-get( $setting, typeface ) == $font-family, var(--font-family), map-get($setting, typeface) )};
 	}
-
 }

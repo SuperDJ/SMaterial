@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Index | Material Design</title>
+        <title>Chips | Material Design</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
             <i class="material-icons icon" data-trigger="drawer">menu</i>
 
             <div class="app-bar__title">
-                Index
+                Chips
             </div>
 
             <div class="app-bar__actions">
@@ -27,15 +27,110 @@
         </header>
 
         <main class="container">
-            <section class="row">
-                <div class="xs6">
-                    Dit is een test
-                </div>
+            <article class="row">
+                <h1 class="xs12">Chips</h1>
 
-                <div class="xs6">
-                    Dit is een test <a href="./components/banners.html">Banners</a>
-                </div>
-            </section>
+                <section class="xs12">
+                    <p>
+                        There are a couple types of chips that you can use.
+                        For now you can use the <a href="#chip">default</a> and <a href="#outlined">outlined</a>.
+                    </p>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="chip">Default</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the default chip all you need to use is the class <code>.chip</code>.
+                    </p>
+
+                    <p>
+                        For the remove icon you need to add a icon according to the <a href="/iconography.html">iconography</a>.
+                        You also need to give the chip the class <code>.chip--remove</code> and the icon <code>.chip__remove</code>.
+                    </p>
+
+                    <p>
+                        If you would also like to add a thumbnail/ image than you need to aad the class <code>.chip--thumbnail</code> to the chip.
+                        You also need to give the image the class <code>.chip__thumbnail</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="chip">Chip</div>
+
+                    <div class="chip chip--remove">
+                        Chip
+                        <i class="material-icons icon chip__remove">cancel</i>
+                    </div>
+
+                    <div class="chip chip--remove chip--thumbnail">
+                        <img src="//via.placeholder.com/24x24" class="chip__thumbnail" alt="Chip thumbnail">
+                        Chip
+                        <i class="material-icons icon chip__remove">cancel</i>
+                    </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="chip">Chip&lt;/div>
+
+&lt;div class="chip chip--remove">
+    Chip
+    &lt;i class="material-icons icon chip__remove">cancel&lt;/i>
+&lt;/div>
+
+&lt;div class="chip chip--remove chip--thumbnail">
+    &lt;img src="//via.placeholder.com/24x24" class="chip__thumbnail" alt="Chip thumbnail">
+    Chip
+    &lt;i class="material-icons icon chip__remove">cancel&lt;/i>
+&lt;/div>
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="outlined">Outlined</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        The outlined chip has the same functionality/ classes as the default chip. However you do need to add the class <code>.chip--outlined</code> as well.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="chip chip--outlined">Chip</div>
+
+                    <div class="chip chip--outlined chip--remove">
+                        Chip
+                        <i class="material-icons icon chip__remove">cancel</i>
+                    </div>
+
+                    <div class="chip chip--outlined chip--remove chip--thumbnail">
+                        <img src="//via.placeholder.com/24x24" class="chip__thumbnail" alt="Chip thumbnail">
+                        Chip
+                        <i class="material-icons icon chip__remove">cancel</i>
+                    </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="chip chip--outlined">Chip&lt;/div>
+
+&lt;div class="chip chip--outlined chip--remove">
+    Chip
+    &lt;i class="material-icons icon chip__remove">cancel&lt;/i>
+&lt;/div>
+
+&lt;div class="chip chip--outlined chip--remove chip--thumbnail">
+    &lt;img src="//via.placeholder.com/24x24" class="chip__thumbnail" alt="Chip thumbnail">
+    Chip
+    &lt;i class="material-icons icon chip__remove">cancel&lt;/i>
+&lt;/div>
+    </code>
+</pre>
+                </section>
+            </article>
         </main>
 
         <nav class="drawer" id="drawer">

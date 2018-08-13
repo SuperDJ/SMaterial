@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Index | Material Design</title>
+        <title>Snackbars | Material Design</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
             <i class="material-icons icon" data-trigger="drawer">menu</i>
 
             <div class="app-bar__title">
-                Index
+                Snackbars
             </div>
 
             <div class="app-bar__actions">
@@ -27,15 +27,142 @@
         </header>
 
         <main class="container">
-            <section class="row">
-                <div class="xs6">
-                    Dit is een test
-                </div>
+            <article class="row">
+                <h1 class="xs12">Snackbars</h1>
 
-                <div class="xs6">
-                    Dit is een test <a href="./components/banners.html">Banners</a>
-                </div>
-            </section>
+                <section class="xs12 sm6">
+                    <p>
+                        The snackbar comes in two varieties
+                        <a href="#single-line">single line</a> and <a href="#two-line">two line</a>.
+                    </p>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="single-line">Snackbar single line</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the snackbar all you need to do is use a container class
+                        <code>.snackbard</code> to contain a class <code>.snackbar__content</code>
+                        and or <code>.snackbar__action</code>.
+                    </p>
+
+                    <p>
+                        To apply styling for the single line snackbar, you also need to add the class
+                        <code>.snackbar--single-line</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="snackbar snackbar--single-line">
+                        <div class="snackbar__content">
+                            Single line message.
+                        </div>
+                    </div>
+
+                    <div class="snackbar snackbar--single-line">
+                        <div class="snackbar__content">
+                            Single line message with action.
+                        </div>
+                        <div class="snackbar__actions">
+                            <button class="button button--text">
+                                Actions
+                            </button>
+                        </div>
+                    </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="snackbar snackbar--single-line">
+    &lt;div class="snackbar__content">
+        Single line message.
+    &lt;/div>
+&lt;/div>
+
+&lt;div class="snackbar snackbar--single-line">
+    &lt;div class="snackbar__content">
+        Single line message with action.
+    &lt;/div>
+    &lt;div class="snackbar__actions">
+        &lt;button class="button button--text">
+            Actions
+        &lt;/button>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="two-line">Snackbar two line</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the snackbar all you need to do is use a container class
+                        <code>.snackbard</code> to contain a class <code>.snackbar__content</code>
+                        and or <code>.snackbar__action</code>.
+                    </p>
+
+                    <p>
+                        To apply styling for the two line snackbar, you also need to add the class
+                        <code>.snackbar--two-line</code>.
+                        If you happen to have a long action you may wish to also apply the class
+                        <code>.snackbar--two-line--long-action</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="snackbar snackbar--two-line">
+                        <div class="snackbar__content">
+                            Two line message <br> with action.
+                        </div>
+                        <div class="snackbar__actions">
+                            <button class="button button--text">
+                                Actions
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="snackbar snackbar--two-line snackbar--two-line--long-action">
+                        <div class="snackbar__content">
+                            Two line message<br> with action.
+                        </div>
+                        <div class="snackbar__actions">
+                            <button class="button button--text">
+                                A very long action
+                            </button>
+                        </div>
+                    </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="snackbar snackbar--two-line">
+    &lt;div class="snackbar__content">
+        Two line message &lt;br> with action.
+    &lt;/div>
+    &lt;div class="snackbar__actions">
+        &lt;button class="button button--text">
+            Actions
+        &lt;/button>
+    &lt;/div>
+&lt;/div>
+
+&lt;div class="snackbar snackbar--two-line snackbar--two-line--long-action">
+    &lt;div class="snackbar__content">
+        Two line message&lt;br> with action.
+    &lt;/div>
+    &lt;div class="snackbar__actions">
+        &lt;button class="button button--text">
+            A very long action
+        &lt;/button>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
+                </section>
+            </article>
         </main>
 
         <nav class="drawer" id="drawer">

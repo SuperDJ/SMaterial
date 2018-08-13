@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Index | Material Design</title>
+        <title>Data table | Material Design</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
             <i class="material-icons icon" data-trigger="drawer">menu</i>
 
             <div class="app-bar__title">
-                Index
+                Data table
             </div>
 
             <div class="app-bar__actions">
@@ -27,15 +27,78 @@
         </header>
 
         <main class="container">
-            <section class="row">
-                <div class="xs6">
-                    Dit is een test
-                </div>
+            <article class="row">
+                <h2 class="xs12">Data table</h2>
 
-                <div class="xs6">
-                    Dit is een test <a href="./components/banners.html">Banners</a>
-                </div>
-            </section>
+                <section class="xs12 sm6">
+                    <p>
+                        You can simply add the class <code>.data-table</code> to a table and the styling will be applied.
+                        If you would like each row to have a hover you can add the class <code>.data-table--hover</code> to the table as well.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <table class="data-table data-table--hover">
+                        <thead>
+                        <tr>
+                            <th>Header</th>
+                            <th>Text column</th>
+                            <th class="xs__text--right">Number column</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>Row item 1</td>
+                            <td>Row data 1</td>
+                            <td class="xs__text--right">1.1</td>
+                        </tr>
+                        <tr>
+                            <td>Row item 2</td>
+                            <td>Row data 2</td>
+                            <td class="xs__text--right">2.2</td>
+                        </tr>
+                        <tr>
+                            <td>Row item 3</td>
+                            <td>Row data 3</td>
+                            <td class="xs__text--right">3.3</td>
+                        </tr>
+                        <tr>
+                            <td>Row item 4</td>
+                            <td>Row data 4</td>
+                            <td class="xs__text--right">4.4</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+<pre class="language-html">
+    <code>
+&lt;table class="data-table data-table--hover">
+    &lt;thead>
+    &lt;tr>
+        &lt;th>Header&lt;/th>
+        &lt;th>Text column&lt;/th>
+        &lt;th class="xs__text--right">Number column&lt;/th>
+    &lt;/tr>
+    &lt;/thead>
+
+    &lt;tbody>
+    &lt;tr>
+        &lt;td>Row item 1&lt;/td>
+        &lt;td>Row data 1&lt;/td>
+        &lt;td class="xs__text--right">1.1&lt;/td>
+    &lt;/tr>
+    &lt;tr>
+        &lt;td>Row item 2&lt;/td>
+        &lt;td>Row data 2&lt;/td>
+        &lt;td class="xs__text--right">2.2&lt;/td>
+    &lt;/tr>
+    &lt;/tbody>
+&lt;/table>
+    </code>
+</pre>
+                </section>
+            </article>
         </main>
 
         <nav class="drawer" id="drawer">

@@ -14,7 +14,6 @@ module.exports = env => {
 		output: {
 			path: __dirname,
 			filename: './dist/js/[name].js',
-			filename: './docs/dist/js/[name].js'
 		},
 		module: {
 			rules: [
@@ -117,10 +116,7 @@ module.exports = env => {
 			new MiniCSSExtractPlugin({
 				filename: 'dist/css/[name].css',
 			}),
-			new MiniCSSExtractPlugin({
-				filename: 'docs/dist/css/[name].css'
-			}),
-			new CleanWebpackPlugin(['./dist/js', './dist/css']),
+			new CleanWebpackPlugin(['./dist/']),
 		]
 	}
 };

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>List | Material Design</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/dist/css/material-css.css">
+        <link rel="stylesheet" href="./src/css/prism.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    </head>
+
+    <body>
+        <header class="app-bar app-bar--fixed">
+            <i class="material-icons icon" data-trigger="drawer">menu</i>
+
+            <div class="app-bar__title">
+                List
+            </div>
+
+            <div class="app-bar__actions">
+                <i class="material-icons icon">person</i>
+            </div>
+        </header>
+
+        <main class="container">
+            <article class="row">
+                <h1 class="xs12">List</h1>
+
+                <section class="xs12 sm6">
+                    <p>
+                        The list elements can consists of a few elements. However the text area makes the biggest difference.
+                    </p>
+
+                    <p>
+                        The list elements has three different styles that you can use. The styles that you can use are:
+                        <a href="#single-line">single line</a>, <a href="#two-line">two line</a> and <a href="#three-line">three line</a>.
+                        The way the component is made means that you can use the three styles by each other.
+                    </p>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="structure">Structure</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        The list item can consists out of the following elements: support, content and control.
+                        The list also has a few modifiers which are described below.
+                    </p>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="single-line">Single line</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the the list you need an element with the class <code>.list</code>.
+                        Now you can specify the type of line for each child element.
+                        For the single line this would mean class <code>.list--single-line</code>
+                    </p>
+
+                    <p>
+                        The content of a list item needs the class <code>.list__content</code>.
+                    </p>
+
+                    <p>
+                        If you would like to add a support icon or image you also need to give the list item the class <code>.list--support</code>.
+                        For the larger support image you need to use class <code>.list--support--large</code> instead.
+                        The image/ icon it self need to get the class <code>list__support__icon</code>
+                    </p>
+
+                    <p>
+                        For a control element like the "more vertical" in the examples you need to use the class <code>.list__control</code> on the control element.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <ul class="list">
+                        <li class="list--single-line">
+                            <span class="list__content">Single line item</span>
+                        </li>
+                        <li class="list--single-line">
+                            <span class="list__content">Single line item</span>
+                            <i class="material-icons icon list__control">person</i>
+                        </li>
+                        <li class="list--single-line list--support">
+                            <i class="material-icons icon list__support__icon">person</i>
+                            <span class="list__content">Singe line item</span>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                        <li class="list--single-line list--support">
+                            <div class="list__support__image">
+                                <img src="//via.placeholder.com/40x40">
+                            </div>
+                            <span class="list__content">Singe line item</span>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                        <li class="list--single-line list--support--large">
+                            <div class="list__support__image">
+                                <img src="//via.placeholder.com/56x56">
+                            </div>
+                            <span class="list__content">Singe line item</span>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                        <li class="list--single-line list--support--large">
+                            <div class="list__support__image--large">
+                                <img src="//via.placeholder.com/100x56">
+                            </div>
+                            <span class="list__content">Singe line item</span>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                    </ul>
+
+<pre class="language-html">
+    <code>
+&lt;ul class="list">
+    &lt;li class="list--single-line">
+        &lt;span class="list__content">Single line item&lt;/span>
+    &lt;/li>
+    &lt;li class="list--single-line">
+        &lt;span class="list__content">Single line item&lt;/span>
+        &lt;i class="material-icons icon list__control">person&lt;/i>
+    &lt;/li>
+    &lt;li class="list--single-line list--support">
+        &lt;i class="material-icons icon list__support__icon">person&lt;/i>
+        &lt;span class="list__content">Singe line item&lt;/span>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+    &lt;li class="list--single-line list--support">
+        &lt;div class="list__support__image">
+            &lt;img src="//via.placeholder.com/40x40">
+        &lt;/div>
+        &lt;span class="list__content">Singe line item&lt;/span>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+    &lt;li class="list--single-line list--support--large">
+        &lt;div class="list__support__image">
+            &lt;img src="//via.placeholder.com/56x56">
+        &lt;/div>
+        &lt;span class="list__content">Singe line item&lt;/span>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+    &lt;li class="list--single-line list--support--large">
+        &lt;div class="list__support__image--large">
+            &lt;img src="//via.placeholder.com/100x56">
+        &lt;/div>
+        &lt;span class="list__content">Singe line item&lt;/span>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+&lt;/ul>
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="two-line">Two line</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the two line list items you need to use the class <code>.list--two-line</code>.
+                        The content of the list item changes a bit as well.
+                        You can now add two extra elements. These elements are <code>.list__content__title</code> and <code>.list__content__text</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <ul class="list">
+                        <li class="list--two-line">
+                            <div class="list__content">
+                                <span class="list__content__title">Two line item</span>
+                                <span class="list__content__text">Secondary text</span>
+                            </div>
+                        </li>
+                        <li class="list--two-line">
+                            <div class="list__content">
+                                <span class="overline">Overline</span>
+                                <span class="list__content__title">Secondary text</span>
+                            </div>
+                        </li>
+                        <li class="list--two-line list--support">
+                            <i class="material-icons icon list__support__icon">person</i>
+                            <div class="list__content">
+                                <span class="list__content__title">Two line item</span>
+                                <span class="list__content__text">Secondary text</span>
+                            </div>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                        <li class="list--two-line list--support">
+                            <div class="list__support__image">
+                                <img src="//via.placeholder.com/40x40">
+                            </div>
+                            <div class="list__content">
+                                <span class="list__content__title">Two line item</span>
+                                <span class="list__content__text">Secondary text</span>
+                            </div>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                        <li class="list--two-line list--support">
+                            <div class="list__support__image">
+                                <img src="//via.placeholder.com/40x40" class="shape--circle">
+                            </div>
+                            <div class="list__content">
+                                <span class="list__content__title">Two line item</span>
+                                <span class="list__content__text">Secondary text</span>
+                            </div>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                        <li class="list--two-line list--support">
+                            <div class="list__support__image--large">
+                                <img src="//via.placeholder.com/100x56">
+                            </div>
+                            <div class="list__content">
+                                <span class="list__content__title">Two line item</span>
+                                <span class="list__content__text">Secondary text</span>
+                            </div>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                    </ul>
+
+<pre class="language-html">
+    <code>
+&lt;ul class="list">
+    &lt;li class="list--two-line">
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Two line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text&lt;/span>
+        &lt;/div>
+    &lt;/li>
+    &lt;li class="list--two-line">
+        &lt;div class="list__content">
+            &lt;span class="overline">Overline&lt;/span>
+            &lt;span class="list__content__title">Secondary text&lt;/span>
+        &lt;/div>
+    &lt;/li>
+    &lt;li class="list--two-line list--support">
+        &lt;i class="material-icons icon list__support__icon">person&lt;/i>
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Two line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text&lt;/span>
+        &lt;/div>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+    &lt;li class="list--two-line list--support">
+        &lt;div class="list__support__image">
+            &lt;img src="//via.placeholder.com/40x40">
+        &lt;/div>
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Two line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text&lt;/span>
+        &lt;/div>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+    &lt;li class="list--two-line list--support">
+        &lt;div class="list__support__image">
+            &lt;img src="//via.placeholder.com/40x40" class="shape--circle">
+        &lt;/div>
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Two line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text&lt;/span>
+        &lt;/div>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+    &lt;li class="list--two-line list--support">
+        &lt;div class="list__support__image--large">
+            &lt;img src="//via.placeholder.com/100x56">
+        &lt;/div>
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Two line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text&lt;/span>
+        &lt;/div>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+&lt;/ul>
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="three-line">Three line</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        The three line is exactly the same as the two-line except the list item now needs class <code>.list--three-line</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <ul class="list">
+                        <li class="list--three-line">
+                            <div class="list__content">
+                                <span class="list__content__title">Three line item</span>
+                                <span class="list__content__text">Secondary text Lorem ipsum dolor sit<br>amet, consectetu adipiscing elit.</span>
+                            </div>
+                        </li>
+                        <li class="list--three-line">
+                            <div class="list__content">
+                                <span class="overline">Overline</span>
+                                <span class="list__content__title">Three line item</span>
+                                <span class="list__content__text">Secondary text Lorem ipsum dolor sit amet.</span>
+                            </div>
+                        </li>
+                        <li class="list--three-line list--support">
+                            <i class="material-icons icon list__support__icon">person</i>
+                            <div class="list__content">
+                                <span class="list__content__title">Three line item</span>
+                                <span class="list__content__text">Secondary text Lorem ipsum dolor sit<br>amet, consectetu adipiscing elit.</span>
+                            </div>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                        <li class="list--three-line list--support">
+                            <div class="list__support__image">
+                                <img src="//via.placeholder.com/40x40">
+                            </div>
+                            <div class="list__content">
+                                <span class="list__content__title">Three line item</span>
+                                <span class="list__content__text">Secondary text Lorem ipsum dolor sit<br>amet, consectetu.</span>
+                            </div>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                        <li class="list--three-line list--support">
+                            <div class="list__support__image">
+                                <img src="//via.placeholder.com/40x40" class="shape--circle">
+                            </div>
+                            <div class="list__content">
+                                <span class="list__content__title">Three line item</span>
+                                <span class="list__content__text">Secondary text Lorem ipsum dolor sit<br>amet, consectetu.</span>
+                            </div>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                        <li class="list--three-line list--support">
+                            <div class="list__support__image--large">
+                                <img src="//via.placeholder.com/100x56">
+                            </div>
+                            <div class="list__content">
+                                <span class="list__content__title">Two line item</span>
+                                <span class="list__content__text">Secondary text Lorem ipsum dolor sit<br>amet, consectetu.</span>
+                            </div>
+                            <i class="material-icons icon list__control">more_vert</i>
+                        </li>
+                    </ul>
+
+<pre class="language-html">
+    <code>
+&lt;ul class="list">
+    &lt;li class="list--three-line">
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Three line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text Lorem ipsum dolor sit&lt;br>amet, consectetu adipiscing elit.&lt;/span>
+        &lt;/div>
+    &lt;/li>
+    &lt;li class="list--three-line">
+        &lt;div class="list__content">
+            &lt;span class="overline">Overline&lt;/span>
+            &lt;span class="list__content__title">Three line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text Lorem ipsum dolor sit amet.&lt;/span>
+        &lt;/div>
+    &lt;/li>
+    &lt;li class="list--three-line list--support">
+        &lt;i class="material-icons icon list__support__icon">person&lt;/i>
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Three line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text Lorem ipsum dolor sit&lt;br>amet, consectetu adipiscing elit.&lt;/span>
+        &lt;/div>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+    &lt;li class="list--three-line list--support">
+        &lt;div class="list__support__image">
+            &lt;img src="//via.placeholder.com/40x40">
+        &lt;/div>
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Three line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text Lorem ipsum dolor sit&lt;br>amet, consectetu.&lt;/span>
+        &lt;/div>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+    &lt;li class="list--three-line list--support">
+        &lt;div class="list__support__image">
+            &lt;img src="//via.placeholder.com/40x40" class="shape--circle">
+        &lt;/div>
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Three line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text Lorem ipsum dolor sit&lt;br>amet, consectetu.&lt;/span>
+        &lt;/div>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+    &lt;li class="list--three-line list--support">
+        &lt;div class="list__support__image--large">
+            &lt;img src="//via.placeholder.com/100x56">
+        &lt;/div>
+        &lt;div class="list__content">
+            &lt;span class="list__content__title">Two line item&lt;/span>
+            &lt;span class="list__content__text">Secondary text Lorem ipsum dolor sit&lt;br>amet, consectetu.&lt;/span>
+        &lt;/div>
+        &lt;i class="material-icons icon list__control">more_vert&lt;/i>
+    &lt;/li>
+&lt;/ul>
+    </code>
+</pre>
+                </section>
+            </article>
+        </main>
+
+        <nav class="drawer" id="drawer">
+            <ul>
+                <li><a href="/" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
+                <li><a href="/getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
+                        <li><a href="/layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="/color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
+                <li><a href="/typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
+                <li><a href="/iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="/components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
+                        <li><a href="/components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
+                        <li><a href="/components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                        <li><a href="/components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
+                        <li><a href="/components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
+                        <li><a href="/components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
+                        <li><a href="/components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
+                        <li><a href="/components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
+                        <li><a href="/components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
+                        <li><a href="/components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
+                        <li><a href="/components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                        <li><a href="/components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
+                        <li><a href="/components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
+                        <li><a href="/components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
+                        <li><a href="/components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
+                        <li><a href="/components/tooltip.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <script src="/dist/js/material-js.js"></script>
+        <script src="/src/js/prism.js"></script>
+    </body>
+</html>

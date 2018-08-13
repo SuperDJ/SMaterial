@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Index | Material Design</title>
+        <title>Menus | Material Design</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
             <i class="material-icons icon" data-trigger="drawer">menu</i>
 
             <div class="app-bar__title">
-                Index
+                Menus
             </div>
 
             <div class="app-bar__actions">
@@ -27,15 +27,42 @@
         </header>
 
         <main class="container">
-            <section class="row">
-                <div class="xs6">
-                    Dit is een test
-                </div>
+            <article class="row">
+                <h2 class="xs12" id="menu">Menu</h2>
 
-                <div class="xs6">
-                    Dit is een test <a href="./components/banners.html">Banners</a>
-                </div>
-            </section>
+                <section class="xs12 sm6">
+                    <p>
+                        The menu can be formed by using the class <code>.menu</code>.
+                        Each menu item gets the class <code>.menu__item</code>.
+                        The content of a menu item is wrapped inside a class <code>.menu__content</code>
+                        If you would like to add an icon to the menu item than use the class <code>.menu__icon</code> on the icon.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <ul class="menu">
+                        <li class="menu__item">
+                            <span class="menu__content">Menu item</span>
+                        </li>
+                        <li class="menu__item">
+                            <i class="material-icon icon menu__icon">cloud</i>
+                            <span class="menu__content">Menu item</span>
+                        </li>
+                        <li class="menu__divider"></li>
+                        <li class="menu__item">
+                            <a href="#">
+                                <span class="menu__content">Menu item</span>
+                            </a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#">
+                                <i class="material-icon icon menu__icon">cloud</i>
+                                <span class="menu__content">Menu item</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </article>
         </main>
 
         <nav class="drawer" id="drawer">

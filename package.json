@@ -8,17 +8,18 @@
 		"dev": "./node_modules/.bin/webpack --config webpack.config.js --mode=development -w",
 		"development": "npm run dev",
 		"prod": "./node_modules/.bin/webpack --config webpack.config.js --mode=production -p",
-		"production": "npm run prod",
-		"devDocs": "cd ./docs && npm run dev",
-		"prodDocs": "cd ./docs && npm run prod",
-		"devAll": "npm-run-all -p devDocs dev",
-		"prodAll": "npm-run-all -p prodDocs prod"
+		"production": "npm run prod"
 	},
 	"keywords": [
 		"material",
 		"design",
+		"material-design",
+		"css3",
+		"css4",
+		"scss",
 		"css",
-		"stylus"
+		"stylus",
+		"Google"
 	],
 	"author": "Derkjan Super",
 	"devDependencies": {
@@ -50,6 +51,5 @@
 	},
 	"browserslist": [
 		"> 2.9%"
-	],
-	"dependencies": {}
+	]
 }

@@ -1,8 +1,4 @@
-.*
-!.gitignore
 /dist
 /node_modules
-/docs/node_modules
 .idea
 .vscode
-/docs/node_modules

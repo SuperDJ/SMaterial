@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tabs | Material Design</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/dist/css/material-css.css">
+        <link rel="stylesheet" href="./src/css/prism.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    </head>
+
+    <body>
+        <header class="app-bar app-bar--fixed">
+            <i class="material-icons icon" data-trigger="drawer">menu</i>
+
+            <div class="app-bar__title">
+                Tabs
+            </div>
+
+            <div class="app-bar__actions">
+                <i class="material-icons icon">person</i>
+            </div>
+        </header>
+
+        <main class="container">
+            <article class="row">
+                <h1 class="xs12">Tabs</h1>
+
+                <section class="xs12 sm6">
+                    <p>
+                        There are a few varieties of tabs. You have fixed and scrollable tabs.
+                        But there are also text only tabs or text and icon tabs.
+                    </p>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="text">Fixed</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For any tabs to work you need to start with the class <code>.tabs</code>.
+                    </p>
+
+                    <p>
+                        For the text only tab you also need to specify the class <code>.tabs--text-only</code> on the tabs.
+                        The tab it self needs the class <code>.tabs__tab</code>. For making a tab active add the class <code>.tabs__tab--active</code>.
+                        The content of the tab needs wrapped in a class <code>.tabs__content</code>.
+                    </p>
+
+                    <p>
+                        For the icon only tab you almost need the same class.
+                        However the tabs now need the class <code>.tabs--icon-only</code>
+                        Instead of the class <code>.tabs__content</code> you need to use the class <code>.tabs__icon</code> on an icon.
+                    </p>
+
+                    <p>
+                        So for a tab with icon and text you need to use the class <code>.tabs--icon-text</code> on the tabs.
+                        From there you can just use class <code>.tabs__icon</code> on an icon and class <code>.tabs__content</code> around the text.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="row">
+                        <div class="xs12">
+                            <div class="tabs tabs--text-only justify--start">
+                                <a href="#/tabs" class="tabs__tab tabs__tab--active">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="xs12">
+                            <div class="tabs tabs--icon-only justify--center">
+                                <a href="#/tabs" class="tabs__tab tabs__tab--active">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="xs12">
+                            <div class="tabs tabs--icon-text justify--flex-end">
+                                <a href="#/tabs" class="tabs__tab tabs__tab--active">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="tabs">Scrollable</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the filled text field all you need to do is use the
+                        classes <code>.text-field</code> and <code>.text-field--filled</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="row">
+                        <div class="xs12">
+                            <div class="tabs tabs--text-only tabs--scrollable">
+                                <a href="#/tabs" class="tabs__tab tabs__tab--active">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <span class="tabs__content">Example</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="xs12">
+                            <div class="tabs tabs--icon-only tabs--scrollable">
+                                <a href="#/tabs" class="tabs__tab tabs__tab--active">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="xs12">
+                            <div class="tabs tabs--icon-text tabs--scrollable">
+                                <a href="#/tabs" class="tabs__tab tabs__tab--active">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                                <a href="#/tabs" class="tabs__tab">
+                                    <i class="material-icons icon tabs__icon">person</i>
+                                    <span class="tabs__content">Person</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </main>
+
+        <nav class="drawer" id="drawer">
+            <ul>
+                <li><a href="/" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
+                <li><a href="/getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
+                        <li><a href="/layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="/color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
+                <li><a href="/typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
+                <li><a href="/iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="/components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
+                        <li><a href="/components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
+                        <li><a href="/components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                        <li><a href="/components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
+                        <li><a href="/components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
+                        <li><a href="/components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
+                        <li><a href="/components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
+                        <li><a href="/components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
+                        <li><a href="/components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
+                        <li><a href="/components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
+                        <li><a href="/components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                        <li><a href="/components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
+                        <li><a href="/components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
+                        <li><a href="/components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
+                        <li><a href="/components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
+                        <li><a href="/components/tooltip.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <script src="/dist/js/material-js.js"></script>
+        <script src="/src/js/prism.js"></script>
+    </body>
+</html>

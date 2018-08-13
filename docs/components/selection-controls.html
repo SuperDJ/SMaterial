@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Index | Material Design</title>
+        <title>Selection controls | Material Design</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
             <i class="material-icons icon" data-trigger="drawer">menu</i>
 
             <div class="app-bar__title">
-                Index
+                Selection controls
             </div>
 
             <div class="app-bar__actions">
@@ -27,15 +27,145 @@
         </header>
 
         <main class="container">
-            <section class="row">
-                <div class="xs6">
-                    Dit is een test
-                </div>
+            <article class="row">
+                <h1 class="xs12">Selection controls</h1>
 
-                <div class="xs6">
-                    Dit is een test <a href="./components/banners.html">Banners</a>
-                </div>
-            </section>
+                <section class="xs12 sm6">
+                    <p>
+                        There are a couple types of selection controls that you can use. For now you can use the
+                        <a href="#checkbox">checkbox</a>, <a href="#radio">radio</a> and <a href="#switch">switch</a>
+                    </p>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="checkbox">Checkbox</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the checkbox progress indicator all you have to do is use the checkbox input with the class
+                        <code>.checkbox</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <label>
+                        <input type="checkbox" class="checkbox">
+                        Checkbox
+                    </label>
+                    <label>
+                        <input type="checkbox" checked disabled class="checkbox">
+                        Disabled checkbox
+                    </label>
+                    <label>
+                        <input type="checkbox" disabled class="checkbox">
+                        Disabled checkbox
+                    </label>
+
+<pre class="language-html">
+    <code>
+&lt;label>
+    &lt;input type="checkbox" class="checkbox">
+    Checkbox
+&lt;/label>
+&lt;label>
+    &lt;input type="checkbox" checked disabled class="checkbox">
+    Disabled checkbox
+&lt;/label>
+&lt;label>
+    &lt;input type="checkbox" disabled class="checkbox">
+    Disabled checkbox
+&lt;/label>
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="radio">Radio buttons</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For a radio button all you need to do use the radio input with the class
+                        <code>.radio</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <label>
+                        <input type="radio" class="radio" name="t1">
+                        Radio
+                    </label>
+                    <label>
+                        <input type="radio" disabled checked class="radio" name="t1">
+                        Disabled Radio
+                    </label>
+                    <label>
+                        <input type="radio" disabled class="radio" name="t1">
+                        Disabled Radio
+                    </label>
+
+<pre class="language-html">
+    <code>
+&lt;label>
+    &lt;input type="radio" class="radio" name="t1">
+    Radio
+&lt;/label>
+&lt;label>
+    &lt;input type="radio" disabled checked class="radio" name="t1">
+    Disabled Radio
+&lt;/label>
+&lt;label>
+    &lt;input type="radio" disabled class="radio" name="t1">
+    Disabled Radio
+&lt;/label>
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="switch">Swtich</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For a switch all you need to do use the checkbox input with the class
+                        <code>.switch</code>.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <label>
+                        <input type="checkbox" class="switch">
+                        Switch
+                    </label>
+                    <label>
+                        <input type="checkbox" disabled checked  class="switch">
+                        Disabled Switch
+                    </label>
+                    <label>
+                        <input type="checkbox" disabled  class="switch">
+                        Disabled Switch
+                    </label>
+
+<pre class="language-html">
+    <code>
+&lt;label>
+    &lt;input type="checkbox" class="switch">
+    Switch
+&lt;/label>
+&lt;label>
+    &lt;input type="checkbox" disabled checked  class="switch">
+    Disabled Switch
+&lt;/label>
+&lt;label>
+    &lt;input type="checkbox" disabled  class="switch">
+    Disabled Switch
+&lt;/label>
+    </code>
+</pre>
+                </section>
+            </article>
         </main>
 
         <nav class="drawer" id="drawer">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Index | Material Design</title>
+        <title>Bottom sheet | Material Design</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
             <i class="material-icons icon" data-trigger="drawer">menu</i>
 
             <div class="app-bar__title">
-                Index
+                Bottom sheet
             </div>
 
             <div class="app-bar__actions">
@@ -27,15 +27,108 @@
         </header>
 
         <main class="container">
-            <section class="row">
-                <div class="xs6">
-                    Dit is een test
-                </div>
+            <article class="row">
+                <h1 class="xs12">Bottom sheet</h1>
 
-                <div class="xs6">
-                    Dit is een test <a href="./components/banners.html">Banners</a>
-                </div>
-            </section>
+                <section class="xs12 sm6">
+                    <p>
+                        The bottom sheet has two varieties:
+                        <a href="#list">list</a> and <a href="#grid">grid</a>.
+                    </p>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="list">List</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the bottom sheet with a list all you need to do is use the following classes:
+                        <code>.sheet .sheet--list</code>
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="bottom-sheet bottom-sheet--list"  style="position:initial">
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">person</i>
+                            <div class="bottom-sheet__content">Persons</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud_download</i>
+                            <div class="bottom-sheet__content">Download</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud</i>
+                            <div class="bottom-sheet__content">Cloud</div>
+                        </a>
+                    </div>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12" id="grid">Grid</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        For the bottom sheet with a grid all you need to do is use the following classes:
+                        <code>.sheet .sheet--grid</code>
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="bottom-sheet bottom-sheet--grid" style="position:initial">
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">person</i>
+                            <div class="bottom-sheet__content">Persons</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud_download</i>
+                            <div class="bottom-sheet__content">Download</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud</i>
+                            <div class="bottom-sheet__content">Cloud</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">person</i>
+                            <div class="bottom-sheet__content">Persons</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud_download</i>
+                            <div class="bottom-sheet__content">Download</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud</i>
+                            <div class="bottom-sheet__content">Cloud</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">person</i>
+                            <div class="bottom-sheet__content">Persons</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud_download</i>
+                            <div class="bottom-sheet__content">Download</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud</i>
+                            <div class="bottom-sheet__content">Cloud</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">person</i>
+                            <div class="bottom-sheet__content">Persons</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud_download</i>
+                            <div class="bottom-sheet__content">Download</div>
+                        </a>
+                        <a class="bottom-sheet__item">
+                            <i class="material-icons icon bottom-sheet__icon">cloud</i>
+                            <div class="bottom-sheet__content">Cloud</div>
+                        </a>
+                    </div>
+                </section>
+            </article>
         </main>
 
         <nav class="drawer" id="drawer">
