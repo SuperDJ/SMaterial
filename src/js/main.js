@@ -24,7 +24,7 @@ if( appBars )
 			let height = appBar.getBoundingClientRect().height;
 			container.style.setProperty( '--app-bar-height', `${height}px` );
 		}).observe(appBar);
-		*/	 
+		*/
 	}
 }
 
@@ -96,7 +96,7 @@ if( dataTables )
 		for( let i = 0; i < columnheaders.length; i++ )
 		{
 			let columnheader = columnheaders[i];
-			columnheader.setAttribute( 'role', 'columnheader' ); 
+			columnheader.setAttribute( 'role', 'columnheader' );
 		}
 
 		let container = document.createElement( 'div' );
@@ -149,13 +149,29 @@ if( drawers )
 	for( let i = 0 ; i < drawers.length; i++ )
 	{
 		let drawer = drawers[i];
-		let parents = drawer.querySelectorAll( '.drawer__item--parent' );
+		let parents = drawer.querySelectorAll( '.drawer__item__parent' );
 		let children = drawer.querySelectorAll( '.drawer__item__children' );
 
-		children.forEach( child => {
+		console.log(parents);
+		parents.forEach( parent => {
+			let child = parent.nextElementSibling;
 			let height = child.getBoundingClientRect().height;
-			child.style.setProperty( '--drawer__item__children-height', `${height}px` );
-			child.style.height = 0;
+
+			child.style.setProperty( '--drawer__item__children-height', 0 );
+			child.style.display = 'none';
+
+			parent.addEventListener( 'click', () => {
+				if( child.classList.contains( 'active' ) )
+				{
+					child.style.setProperty( '--drawer__item__children-height', 0 );	
+					child.style.setProperty( 'display', 'none' );	
+					child.classList.remove( 'active' );
+				} else {
+					child.style.setProperty( '--drawer__item__children-height', `${height}px` );
+					child.style.setProperty( 'display', 'block' );
+					child.classList.add( 'active' );
+				}
+			});
 		});
 	}
 }
@@ -227,7 +243,7 @@ if( progressBars )
 		let progress = progressBar.querySelector( '.progress__bar' );
 
 		console.log(progressBar.tagName);
-	
+
 		// If element has a progressbar child
 		if( progress )
 		{
@@ -240,8 +256,8 @@ if( progressBars )
 	}
 }
 
-/************************************** 
- * Selection 
+/**************************************
+ * Selection
  **************************************/
 
 const switches = document.getElementsByClassName( 'switch' );
@@ -317,13 +333,13 @@ const textFields = document.getElementsByClassName( 'text-field__input' );
 
 if( textFields )
 {
-	for( let i = 0; i < textFields.length; i++ ) 
+	for( let i = 0; i < textFields.length; i++ )
 	{
 		let textField = textFields[i];
 		let value = textField.value;
 		let container = textField.parentElement;
 
-		if( !container ) 
+		if( !container )
 		{
 			console.error('Input does not have a container');
 		}
@@ -365,7 +381,7 @@ if( tooltips )
 		let content = tooltip.querySelector( '.tooltip__content' );
 		let width = content.getBoundingClientRect().width;
 		let id = `tooltip-${i}`;
-		
+
 		// Element triggering tooltip
 		let controller = tooltip.childNodes.forEach( controller => {
 			if( controller.classList !== undefined && !controller.classList.contains( 'tooltip__content' ) )
@@ -424,7 +440,7 @@ if( triggers )
 
 			document.addEventListener( 'mouseup', ( e ) =>
 			{
-				for( let i = 0; i < triggered.length; i++ ) 
+				for( let i = 0; i < triggered.length; i++ )
 				{
 					let trigger = triggered[ i ];
 
