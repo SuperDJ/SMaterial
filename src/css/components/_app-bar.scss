@@ -19,7 +19,7 @@
 		justify-content: flex-end;
 		display: flex;
 
-		* {
+		> * {
 			margin: var(--app-bar__actions-margin);
 		}
 	}

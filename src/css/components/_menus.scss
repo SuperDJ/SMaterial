@@ -3,7 +3,6 @@
     margin: 0;
     min-width: rem-calc(112px);
     max-width: var(--menu-max-width);
-	max-height: var(--menu-max-height);
     padding: rem-calc(8px) 0;
     border-radius: var(--border-radius);
     background: var(--background-color);
@@ -71,7 +70,6 @@
 
 :root {
     --menu-max-width: #{rem-calc(280px)};
-	--menu-max-height: auto;
     --menu__icon-margin: #{rem-calc(12px)} 0 #{rem-calc(12px)} #{rem-calc(16px)};
     --menu__content-margin: 0 0 0 #{rem-calc(16px)};
     --menu-color: #{$black}de;

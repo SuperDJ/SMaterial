@@ -189,6 +189,69 @@
     }
 }
 
+.select-field {
+    position: relative;
+    width: 100%;
+    height: var(--text-field-height);
+
+    select, input {
+        display: none;
+    }
+
+    &--filled {
+        @include chain(border-top-left-radius, border-top-right-radius, var(--border-radius));
+        background: var(--text-field--filled__input-background);
+
+        &:hover {
+            border-bottom: var(--text-field--filled__input--hover-border-bottom);
+        }
+    }
+
+    > label {
+        left: var(--text-field--filled__input-padding-sides);
+        @extend .text-field__label;
+    }
+
+    &__options {
+        position: absolute;
+        width: 100%;
+        background: var(--background-color);
+        border-radius: var(--border-radius);
+        @extend .z8;
+        padding: rem-calc(8px) 0;
+        z-index: 1;
+        overflow: auto;
+        top: var(--text-field__input-height);
+        max-height: var(--text-field__options-height);
+        opacity: 0;
+        transition: max-height .1s $easing-standard;
+        pointer-events: none;
+
+        &.active {
+            transition: max-height .1s $easing-standard, opacity 0  $easing-standard .1s;
+            pointer-events: all;
+            opacity: 1;
+        }
+    }
+
+    &__option label {
+        width: 100%;
+        padding: 0 rem-calc(16px);
+        @include chain(height, line-height, rem-calc(48px));
+        display: block;
+        background: transparent;
+        @extend .cursor--pointer;
+
+        &:hover {
+            background: rgba($primary-color, .16);
+        }
+    }
+
+    input:checked + label {
+        background: rgba($primary-color, .16);
+    }
+}
+
 :root {
     --text-field--active-color: #{$primary-color};
     --text-field--invalid-color: var(--error-color);

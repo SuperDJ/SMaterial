@@ -72,13 +72,11 @@
         }
 
         &__children {
-            max-height: var(--drawer__item__children-height);
-            transition: max-height 1s $easing-decelerate, opacity 1s $easing-decelerate;
+            transition: max-height .1s $easing-decelerate;
             opacity: 0;
 
             &.active {
-                max-height: var(--drawer__item__children-height);    
-                transition: max-height 1s $easing-decelerate, opacity 1s $easing-decelerate;
+                transition: max-height .1s $easing-decelerate;
                 opacity: 1;
             }
 

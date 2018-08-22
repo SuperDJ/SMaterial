@@ -1,0 +1,40 @@
+.flex {
+    display: flex;
+
+    &--inline {
+        display: inline-flex;
+    }
+}
+
+$positions: (
+    flex-end, flex-start, center, end, start 
+);
+
+.justify {
+    &--space-around {
+        justify-content: space-around;
+    }
+
+    &--space-evenly {
+        justify-content: space-evenly
+    }
+
+    &--space-between {
+        justify-content: space-between;
+    }
+}
+
+@each $position in $positions 
+{
+    .justify {
+        &--#{$position} {
+            justify-content: #{$position};
+        }
+    }
+
+    .align {
+        &--#{$position} {
+            align-content: #{$position};
+        }
+    }
+}

@@ -154,7 +154,7 @@
 	--button--text--icon-right-padding: #{0 rem-calc(4px) 0 rem-calc(8px)};
 	--button--text--icon-right__icon-margin: #{0 0 0 rem-calc(4px)};
 
-	--button--text--outlined--hover-background: #{rgba($primary-color, .08)}; 
-	--button--text--outlined--active-background: #{rgba($primary-color, .32)};
+	--button--text--outlined--hover-background: color-mod(var(--primary-color) alpha(.08));
+	--button--text--outlined--active-background: color-mod(var(--primary-color) alpha(.32));
 	--button--text--outlined-color: var(--primary-color) ;
 }

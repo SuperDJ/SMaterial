@@ -163,12 +163,12 @@ if( drawers )
 			parent.addEventListener( 'click', () => {
 				if( child.classList.contains( 'active' ) )
 				{
-					child.style.setProperty( '--drawer__item__children-height', 0 );	
-					child.style.setProperty( 'display', 'none' );	
+					child.style.setProperty( '--drawer__item__children-height', 0 );
 					child.classList.remove( 'active' );
+					child.style.setProperty( 'display', 'none' );
 				} else {
-					child.style.setProperty( '--drawer__item__children-height', `${height}px` );
 					child.style.setProperty( 'display', 'block' );
+					child.style.setProperty( '--drawer__item__children-height', `${height}px` );
 					child.classList.add( 'active' );
 				}
 			});

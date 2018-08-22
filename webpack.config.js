@@ -8,7 +8,26 @@ const path = require('path'),
 module.exports = env => {
 	return {
 		entry: {
-			'material-js': './src/js/main.js',
+			'material-js': [
+				'./resources/assets/js/functions.js',
+				'./resources/assets/js/app-bar.js',
+				'./resources/assets/js/badge.js',
+				'./resources/assets/js/banner.js',
+				'./resources/assets/js/button.js',
+				'./resources/assets/js/data-table.js',
+				'./resources/assets/js/dialog.js',
+				'./resources/assets/js/divider.js',
+				'./resources/assets/js/drawer.js',
+				'./resources/assets/js/menu.js',
+				'./resources/assets/js/progress.js',
+				'./resources/assets/js/select-field.js',
+				'./resources/assets/js/selection.js',
+				'./resources/assets/js/tab.js',
+				'./resources/assets/js/text-field.js',
+				'./resources/assets/js/tooltip.js',
+				'./resources/assets/js/trigger.js',
+				'./resources/assets/js/typography.js'
+			],
 			'material-css': './src/css/material.scss'
 		},
 		output: {

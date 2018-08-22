@@ -1,0 +1,60 @@
+.notification {
+    border-radius: var(--border-radius);
+    background: var(--background-color);
+    position: absolute;
+    @extend .z2;
+    padding: rem-calc(16px);
+    color: var(--notification-font-color);
+
+    .icon {
+        color: var(--notification-font-color);
+    }
+
+    &__header {
+        width: 100%;
+        margin: 0 0 rem-calc(16px) 0;
+        line-height: rem-calc(16px);
+        font-size: rem-calc(12px);
+        display: grid;
+        grid-template-columns: var(--notification__header__icon-size) auto auto var(--notification__header__icon-size);
+        grid-column-gap: rem-calc(8px);
+
+        .icon {
+            @include chain(width, height, font-size, var(--notification__header__icon-size));
+        }
+
+        &__icon {
+            grid-column-start: 1;
+        }
+
+        &__content {
+            grid-column-start: 2;
+        }
+
+        &__date {
+            grid-column-start: 3;
+        }
+
+        &__dropdown {
+            grid-column-start: 4;
+        }
+    }
+
+    &__content {
+        width: 100%;
+
+        &__header {
+            width: 100%;
+            font-weight: 500;
+        }
+
+        &__text {
+            width: 100%;
+        }
+    }
+}
+
+:root {
+    --notification-font-color: #{$black}99;
+    --notification__header__icon-size: #{rem-calc(16px)};
+}
