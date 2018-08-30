@@ -1,14 +1,9 @@
 const headings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 headings.forEach( heading => {
-    let headers = document.getElementsByClassName( heading );
+    let headers = Array.from( document.querySelectorAll( `${heading}, .${heading}`) ); // Select h1, .h1 etc.
 
-    if( headers )
-    {
-        for( let i = 0; i < headers.length; i++ )
-        {
-            let header = headers[i];
-            header.setAttribute( 'role', 'heading' );
-        }
-    }
+    headers.forEach( header => {
+        header.setAttribute( 'role', 'heading' );
+    });
 });

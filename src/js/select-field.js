@@ -1,47 +1,67 @@
-const selectFields = document.getElementsByClassName( 'select-field' );
+const selectFields = Array.from( document.querySelectorAll( '.select-field' ) );
 
-if( selectFields )
-{
-    for( let i = 0; i < selectFields.length; i++ )
-    {
-        let selectField = selectFields[i];
-        let select = selectField.getElementsByTagName( 'select' )[0];
-        let name = select.getAttribute('name');
-        let options = select.getElementsByTagName( 'option' );
+selectFields.forEach( selectField => {
+    let select = selectField.querySelector( 'select' );
+    let name = select.getAttribute('name');
+    let selectOptions = Array.from( select.querySelectorAll( 'option' ) );
 
-        // Generate HTML
-        let html = '<div class="select-field__options">';
+    /**********************************
+     * Add HTML to DOM
+     **********************************/
+    let html = '<div class="select-field__text"></div><div class="select-field__options">';
 
-        for( let j = 0; j < options.length; j++ )
+    selectOptions.forEach( ( selectOption, i ) => {
+        html += `   <div class="select-field__option">
+                        <input type="radio" value="${selectOption.value}" name="${name}" id="${name}-${i}">
+                        <label for="${name}-${i}">${selectOption.innerHTML}</label>
+                    </div>`;
+    });
+
+    html += '</div>';
+
+    selectField.insertAdjacentHTML( 'afterbegin', html );
+
+    /**********************************
+     * Open/ close select-field__options
+     **********************************/
+    let selectFieldOptions = selectField.querySelector( '.select-field__options' );
+    let selectFieldText = selectField.querySelector( '.select-field__text' );
+    let selectFieldOptionsHeight = selectFieldOptions.getBoundingClientRect().height;
+
+    selectFieldOptions.style.maxHeight = 0;
+
+    selectField.addEventListener( 'click', () => {
+        if( selectFieldOptions.classList.contains( 'active' ) )
         {
-            let option = options[j];
-            html += `   <div class="select-field__option">
-                            <input type="radio" value="${option.value}" name="${name}" id="${name}-${j}">
-                            <label for="${name}-${j}">${option.innerHTML}</label>
-                        </div>`;
-
+            selectFieldOptions.style.maxHeight = 0;
+            selectFieldOptions.classList.remove( 'active' );
+        } else {
+            selectFieldOptions.style.maxHeight = `${selectFieldOptionsHeight}px`;
+            selectFieldOptions.classList.add( 'active' );
         }
+    });
 
-        html += '</div>';
+    /**********************************
+     * Set value in select/ close options
+     **********************************/
+    let selectFieldOptionsInputs = Array.from( selectFieldOptions.querySelectorAll( 'input' ) );
 
-        // Add HTML to DOM
-        selectField.insertAdjacentHTML( 'afterbegin', html );
+    selectFieldOptionsInputs.forEach( ( selectFieldOptionsInput, i ) => {
+        const type = selectFieldOptionsInput.getAttribute( 'type' );
+        selectFieldOptionsInput.addEventListener( 'click', () =>  {
 
-        // Open/ close select-field__options
-        let fieldOptions = selectField.querySelector( '.select-field__options' );
-        let fieldOptionsHeight = fieldOptions.getBoundingClientRect().height;
-
-        fieldOptions.style.maxHeight = 0;
-
-        selectField.addEventListener( 'click', () => {
-            if( fieldOptions.classList.contains( 'active' ) )
+            if( type === 'radio' )
             {
-                fieldOptions.style.maxHeight = 0;
-                fieldOptions.classList.remove( 'active' );
-            } else {
-                fieldOptions.style.maxHeight = `${fieldOptionsHeight}px`;
-                fieldOptions.classList.add( 'active' );
+                select.value = selectFieldOptionsInput.value;
+                selectFieldText.innerText = selectOptions[i].innerHTML;
+
+                selectFieldOptions.click();
+            }
+
+            if( type === 'checkbox' )
+            {
+
             }
         });
-    }
-}
+    });
+});

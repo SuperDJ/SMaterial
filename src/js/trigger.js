@@ -1,33 +1,44 @@
-const triggers = document.querySelectorAll( '[data-trigger]' );
 const active = new Event('active', {'bubbles': true, 'cancelable': true});
 const inactive = new Event('inactive', {'bubbles': true, 'cancelable': true});
 let triggered = []; // Store all elements that are triggered
+const triggers = Array.from( document.querySelectorAll( '[data-trigger]' ) );
 
-if( triggers )
-{
-    for( let i = 0; i < triggers.length; i++ )
+triggers.forEach( trigger => {
+    let id = trigger.dataset.trigger;
+    let element = document.getElementById( id );
+
+    trigger.classList.add('cursor--pointer');
+
+    if( !element )
     {
-        let trigger = triggers[i];
-        let id = trigger.dataset.trigger;
-        let element = document.getElementById( id );
+        console.error('Trigger element not found');
+    }
 
-        trigger.classList.add('cursor--pointer');
+    if( element ) {
+        let className = `${element.classList[ 0 ]}--active`;
 
-        if( !element )
+        trigger.addEventListener( 'click', () =>
         {
-            console.error('Trigger element not found');
-        }
+            // Set the currently triggered element(s) in array
+            triggered.indexOf( element ) < 0 ? triggered.push( element ) : '';
 
-        if( element ) {
-            let className = `${element.classList[ 0 ]}--active`;
+            if( element.classList.contains( className ) ) {
+                element.classList.remove( className );
+                document.dispatchEvent( inactive );
+            } else {
+                element.classList.add( className );
+                document.dispatchEvent( active );
+            }
+        } );
 
-            trigger.addEventListener( 'click', () =>
+        document.addEventListener( 'mouseup', ( e ) =>
+        {
+            for( let i = 0; i < triggered.length; i++ )
             {
-                // Set the currently triggered element(s) in array
-                triggered.indexOf( element ) < 0 ? triggered.push( element ) : '';
+                let trigger = triggered[ i ];
 
-                if( element.classList.contains( className ) ) {
-                    element.classList.remove( className );
+                if( trigger === e.target || trigger !== e.target && !trigger.contains( e.target ) ) {
+                    trigger.classList.remove( className );
                     document.dispatchEvent( inactive );
                 } else {
                     element.classList.add( className );
@@ -35,21 +46,10 @@ if( triggers )
                 }
             } );
 
-            document.addEventListener( 'mouseup', ( e ) =>
-            {
-                for( let i = 0; i < triggered.length; i++ )
-                {
-                    let trigger = triggered[ i ];
-
-                    if( trigger === e.target || trigger !== e.target && !trigger.contains( e.target ) ) {
-                        trigger.classList.remove( className );
-                        document.dispatchEvent( inactive );
-
-                        // Remove element from array
-                        i === 0 ? triggered.shift() : triggered.slice( i, 1 );
-                    }
+                    // Remove element from array
+                    i === 0 ? triggered.shift() : triggered.slice( i, 1 );
                 }
-            });
-        }
+            }
+        });
     }
-}
+});

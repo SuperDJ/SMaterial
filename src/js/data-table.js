@@ -1,31 +1,20 @@
-const dataTables = document.getElementsByClassName( 'data-table' );
+const dataTables = Array.from( document.querySelectorAll( '.data-table' ));
 
-if( dataTables )
-{
-    for( let i = 0; i < dataTables.length; i ++ )
-    {
-        let dataTable = dataTables[i];
+dataTables.forEach( dataTable => {
+    dataTable.setAttribute( 'role', 'table');
 
-        dataTable.setAttribute( 'role', 'table');
+    const rows = Array.from( dataTable.querySelectorAll( 'tr' ) );
+    rows.forEach( row => {
+        row.setAttribute( 'role', 'row' );
+    });
 
-        const rows = dataTable.querySelectorAll( 'tr' );
-        const columnheaders = dataTable.querySelectorAll( 'th' );
+    const columnHeaders = dataTable.querySelectorAll( 'th' );
+    columnHeaders.forEach( columnHeader => {
+        columnHeader.setAttribute( 'role', 'columnheader' );
+    });
 
-        for( let i = 0; i < rows.length; i++ )
-        {
-            let row = rows[i];
-            row.setAttribute( 'role', 'row' );
-        }
-
-        for( let i = 0; i < columnheaders.length; i++ )
-        {
-            let columnheader = columnheaders[i];
-            columnheader.setAttribute( 'role', 'columnheader' );
-        }
-
-        let container = document.createElement( 'div' );
-        dataTable.parentNode.insertBefore( container, dataTable );
-        container.classList.add( 'data-table--responsive' );
-        container.appendChild(dataTable);
-    }
-}
+    let container = document.createElement( 'div' );
+    dataTable.parentNode.insertBefore( container, dataTable );
+    container.classList.add( 'data-table--responsive' );
+    container.appendChild(dataTable);
+});

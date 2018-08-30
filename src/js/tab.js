@@ -1,26 +1,14 @@
-const tabBars = document.getElementsByClassName( 'tabs' );
+const tabBars = Array.from( document.querySelectorAll( '.tabs' ) );
 
-if( tabBars )
-{
-    for( let i = 0; i < tabBars.length; i++ )
-    {
-        let tabBar = tabBars[i];
+tabBars.forEach( tabBar => {
+    tabBar.setAttribute( 'role', 'tablist' );
 
-        tabBar.setAttribute( 'role', 'tablist' );
+    let tabs = Array.from( tabBar.querySelectorAll( '.tabs__tab' ) );
 
-        let tabs = tabBar.getElementsByClassName( 'tabs__tab' );
-
-        if( tabs )
-        {
-            for( let j = 0; j < tabs.length; j++ )
-            {
-                let tab = tabs[j];
-
-                tab.setAttribute( 'role', 'tab' );
-            }
-        }
-    }
-}
+    tabs.forEach( tab => {
+        tab.setAttribute( 'role', 'tab' );
+    });
+});
 
 /**************************************
  * TODO add aria

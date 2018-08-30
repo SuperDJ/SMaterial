@@ -1,12 +1,5 @@
-const banners = document.getElementsByClassName( 'banner' );
+const banners = Array.from( document.querySelectorAll( '.banner' ) );
 
-if( banners )
-{
-    for( let i = 0; i < banners.length; i++ )
-    {
-        let banner = banners[i];
-
-        // Set role
-        banner.setAttribute( 'role', 'banner' );
-    }
-}
+banners.forEach( banner => {
+    banner.setAttribute( 'role', 'banner' );
+});

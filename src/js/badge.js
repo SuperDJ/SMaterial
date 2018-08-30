@@ -1,14 +1,9 @@
-const badges = document.getElementsByClassName( 'badge' );
+const badges = Array.from( document.querySelectorAll( '.badge' ) );
 
-if( badges )
-{
-    for( let i = 0; i < badges.length; i++ )
-    {
-        let badge = badges[i];
-        let content = badge.getElementsByClassName( 'badge__content' )[0];
-        let size = badge.getBoundingClientRect();
+badges.forEach( badge => {
+    const content = badge.querySelector( '.badge__content' );
+    const size = badge.getBoundingClientRect();
 
-        content.style.setProperty( '--badge-width', `${size.width}px` );
-        content.style.setProperty( '--badge-height', `${size.height}px` );
-    }
-}
+    content.style.setProperty( '--badge-width', `${size.width}px` );
+    content.style.setProperty( '--badge-height', `${size.height}px` );
+});

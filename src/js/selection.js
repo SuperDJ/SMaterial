@@ -1,23 +1,17 @@
 /**************************************
  * Switch
  **************************************/
-const switches = document.getElementsByClassName( 'switch' );
+const switches = Array.from( document.querySelectorAll( '.switch' ) );
 
-if( switches )
-{
-    for( let i = 0; i < switches.length; i++ )
-    {
-        let switchElement = switches[i];
+switches.forEach( switchElement => {
+    switchElement.setAttribute( 'role', 'switch' );
+    switchElement.setAttribute( 'aria-checked', switchElement.checked );
+    switchElement.setAttribute( 'aria-disabled', switchElement.disabled );
 
-        switchElement.setAttribute( 'role', 'switch' );
+    switchElement.addEventListener( 'click', () => {
         switchElement.setAttribute( 'aria-checked', switchElement.checked );
-        switchElement.setAttribute( 'aria-disabled', switchElement.disabled );
-
-        switchElement.addEventListener( 'click', () => {
-            switchElement.setAttribute( 'aria-checked', switchElement.checked );
-        });
-    }
-}
+    });
+});
 
 /**************************************
  * Checkbox

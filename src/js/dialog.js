@@ -1,10 +1,5 @@
-const dialogs = document.getElementsByClassName( 'dialog' );
+const dialogs = Array.from( document.querySelectorAll( '.dialog' ) );
 
-if( dialogs )
-{
-    for( let i = 0; i < dialogs.length; i++ )
-    {
-        let dialog = dialogs[i];
-        dialog.setAttribute( 'role', 'dialog' );
-    }
-}
+dialogs.forEach( dialog => {
+    dialog.setAttribute( 'role', 'dialog' );
+});
