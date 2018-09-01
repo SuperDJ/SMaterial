@@ -1,0 +1,10 @@
+{
+	"presets": [
+		"babel-preset-env",
+		"babel-preset-es2015",
+		"babel-preset-stage-2"
+	],
+	"plugins": [
+		"babel-plugin-dynamic-import-node"
+	]
+}

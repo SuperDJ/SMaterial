@@ -17,7 +17,7 @@
 	display: grid;
 	grid-template-columns: repeat($xs-columns, 1fr);
 	grid-gap: var(--gutter);
-	margin: 0 var(--margin);
+	padding: 0 var(--margin);
 
 	@media #{$sm-and-up} {
 		grid-template-columns: repeat($sm-columns, 1fr);
@@ -41,8 +41,9 @@
 		grid-column: auto / span $i;
 	}
 
-	.offset-xs#{$i} {
+	.start-xs#{$i} {
 		grid-column-start: $i;
+		order: $i;
 	}
 
 	.xs__text--right {
@@ -64,7 +65,7 @@
 			grid-column: auto / span $i;
 		}
 
-		.offset-sm#{$i} {
+		.start-sm#{$i} {
 			grid-column-start: $i;
 		}
 
@@ -88,7 +89,7 @@
 			grid-column: auto / span $i;
 		}
 
-		.offset-md#{$i} {
+		.start-md#{$i} {
 			grid-column-start: $i;
 		}
 
@@ -112,7 +113,7 @@
 			grid-column: auto / span $i;
 		}
 
-		.offset-lg#{$i} {
+		.start-lg#{$i} {
 			grid-column-start: $i;
 		}
 
@@ -136,7 +137,7 @@
 			grid-column: auto / span $i;
 		}
 
-		.offset-xl#{$i} {
+		.start-xl#{$i} {
 			grid-column-start: $i;
 		}
 

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Grid | Material Design</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/dist/css/material-light.css">
+        <link rel="stylesheet" href="./src/css/prism.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    </head>
+
+    <body>
+        <header class="app-bar app-bar--fixed">
+            <i class="material-icons icon" data-trigger="drawer">menu</i>
+
+            <div class="app-bar__title">
+                Grid
+            </div>
+
+            <div class="app-bar__actions">
+                <i class="material-icons icon">person</i>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="row">
+                <h2 class="xs12">Responsive layout grid</h2>
+
+                <p class="xs6">
+                    The responsive grid consists of rows and columns.
+                    Depending on the screen width these may change.
+                </p>
+
+                <p class="xs6">
+                    For making the responsive grid. The <a href="//developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank">CSS grid</a> system is used.
+                </p>
+            </section>
+
+            <article class="row">
+                <h2 class="xs12">Breakpoints</h2>
+
+                <section class="xs6">
+                    In order to make grid response the following grid points are used.
+                    It is possible to change the amount of columns, margins and gutters for each breakpoint.
+                    However for ease of use all the breakpoints have an equal amount of columns.
+                    The margins are on the outside of a grid. The gutter is the space between columns
+                </section>
+
+                <section class="xs6">
+                    <table class="data-table data-table--responsive">
+                        <thead>
+                        <tr>
+                            <th>Range (px)</th>
+                            <th>Window</th>
+                            <th>Columns</th>
+                            <th>Margins/ Gutters (px)</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td>0 - 599</td>
+                            <td>xs</td>
+                            <td>12</td>
+                            <td>16</td>
+                        </tr>
+                        <tr>
+                            <td>600 - 1023</td>
+                            <td>sm</td>
+                            <td>12</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>1024 - 1439</td>
+                            <td>md</td>
+                            <td>12</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>1440 - 1919</td>
+                            <td>lg</td>
+                            <td>12</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>1920 +</td>
+                            <td>xl</td>
+                            <td>12</td>
+                            <td>24</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12">Container</h2>
+
+                <section class="xs6">
+                    Before using the grid you can also use a class <code>.container</code>. The container is mainly used for giving a size to the content of the page.
+                    By default the container is smaller than the screen but when you add the class <code>.container--fluid</code> you can make the container fullscreen.
+
+                    <button class="button button--contained button--fluid button--contained--icon-left" onclick="fullscreen()">
+                        <i class="material-icons icon">fullscreen</i>
+                        Toggle
+                    </button>
+
+                    <script>
+                        function fullscreen() {
+                        	var container = document.querySelector('.container');
+
+                        	if( container.classList.contains('container--fluid') )
+                            {
+                            	container.classList.remove('container--fluid');
+                            } else {
+                        		container.classList.add('container--fluid');
+                            }
+                        }
+                    </script>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12">Classes</h2>
+
+                <section class="xs6">
+                    With the grid and the breakpoints quite a few classes come along.
+                </section>
+
+                <section class="xs6">
+                    <table class="data-table data-table--responsive">
+                        <thead>
+                        <tr>
+                            <th>Window</th>
+                            <th>Class</th>
+                            <th>Result</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td rowspan="4">xs</td>
+                            <td>xs1 - xs12</td>
+                            <td>Element width</td>
+                        </tr>
+                        <tr>
+                            <td>start-xs1 - start-xs12</td>
+                            <td>Column starting position</td>
+                        </tr>
+                        <tr>
+                            <td>xs__text--(right, left or center)</td>
+                            <td>Text alignment</td>
+                        </tr>
+                        <tr>
+                            <td>xs-(only, up, and-down)-(show, hide)</td>
+                            <td>Show/ hide element</td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="4">sm</td>
+                            <td>sm1 - sm12</td>
+                            <td>Element width</td>
+                        </tr>
+                        <tr>
+                            <td>start-sm1 - start-sm12</td>
+                            <td>Column starting position</td>
+                        </tr>
+                        <tr>
+                            <td>sm__text--(right, left or center)</td>
+                            <td>Text alignment</td>
+                        </tr>
+                        <tr>
+                            <td>sm-(only, up, and-up, down, and-down)-(show, hide)</td>
+                            <td>Show/ hide element</td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="4">md</td>
+                            <td>md1 - md12</td>
+                            <td>Element width</td>
+                        </tr>
+                        <tr>
+                            <td>start-md1 - start-md12</td>
+                            <td>Column starting position</td>
+                        </tr>
+                        <tr>
+                            <td>md__text--(right, left or center)</td>
+                            <td>Text alignment</td>
+                        </tr>
+                        <tr>
+                            <td>md-(only, up, and-up, down, and-down)-(show, hide)</td>
+                            <td>Show/ hide element</td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="4">lg</td>
+                            <td>lg1 - lg12</td>
+                            <td>Element width</td>
+                        </tr>
+                        <tr>
+                            <td>start-lg1 - start-lg12</td>
+                            <td>Column starting position</td>
+                        </tr>
+                        <tr>
+                            <td>lg__text--(right, left or center)</td>
+                            <td>Text alignment</td>
+                        </tr>
+                        <tr>
+                            <td>lg-(only, up, and-up, down, and-down)-(show, hide)</td>
+                            <td>Show/ hide element</td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="4">xl</td>
+                            <td>xl1 - xl12</td>
+                            <td>Element width</td>
+                        </tr>
+                        <tr>
+                            <td>start-xl1 - start-xl12</td>
+                            <td>Column starting position</td>
+                        </tr>
+                        <tr>
+                            <td>xl__text--(right, left or center)</td>
+                            <td>Text alignment</td>
+                        </tr>
+                        <tr>
+                            <td>xl-(only, and-up, down)-(show, hide)</td>
+                            <td>Show/ hide element</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12">Grid</h2>
+
+                <h3 class="xs12">Columns</h3>
+                <section class="xs6">
+                    A few examples of columns
+                </section>
+
+                <section class="xs6">
+                    <div class="row">
+                        <div class="xs12 text-center blue">12 columns</div>
+
+                        <div class="xs4 text-center blue">4 columns</div>
+                        <div class="xs4 text-center blue">4 columns</div>
+                        <div class="xs4 text-center blue">4 columns</div>
+
+                        <div class="xs6 text-center blue">6 columns</div>
+                        <div class="xs6 text-center blue">6 columns</div>
+
+                        <div class="xs6 text-center blue">6 columns</div>
+                        <div class="xs3 text-center blue">3 columns</div>
+                        <div class="xs3 text-center blue">3 columns</div>
+
+                        <div class="xs6 text-center blue start-xs7">start 7 rendered 1</div>
+                        <div class="xs6 text-center blue start-xs1">start 1 rendered 2</div>
+                    </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="row">
+    &lt;div class="xs12 text-center blue">12 columns&lt;/div>
+
+    &lt;div class="xs4 text-center blue">4 columns&lt;/div>
+    &lt;div class="xs4 text-center blue">4 columns&lt;/div>
+    &lt;div class="xs4 text-center blue">4 columns&lt;/div>
+
+    &lt;div class="xs6 text-center blue">6 columns&lt;/div>
+    &lt;div class="xs6 text-center blue">6 columns&lt;/div>
+
+    &lt;div class="xs6 text-center blue">6 columns&lt;/div>
+    &lt;div class="xs3 text-center blue">3 columns&lt;/div>
+    &lt;div class="xs3 text-center blue">3 columns&lt;/div>
+
+    &lt;div class="xs6 text-center blue start-xs7">start 7 rendered 1&lt;/div>
+    &lt;div class="xs6 text-center blue start-xs1">start 1 rendered 2&lt;/div>
+&lt;/div>
+    </code>
+</pre>
+                </section>
+            </article>
+        </main>
+
+        <nav class="drawer" id="drawer">
+            <ul>
+                <li><a href="/" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
+                <li><a href="/getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
+                        <li><a href="/layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="/color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
+                <li><a href="/typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
+                <li><a href="/iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="/components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
+                        <li><a href="/components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
+                        <li><a href="/components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                        <li><a href="/components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
+                        <li><a href="/components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
+                        <li><a href="/components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
+                        <li><a href="/components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
+                        <li><a href="/components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
+                        <li><a href="/components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
+                        <li><a href="/components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
+                        <li><a href="/components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                        <li><a href="/components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
+                        <li><a href="/components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
+                        <li><a href="/components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
+                        <li><a href="/components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
+                        <li><a href="/components/tooltip.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <script src="/dist/js/material.js"></script>
+        <script src="/src/js/prism.js"></script>
+    </body>
+</html>

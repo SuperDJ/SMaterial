@@ -63,6 +63,20 @@ p {
 	margin: 0 0 calc( #{map-get( map-get($type-scale, body-1), size ) + 0px } * .75 ) 0;
 }
 
+.text {
+	&-left {
+		text-align: left !important;
+	}
+
+	&-center {
+		text-align: center !important;
+	}
+
+	&-right {
+		text-align: right !important;
+	}
+}
+
 :root {
 	--font-family: #{$font-family};
 

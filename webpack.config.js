@@ -3,32 +3,14 @@ const path = require('path'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	postCssPresetEnv = require('postcss-preset-env'),
 	postCssScss = require('postcss-scss'),
+	glob = require('glob'),
 	autoprefixer = require('autoprefixer');
 
 module.exports = env => {
 	return {
 		entry: {
-			'material-js': [
-				'./resources/assets/js/functions.js',
-				'./resources/assets/js/app-bar.js',
-				'./resources/assets/js/badge.js',
-				'./resources/assets/js/banner.js',
-				'./resources/assets/js/button.js',
-				'./resources/assets/js/data-table.js',
-				'./resources/assets/js/dialog.js',
-				'./resources/assets/js/divider.js',
-				'./resources/assets/js/drawer.js',
-				'./resources/assets/js/menu.js',
-				'./resources/assets/js/progress.js',
-				'./resources/assets/js/select-field.js',
-				'./resources/assets/js/selection.js',
-				'./resources/assets/js/tab.js',
-				'./resources/assets/js/text-field.js',
-				'./resources/assets/js/tooltip.js',
-				'./resources/assets/js/trigger.js',
-				'./resources/assets/js/typography.js'
-			],
-			'material-css': './src/css/material.scss'
+			'material': glob.sync("./src/js/**/*.js"),
+			'material-light': './src/sass/material.scss'
 		},
 		output: {
 			path: __dirname,
@@ -39,13 +21,15 @@ module.exports = env => {
 				{
 					test: /\.js$/,
 					exclude: ['/node_modules/', '/dist/', '/src/css'],
-					use: {
-						loader: 'babel-loader',
-						options: {
-							presets: ['babel-preset-env', 'babel-preset-es2015', 'babel-preset-stage-2'],
-							plugins: ['babel-plugin-dynamic-import-node']
+					use: [
+						'babel-loader',
+						{
+							loader: 'eslint-loader',
+							options: {
+								fix: true
+							}
 						}
-					}
+					]
 				},
 				{
 					test: /\.css$/,
@@ -55,12 +39,14 @@ module.exports = env => {
 						{
 							loader: 'css-loader',
 							options: {
+								sourceMap: true,
 								minimize: process.env.NODE_ENV === 'development'
 							}
 						},
 						{
 							loader: 'postcss-loader',
 							options: {
+								sourceMap: true,
 								plugins: () => [
 									autoprefixer,
 									postCssPresetEnv({
@@ -79,12 +65,14 @@ module.exports = env => {
 						{
 							loader: 'css-loader',
 							options: {
+								sourceMap: true,
 								minimize: process.env.NODE_ENV === 'production'
 							}
 						},
 						{
 							loader: 'postcss-loader',
 							options: {
+								sourceMap: true,
 								syntax: postCssScss,
 								plugins: () => [
 									autoprefixer,
@@ -94,36 +82,21 @@ module.exports = env => {
 								],
 							},
 						},
-						'sass-loader'
-					]
-				},
-				{
-					test: /\.styl$/,
-					exclude: ['/node_modules', '/dist', '/src/js'],
-					use: [
-						MiniCSSExtractPlugin.loader,
 						{
-							loader: 'css-loader',
+							loader: 'sass-loader',
 							options: {
-								minimize: process.env.NODE_ENV === 'production'
+								sourceMap: true
 							}
-						},
-						{
-							loader: 'postcss-loader',
-							options: {
-								plugins: () => [
-									autoprefixer,
-									postCssPresetEnv({
-										stage: 0
-									}),
-								]
-							}
-						},
-						'stylus-loader'
+						}
 					]
 				}
 			]
 		},
+		devServer: {
+			overlay: true,
+			contentBase: path.join(__dirname, 'docs')
+		},
+		devtool: process.env.NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
 		resolve: {
 			extensions: ['.js', '.css', '.styl', '.scss'],
 			alias: {

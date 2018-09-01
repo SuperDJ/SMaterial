@@ -1,15 +1,27 @@
 const tabBars = Array.from( document.querySelectorAll( '.tabs' ) );
 
-tabBars.forEach( tabBar => {
-    tabBar.setAttribute( 'role', 'tablist' );
+class TabBar
+{
+	constructor( tabBars )
+	{
+		this.tabBars = tabBars;
 
-    let tabs = Array.from( tabBar.querySelectorAll( '.tabs__tab' ) );
+		this.setRole();
+	}
 
-    tabs.forEach( tab => {
-        tab.setAttribute( 'role', 'tab' );
-    });
-});
+	setRole()
+	{
+		this.tabBars.forEach( tabBar =>
+		{
+			tabBar.setAttribute( 'role', 'tablist' );
 
-/**************************************
- * TODO add aria
- **************************************/
+			// Tabs
+			Array.from( tabBar.querySelectorAll( '.tabs__tab' ) ).forEach( tab =>
+			{
+				tab.setAttribute( 'role', 'tab' );
+			});
+		});
+	}
+}
+
+new TabBar( tabBars );

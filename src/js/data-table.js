@@ -1,20 +1,45 @@
 const dataTables = Array.from( document.querySelectorAll( '.data-table' ));
 
-dataTables.forEach( dataTable => {
-    dataTable.setAttribute( 'role', 'table');
+class DataTable
+{
+	constructor( dataTables )
+	{
+		this.dataTables = dataTables;
 
-    const rows = Array.from( dataTable.querySelectorAll( 'tr' ) );
-    rows.forEach( row => {
-        row.setAttribute( 'role', 'row' );
-    });
+		this.setRole();
+		this.renderHtml();;
+	}
 
-    const columnHeaders = dataTable.querySelectorAll( 'th' );
-    columnHeaders.forEach( columnHeader => {
-        columnHeader.setAttribute( 'role', 'columnheader' );
-    });
+	setRole()
+	{
+		this.dataTables.forEach( dataTable =>
+		{
+			dataTable.setAttribute( 'role', 'table' );
 
-    let container = document.createElement( 'div' );
-    dataTable.parentNode.insertBefore( container, dataTable );
-    container.classList.add( 'data-table--responsive' );
-    container.appendChild(dataTable);
-});
+			// Rows
+			Array.from( dataTable.querySelectorAll( 'tr' ) ).forEach( row =>
+			{
+				row.setAttribute( 'role', 'row' );
+			});
+
+			// Column headers
+			Array.from( dataTable.querySelectorAll( 'th' ) ).forEach( columnHeader =>
+			{
+				columnHeader.setAttribute( 'role', 'columnheader' );
+			});
+		});
+	}
+
+	renderHtml()
+	{
+		this.dataTables.forEach( dataTable =>
+		{
+			let container = document.createElement( 'div' );
+			dataTable.parentNode.insertBefore( container, dataTable );
+			container.classList.add( 'data-table--responsive' );
+			container.appendChild( dataTable );
+		});
+	}
+}
+
+new DataTable( dataTables );
