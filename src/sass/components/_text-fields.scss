@@ -127,7 +127,7 @@
     }
 
     &__label {
-        cursor: pointer;
+        @extend %cursor--pointer;
         pointer-events: none;
         color: var(--text-field__label-color);
         @extend %body-1;
@@ -145,7 +145,7 @@
         min-height: var(--text-field__input-height);
 
         &:hover {
-            cursor: pointer;
+            @extend %cursor--pointer;
         }
 
         &:focus {
@@ -217,7 +217,7 @@
         width: 100%;
         background: var(--background-color);
         border-radius: var(--border-radius);
-        @extend .z8;
+        @extend %z8;
         padding: rem-calc(8px) 0;
         z-index: 1;
         overflow: auto;
@@ -240,7 +240,7 @@
         @include chain(height, line-height, rem-calc(48px));
         display: block;
         background: transparent;
-        @extend .cursor--pointer;
+        @extend %cursor--pointer;;
 
         &:hover {
             background: rgba($primary-color, .16);

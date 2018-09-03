@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dialogs | Material Design</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="/dist/css/material-light.css">
+        <link rel="stylesheet" href="./src/css/prism.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <style>
+            .dialog--confirm:nth-child(2) .dialog__content {
+                max-height: 150px;
+            }
+
+            .dialog {
+                margin-bottom: var(--gutter);
+            }
+
+            .dialog--full-screen {
+                position: unset;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="app-bar app-bar--fixed">
+            <i class="material-icons icon" data-trigger="drawer">menu</i>
+
+            <div class="app-bar__title">
+                Dialogs
+            </div>
+
+            <div class="app-bar__actions">
+                <i class="material-icons icon">person</i>
+            </div>
+        </header>
+
+        <main class="container">
+            <article class="row">
+                <h2 class="xs12">Dialogs</h2>
+
+                <div class="xs12 sm6">
+                    For a dialog you can choose from a few different types <a href="#simple">simple</a>, <a href="#alert">alert</a>, <a href="#confirmation">confirmation</a> and <a href="#fullscreen">fullscreen</a>.
+                </div>
+            </article>
+
+            <article class="row">
+                <h3 class="xs12">Simple dialog</h3>
+
+                <div class="xs12 sm6">
+                    <p>
+                        The simple dialog consists of a dialog a header and list items.
+                    </p>
+                </div>
+
+                <div class="xs12 sm6">
+                    <div class="dialog dialog--simple">
+                        <div class="dialog__header">Users</div>
+
+                        <div class="dialog__content">
+                            <ul class="list">
+                                <li class="list--single-line list--support">
+                                    <div class="list__support__image"><img src="//via.placeholder.com/40x40"></div>
+                                    <span class="list__content">User 1</span>
+                                </li>
+                                <li class="list--single-line list--support">
+                                    <div class="list__support__image"><img src="//via.placeholder.com/40x40"></div>
+                                    <span class="list__content">User 2</span>
+                                </li>
+                                <li class="list--single-line list--support">
+                                    <div class="list__support__image"><img src="//via.placeholder.com/40x40"></div>
+                                    <span class="list__content">User 3</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="row">
+                <h3 class="xs12">Alert dialog</h3>
+
+                <section class="xs12 sm6">
+                    An alert dialog consist of some text and one or more actions.
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="dialog dialog--alert">
+                        <div class="dialog__content">
+                            Save draft?
+                        </div>
+
+                        <div class="dialog__actions">
+                            <button class="button button--text">
+                                Cancel
+                            </button>
+
+                            <button class="button button--text">
+                                Discard
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <article class="row">
+                <h3 class="xs12">Confirmation dialog</h3>
+
+                <section class="xs12 sm6">
+                    The confirmation dialog exists of an header, text and some actions.
+                    The content/ text is also scrollable.
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="dialog dialog--confirm">
+                        <div class="dialog__header">
+                            Dialog header
+                        </div>
+
+                        <div class="dialog__content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci beatae culpa dicta dolorum excepturi expedita harum maxime molestiae nam odio qui quibusdam quis quo recusandae repudiandae, sapiente tempore voluptas voluptates.
+                        </div>
+
+                        <div class="dialog__actions">
+                            <button class="button button--text">
+                                Action 1
+                            </button>
+
+                            <button class="button button--text">
+                                Action 2
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dialog dialog--confirm">
+                        <div class="dialog__header">
+                            Dialog header
+                        </div>
+
+                        <div class="dialog__content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci beatae culpa dicta dolorum excepturi expedita harum maxime molestiae nam odio qui quibusdam quis quo recusandae repudiandae, sapiente tempore voluptas voluptates.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto at atque corporis cupiditate deleniti, ea eius error harum id impedit inventore minus neque possimus quasi quia totam vel voluptates.</p>
+                        </div>
+
+                        <div class="dialog__actions">
+                            <button class="button button--text">
+                                Action 1
+                            </button>
+
+                            <button class="button button--text">
+                                Action 2
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+            <article class="row">
+                <h3 class="xs12">Full-screen dialog</h3>
+
+                <div class="xs12 sm6">
+                    The full-screen will cover the full screen as it's name already suggests
+                </div>
+
+                <div class="xs12 sm6">
+                    <div class="dialog dialog--full-screen">
+                        <div class="dialog__header">
+                            <i class="material-icons icon" data-trigger="null">close</i>
+
+                            <div class="dialog__header__title">
+                                Title
+                            </div>
+
+                            <div class="dialog__header__action">
+                                <button class="button button--text">Action</button>
+                            </div>
+                        </div>
+
+                        <div class="dialog__content" id="null">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam autem consequuntur dolor dolores laborum mollitia nemo nobis nulla officiis optio, perspiciatis possimus quidem rerum saepe sequi tenetur unde veritatis.
+                            </p>
+
+                            <p>
+                                The full screen dialog could also contain a form
+                            </p>
+
+                            <form>
+                                <div class="text-field text-field--filled">
+                                    <input type="text" id="first_name" class="text-field__input">
+                                    <label class="text-field__label" for="first_name">First name</label>
+                                </div>
+
+                                <div class="text-field text-field--filled">
+                                    <input type="text" id="last_name" class="text-field__input">
+                                    <label class="text-field__label" for="last_name">Last name</label>
+                                </div>
+
+                                <div class="text-field text-field--filled">
+                                    <input type="text" id="username" class="text-field__input">
+                                    <label class="text-field__label" for="username">Username</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <nav class="drawer" id="drawer">
+            <ul>
+                <li><a href="/" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
+                <li><a href="/getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
+                        <li><a href="/layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="/color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
+                <li><a href="/typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
+                <li><a href="/iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="/components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
+                        <li><a href="/components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
+                        <li><a href="/components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                        <li><a href="/components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
+                        <li><a href="/components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
+                        <li><a href="/components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
+                        <li><a href="/components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
+                        <li><a href="/components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
+                        <li><a href="/components/dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
+                        <li><a href="/components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
+                        <li><a href="/components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
+                        <li><a href="/components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                        <li><a href="/components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
+                        <li><a href="/components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
+                        <li><a href="/components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
+                        <li><a href="/components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
+                        <li><a href="/components/tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="/components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <script src="/dist/js/material.js"></script>
+        <script src="/src/js/prism.js"></script>
+    </body>
+</html>

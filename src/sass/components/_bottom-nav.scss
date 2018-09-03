@@ -7,7 +7,7 @@
     bottom: 0;
     left: 0;
 	position: fixed;
-    @extend .z8;
+    @extend %z8;
 
     ul {
         @include chain(margin, padding, 0);

@@ -1,17 +1,17 @@
 .card {
     background: var(--surface-color);
     width: 100%;
-    @extend .z1;
+    @extend %z1;
     border-radius: var(--border-radius);
     transition: box-shadow $easing-standard .1s;
     display: block;
 
     &:hover {
-        @extend .z8;
+        @extend %z8;
     }
 
     &__thumbnail img {
-        @include responsive-ratio(1,1);     
+        @include responsive-ratio(1,1);
     }
 
     &__header {
@@ -46,7 +46,7 @@
     }
 
     &--outlined {
-        border: rem-calc(1px) solid rgba($black, .12);        
+        border: rem-calc(1px) solid rgba($black, .12);
     }
 
     &--top {

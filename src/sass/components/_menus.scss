@@ -6,7 +6,7 @@
     padding: rem-calc(8px) 0;
     border-radius: var(--border-radius);
     background: var(--background-color);
-    @extend .z8;
+    @extend %z8;
     user-select: none;
 	opacity: 0;
     overflow: auto;
@@ -23,7 +23,7 @@
         height: rem-calc(48px);
         width: 100%;
         transition: background .1s $easing-standard;
-        cursor: pointer;
+        @extend %cursor--pointer;
 
         &:hover {
             background: rgba($primary-color, .04);

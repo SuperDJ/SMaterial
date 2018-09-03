@@ -2,7 +2,7 @@
     border-radius: var(--border-radius);
     background: var(--background-color);
     position: absolute;
-    @extend .z2;
+    @extend %z2;
     padding: rem-calc(16px);
     color: var(--notification-font-color);
 

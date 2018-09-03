@@ -4,7 +4,7 @@
 	line-height: var(--button-height);
 	min-width: var(--button-min-width);
 	max-width: 100%;
-	cursor: pointer;
+	@extend %cursor--pointer;
 	border: none;
 	border-radius: var(--button-border-radius);
 	position: relative;
@@ -21,10 +21,10 @@
 		padding: var(--button--contained-padding);
 		background: var(--primary-color);
 		color: var(--font-on-primary);
-		@extend .z2;
+		@extend %z2;
 
-		&:hover { 
-			@extend .z8;
+		&:hover {
+			@extend %z8;
 			color: var(--font-on-primary);
 		}
 
@@ -143,13 +143,13 @@
 
 	--button--outlined-border: #{rem-calc(1px) solid rgba($black, .12)};
 	--button--outlined-padding: #{0 rem-calc(16px)};
-	--button--outlined--icon-left-padding: #{0 rem-calc(16px) 0 rem-calc(12px)}; 
+	--button--outlined--icon-left-padding: #{0 rem-calc(16px) 0 rem-calc(12px)};
 	--button--outlined--icon-left__icon-margin: #{0 rem-calc(8px) 0 0};
 	--button--outlined--icon-right-padding: #{0 rem-calc(12px) 0 rem-calc(16px)};
 	--button--outlined--icon-right__icon-margin: #{0 0 0 rem-calc(8px)};
 
 	--button--text-padding: #{0 rem-calc(8px)};
-	--button--text--icon-left-padding: #{0 rem-calc(8px) 0 rem-calc(4px)}; 
+	--button--text--icon-left-padding: #{0 rem-calc(8px) 0 rem-calc(4px)};
 	--button--text--icon-left__icon-margin: #{0 rem-calc(4px) 0 0};
 	--button--text--icon-right-padding: #{0 rem-calc(4px) 0 rem-calc(8px)};
 	--button--text--icon-right__icon-margin: #{0 0 0 rem-calc(4px)};

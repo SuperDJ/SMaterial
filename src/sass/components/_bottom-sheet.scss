@@ -10,7 +10,7 @@
     bottom: 0;
     margin: 0;
     padding: 0;
-    @extend .z8;
+    @extend %z8;
     background: var(--background-color);
 
     &--list {
@@ -53,7 +53,7 @@
     }
 
     &--modal {
-        @extend .z16; 
+        @extend %z16;
 
         &:before {
             content: '';
@@ -67,7 +67,7 @@
 
     &__item {
         display: block;
-        cursor: pointer;
+        @extend %cursor--pointer;
     }
 
     &__header {

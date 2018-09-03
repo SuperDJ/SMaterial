@@ -21,14 +21,22 @@
 	}
 	$ambient-shadow: $ambient-shadow + ' ' + $elevation-ambient-color;
 
-	.z#{$depth} {
+	%z#{$depth} {
 		$shadow: $umbra-shadow + ', ' + $penumbra-shadow + ', ' + $ambient-shadow;
 		box-shadow: unquote( $shadow );
 	}
 
-	.z#{$depth}--inset {
+	%z#{$depth}--inset {
 		$shadow: 'inset ' + $umbra-shadow + ', inset ' + $penumbra-shadow + ', inset ' + $ambient-shadow;
 		box-shadow: unquote( $shadow );
+	}
+
+	.z#{$depth} {
+		@extend %z#{$depth};
+	}
+
+	.z#{$depth}--inset {
+		@extend %z#{$depth}--inset;
 	}
 }
 

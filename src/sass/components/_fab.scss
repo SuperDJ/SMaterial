@@ -4,10 +4,10 @@
 	padding: var(--fab-padding);
 	border-radius: 50%;
 	background: var(--primary-color);
-	@extend .z6;
+	@extend %z6;
 	color: var(--font-on-primary);
 	text-align: center;
-	cursor: pointer;
+	@extend %cursor--pointer;
 	user-select: none;
 	position: relative;
 	display: inline-block;

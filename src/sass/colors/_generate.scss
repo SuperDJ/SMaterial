@@ -1,48 +1,49 @@
 @each $color-name, $color-swatch in $colors {
 	@each $color-type, $color-value in $color-swatch {
+		// Since base and 500 color are equal merge them together
 		@if( $color-type == 'base' ) {
 			.#{$color-name}, .#{$color-name}-500 {
 				background: $color-value !important;
-				--background-color: $color-value;
-				--surface-color: $color-value;
+				--background-color: #{$color-value};
+				--surface-color: #{$color-value};
 			}
 
 			@debug #{$color-name} lightness($color-value);
 
 			.text--#{$color-name}, .text--#{$color-name}-500, .text--#{$color-name} .icon, .text--#{$color-name}-500 .icon, .icon--#{$color-name}, .icon--#{$color-name}-500 {
 				color: $color-value !important;
-				--font-on-primary: $color-value;
-				--font-on-secondary: $color-value;
-				--font-on-background: $color-value;
-				--font-on-surface: $color-value;
+				--font-on-primary: #{$color-value};
+				--font-on-secondary: #{$color-value};
+				--font-on-background: #{$color-value};
+				--font-on-surface: #{$color-value};
 			}
 		} @else if( str-index( $color-name, 'shades' ) ) {
 			.#{$color-type} {
 				background: $color-value !important;
-				--background-color: $color-value;
-				--surface-color: $color-value;
+				--background-color: #{$color-value};
+				--surface-color: #{$color-value};
 			}
 
 			.text--#{$color-type}, .text--#{$color-type} .icon, .icon--#{$color-type} {
 				color: $color-value !important;
-				--font-on-primary: $color-value;
-				--font-on-secondary: $color-value;
-				--font-on-background: $color-value;
-				--font-on-surface: $color-value;
+				--font-on-primary: #{$color-value};
+				--font-on-secondary: #{$color-value};
+				--font-on-background: #{$color-value};
+				--font-on-surface: #{$color-value};
 			}
 		} @else if( $color-type != '500' ) {
 			.#{$color-name}-#{$color-type} {
 				background: $color-value !important;
-				--background-color: $color-value;
-				--surface-color: $color-value;
+				--background-color: #{$color-value};
+				--surface-color: #{$color-value};
 			}
 
 			.text--#{$color-name}-#{$color-type}, .text--#{$color-name}-#{$color-type} .icon, .icon--#{$color-name}-#{$color-type} {
 				color: $color-value !important;
-				--font-on-primary: $color-value;
-				--font-on-secondary: $color-value;
-				--font-on-background: $color-value;
-				--font-on-surface: $color-value;
+				--font-on-primary: #{$color-value};
+				--font-on-secondary: #{$color-value};
+				--font-on-background: #{$color-value};
+				--font-on-surface: #{$color-value};
 			}
 		}
 	}

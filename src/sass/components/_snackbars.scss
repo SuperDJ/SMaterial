@@ -4,7 +4,7 @@
     border-radius: var(--snackbar-border-radius);
     width: var(--snackbar-width);
     min-height: var(--snackbar-min-height);
-    @extend .z6;
+    @extend %z6;
 
     &--single-line, &--two-line {
         display: grid;

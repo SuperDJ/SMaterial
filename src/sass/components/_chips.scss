@@ -9,7 +9,7 @@
     display: inline-flex;
     align-items: center;
     color: var(--chip-color);
-    cursor: pointer;
+    @extend %cursor--pointer;
     user-select: none;
 	vertical-align: middle;
     @extend %ripple;

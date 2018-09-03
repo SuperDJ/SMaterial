@@ -1,20 +1,14 @@
 const tooltips = Array.from( document.querySelectorAll( '.tooltip' ) );
 
-tooltips.forEach( tooltip =>
+tooltips.forEach( ( tooltip, i ) =>
 {
-	let content = tooltip.querySelector( '.tooltip__content' );
+	const content = tooltip.querySelector( '.tooltip__content' );
 	let width = content.getBoundingClientRect().width;
-	let id = `tooltip-${i}`;
+	const id = `tooltip-${i}`;
+	const controller = tooltip.firstElementChild;
 
-	// Element triggering tooltip
-	tooltip.childNodes.forEach( controller =>
-	{
-		if( !controller.classList.contains( 'tooltip__content' ) )
-		{
-			controller.setAttribute( 'aria-describedby', id );
-			controller.setAttribute( 'aria-haspopup', true );
-		}
-	});
+	controller.setAttribute( 'aria-describedby', id );
+	controller.setAttribute( 'aria-haspopup', 'true' );
 
 	content.setAttribute( 'id', id );
 	content.setAttribute( 'role', 'tooltip' );
