@@ -94,7 +94,8 @@ module.exports = env => {
 		},
 		devServer: {
 			overlay: true,
-			contentBase: path.join(__dirname, 'docs')
+			contentBase: path.join(__dirname, 'docs'),
+			watchContentBase: true
 		},
 		devtool: process.env.NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
 		resolve: {

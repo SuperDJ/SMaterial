@@ -13,16 +13,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <style>
-            .dialog--confirm:nth-child(2) .dialog__content {
+            .dialog--confirm:nth-of-type(2) .dialog__content {
                 max-height: 150px;
-            }
-
-            .dialog {
-                margin-bottom: var(--gutter);
-            }
-
-            .dialog--full-screen {
-                position: unset;
             }
         </style>
     </head>
@@ -52,14 +44,14 @@
             <article class="row">
                 <h3 class="xs12">Simple dialog</h3>
 
-                <div class="xs12 sm6">
+                <section class="xs12 sm6">
                     <p>
                         The simple dialog consists of a dialog a header and list items.
                     </p>
-                </div>
 
-                <div class="xs12 sm6">
-                    <div class="dialog dialog--simple">
+                    <button class="button button--contained" type="button" data-trigger="simple2">Show simple dialog</button>
+
+                    <div class="dialog dialog--simple" id="simple2">
                         <div class="dialog__header">Users</div>
 
                         <div class="dialog__content">
@@ -79,32 +71,83 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <section class="xs12 sm6">
+<pre class="language-html">
+    <code>
+&lt;div class="dialog dialog--simple" id="simple2">
+    &lt;div class="dialog__header">Users&lt;/div>
+
+    &lt;div class="dialog__content">
+        &lt;ul class="list">
+            &lt;li class="list--single-line list--support">
+                &lt;div class="list__support__image">&lt;img src="//via.placeholder.com/40x40">&lt;/div>
+                &lt;span class="list__content">User 1&lt;/span>
+            &lt;/li>
+            &lt;li class="list--single-line list--support">
+                &lt;div class="list__support__image">&lt;img src="//via.placeholder.com/40x40">&lt;/div>
+                &lt;span class="list__content">User 2&lt;/span>
+            &lt;/li>
+            &lt;li class="list--single-line list--support">
+                &lt;div class="list__support__image">&lt;img src="//via.placeholder.com/40x40">&lt;/div>
+                &lt;span class="list__content">User 3&lt;/span>
+            &lt;/li>
+        &lt;/ul>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
+                </section>
             </article>
 
             <article class="row">
                 <h3 class="xs12">Alert dialog</h3>
 
                 <section class="xs12 sm6">
-                    An alert dialog consist of some text and one or more actions.
-                </section>
+                    <p>
+                        An alert dialog consist of some text and one or more actions.
+                    </p>
 
-                <section class="xs12 sm6">
-                    <div class="dialog dialog--alert">
+                    <button class="button button--contained" data-trigger="alert1" type="button">Show alert dialog</button>
+
+                    <div class="dialog dialog--alert" id="alert1">
                         <div class="dialog__content">
                             Save draft?
                         </div>
 
                         <div class="dialog__actions">
-                            <button class="button button--text">
+                            <button class="button button--text" type="button" data-trigger="alert1">
                                 Cancel
                             </button>
 
-                            <button class="button button--text">
+                            <button class="button button--text" type="button" data-trigger="alert1">
                                 Discard
                             </button>
                         </div>
                     </div>
+                </section>
+
+                <section class="xs12 sm6">
+<pre class="language-html">
+    <code>
+&lt;div class="dialog dialog--alert" id="alert1">
+    &lt;div class="dialog__content">
+        Save draft?
+    &lt;/div>
+
+    &lt;div class="dialog__actions">
+        &lt;button class="button button--text">
+            Cancel
+        &lt;/button>
+
+        &lt;button class="button button--text">
+            Discard
+        &lt;/button>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
                 </section>
             </article>
 
@@ -112,12 +155,14 @@
                 <h3 class="xs12">Confirmation dialog</h3>
 
                 <section class="xs12 sm6">
-                    The confirmation dialog exists of an header, text and some actions.
-                    The content/ text is also scrollable.
-                </section>
+                    <p>
+                        The confirmation dialog exists of an header, text and some actions.
+                        The content/ text is also scrollable.
+                    </p>
 
-                <section class="xs12 sm6">
-                    <div class="dialog dialog--confirm">
+                    <button class="button button--contained" type="button" data-trigger="confirm1">Show confirm dialog</button>
+
+                    <div class="dialog dialog--confirm" id="confirm1">
                         <div class="dialog__header">
                             Dialog header
                         </div>
@@ -127,17 +172,19 @@
                         </div>
 
                         <div class="dialog__actions">
-                            <button class="button button--text">
+                            <button class="button button--text" type="button" data-trigger="confirm1">
                                 Action 1
                             </button>
 
-                            <button class="button button--text">
+                            <button class="button button--text" type="button" data-trigger="confirm1">
                                 Action 2
                             </button>
                         </div>
                     </div>
 
-                    <div class="dialog dialog--confirm">
+                    <button class="button button--contained" type="button" data-trigger="confirm-scroll1">Show confirm scroll dialog</button>
+
+                    <div class="dialog dialog--confirm" id="confirm-scroll1">
                         <div class="dialog__header">
                             Dialog header
                         </div>
@@ -148,36 +195,64 @@
                         </div>
 
                         <div class="dialog__actions">
-                            <button class="button button--text">
+                            <button class="button button--text" type="button" data-trigger="confirm-scroll1">
                                 Action 1
                             </button>
 
-                            <button class="button button--text">
+                            <button class="button button--text" type="button" data-trigger="confirm-scroll1">
                                 Action 2
                             </button>
                         </div>
                     </div>
+                </section>
+
+                <section class="xs12 sm6">
+<pre class="language-html">
+    <code>
+&lt;div class="dialog dialog--confirm" id="confirm1">
+    &lt;div class="dialog__header">
+        Dialog header
+    &lt;/div>
+
+    &lt;div class="dialog__content">
+        Content
+    &lt;/div>
+
+    &lt;div class="dialog__actions">
+        &lt;button class="button button--text">
+            Action 1
+        &lt;/button>
+
+        &lt;button class="button button--text">
+            Action 2
+        &lt;/button>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
                 </section>
             </article>
 
             <article class="row">
                 <h3 class="xs12">Full-screen dialog</h3>
 
-                <div class="xs12 sm6">
-                    The full-screen will cover the full screen as it's name already suggests
-                </div>
+                <section class="xs12 sm6">
+                    <p>
+                        The full-screen will cover the full screen as it's name already suggests.
+                    </p>
 
-                <div class="xs12 sm6">
-                    <div class="dialog dialog--full-screen">
+                    <button class="button button--contained" type="button" data-trigger="full-screen1">Show full screen dialog</button>
+
+                    <div class="dialog dialog--full-screen" id="full-screen1">
                         <div class="dialog__header">
-                            <i class="material-icons icon" data-trigger="null">close</i>
+                            <i class="material-icons icon" data-trigger="full-screen1">close</i>
 
                             <div class="dialog__header__title">
                                 Title
                             </div>
 
                             <div class="dialog__header__action">
-                                <button class="button button--text">Action</button>
+                                <button class="button button--text" type="button" data-trigger="full-screen1">Action</button>
                             </div>
                         </div>
 
@@ -208,7 +283,54 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <section class="xs12 sm6">
+<pre class="language-html">
+    <code>
+&lt;div class="dialog dialog--full-screen" id="full-screen1">
+    &lt;div class="dialog__header">
+        &lt;i class="material-icons icon" data-trigger="null">close&lt;/i>
+
+        &lt;div class="dialog__header__title">
+            Title
+        &lt;/div>
+
+        &lt;div class="dialog__header__action">
+            &lt;button class="button button--text">Action&lt;/button>
+        &lt;/div>
+    &lt;/div>
+
+    &lt;div class="dialog__content" id="null">
+        &lt;p>
+            Content
+        &lt;/p>
+
+        &lt;p>
+            The full screen dialog could also contain a form
+        &lt;/p>
+
+        &lt;form>
+            &lt;div class="text-field text-field--filled">
+                &lt;input type="text" id="first_name" class="text-field__input">
+                &lt;label class="text-field__label" for="first_name">First name&lt;/label>
+            &lt;/div>
+
+            &lt;div class="text-field text-field--filled">
+                &lt;input type="text" id="last_name" class="text-field__input">
+                &lt;label class="text-field__label" for="last_name">Last name&lt;/label>
+            &lt;/div>
+
+            &lt;div class="text-field text-field--filled">
+                &lt;input type="text" id="username" class="text-field__input">
+                &lt;label class="text-field__label" for="username">Username&lt;/label>
+            &lt;/div>
+        &lt;/form>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
+                </section>
             </article>
         </main>
 

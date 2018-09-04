@@ -8,6 +8,7 @@ class Dialog
 
 		this.setRole();
 		this.setScroll();
+		this.checkId();
 	}
 
 	setRole()
@@ -20,7 +21,7 @@ class Dialog
 
 	setScroll()
 	{
-		this.dialogs.forEach(dialog =>
+		this.dialogs.forEach( dialog =>
 		{
 			const content = dialog.querySelector('.dialog__content');
 			let vertical = content.scrollHeight > content.clientHeight;
@@ -28,6 +29,17 @@ class Dialog
 			if( vertical )
 			{
 				dialog.classList.add('dialog--scroll');
+			}
+		});
+	}
+
+	checkId()
+	{
+		this.dialogs.forEach( ( dialog, i ) =>
+		{
+			if( !dialog.getAttribute( 'id' ) )
+			{
+				console.error(`The following dialog doesn't have an ID to trigger it`, dialog);
 			}
 		});
 	}

@@ -7,9 +7,12 @@
 	min-width: rem-calc(280px);
 	max-width: 100%;
 	max-height: 80%;
-	display: inline-block;
 	overflow: hidden;
 	z-index: 3;
+	position: fixed;
+	display: none;
+	@include chain(top, left, 50%);
+	transform: translateX(-50%) translateY(-50%);
 
     &__header {
 		@include chain(height, line-height, rem-calc(64px));
@@ -79,6 +82,7 @@
 		z-index: 2;
 		position: fixed;
 		@include chain(top, left, 0);
+		transform: unset;
 
 		#{$el}__header {
 			@include chain(height, line-height, rem-calc(56px));
@@ -115,6 +119,10 @@
 		#{$el}__content {
 			padding: rem-calc(16px) rem-calc(8px) 0 rem-calc(16px);
 		}
+	}
+
+	&--active {
+		display: inline-block;
 	}
 }
 
