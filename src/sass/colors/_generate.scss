@@ -1,5 +1,6 @@
 @each $color-name, $color-swatch in $colors {
 	@each $color-type, $color-value in $color-swatch {
+		//@debug #{$color-name} lightness($color-value);
 		// Since base and 500 color are equal merge them together
 		@if( $color-type == 'base' ) {
 			.#{$color-name}, .#{$color-name}-500 {
@@ -7,8 +8,6 @@
 				--background-color: #{$color-value};
 				--surface-color: #{$color-value};
 			}
-
-			@debug #{$color-name} lightness($color-value);
 
 			.text--#{$color-name}, .text--#{$color-name}-500, .text--#{$color-name} .icon, .text--#{$color-name}-500 .icon, .icon--#{$color-name}, .icon--#{$color-name}-500 {
 				color: $color-value !important;

@@ -4,15 +4,17 @@
     @extend %z24;
     background: var(--dialog-background);
     @extend %body-2;
-	min-width: rem-calc(280px);
 	max-width: 100%;
-	max-height: 80%;
 	overflow: hidden;
 	z-index: 3;
 	position: fixed;
 	display: none;
 	@include chain(top, left, 50%);
 	transform: translateX(-50%) translateY(-50%);
+
+	@media #{$xs-up} {
+		min-width: rem-calc(280px);
+	}
 
     &__header {
 		@include chain(height, line-height, rem-calc(64px));

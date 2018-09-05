@@ -31,7 +31,7 @@ document.addEventListener( 'mouseup', ( e ) =>
 {
 	triggered.forEach( ( trigger, i ) =>
 	{
-		if( trigger === e.target || trigger !== e.target && !trigger.contains( e.target ) )
+		if( trigger !== e.target && !trigger.contains( e.target ) )
 		{
 			let className = `${trigger.classList[0]}--active`;
 			trigger.classList.remove( className );

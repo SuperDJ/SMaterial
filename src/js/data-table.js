@@ -7,7 +7,7 @@ class DataTable
 		this.dataTables = dataTables;
 
 		this.setRole();
-		this.renderHtml();;
+		this.renderHtml();
 	}
 
 	setRole()

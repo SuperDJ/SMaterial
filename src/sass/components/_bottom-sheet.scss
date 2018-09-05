@@ -33,9 +33,9 @@
     }
 
     &--grid {
-        display: flex;
+        display: grid;
         padding: 0 rem-calc(24px);
-        flex-flow: row wrap;
+		grid-template-columns: repeat(3, 1fr);
 
         #{$el}__icon {
             @include chain(width, height, font-size, rem-calc(48px));
@@ -44,7 +44,7 @@
         #{$el}__item {
             text-align: center;
             min-width: rem-calc(48px);
-            flex-grow: 1;
+			grid-column-start: auto;
         }
 
         #{$el}__content {
