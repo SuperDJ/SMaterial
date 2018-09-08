@@ -1,115 +1,90 @@
-const path = require('path'),
-	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
+const
+	autoprefixer = require('autoprefixer'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
-	postCssPresetEnv = require('postcss-preset-env'),
-	postCssScss = require('postcss-scss'),
 	glob = require('glob'),
-	autoprefixer = require('autoprefixer');
+	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
+	path = require('path'),
+	postCssPresetEnv = require('postcss-preset-env'),
+	postCssScss = require('postcss-scss');
 
-module.exports = env => {
-	return {
-		entry: {
-			'material': glob.sync("./src/js/**/*.js"),
-			'material-light': './src/sass/material.scss'
-		},
-		output: {
-			path: __dirname,
-			filename: './dist/js/[name].js',
-		},
-		module: {
-			rules: [
-				{
-					test: /\.js$/,
-					exclude: ['/node_modules/', '/dist/', '/src/css'],
-					use: [
-						'babel-loader',
-						{
-							loader: 'eslint-loader',
-							options: {
-								fix: true
-							}
+const OUTPUT_DIR = path.resolve(__dirname, 'docs');
+
+module.exports = {
+	entry: {
+		'material': glob.sync("./src/js/**/*.js"),
+		'material-light': './src/sass/material.scss'
+	},
+	output: {
+		path: OUTPUT_DIR,
+		filename: 'dist/js/[name].js',
+	},
+	module: {
+		rules: [
+			{
+				test: /\.js$/,
+				exclude: ['/node_modules/', './dist/', '/src/css', '/docs'],
+				use: [
+					'babel-loader',
+					{
+						loader: 'eslint-loader',
+						options: {
+							fix: true
 						}
-					]
-				},
-				{
-					test: /\.css$/,
-					exclude: ['/node_modules', '/dist', '/src/js'],
-					use: [
-						MiniCSSExtractPlugin.loader,
-						{
-							loader: 'css-loader',
-							options: {
-								sourceMap: true,
-								minimize: process.env.NODE_ENV === 'development'
-							}
-						},
-						{
-							loader: 'postcss-loader',
-							options: {
-								sourceMap: true,
-								plugins: () => [
-									autoprefixer,
-									postCssPresetEnv({
-										stage: 0
-									}),
-								]
-							}
+					}
+				]
+			},
+			{
+				test: /\.(sa|sc|c)ss$/,
+				exclude: ['/node_modules', './dist', '/src/js', '/docs'],
+				use: [
+					MiniCSSExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: {
+							sourceMap: true,
+							minimize: process.env.NODE_ENV === 'production',
 						}
-					]
-				},
-				{
-					test: /\.scss$/,
-					exclude: ['/node_modules', '/dist', '/src/js'],
-					use: [
-						MiniCSSExtractPlugin.loader,
-						{
-							loader: 'css-loader',
-							options: {
-								sourceMap: true,
-								minimize: process.env.NODE_ENV === 'production'
-							}
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							sourceMap: true,
+							syntax: postCssScss,
+							plugins: () => [
+								autoprefixer,
+								postCssPresetEnv({
+									stage: 0
+								}),
+							],
 						},
-						{
-							loader: 'postcss-loader',
-							options: {
-								sourceMap: true,
-								syntax: postCssScss,
-								plugins: () => [
-									autoprefixer,
-									postCssPresetEnv({
-										stage: 0
-									}),
-								],
-							},
-						},
-						{
-							loader: 'sass-loader',
-							options: {
-								sourceMap: true
-							}
+					},
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true
 						}
-					]
-				}
-			]
-		},
-		devServer: {
-			overlay: true,
-			contentBase: path.join(__dirname, 'docs'),
-			watchContentBase: true
-		},
-		devtool: process.env.NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
-		resolve: {
-			extensions: ['.js', '.css', '.styl', '.scss'],
-			alias: {
-				'js': path.resolve(__dirname, './src/js'),
-				'css': path.resolve(__dirname, './src/css')
+					}
+				]
 			}
-		},
-		plugins: [
-			new MiniCSSExtractPlugin({
-				filename: 'dist/css/[name].css',
-			}),
-			new CleanWebpackPlugin(['./dist/']),
 		]
-	}
+	},
+	devServer: {
+		overlay: true,
+		contentBase: OUTPUT_DIR,
+		watchContentBase: true,
+	},
+	devtool: process.env.NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
+	resolve: {
+		extensions: ['.js', '.css', '.styl', '.scss'],
+		alias: {
+			'js': path.resolve(__dirname, './src/js'),
+			'css': path.resolve(__dirname, './src/css')
+		}
+	},
+	plugins: [
+		new MiniCSSExtractPlugin({
+			filename: 'dist/css/[name].css',
+		}),
+		new CleanWebpackPlugin(['./dist/', './docs/dist']),
+	]
 };
