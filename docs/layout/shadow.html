@@ -5,8 +5,8 @@
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="./dist/css/material-light.css">
-        <link rel="stylesheet" href="../src/css/prism.css">
+        <link rel="stylesheet" href="../dist/css/material-light.css">
+        <link rel="stylesheet" href="../src/prism.css">
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +51,6 @@
                         <thead>
                         <tr>
                             <th>Elevation</th>
-                            <th>Class</th>
                             <th>Example</th>
                         </tr>
                         </thead>
@@ -59,7 +58,6 @@
                         <tbody>
                         <tr>
                             <td>24</td>
-                            <td><code>.z24</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -79,7 +77,6 @@
                         </tr>
                         <tr>
                             <td>16</td>
-                            <td><code>.z16</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -99,7 +96,6 @@
                         </tr>
                         <tr>
                             <td>12</td>
-                            <td><code>.z12</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -119,7 +115,6 @@
                         </tr>
                         <tr>
                             <td>9</td>
-                            <td><code>.z9</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -139,7 +134,6 @@
                         </tr>
                         <tr>
                             <td>8</td>
-                            <td><code>.z8</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -159,7 +153,6 @@
                         </tr>
                         <tr>
                             <td>6</td>
-                            <td><code>.z6</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -179,7 +172,6 @@
                         </tr>
                         <tr>
                             <td>4</td>
-                            <td><code>.z4</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -199,7 +191,6 @@
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td><code>.z3</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -219,7 +210,6 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><code>.z2</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -239,7 +229,6 @@
                         </tr>
                         <tr>
                             <td>1</td>
-                            <td><code>.z1</code></td>
                             <td>
                                 <div class="row">
                                     <div class="xs6">
@@ -259,8 +248,17 @@
                         </tr>
                         <tr>
                             <td>0 <em>removes shadow</em></td>
-                            <td><code>.z0</code></td>
-                            <td><div class="z1 z0 square blue"></div> <code class="language-html">&lt;div class="z1 z0 square blue">&lt;/div></code></td>
+                            <td>
+                                <div class="row">
+                                    <div class="xs6">
+                                        <div class="z1 z0 square blue"></div>
+                                    </div>
+
+                                    <div class="xs6">
+                                        <code class="language-html">&lt;div class="z1 z0 square blue">&lt;/div></code>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -270,54 +268,54 @@
 
         <nav class="drawer" id="drawer">
             <ul>
-                <li><a href="./" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
-                <li><a href="./getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
+                <li><a href="../" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
+                <li><a href="../getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
                 <li>
                     <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
 
                     <ul class="drawer__item__children">
-                        <li><a href="./layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
-                        <li><a href="./layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
+                        <li><a href="./grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
+                        <li><a href="./shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
                     </ul>
                 </li>
-                <li><a href="./color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
-                <li><a href="./typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
-                <li><a href="./iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
+                <li><a href="../color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
+                <li><a href="../typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
+                <li><a href="../iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
                 <li>
                     <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
 
                     <ul class="drawer__item__children">
-                        <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
-                        <li><a href="./components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
-                        <li><a href="./components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
-                        <li><a href="./components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
-                        <li><a href="./components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
-                        <li><a href="./components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
-                        <li><a href="./components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
-                        <li><a href="./components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
-                        <li><a href="./components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
-                        <li><a href="./components/dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
-                        <li><a href="./components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
-                        <li><a href="./components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
-                        <li><a href="./components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
-                        <li><a href="./components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
-                        <li><a href="./components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
-                        <li><a href="./components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
-                        <li><a href="./components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
-                        <li><a href="./components/tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
+                        <li><a href="../components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="../components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
+                        <li><a href="../components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
+                        <li><a href="../components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                        <li><a href="../components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
+                        <li><a href="../components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
+                        <li><a href="../components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
+                        <li><a href="../components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
+                        <li><a href="../components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
+                        <li><a href="../components/dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
+                        <li><a href="../components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
+                        <li><a href="../components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
+                        <li><a href="../components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                        <li><a href="../components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
+                        <li><a href="../components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
+                        <li><a href="../components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
+                        <li><a href="../components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
+                        <li><a href="../components/tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
                     </ul>
                 </li>
                 <li>
                     <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
 
                     <ul class="drawer__item__children">
-                        <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="../components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
 
-        <script src="./dist/js/material.js"></script>
-        <script src="./src/js/prism.js"></script>
+        <script src="../dist/js/material.js"></script>
+        <script src="../src/prism.js"></script>
     </body>
 </html>

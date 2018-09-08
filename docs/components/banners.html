@@ -5,8 +5,8 @@
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="./dist/css/material-light.css">
-        <link rel="stylesheet" href="../src/css/prism.css">
+        <link rel="stylesheet" href="../dist/css/material-light.css">
+        <link rel="stylesheet" href="../src/prism.css">
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,23 +33,24 @@
                 <section class="xs12">
                     <p>
                         There are a couple of different banners that you can use.
+                        There is the <a href="#single-line">single line</a>, <a href="#multi-line">multi-line</a> and <a href="#image-multi">image multi line</a>
                     </p>
                 </section>
             </article>
 
-            <article class="row">
-                <h2 class="xs12">Single line</h2>
+            <article class="row" id="single-line">
+                <h2 class="xs12">Single line banner</h2>
 
                 <section class="xs12 sm6">
                     <p>
-                        The default banner consist of text and a action or <a href="./components/buttons.html">button</a>.
+                        The default banner consist of text and a action or <a href="./buttons.html">button</a>.
                     </p>
 
                     <p>
-                        To make a banner you always need to use the base class <code>.banner</code>.
-                        For the single line banner you also need to use the additional class <code>.banner__single-line</code>.
-                        For the elements within the banner you need to use the classes <code>.banner__single-line__content</code> and
-                        <code>.banner__single-line__actions</code> accordingly.
+                        To make a banner you always need to use the base class <code class="language-css">.banner</code>.
+                        For the single line banner you also need to use the additional class <code class="language-css">.banner__single-line</code>.
+                        For the elements within the banner you need to use the classes <code class="language-css">.banner__single-line__content</code> and
+                        <code class="language-css">.banner__single-line__actions</code> accordingly.
                     </p>
 
                     <p>
@@ -96,8 +97,8 @@
                 </section>
             </article>
 
-            <article class="row">
-                <h2 class="xs12">Multi line</h2>
+            <article class="row" id="multi-line">
+                <h2 class="xs12">Multi line banner</h2>
 
                 <section class="xs12 sm6">
                     <p>
@@ -105,7 +106,7 @@
                     </p>
 
                     <p>
-                        For the multi line banner you need to use the class <code>.banner__multi-line</code>.
+                        For the multi line banner you need to use the class <code class="language-css">.banner__multi-line</code>.
                         The content and actions you need to use the same classes as for the single line except it is now <code>multi-line</code>.
                     </p>
                 </section>
@@ -149,8 +150,8 @@
                 </section>
             </article>
 
-            <article class="row">
-                <h2 class="xs12">Image multi line</h2>
+            <article class="row" id="image-multi">
+                <h2 class="xs12">Image multi line banner</h2>
 
                 <section class="xs12 sm6">
                     <p>
@@ -208,55 +209,55 @@
 
         <nav class="drawer" id="drawer">
             <ul>
-                <li><a href="./" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
-                <li><a href="./getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
+                <li><a href="../" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
+                <li><a href="../getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
                 <li>
                     <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
 
                     <ul class="drawer__item__children">
-                        <li><a href="./layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
-                        <li><a href="./layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
+                        <li><a href="../layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
+                        <li><a href="../layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
                     </ul>
                 </li>
-                <li><a href="./color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
-                <li><a href="./typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
-                <li><a href="./iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
+                <li><a href="../color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
+                <li><a href="../typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
+                <li><a href="../iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
                 <li>
                     <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
 
                     <ul class="drawer__item__children">
-                        <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
-                        <li><a href="./components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
-                        <li><a href="./components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
-                        <li><a href="./components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
-                        <li><a href="./components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
-                        <li><a href="./components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
-                        <li><a href="./components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
-                        <li><a href="./components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
-                        <li><a href="./components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
-                        <li><a href="./components/dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
-                        <li><a href="./components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
-                        <li><a href="./components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
-                        <li><a href="./components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
-                        <li><a href="./components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
-                        <li><a href="./components/sliders.html" class="drawer__item"><span class="drawer__item__content">Sliders</span></a></li>
-                        <li><a href="./components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
-                        <li><a href="./components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
-                        <li><a href="./components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
-                        <li><a href="./components/tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
+                        <li><a href="./app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="./banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
+                        <li><a href="./bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
+                        <li><a href="./bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                        <li><a href="./buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
+                        <li><a href="./buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
+                        <li><a href="./cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
+                        <li><a href="./chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
+                        <li><a href="./data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
+                        <li><a href="./dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
+                        <li><a href="./list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
+                        <li><a href="./menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
+                        <li><a href="./progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                        <li><a href="./selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
+                        <li><a href="./sliders.html" class="drawer__item"><span class="drawer__item__content">Sliders</span></a></li>
+                        <li><a href="./snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
+                        <li><a href="./tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
+                        <li><a href="./text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
+                        <li><a href="./tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
                     </ul>
                 </li>
                 <li>
                     <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
 
                     <ul class="drawer__item__children">
-                        <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="./app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
                     </ul>
                 </li>
             </ul>
         </nav>
 
-        <script src="./dist/js/material.js"></script>
-        <script src="./src/js/prism.js"></script>
+        <script src="../dist/js/material.js"></script>
+        <script src="../src/prism.js"></script>
     </body>
 </html>
