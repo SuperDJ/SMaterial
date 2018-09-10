@@ -8,9 +8,12 @@
 	overflow: hidden;
 	z-index: 3;
 	position: fixed;
-	display: none;
+	display: inline-block;
+	opacity: 0;
+	pointer-events: none;
 	@include chain(top, left, 50%);
 	transform: translateX(-50%) translateY(-50%);
+	transition: max-height .1s $easing-standard;
 
 	@media #{$xs-up} {
 		min-width: rem-calc(280px);
@@ -124,7 +127,8 @@
 	}
 
 	&--active {
-		display: inline-block;
+		pointer-events: all;
+		opacity: 1;
 	}
 }
 

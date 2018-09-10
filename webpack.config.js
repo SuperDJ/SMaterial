@@ -53,7 +53,11 @@ module.exports = {
 							plugins: () => [
 								autoprefixer,
 								postCssPresetEnv({
-									stage: 0
+									stage: 0,
+									features: {
+										'color-mod-function': true,
+										'alpha-hex-colors': true
+									}
 								}),
 							],
 						},

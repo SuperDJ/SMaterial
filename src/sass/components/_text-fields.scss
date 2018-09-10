@@ -240,7 +240,7 @@
         @include chain(height, line-height, rem-calc(48px));
         display: block;
         background: transparent;
-        @extend %cursor--pointer;;
+        @extend %cursor--pointer;
 
         &:hover {
             background: rgba($primary-color, .16);

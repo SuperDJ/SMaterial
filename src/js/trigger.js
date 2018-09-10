@@ -3,14 +3,20 @@ const triggers = Array.from( document.querySelectorAll( '[data-trigger]' ) );
 
 triggers.forEach( trigger =>
 {
-	let element = document.querySelector( `#${trigger.dataset.trigger}` );
+	let element = document.getElementById( `${trigger.dataset.trigger}` );
 
 	if( !element )
 	{
 		console.error('Trigger element not found');
 	}
 
+	// Remember size
+	const size = element.getBoundingClientRect();
+	const height = size.height;
+	const width = size.width;
+
 	trigger.classList.add('cursor--pointer');
+
 	let className = `${element.classList[ 0 ]}--active`;
 
 	trigger.addEventListener( 'click', event =>
@@ -23,7 +29,18 @@ triggers.forEach( trigger =>
 			triggered.push( element );
 		}
 
-		element.classList.toggle( className );
+		console.log(width, height);
+
+		if( element.classList.contains( className ) )
+		{
+			element.classList.remove( className );
+			element.style.cssText = `max-width: 0; max-height: 0;`;
+		}
+		else
+		{
+			element.classList.add( className );
+			element.style.cssText = `max-width: ${width}px; max-height: ${height}px;`;
+		}
 	} );
 });
 
@@ -31,7 +48,7 @@ document.addEventListener( 'mouseup', ( e ) =>
 {
 	triggered.forEach( ( trigger, i ) =>
 	{
-		if( trigger !== e.target && !trigger.contains( e.target ) )
+		if( e.target.dataset.trigger !== trigger.getAttribute( 'id' ) && trigger !== e.target && !trigger.contains( e.target ) )
 		{
 			let className = `${trigger.classList[0]}--active`;
 			trigger.classList.remove( className );

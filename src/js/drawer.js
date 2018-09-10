@@ -10,7 +10,7 @@ drawers.forEach( drawer =>
 		let height = child.getBoundingClientRect().height;
 
 		child.style.maxHeight = 0;
-		child.style.display = 'none';
+		//Child.style.display = 'none';
 
 		parent.addEventListener( 'click', () =>
 		{
@@ -18,11 +18,11 @@ drawers.forEach( drawer =>
 			{
 				child.style.maxHeight = 0;
 				child.classList.remove( 'active' );
-				child.style.display = 'none';
+				//Child.style.display = 'none';
 			}
 			else
 			{
-				child.style.display = 'block';
+				//Child.style.display = 'block';
 				child.style.maxHeight = `${height}px`;
 				child.classList.add( 'active' );
 			}
@@ -31,16 +31,18 @@ drawers.forEach( drawer =>
 });
 
 /**************************************
- * Auto add active class
+ * Auto open parent
  **************************************/
 
-const currentUrl = window.location.pathname;
-const drawerItems = Array.from( document.querySelectorAll( '.drawer a' ) );
+const drawerItemChildren = Array.from( document.querySelectorAll( '.drawer__item__children' ) );
+const drawerItemActive = document.querySelector( '.drawer__item--active' );
 
-drawerItems.forEach( drawerItem =>
+drawerItemChildren.forEach( child =>
 {
-	if( currentUrl === drawerItem.getAttribute( 'href' ) )
+	if( child.contains( drawerItemActive ) )
 	{
-		drawerItem.classList.add('drawer__item--active');
+		child.classList.add('active');
+		child.style.maxHeight = 'unset';
+		child.style.display = 'block';
 	}
 });

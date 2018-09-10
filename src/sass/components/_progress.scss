@@ -2,28 +2,27 @@
 .progress {
     $el: &;
     width: 100%;
-    height: rem-calc(4px);
+    height: var(--progress-height);
     background: var(--progress-background);
-    appearance: none;
+    -webkit-appearance: none;
 
     &::-webkit-progress-bar {
         background: var(--progress-background);
     }
 
-    @include progress-bar-value {
-        background: var(--progress-bar-background);
+    @include progress-bar-value() {
+        background: var(--progress__bar-background);
     }
 
     &--determinate, &--indeterminate {
-
         #{$el}__bar {
             height: 100%;
-            background: var(--progress-bar-background);
+            background: var(--progress__bar-background);
         }
     }
 
     &--determinate #{$el}__bar {
-        width: 0;
+        width: var(--progress__bar--progress);
         transition: width .1s $easing-accelerate;
     }
 
@@ -39,6 +38,41 @@
         }
     }
 
+	&--circle {
+		background: none;
+		position: relative;
+		@include chain(width, height, var(--progress--circle-size));
+
+		&__loader {
+			transform-origin: center center;
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			@include chain(width, height, 100%);
+			@include chain(top, left, 0);
+			margin: auto;
+		}
+
+		&__cirlce {
+			stroke-width: var(--progress-height);
+			-webkit-appearance: unset;
+			stroke-dasharray: 128px;
+			stroke-dashoffset: 100% calc( (var(--progress__bar--progress) / 128) * 100 );
+		}
+
+		&--indeterminate .progress--circle {
+			&__loader {
+				animation: rotate 3s linear infinite;
+			}
+
+			&__circle {
+				stroke-dasharray: 150,200;
+				stroke-dashoffset: -10;
+				animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+			}
+		}
+	}
+
     @keyframes indeterminate {
         from {
             width: 20%;
@@ -50,14 +84,43 @@
         }
     }
 
-    @keyframes dash {
-        50% {
-          stroke-dashoffset: 0;
-        }
-        100% {
-          stroke-dashoffset: var(--progress-circle-stroke);
-        }
-      }
+	@keyframes dash {
+		0% {
+			stroke-dasharray: 1,200;
+			stroke-dashoffset: 0;
+		}
+		50% {
+			stroke-dasharray: 89,200;
+			stroke-dashoffset: -35;
+		}
+		100% {
+			stroke-dasharray: 89,200;
+			stroke-dashoffset: -124;
+		}
+	}
+
+	@keyframes color {
+		0% {
+			stroke: var(--progress--circle--indeterminate-color1);
+		}
+		40% {
+			stroke: var(--progress--circle--indeterminate-color2);
+		}
+		66% {
+			stroke: var(--progress--circle--indeterminate-color3);
+		}
+		80%, 90% {
+			stroke: var(--progress--circle--indeterminate-color4);
+		}
+	}
+
+	@keyframes rotate {
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+
 }
 
 // Fix styling for the progress HTML element
@@ -67,8 +130,13 @@ progress.progress {
 
 :root {
     --progress-background: #{rgba($primary-color, .6)};
+	--progress-height: #{rem-calc(4px)};
 
-    --progress-bar-background: #{var(--primary-color)};
+    --progress__bar-background: #{var(--primary-color)};
 
-    --progress-circle-stroke: 130;
+	--progress--circle-size: #{rem-calc(100px)};
+	--progress--circle--indeterminate-color1: #{var(--primary-color)};
+	--progress--circle--indeterminate-color2: #{var(--primary-color)};
+	--progress--circle--indeterminate-color3: #{var(--primary-color)};
+	--progress--circle--indeterminate-color4: #{var(--primary-color)};
 }

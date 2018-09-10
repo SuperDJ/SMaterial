@@ -28,7 +28,7 @@
 
         <main class="container">
             <article class="row">
-                <h1 class="xs12">Progress indicators</h1>
+                <h2 class="xs12">Progress indicators</h2>
 
                 <section class="xs12 sm6">
                     <p>
@@ -39,7 +39,7 @@
             </article>
 
             <article class="row">
-                <h2 class="xs12" id="determinate">Determinate</h2>
+                <h3 class="xs12" id="determinate">Linear Determinate</h3>
 
                 <section class="xs12 sm6">
                     <p>
@@ -55,7 +55,7 @@
 
                         <progress max="100" value="40" class="progress progress--determinate">
                             <div class="progress progress--determinate">
-                                <div class="progress__bar" style="width:40%"></div>
+                                <div class="progress__bar" style="--progress__bar--progress:40%"></div>
                             </div>
                         </progress>
                     </div>
@@ -77,7 +77,7 @@
             </article>
 
             <article class="row">
-                <h2 class="xs12" id="indeterminate">Indeterminate</h2>
+                <h3 class="xs12" id="indeterminate">Linear Indeterminate</h3>
 
                 <section class="xs12 sm6">
                     <p>
@@ -105,6 +105,38 @@
 &lt;/progress>
     </code>
 </pre>
+                </section>
+            </article>
+
+            <article class="row" id="determinate-circle">
+                <h3 class="xs12">Circle Determinate</h3>
+
+                <section class="xs12 sm6">
+                    A circle loader
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="progress progress--circle">
+                        <svg class="progress--circle__loader"viewBox="25 25 50 50" >
+                            <circle class="progress--circle__circle" style="--progress__bar--progress:40%" cx="50" cy="50" r="20" stroke="var(--primary-color)" fill="none" />
+                        </svg>
+                    </div>
+                </section>
+            </article>
+
+            <article class="row" id="indeterminate-circle">
+                <h3 class="xs12">Circle Indeterminate</h3>
+
+                <section class="xs12 sm6">
+                    A circle loader
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="progress progress--circle progress--circle--indeterminate">
+                        <svg class="progress--circle__loader"viewBox="25 25 50 50" >
+                            <circle class="progress--circle__circle" cx="50" cy="50" r="20" stroke="var(--primary-color)" fill="none" />
+                        </svg>
+                    </div>
                 </section>
             </article>
         </main>
@@ -140,7 +172,7 @@
                         <li><a href="./dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
                         <li><a href="./list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
                         <li><a href="./menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
-                        <li><a href="./progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                        <li><a href="./progress-indicators.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">Progress indicators</span></a></li>
                         <li><a href="./selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
                         <li><a href="./snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
                         <li><a href="./tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
