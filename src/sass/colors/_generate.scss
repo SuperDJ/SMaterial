@@ -1,6 +1,5 @@
 @each $color-name, $color-swatch in $colors {
 	@each $color-type, $color-value in $color-swatch {
-		//@debug #{$color-name} lightness($color-value);
 		// Since base and 500 color are equal merge them together
 		@if( $color-type == 'base' ) {
 			.#{$color-name}, .#{$color-name}-500 {

@@ -34,6 +34,10 @@
 	@media #{$xl-and-up} {
 		grid-template-columns: repeat($xl-columns, 1fr);
 	}
+
+	&--masonry {
+		grid-auto-flow: dense;
+	}
 }
 
 @for $i from 1 through $xs-columns {

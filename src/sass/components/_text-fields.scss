@@ -193,6 +193,7 @@
     position: relative;
     width: 100%;
     height: var(--text-field-height);
+    @extend %cursor--pointer;
 
     select, input {
         display: none;
