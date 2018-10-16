@@ -222,7 +222,8 @@ $type-scale: (
 		font: 400,
 		size: 16,
 		case: none,
-		spacing: .5
+		spacing: .5,
+		color: rgba($black, .87) // TODO use color-mod when possible
 	),
 	body-2: (
 		typeface: $body-2-font-family,

@@ -1,74 +1,107 @@
-const selectFields = Array.from( document.querySelectorAll( '.select-field' ) );
+const selectFields = document.getElementsByClassName( 'select-field' );
 
-selectFields.forEach( selectField =>
+class SelectField
 {
-	let select = selectField.querySelector( 'select' );
-	let name = select.getAttribute('name');
-	let selectOptions = Array.from( select.querySelectorAll( 'option' ) );
-
-	/**********************************
-     * Add HTML to DOM
-     **********************************/
-	let html = '<div class="select-field__text"></div><div class="select-field__options">';
-
-	selectOptions.forEach( ( selectOption, i ) =>
+	constructor( selectField )
 	{
-		html += `   <div class="select-field__option">
-                        <input type="radio" value="${selectOption.value}" name="${name}" id="${name}-${i}">
-                        <label for="${name}-${i}">${selectOption.innerHTML}</label>
-                    </div>`;
-	});
+		this.selectField = selectField;
+		this.select = this.selectField.querySelector( 'select' );
+		this.name = this.select.getAttribute( 'name' );
+		this.options = this.select.getElementsByTagName( 'option' );
+		this.multiple = this.select.multiple;
 
-	html += '</div>';
+		this.renderHTML();
+		this.openOptions();
+		this.setValue();
+	}
 
-	selectField.insertAdjacentHTML( 'afterbegin', html );
-
-	/**********************************
-     * Open/ close select-field__options
-     **********************************/
-	let selectFieldOptions = selectField.querySelector( '.select-field__options' );
-	let selectFieldText = selectField.querySelector( '.select-field__text' );
-	let selectFieldOptionsHeight = selectFieldOptions.getBoundingClientRect().height;
-
-	selectFieldOptions.style.maxHeight = 0;
-
-	selectField.addEventListener( 'click', () =>
+	renderHTML()
 	{
-		if( selectFieldOptions.classList.contains( 'active' ) )
+		let html = '<div class="select-field__input"></div><div class="select-field__options">';
+		let i = 0;
+
+		for( let option of this.options )
 		{
-			selectFieldOptions.style.maxHeight = 0;
-			selectFieldOptions.classList.remove( 'active' );
+			html += `   
+   				<div class="select-field__option">
+					<input type="${this.multiple ? 'checkbox' : 'radio' }" value="${option.value}" name="${this.name}" id="${this.name}-${i}">
+					<label for="${this.name}-${i}">${option.innerHTML}</label>
+				</div>
+			`;
+			i++;
 		}
-		else
-		{
-			selectFieldOptions.style.maxHeight = `${selectFieldOptionsHeight}px`;
-			selectFieldOptions.classList.add( 'active' );
-		}
-	});
 
-	/**********************************
-     * Set value in select/ close options
-     **********************************/
-	let selectFieldOptionsInputs = Array.from( selectFieldOptions.querySelectorAll( 'input' ) );
+		html += '</div>';
 
-	selectFieldOptionsInputs.forEach( ( selectFieldOptionsInput, i ) =>
+		this.selectField.insertAdjacentHTML( 'afterbegin', html );
+	}
+
+	openOptions()
 	{
-		const type = selectFieldOptionsInput.getAttribute( 'type' );
-		selectFieldOptionsInput.addEventListener( 'click', () =>
-		{
+		let selectFieldOptions = this.selectField.querySelector( '.select-field__options' );
+		let selectFieldOptionsHeight = selectFieldOptions.getBoundingClientRect().height;
 
-			if( type === 'radio' )
+		selectFieldOptions.style.maxHeight = 0;
+
+		this.selectField.addEventListener( 'click', () =>
+		{
+			if( selectFieldOptions.classList.contains( 'active' ) )
 			{
-				select.value = selectFieldOptionsInput.value;
-				selectFieldText.innerText = selectOptions[i].innerHTML;
-
-				selectFieldOptions.click();
+				selectFieldOptions.style.maxHeight = 0;
+				selectFieldOptions.classList.remove( 'active' );
 			}
-
-			if( type === 'checkbox' )
+			else
 			{
-
+				selectFieldOptions.style.maxHeight = `${selectFieldOptionsHeight}px`;
+				selectFieldOptions.classList.add( 'active' );
 			}
 		});
-	});
-});
+	}
+
+	setValue()
+	{
+		let selectFieldOptions = this.selectField.querySelector( '.select-field__options' );
+		let selectFieldOptionsInputs = Array.from( selectFieldOptions.querySelectorAll( 'input' ) );
+		let selectFieldInput = this.selectField.querySelector( '.select-field__input' );
+		let inner = [];
+		let value = [];
+
+		for( let selectFieldOptionsInput of selectFieldOptionsInputs )
+		{
+			selectFieldOptionsInput.addEventListener( 'click', ( ) =>
+			{
+				let selected = selectFieldOptionsInputs
+					.filter( input => input.checked )
+					.map( input =>
+					{
+						return{ inner: input.parentElement.querySelector( 'label' ).innerText, value: input.value, };
+					});
+
+		 		if( this.multiple )
+				{
+					inner = [];
+					value = [];
+					selected.forEach( select =>
+					{
+						inner.push( select.inner );
+						value.push( select.value );
+					});
+
+					selectFieldInput.innerHTML = inner.join();
+					this.select.value = value;
+				}
+				else
+				{
+		 			selectFieldInput.innerHTML = selected[0].inner;
+		 			this.select.value = selected[0].value;
+		 			this.selectField.click();
+				}
+			});
+		}
+	}
+}
+
+for( let selectField of selectFields )
+{
+	new SelectField( selectField );
+}

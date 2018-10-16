@@ -29,8 +29,6 @@ triggers.forEach( trigger =>
 			triggered.push( element );
 		}
 
-		console.log(width, height);
-
 		if( element.classList.contains( className ) )
 		{
 			element.classList.remove( className );

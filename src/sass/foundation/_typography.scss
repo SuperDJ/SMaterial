@@ -7,6 +7,11 @@
 		text-transform: map-get($setting, case);
 		letter-spacing: if(map-get( $setting, spacing ) == 0, 0, rem-calc(map-get($setting, spacing)));
 		margin: 0;
+
+		@if( map-get( $setting, color ) )
+		{
+			 color: map_get( $setting, color );
+		}
 	}
 }
 

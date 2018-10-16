@@ -9,7 +9,7 @@ html, body {
     border: none;
 
     &:disabled {
-        cursor: not-allowed !important;
+        cursor: not-allowed !important // TODO remove important when possible;
     }
 }
 

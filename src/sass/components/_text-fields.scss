@@ -190,6 +190,7 @@
 }
 
 .select-field {
+	$el: &;
     position: relative;
     width: 100%;
     height: var(--text-field-height);
@@ -206,6 +207,15 @@
         &:hover {
             border-bottom: var(--text-field--filled__input--hover-border-bottom);
         }
+
+		#{$el}__label {
+			top: var(--text-field--filled__input--focus__label-top);
+			font-size: var(--text-field__input--focus__label-font-size);
+		}
+
+		#{$el}__input  {
+			padding: var(--text-field--filled__input-padding);
+		}
     }
 
     > label {
@@ -244,7 +254,7 @@
         @extend %cursor--pointer;
 
         &:hover {
-            background: rgba($primary-color, .16);
+            background: rgba($black, .16);
         }
     }
 

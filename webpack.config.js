@@ -22,7 +22,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
-				exclude: ['/node_modules/', './dist/', '/src/css', '/docs'],
+				exclude: ['/node_modules/', '/dist/', '/src/css', '/docs'],
 				use: [
 					'babel-loader',
 					{
@@ -35,7 +35,7 @@ module.exports = {
 			},
 			{
 				test: /\.(sa|sc|c)ss$/,
-				exclude: ['/node_modules', './dist', '/src/js', '/docs'],
+				exclude: ['/node_modules', '/dist', '/src/js', '/docs'],
 				use: [
 					MiniCSSExtractPlugin.loader,
 					{
