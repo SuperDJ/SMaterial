@@ -303,3 +303,81 @@ $elevation-ambient-map: (
 );
 
 $surface-corner: 4px;
+
+/**************************************
+ * Banners
+ **************************************/
+
+$banner--single-line-height: rem-calc(54px);
+$banner--single-line-padding: rem-calc(10px) rem-calc(8px) rem-calc(8px) rem-calc(16px);
+$banner--single-line__actions-margin: 0 0 rem-calc(8px) rem-calc(36px);
+
+$banner--multi-line-height: rem-calc(122px);
+$banner--multi-line__content-padding: rem-calc(24px) rem-calc(16px) rem-calc(12px) rem-calc(16px);
+$banner--multi-line__actions-padding: 0 rem-calc(8px) rem-calc(8px) rem-calc(16px);
+
+$banner--image-multi-line-height: rem-calc(120px);
+$banner--image-multi-line__img-size: rem-calc(40px);
+$banner--image-multi-line__image-padding: rem-calc(24px) 0 0 rem-calc(16px);
+$banner--image-multi-line__content-padding: rem-calc(24px) rem-calc(16px) 0 rem-calc(16px);
+$banner--image-multi-line__content-margin: 0 0 rem-calc(20px) 0;
+
+$banner__actions-margin: 0 0 rem-calc(8px) rem-calc(8px);
+
+$banner-md-up--single-line-height: rem-calc(52px);
+$banner-md-up--single-line-padding: rem-calc(8px) rem-calc(8px) rem-calc(8px) rem-calc(24px);
+$banner-md-up--single-line__actions-margin: 0 0 0 rem-calc(90px);
+
+$banner-md-up--multi-line-height: rem-calc(90px);
+
+/**************************************
+ * Bottom nav
+ **************************************/
+
+$bottom-nav-background: var(--primary-color);
+$bottom-nav-height: rem-calc(56px);
+
+$bottom-nav__icon-size: rem-calc(24px);
+
+$bottom-nav__item-min-width: rem-calc(80px);
+$bottom-nav__item-max-width: rem-calc(168px);
+$bottom-nav__item-padding: rem-calc(8px) rem-calc(12px) rem-calc(12px) rem-calc(12px);
+$bottom-nav__item__text-font-size: rem-calc(12px);
+$bottom-nav__item-color: rgba($white, .54);
+$bottom-nav__item--hover-color: $white;
+
+$bottom-nav--icon-only__item-padding: rem-calc(16px) rem-calc(12px);
+$bottom-nav--icon-only__item--active-padding: rem-calc(8px) rem-calc(12px) rem-calc(12px) rem-calc(12px);
+
+/**************************************
+ * Snackbars
+ **************************************/
+
+$snackbar-width: rem-calc(344px);
+$snackbar-min-height: rem-calc(48px);
+$snackbar-background: rgba($black, .87);
+$snackbar-border-radius: var(--border-radius);
+
+$snackbar__content-color: #{$white}de;
+$snackbar__content-padding: rem-calc(16px) 0 rem-calc(16px) rem-calc(16px);
+
+$snackbar__actions-padding: rem-calc(6px) rem-calc(8px);
+
+$snackbar--two-line-min-height: rem-calc(64px);
+$snackbar--two-line__actions-padding: rem-calc(16px) rem-calc(8px);
+$snackbar--two-line--long-action__content-padding: rem-calc(16px) rem-calc(16px) 0 rem-calc(16px);
+$snackbar--two-line--long-action__actions-padding: rem-calc(18px) rem-calc(8px) rem-calc(8px) rem-calc(16px);
+
+/**************************************
+ * Tooltips
+ **************************************/
+
+$tooltip-height: rem-calc(32px);
+$tooltip-padding: 0 rem-calc(16px);
+$tooltip-font-size: rem-calc(14px);
+$tooltip-distance: rem-calc(16px);
+$tooltip-color: $white;
+$tooltip-background-color: rgba($grey-700, .6);
+$tooltip-md-up-height: rem-calc(24px);
+$tooltip-md-up-padding: 0 rem-calc(8px);
+$tooltip-md-up-font-size: rem-calc(10px);

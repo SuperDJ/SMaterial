@@ -1,7 +1,7 @@
 .bottom-nav {
     $el: &;
     width: 100%;
-    background: $primary-color;
+    background: var(--bottom-nav-primary-color);
     height: var(--bottom-nav-height);
     z-index: 1;
     bottom: 0;
@@ -46,13 +46,13 @@
         }
 
         &__icon, &__text {
-            color: rgba($white, .54);
+            color: var(--bottom-nav__item-color);
             transition: color .1s $easing-standard;
         }
 
         &:hover, &#{$el}__item--active {
             #{$el}__item__icon, #{$el}__item__text {
-                color: $white;
+                color: var(--bottom_nav__item--hover-color);
             }
         }
     }
@@ -77,15 +77,18 @@
 }
 
 :root {
-    --bottom-nav-height: #{rem-calc(56px)};
+	--bottom-nav-background: #{$bottom-nav-background};
+    --bottom-nav-height: #{$bottom-nav-height};
 
-    --bottom-nav__icon-size: #{rem-calc(24px)};
+    --bottom-nav__icon-size: #{$bottom-nav__icon-size};
 
-    --bottom-nav__item-min-width: #{rem-calc(80px)};
-    --bottom-nav__item-max-width: #{rem-calc(168px)};
-    --bottom-nav__item-padding: #{rem-calc(8px)} #{rem-calc(12px)} #{rem-calc(12px)} #{rem-calc(12px)};
-    --bottom-nav__item__text-font-size: #{rem-calc(12px)};
+    --bottom-nav__item-min-width: #{$bottom-nav__item-min-width};
+    --bottom-nav__item-max-width: #{$bottom-nav__item-max-width};
+    --bottom-nav__item-padding: #{$bottom-nav__item-padding};
+    --bottom-nav__item__text-font-size: #{$bottom-nav__item__text-font-size};
+	--bottom-nav__item-color: #{$bottom-nav__item-color};
+	--bottom-nav__item--hover-color: #{$bottom-nav__item--hover-color};
 
-    --bottom-nav--icon-only__item-padding: #{rem-calc(16px)} #{rem-calc(12px)};
-    --bottom-nav--icon-only__item--active-padding: #{rem-calc(8px)} #{rem-calc(12px)} #{rem-calc(12px)} #{rem-calc(12px)};
+    --bottom-nav--icon-only__item-padding: #{$bottom-nav--icon-only__item-padding};
+    --bottom-nav--icon-only__item--active-padding: #{$bottom-nav--icon-only__item--active-padding};
 }

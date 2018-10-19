@@ -46,23 +46,28 @@
 
     &__content {
         @extend %body-2;
-        color: #{$white}de;
-        padding: rem-calc(16px) 0 rem-calc(16px) rem-calc(16px);
+        color: var(--snackbar__content-color);
+        padding: var(--snackbar__content-padding);
     }
 
     &__actions {
-        padding: rem-calc(6px) rem-calc(8px);
+        padding: var(--snackbar__actions-padding);
     }
 }
 
 :root {
-    --snackbar-width: #{rem-calc(344px)};
-    --snackbar-min-height: #{rem-calc(48px)};
-    --snackbar-background: #{rgba($black, .87)};
-    --snackbar-border-radius: var(--border-radius);
+    --snackbar-width: #{$snackbar-width};
+    --snackbar-min-height: #{$snackbar-min-height};
+    --snackbar-background: #{$snackbar-background};
+    --snackbar-border-radius: #{$snackbar-border-radius};
 
-    --snackbar--two-line-min-height: #{rem-calc(64px)};
-    --snackbar--two-line__actions-padding: #{rem-calc(16px)} #{rem-calc(8px)};
-    --snackbar--two-line--long-action__content-padding: #{rem-calc(16px)} #{rem-calc(16px)} 0 #{rem-calc(16px)};
-    --snackbar--two-line--long-action__actions-padding: #{rem-calc(18px)} #{rem-calc(8px)} #{rem-calc(8px)} #{rem-calc(16px)};
+	--snackbar__content-color: #{$snackbar__content-color};
+	--snackbar__content-padding: #{$snackbar__content-padding};
+
+	--snackbar__actions-padding: #{$snackbar__actions-padding};
+
+    --snackbar--two-line-min-height: #{$snackbar--two-line-min-height};
+    --snackbar--two-line__actions-padding: #{$snackbar--two-line__actions-padding};
+    --snackbar--two-line--long-action__content-padding: #{$snackbar--two-line--long-action__content-padding};
+    --snackbar--two-line--long-action__actions-padding: #{$snackbar--two-line--long-action__actions-padding};
 }

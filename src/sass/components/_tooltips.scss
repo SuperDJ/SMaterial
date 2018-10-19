@@ -10,9 +10,9 @@
         padding: var(--tooltip-padding);
         @include chain(height, line-height, var(--tooltip-height));
         border-radius: var(--border-radius);
-        background: rgba($grey-700, .6);
+        background: var(--tooltip-background-color);
         font-size: var(--tooltip-font-size);
-        color: $white;
+        color: var(--tooltip-color);
         transition: all 150ms $easing-decelerate;
         z-index: 1;
         opacity: 0;
@@ -27,15 +27,15 @@
         #{$el}--left {
             left: calc(-1 * (var(--tooltip-width) + var(--tooltip-distance)));
         }
-    
+
         #{$el}--top {
             top: calc(-1 * (var(--tooltip-height) + var(--tooltip-distance)));
         }
-    
+
         #{$el}--bottom {
             top: calc(100% + var(--tooltip-distance));
         }
-    
+
         #{$el}--right {
             left: calc(100% + var(--tooltip-distance));
         }
@@ -43,14 +43,16 @@
 }
 
 :root {
-    --tooltip-height: #{rem-calc(32px)};
-    --tooltip-padding: 0 #{rem-calc(16px)};
-    --tooltip-font-size: #{rem-calc(14px)};
-    --tooltip-distance: #{rem-calc(16px)};
+    --tooltip-height: #{$tooltip-height};
+    --tooltip-padding: #{$tooltip-padding};
+    --tooltip-font-size: #{$tooltip-font-size};
+    --tooltip-distance: #{$tooltip-distance};
+	--tooltip-color: #{$tooltip-color};
+	--tooltip-background-color: #{$tooltip-background-color};
 
     @media #{$md-up} {
-        --tooltip-height: #{rem-calc(24px)};
-        --tooltip-padding: 0 #{rem-calc(8px)};
-        --tooltip-font-size: #{rem-calc(10px)};
+        --tooltip-height: #{$tooltip-md-up-height};
+        --tooltip-padding: #{$tooltip-md-up-padding};
+        --tooltip-font-size: #{$tooltip-md-up-font-size};
     }
 }
