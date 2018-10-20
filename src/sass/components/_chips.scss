@@ -71,30 +71,30 @@
 }
 
 :root {
-    --chip-height: #{rem-calc(32px)};
-    --chip-padding: #{0 rem-calc(12px)};
-    --chip-background: #{rgba($black, .12)};
-    --chip-color: #{#{$black}de};
-    --chip--hover-background: #{rgba($black, .08)};
-    --chip--active-background: #{rgba($black, .32)};
-    --chip--disabled-color: #{rgba($black, .38)};
-    --chip--disabled-background: #{rgba($black, .12)};
+    --chip-height: #{$chip-height};
+    --chip-padding: #{$chip-padding};
+    --chip-background: #{$chip-background};
+    --chip-color: #{$chip-color};
+    --chip--hover-background: #{$chip--hover-background};
+    --chip--active-background: #{$chip--active-background};
+    --chip--disabled-color: #{$chip--disabled-color};
+    --chip--disabled-background: #{$chip--disabled-background};
 
-    --chip__thumbnail-size: #{rem-calc(24px)};
-    --chip__thumbnail-color: #{var(--chip-color)};
-    --chip__thumbnail-margin: #{0 rem-calc(8px) 0 0};
-    --chip__thumbnail-padding-left: #{rem-calc(6px)};
+    --chip__thumbnail-size: #{$chip__thumbnail-size};
+    --chip__thumbnail-color: #{$chip__thumbnail-color};
+    --chip__thumbnail-margin: #{$chip__thumbnail-margin};
+    --chip__thumbnail-padding-left: #{$chip__thumbnail-padding-left};
 
-    --chip__remove-size: #{rem-calc(16px)};
-    --chip__remove-margin: #{0 0 0 rem-calc(8px)};
-    --chip__remove-color: #{var(--chip-color)};
-    --chip--remove-padding-right: #{rem-calc(8px)};
+    --chip__remove-size: #{$chip__remove-size};
+    --chip__remove-margin: #{$chip__remove-margin}; 
+    --chip__remove-color: #{$chip__remove-color};
+    --chip--remove-padding-right: #{$chip__remove-padding-right};
 
-    --chip--outlined-border: #{rem-calc(1px) solid rgba($black, .12)};
-    --chip--outlined--hover-background: #{rgba($black, .04)};
-    --chip--outlined--active-background: #{rgba($black, .16)};
-    --chip--outlined--disabled-color: #{rgba($black, .38)};
-    --chip--outlined--disabled-background: #{rgba($black, .12)};
-    --chip--outlined--thumbnail-padding-left: #{rem-calc(4px)};
-    --chip--outlined--remove-padding-right: #{rem-calc(6px)};
+    --chip--outlined-border: #{$chip--outlined-border};
+    --chip--outlined--hover-background: #{$chip--outlined--hover-background};
+    --chip--outlined--active-background: #{$chip--outlined--active-background};
+    --chip--outlined--disabled-color: #{$chip--outlined--disabled-color};
+    --chip--outlined--disabled-background: #{$chip--outlined--disabled-background};
+    --chip--outlined--thumbnail-padding-left: #{$chip--outlined--thumbnail-padding-left};
+    --chip--outlined--remove-padding-right: #{$chip--outlined--remove-padding-right};
 }

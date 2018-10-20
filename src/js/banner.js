@@ -1,21 +1,21 @@
-const banners = Array.from( document.querySelectorAll( '.banner' ) );
+const banners = document.getElementsByClassName( 'banner' );
 
 class Banner
 {
-	constructor( banners )
+	constructor( banner )
 	{
-		this.banners = Array.from( banners );
+		this.banner = banner;
 
 		this.setRole();
 	}
 
 	setRole()
 	{
-		this.banners.forEach( banner =>
-		{
-			banner.setAttribute( 'role', 'banner' );
-		});
+		this.banner.setAttribute( 'role', 'banner' );
 	}
 }
 
-new Banner( banners );
+for( let banner of banners )
+{
+	new Banner( banner );
+}

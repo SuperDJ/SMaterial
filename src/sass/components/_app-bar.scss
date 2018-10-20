@@ -38,10 +38,10 @@
 }
 
 :root {
-	--app-bar-background: var(--primary-color);
-	--app-bar-font-color: var(--font-on-primary);
-	--app-bar-height: #{rem-calc(56px)};
-	--app-bar-padding: #{rem-calc(16px)};
-	--app-bar__title-margin: 0 0 0 #{rem-calc(32px)};
-	--app-bar__actions-margin: 0 0 0 #{rem-calc(24px)};
+	--app-bar-background: #{$app-bar-background};
+	--app-bar-font-color: #{$app-bar-font-color};
+	--app-bar-height: #{$app-bar-height};
+	--app-bar-padding: #{$app-bar-padding};
+	--app-bar__title-margin: #{$app-bar__title-margin};
+	--app-bar__actions-margin: #{$app-bar__actions-margin};
 }

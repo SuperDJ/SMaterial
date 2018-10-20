@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>App bar | Material Design</title>
+        <title>Dividers | Material Design</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
             <i class="material-icons icon" data-trigger="drawer">menu</i>
 
             <div class="app-bar__title">
-                App bar
+                Dividers
             </div>
 
             <div class="app-bar__actions">
@@ -28,10 +28,60 @@
 
         <main class="container">
             <article class="row">
-                <h1 class="xs12">App bar</h1>
+                <h1 class="xs12">Dividers</h1>
 
                 <section class="xs12 sm6">
+                    <p>
+                        Dividers can be used in either a <a href="#horizontal">horizontal</a> or <a href="#vertical">vertical</a> way.
+                    </p>
+                </section>
+            </article>
 
+            <article class="row" id="horizontal">
+                <h2 class="xs12">Horizontal</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        Dividers can be used horizontal.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="divider"></div>
+
+                    <hr class="divider">
+
+<pre class="language-html">
+    <code>
+&lt;div class="divider">&lt;/div>
+
+&lt;hr class="divider">
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row" id="vertical">
+                <h2 class="xs12">Vertical</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        Dividers can also be used vertical.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+                    <div class="divider divider--vertical"></div>
+
+                    <hr class="divider divider--vertical">
+
+<pre class="language-html">
+    <code>
+&lt;div class="divider divider--vertical">&lt;/div>
+
+&lt;hr class="divider divider--vertical">
+    </code>
+</pre>
                 </section>
             </article>
 
@@ -50,34 +100,19 @@
 
                         <tbody>
                         <tr>
-                            <td>$app-bar-background</td>
-                            <td>--app-bar-background</td>
-                            <td>Change app bar background</td>
+                            <td>$divider-height</td>
+                            <td>--divider-height</td>
+                            <td>Change divider height</td>
                         </tr>
                         <tr>
-                            <td>$app-bar-font-color</td>
-                            <td>--app-bar-font-color</td>
-                            <td>Change app bar font color</td>
+                            <td>$divider-background</td>
+                            <td>--divider-background</td>
+                            <td>Change divider background</td>
                         </tr>
                         <tr>
-                            <td>$app-bar-height</td>
-                            <td>--app-bar-height</td>
-                            <td>Change app bar height</td>
-                        </tr>
-                        <tr>
-                            <td>$app-bar-padding</td>
-                            <td>--app-bar-padding</td>
-                            <td>Change app bar padding</td>
-                        </tr>
-                        <tr>
-                            <td>$app-bar__title-margin</td>
-                            <td>--app-bar__title-margin</td>
-                            <td>Change app bar title margin</td>
-                        </tr>
-                        <tr>
-                            <td>$app-bar__actions-margin</td>
-                            <td>--app-bar__actions-margin</td>
-                            <td>Change app bar actions margin</td>
+                            <td>$divider-margin</td>
+                            <td>--divider-margin</td>
+                            <td>Change divider margin</td>
                         </tr>
                         </tbody>
                     </table>
@@ -114,7 +149,7 @@
                         <li><a href="./chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
                         <li><a href="./data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
                         <li><a href="./dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
-                        <li><a href="./dividers.html" class="drawer__item"><span class="drawer__item__content">Dividers</span></a></li>
+                        <li><a href="./dividers.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">Dividers</span></a></li>
                         <li><a href="./list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
                         <li><a href="./menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
                         <li><a href="./progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>

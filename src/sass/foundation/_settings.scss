@@ -142,6 +142,8 @@ $easing-accelerate: cubic-bezier(0.4, 0.0, 1, 1);
 
 /**************************************
  * Typography
+ *
+ * Everything using em or rem calc should be added below this
  **************************************/
 
 $font-size: 16 !default;
@@ -255,6 +257,16 @@ $type-scale: (
 	)
 ) !default;
 
+
+/**************************************
+ * Iconogrpahy
+ **************************************/
+
+ $icon-size: rem-calc(24px) !default;
+ $icon-color: rgba($black, .38) !default;
+ $icon--active-color: rgba($black, .54) !default;
+ $icon--active--focus-color: rgba($black, .87) !default;
+
 /**************************************
  * Shadow & elevation
  **************************************/
@@ -305,79 +317,168 @@ $elevation-ambient-map: (
 $surface-corner: 4px;
 
 /**************************************
+ * App bar
+ **************************************/
+
+$app-bar-background: var(--primary-color) !default;
+$app-bar-font-color: var(--font-on-primary) !default;
+$app-bar-height: rem-calc(56px) !default;
+$app-bar-padding: rem-calc(16px) !default;
+$app-bar__title-margin: 0 0 0 rem-calc(32px) !default;
+$app-bar__actions-margin: 0 0 0 rem-calc(24px) !default;
+
+/**************************************
  * Banners
  **************************************/
 
-$banner--single-line-height: rem-calc(54px);
-$banner--single-line-padding: rem-calc(10px) rem-calc(8px) rem-calc(8px) rem-calc(16px);
-$banner--single-line__actions-margin: 0 0 rem-calc(8px) rem-calc(36px);
+$banner--single-line-height: rem-calc(54px) !default;
+$banner--single-line-padding: rem-calc(10px) rem-calc(8px) rem-calc(8px) rem-calc(16px) !default;
+$banner--single-line__actions-margin: 0 0 rem-calc(8px) rem-calc(36px) !default;
 
-$banner--multi-line-height: rem-calc(122px);
-$banner--multi-line__content-padding: rem-calc(24px) rem-calc(16px) rem-calc(12px) rem-calc(16px);
-$banner--multi-line__actions-padding: 0 rem-calc(8px) rem-calc(8px) rem-calc(16px);
+$banner--multi-line-height: rem-calc(122px) !default;
+$banner--multi-line__content-padding: rem-calc(24px) rem-calc(16px) rem-calc(12px) rem-calc(16px) !default;
+$banner--multi-line__actions-padding: 0 rem-calc(8px) rem-calc(8px) rem-calc(16px) !default;
 
-$banner--image-multi-line-height: rem-calc(120px);
-$banner--image-multi-line__img-size: rem-calc(40px);
-$banner--image-multi-line__image-padding: rem-calc(24px) 0 0 rem-calc(16px);
-$banner--image-multi-line__content-padding: rem-calc(24px) rem-calc(16px) 0 rem-calc(16px);
-$banner--image-multi-line__content-margin: 0 0 rem-calc(20px) 0;
+$banner--image-multi-line-height: rem-calc(120px) !default;
+$banner--image-multi-line__img-size: rem-calc(40px) !default;
+$banner--image-multi-line__image-padding: rem-calc(24px) 0 0 rem-calc(16px) !default;
+$banner--image-multi-line__content-padding: rem-calc(24px) rem-calc(16px) 0 rem-calc(16px) !default;
+$banner--image-multi-line__content-margin: 0 0 rem-calc(20px) 0 !default;
 
-$banner__actions-margin: 0 0 rem-calc(8px) rem-calc(8px);
+$banner__actions-margin: 0 0 rem-calc(8px) rem-calc(8px) !default;
 
-$banner-md-up--single-line-height: rem-calc(52px);
-$banner-md-up--single-line-padding: rem-calc(8px) rem-calc(8px) rem-calc(8px) rem-calc(24px);
-$banner-md-up--single-line__actions-margin: 0 0 0 rem-calc(90px);
+$banner-md-up--single-line-height: rem-calc(52px) !default;
+$banner-md-up--single-line-padding: rem-calc(8px) rem-calc(8px) rem-calc(8px) rem-calc(24px) !default;
+$banner-md-up--single-line__actions-margin: 0 0 0 rem-calc(90px) !default;
 
-$banner-md-up--multi-line-height: rem-calc(90px);
+$banner-md-up--multi-line-height: rem-calc(90px) !default;
 
 /**************************************
  * Bottom nav
  **************************************/
 
-$bottom-nav-background: var(--primary-color);
-$bottom-nav-height: rem-calc(56px);
+$bottom-nav-background: var(--primary-color) !default;
+$bottom-nav-height: rem-calc(56px) !default;
 
-$bottom-nav__icon-size: rem-calc(24px);
+$bottom-nav__icon-size: rem-calc(24px) !default;
 
-$bottom-nav__item-min-width: rem-calc(80px);
-$bottom-nav__item-max-width: rem-calc(168px);
-$bottom-nav__item-padding: rem-calc(8px) rem-calc(12px) rem-calc(12px) rem-calc(12px);
-$bottom-nav__item__text-font-size: rem-calc(12px);
-$bottom-nav__item-color: rgba($white, .54);
-$bottom-nav__item--hover-color: $white;
+$bottom-nav__item-min-width: rem-calc(80px) !default;
+$bottom-nav__item-max-width: rem-calc(168px) !default;
+$bottom-nav__item-padding: rem-calc(8px) rem-calc(12px) rem-calc(12px) rem-calc(12px) !default;
+$bottom-nav__item__text-font-size: rem-calc(12px) !default;
+$bottom-nav__item-color: rgba($white, .54) !default;
+$bottom-nav__item--hover-color: $white !default;
 
-$bottom-nav--icon-only__item-padding: rem-calc(16px) rem-calc(12px);
-$bottom-nav--icon-only__item--active-padding: rem-calc(8px) rem-calc(12px) rem-calc(12px) rem-calc(12px);
+$bottom-nav--icon-only__item-padding: rem-calc(16px) rem-calc(12px) !default;
+$bottom-nav--icon-only__item--active-padding: rem-calc(8px) rem-calc(12px) rem-calc(12px) rem-calc(12px) !default;
+
+/**************************************
+ * Chips
+ **************************************/
+
+$chip-height: rem-calc(32px) !default;
+$chip-padding: 0 rem-calc(12px) !default;
+$chip-background: rgba($black, .12) !default;
+$chip-color: #{$black}de !default;
+$chip--hover-background: rgba($black, .08) !default;
+$chip--active-background: rgba($black, .32) !default;
+$chip--disabled-color: rgba($black, .38) !default;
+$chip--disabled-background: rgba($black, .12) !default;
+
+$chip__thumbnail-size: rem-calc(24px) !default;
+$chip__thumbnail-color: var(--chip-color) !default;
+$chip__thumbnail-margin: 0 rem-calc(8px) 0 0 !default;
+$chip__thumbnail-padding-left: rem-calc(6px) !default;
+
+$chip__remove-size: rem-calc(16px) !default;
+$chip__remove-margin: 0 0 0 rem-calc(8px) !default;
+$chip__remove-color: var(--chip-color) !default;
+$chip--remove-padding-right: rem-calc(8px) !default;
+
+$chip--outlined-border: rem-calc(1px) solid rgba($black, .12) !default;
+$chip--outlined--hover-background: rgba($black, .04) !default;
+$chip--outlined--active-background: rgba($black, .16) !default;
+$chip--outlined--disabled-color: rgba($black, .38) !default;
+$chip--outlined--disabled-background: rgba($black, .12) !default;
+$chip--outlined--thumbnail-padding-left: rem-calc(4px) !default;
+$chip--outlined--remove-padding-right: rem-calc(6px) !default;
+
+/**************************************
+ * Data tables
+ **************************************/
+
+$data-table__header-font-size: rem-calc(12px) !default;
+$data-table__header-color: #{$black}99 !default;
+$data-table__header-font-weight: 500 !default;
+$data-table__header--hover-color: $black !default;
+
+$data-table__body-color: #{$black}de !default;
+$data-table__body-font-size: rem-calc(14px) !default;
+
+$data-table__row-height: rem-calc(48px) !default;
+$data-table__row-border-bottom: rem-calc(1px) solid rgba($black, .12) !default;
+$data-table__row__icon-size: rem-calc(18px) !default;
+$data-table__row--hover-background: rgba($black, .12) !default;
+
+/**************************************
+ * Divers
+ **************************************/
+
+$divider-height: rem-calc(1px) !default;
+$divider-background: rgba($black, .12) !default;
+$divider-margin: 0 !default;
+
+/**************************************
+ * Buttons: FAB
+ **************************************/
+
+$fab-size: rem-calc(56px) !default;
+$fab-padding: 0 rem-calc(16px) !default;
+$fab-background: var(--primary-color) !default;
+$fab__icon-size: rem-calc(24px) !default;
+$fab--hover-background: rgba($white, .08) !default;
+$fab--active-background: rgba($white, .32) !default;
+
+$fab--mini-size: rem-calc(40px) !default;
+$fab--mini-padding: 0 rem-calc(8px) !default;
+
+$fab--extended-height: rem-calc(48px) !default;
+$fab--extended-border-radius: rem-calc(32px) !default;
+$fab--extended-padding: 0 rem-calc(20px) !default;
+$fab--extended--icon-left-padding: 0 rem-calc(20px) 0 rem-calc(16px) !default;
+$fab--extended--icon-left__icon-margin-right: rem-calc(8px) !default;
+$fab--extended--icon-right-padding: 0 rem-calc(16px) 0 rem-calc(20px) !default;
+$fab--extended--icon-right__icon-margin-left: rem-calc(8px) !default;
 
 /**************************************
  * Snackbars
  **************************************/
 
-$snackbar-width: rem-calc(344px);
-$snackbar-min-height: rem-calc(48px);
-$snackbar-background: rgba($black, .87);
-$snackbar-border-radius: var(--border-radius);
+$snackbar-width: rem-calc(344px) !default;
+$snackbar-min-height: rem-calc(48px) !default;
+$snackbar-background: rgba($black, .87) !default;
+$snackbar-border-radius: var(--border-radius) !default;
 
-$snackbar__content-color: #{$white}de;
-$snackbar__content-padding: rem-calc(16px) 0 rem-calc(16px) rem-calc(16px);
+$snackbar__content-color: #{$white}de !default;
+$snackbar__content-padding: rem-calc(16px) 0 rem-calc(16px) rem-calc(16px) !default;
 
-$snackbar__actions-padding: rem-calc(6px) rem-calc(8px);
+$snackbar__actions-padding: rem-calc(6px) rem-calc(8px) !default;
 
-$snackbar--two-line-min-height: rem-calc(64px);
-$snackbar--two-line__actions-padding: rem-calc(16px) rem-calc(8px);
-$snackbar--two-line--long-action__content-padding: rem-calc(16px) rem-calc(16px) 0 rem-calc(16px);
-$snackbar--two-line--long-action__actions-padding: rem-calc(18px) rem-calc(8px) rem-calc(8px) rem-calc(16px);
+$snackbar--two-line-min-height: rem-calc(64px) !default;
+$snackbar--two-line__actions-padding: rem-calc(16px) rem-calc(8px) !default;
+$snackbar--two-line--long-action__content-padding: rem-calc(16px) rem-calc(16px) 0 rem-calc(16px) !default;
+$snackbar--two-line--long-action__actions-padding: rem-calc(18px) rem-calc(8px) rem-calc(8px) rem-calc(16px) !default;
 
 /**************************************
  * Tooltips
  **************************************/
 
-$tooltip-height: rem-calc(32px);
-$tooltip-padding: 0 rem-calc(16px);
-$tooltip-font-size: rem-calc(14px);
-$tooltip-distance: rem-calc(16px);
-$tooltip-color: $white;
-$tooltip-background-color: rgba($grey-700, .6);
-$tooltip-md-up-height: rem-calc(24px);
-$tooltip-md-up-padding: 0 rem-calc(8px);
-$tooltip-md-up-font-size: rem-calc(10px);
+$tooltip-height: rem-calc(32px) !default;
+$tooltip-padding: 0 rem-calc(16px) !default;
+$tooltip-font-size: rem-calc(14px) !default;
+$tooltip-distance: rem-calc(16px) !default;
+$tooltip-color: $white !default;
+$tooltip-background-color: rgba($grey-700, .6) !default;
+$tooltip-md-up-height: rem-calc(24px) !default;
+$tooltip-md-up-padding: 0 rem-calc(8px) !default;
+$tooltip-md-up-font-size: rem-calc(10px) !default;

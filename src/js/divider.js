@@ -1,30 +1,40 @@
-const dividers = Array.from( document.querySelectorAll( '.divider' ) );
+const dividers = document.getElementsByClassName( 'divider' );
 
 class Divider
 {
-	constructor( dividers )
+	constructor( divider )
 	{
-		this.dividers = dividers;
+		this.divider = divider;
 
 		this.setRole();
 		this.setOrientation();
+		this.checkWidth();
 	}
 
 	setRole()
 	{
-		this.dividers.forEach( divider =>
-		{
-			divider.setAttribute( 'role', 'separator' );
-		});
+		this.divider.setAttribute( 'role', 'separator' );
 	}
 
-	setOrientation( orientation = 'horizontal' )
+	setOrientation()
 	{
-		this.dividers.forEach( divider =>
+		const orientation = this.divider.classList.contains( 'divider--vertical' ) ? 'vertical' : 'horizontal';
+		this.divider.setAttribute( 'aria-orientation', orientation );
+	}
+
+	checkWidth()
+	{
+		const orientation = this.divider.classList.contains( 'divider--vertical' ) ? 'vertical' : 'horizontal';
+
+		if( orientation === 'vertical' )
 		{
-			divider.setAttribute( 'aria-orientation', orientation );
-		});
+			let parent = this.divider.parentElement;
+			this.divider.style.setProperty('width', `${parent.getBoundingClientRect().height}px`);
+		}
 	}
 }
 
-new Divider( dividers );
+for( let divider of dividers )
+{
+	new Divider( divider );
+}

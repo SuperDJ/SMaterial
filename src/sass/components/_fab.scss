@@ -3,7 +3,7 @@
 	@include chain(width, height, var(--fab-size));
 	padding: var(--fab-padding);
 	border-radius: 50%;
-	background: var(--primary-color);
+	background: var(--fab-background);
 	@extend %z6;
 	color: var(--font-on-primary);
 	text-align: center;
@@ -17,8 +17,7 @@
 	--icon-color: var(--font-on-primary);
 
 	.icon {
-		@include chain(font-size, width, var(--fab__icon-size));
-		vertical-align: middle;
+		--icon-size: var(--fab__icon-size);
 	}
 
 	&--mini {
@@ -51,20 +50,21 @@
 }
 
 :root {
-	--fab-size: #{rem-calc(56px)};
-	--fab-padding: #{0 rem-calc(16px)};
-	--fab__icon-size: #{rem-calc(24px)};
-	--fab--hover-background: #{rgba($white, .08)};
-	--fab--active-background: #{rgba($white, .32)};
+	--fab-size: #{$fab-size};
+	--fab-padding: #{$fab-padding};
+	--fab-background: #{$fab-background};
+	--fab__icon-size: #{$fab__icon-size};
+	--fab--hover-background: #{$fab--hover-background};
+	--fab--active-background: #{$fab--active-background};
 
-	--fab--mini-size: #{rem-calc(40px)};
-	--fab--mini-padding: #{0 rem-calc(8px)};
+	--fab--mini-size: #{$fab--mini-size};
+	--fab--mini-padding: #{$fab--mini-padding};
 
-	--fab--extended-height: #{rem-calc(48px)};
-	--fab--extended-border-radius: #{rem-calc(32px)};
-	--fab--extended-padding: #{0 rem-calc(20px)};
-	--fab--extended--icon-left-padding: #{0 rem-calc(20px) 0 rem-calc(16px)};
-	--fab--extended--icon-left__icon-margin-right: #{rem-calc(8px)};
-	--fab--extended--icon-right-padding: #{0 rem-calc(16px) 0 rem-calc(20px)};
-	--fab--extended--icon-right__icon-margin-left: #{rem-calc(8px)};
+	--fab--extended-height: #{$fab--extended-height};
+	--fab--extended-border-radius: #{$fab--extended-border-radius};
+	--fab--extended-padding: #{$fab--extended-padding};
+	--fab--extended--icon-left-padding: #{$fab--extended--icon-left-padding};
+	--fab--extended--icon-left__icon-margin-right: #{$fab--extended--icon-left__icon-margin-right};
+	--fab--extended--icon-right-padding: #{$fab--extended--icon-right-padding};
+	--fab--extended--icon-right__icon-margin-left: #{$fab--extended--icon-right__icon-margin-left};
 }

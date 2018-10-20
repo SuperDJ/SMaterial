@@ -1,21 +1,21 @@
-const buttons = Array.from( document.querySelectorAll( '.button' ) );
+const buttons = document.getElementsByClassName( 'button' );
 
 class Button
 {
-	constructor( buttons )
+	constructor( button )
 	{
-		this.buttons = buttons;
+		this.button = button;
 
 		this.setRole();
 	}
 
 	setRole()
 	{
-		this.buttons.forEach( button =>
-		{
-			button.setAttribute('role', 'button');
-		});
+		this.button.setAttribute('role', 'button');
 	}
 }
 
-new Button( buttons );
+for( let button of buttons )
+{
+	new Button( button );
+}

@@ -1,7 +1,7 @@
 .bottom-nav {
     $el: &;
     width: 100%;
-    background: var(--bottom-nav-primary-color);
+    background: var(--bottom-nav-background);
     height: var(--bottom-nav-height);
     z-index: 1;
     bottom: 0;
@@ -36,7 +36,7 @@
             grid-row-start: 1;
 
             .icon {
-                @include chain(width, height, font-size, var(--bottom-nav__icon-size));
+				--icon-size: var(--bottom-nav__icon-size);
             }
         }
 

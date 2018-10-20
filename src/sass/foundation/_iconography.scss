@@ -1,5 +1,7 @@
 .icon {
     color: var(--icon-color);
+	vertical-align: middle;
+    @include chain(width, height, font-size, var(--icon-size));
 
     &:active {
         color: var(--icon--active-color);
@@ -11,7 +13,8 @@
 }
 
 :root {
-    --icon-color: #{rgba($black, .38)};
-    --icon--active-color: #{rgba($black, .54)};
-    --icon--active--focus-color: #{rgba($black, .87)};
+    --icon-size: #{$icon-size};
+    --icon-color: #{$icon-color};
+    --icon--active-color: #{$icon--active-color};
+    --icon--active--focus-color: #{$icon--active--focus-color};
 }
