@@ -1,17 +1,16 @@
 .drawer {
     $el: &;
-    width: rem-calc(256px);
+    width: var(--drawer-width);
     position: fixed;
     margin-left: -102%;
     margin-right: rem-calc(56px); // Make sure there is some room left on the right side of the screen
-    background: var(--background-color);
-    @extend %z16;
-	@include chain(top, left, bottom, 0);
+    background: var(--drawer-background);
     z-index: 2;
     height: 100%;
     overflow-x: hidden;
 	overflow-y: auto;
     transition: margin-left .3s $easing-accelerate;
+	border-right: rem-calc(1px) solid rgba($black, .12);
 
     &--active {
         margin-left: 0;
@@ -105,8 +104,89 @@
             padding: 0;
         }
     }
+
+	&--modal {
+		@extend %z16;
+		border-right: 0;
+	}
+
+	&--modal, &--full-height {
+		@include chain(top, left, bottom, 0);
+	}
+
+	&--clipped {
+		@include chain(left, bottom, 0);
+		top: var(--app-bar-height);
+		box-shadow: none;
+	}
+
+	&__header {
+		$header: &;
+		background: var(--drawer__header-background);
+		height: var(--drawer__header-height);
+		margin: rem-calc(-8) 0 rem-calc(8px) 0;
+		position: relative;
+
+		&__background {
+			width: 100%;
+			height: var(--drawer__header-height);
+		}
+
+		&__profile-image {
+			@include chain(width, height, var(--drawer__header__profile-image-size));
+			top: rem-calc(16px);
+			border-radius: 50%;
+		}
+
+		&__profile-name {
+			color: var(--drawer__header__profile-name-color);
+			@extend %h6;
+			top: var(--app-bar-height);
+		}
+
+		&__profile-email {
+			color: var(--drawer__header__profile-email-color);
+			@extend %body-2;
+			top: calc( var(--app-bar-height) + #{rem-calc( map-get( map-get($type-scale, body-2), size ) * 1.4)} + #{rem-calc(8px)} ); // TODO fix line-height
+		}
+
+		&__profile-image, &__profile-name, &__profile-email {
+			left: rem-calc(16px);
+		}
+
+		&__background, &__profile-image, &__profile-name, &__profile-email {
+			position: absolute;
+			user-select: none;
+		}
+
+		&--small {
+			height: var(--app-bar-height);
+
+			#{$header}__profile-image {
+				top: rem-calc(8px);
+			}
+
+			#{$header}__profile-name {
+				@extend %body-1;
+				top: rem-calc(16px);
+				left: calc( var(--drawer__header__profile-image-size) + ( #{rem-calc(16px)} * 2) );
+			}
+		}
+
+		&--divider {
+			border-bottom: rem-calc(1px) solid rgba($black, .12);
+		}
+	}
 }
 
 :root {
+	--drawer-background: #{var(--background-color)};
+	--drawer-width: #{rem-calc(256px)};
+
 	--drawer__item__children-height: auto;
+
+	--drawer__header-height: #{calc(var(--app-bar-height) * 2)};
+	--drawer__header__profile-image-size: #{rem-calc(40px)};
+	--drawer__header__profile-name-color: #{rgba($black, .87)};
+	--drawer__header__profile-email-color: #{rgba($black, .54)};
 }

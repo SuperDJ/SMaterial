@@ -1,7 +1,7 @@
 .app-bar {
 	background: var(--app-bar-background);
 	color: var(--app-bar-font-color);
-	min-height: var(--app-bar-height); // Min height to allow more content in the appbar
+	min-height: var(--app-bar-height); // Min height to allow more content in the app bar
 	padding: var(--app-bar-padding);
 	width: 100%;
 	@extend %z4;
@@ -12,6 +12,7 @@
 		grid-column-start: 2;
 		@extend %h6;
 		margin: var(--app-bar__title-margin);
+		line-height: initial;
 	}
 
 	&__actions {

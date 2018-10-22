@@ -114,7 +114,7 @@
 		}
 
 		&:disabled {
-			color: rgba($black, .38);
+			color: var(--button--text--outline--disabled-color);
 			background: unset;
 		}
 	}
@@ -125,36 +125,37 @@
 }
 
 :root {
-	--button-height: #{rem-calc(36px)};
-	--button-min-width: #{rem-calc(64px)};
-	--button-border-radius: var(--border-radius);
+	--button-height: #{$button-height};
+	--button-min-width: #{$button-min-width};
+	--button-border-radius: #{$button-border-radius};
 
-	--button__icon-size: #{rem-calc(18px)};
+	--button__icon-size: #{$button__icon-size};
 
-	--button--contained-padding: #{0 rem-calc(16px)};
-	--button--contained--hover-background: #{rgba($white, .08)};
-	--button--contained--active-background: #{rgba($white, .32)};
-	--button--contained--disabled-color: #{rgba($black, .38)};
-	--button--contained--disabled-background: #{rgba($black, .12)};
-	--button--contained--icon-left-padding: #{0 rem-calc(16px) 0 rem-calc(12px)};
-	--button--contained--icon-left__icon-margin: #{0 rem-calc(8px) 0 0};
-	--button--contained--icon-right-padding: #{0 rem-calc(12px) 0 rem-calc(16px)};
-	--button--contained--icon-right__icon-margin: #{0 0 0 rem-calc(8px)};
+	--button--contained-padding: #{$button--contained-padding};
+	--button--contained--hover-background: #{$button--contained--hover-background};
+	--button--contained--active-background: #{$button--contained--active-background};
+	--button--contained--disabled-color: #{$button--contained--disabled-color};
+	--button--contained--disabled-background: #{$button--contained--disabled-background};
+	--button--contained--icon-left-padding: #{$button--contained--icon-left-padding};
+	--button--contained--icon-left__icon-margin: #{$button--contained--icon-left__icon-margin};
+	--button--contained--icon-right-padding: #{$button--contained--icon-right-padding};
+	--button--contained--icon-right__icon-margin: #{$button--contained--icon-right__icon-margin};
 
-	--button--outlined-border: #{rem-calc(1px) solid rgba($black, .12)};
-	--button--outlined-padding: #{0 rem-calc(16px)};
-	--button--outlined--icon-left-padding: #{0 rem-calc(16px) 0 rem-calc(12px)};
-	--button--outlined--icon-left__icon-margin: #{0 rem-calc(8px) 0 0};
-	--button--outlined--icon-right-padding: #{0 rem-calc(12px) 0 rem-calc(16px)};
-	--button--outlined--icon-right__icon-margin: #{0 0 0 rem-calc(8px)};
+	--button--outlined-border: #{$button--outlined-border};
+	--button--outlined-padding: #{$button--outlined-padding};
+	--button--outlined--icon-left-padding: #{$button--outlined--icon-left-padding};
+	--button--outlined--icon-left__icon-margin: #{$button--outlined--icon-left__icon-margin};
+	--button--outlined--icon-right-padding: #{$button--outlined--icon-right-padding};
+	--button--outlined--icon-right__icon-margin: #{$button--outlined--icon-right__icon-margin};
 
-	--button--text-padding: #{0 rem-calc(8px)};
-	--button--text--icon-left-padding: #{0 rem-calc(8px) 0 rem-calc(4px)};
-	--button--text--icon-left__icon-margin: #{0 rem-calc(4px) 0 0};
-	--button--text--icon-right-padding: #{0 rem-calc(4px) 0 rem-calc(8px)};
-	--button--text--icon-right__icon-margin: #{0 0 0 rem-calc(4px)};
+	--button--text-padding: #{$button--text-padding};
+	--button--text--icon-left-padding: #{$button--text--icon-left-padding};
+	--button--text--icon-left__icon-margin: #{$button--text--icon-left__icon-margin};
+	--button--text--icon-right-padding: #{$button--text--icon-right-padding};
+	--button--text--icon-right__icon-margin: #{$button--text--icon-right__icon-margin};
 
-	--button--text--outlined--hover-background: color-mod(var(--primary-color) alpha(.08));
-	--button--text--outlined--active-background: color-mod(var(--primary-color) alpha(.32));
-	--button--text--outlined-color: var(--primary-color) ;
+	--button--text--outlined--hover-background: #{$button--text--outlined--hover-background};
+	--button--text--outlined--active-background: #{$button--text--outlined--active-background};
+	--button--text--outlined-color: #{$button--text--outlined-color};
+	--button--text--outline--disabled-color: #{$button--text--outline--disabled-color};
 }

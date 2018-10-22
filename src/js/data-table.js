@@ -1,10 +1,12 @@
-const dataTables = Array.from( document.querySelectorAll( '.data-table' ));
+const dataTables = document.getElementsByClassName( 'data-table' );
 
 class DataTable
 {
-	constructor( dataTables )
+	constructor( dataTable )
 	{
-		this.dataTables = dataTables;
+		this.dataTable = dataTable;
+		this.rows = this.dataTable.getElementsByTagName( 'tr' );
+		this.headers = this.dataTable.getElementsByTagName( 'th' );
 
 		this.setRole();
 		this.renderHtml();
@@ -12,34 +14,29 @@ class DataTable
 
 	setRole()
 	{
-		this.dataTables.forEach( dataTable =>
+		this.dataTable.setAttribute( 'role', 'table' );
+
+		for( let row of this.rows )
 		{
-			dataTable.setAttribute( 'role', 'table' );
+			row.setAttribute( 'role', 'row' );
+		}
 
-			// Rows
-			Array.from( dataTable.querySelectorAll( 'tr' ) ).forEach( row =>
-			{
-				row.setAttribute( 'role', 'row' );
-			});
-
-			// Column headers
-			Array.from( dataTable.querySelectorAll( 'th' ) ).forEach( columnHeader =>
-			{
-				columnHeader.setAttribute( 'role', 'columnheader' );
-			});
-		});
+		for( let header of this.headers )
+		{
+			header.setAttribute( 'role', 'columnheader' );
+		}
 	}
 
 	renderHtml()
 	{
-		this.dataTables.forEach( dataTable =>
-		{
-			let container = document.createElement( 'div' );
-			dataTable.parentNode.insertBefore( container, dataTable );
-			container.classList.add( 'data-table--responsive' );
-			container.appendChild( dataTable );
-		});
+		let container = document.createElement( 'div' );
+		this.dataTable.parentNode.insertBefore( container, this.dataTable );
+		container.classList.add( 'data-table--responsive' );
+		container.appendChild( this.dataTable );
 	}
 }
 
-new DataTable( dataTables );
+for( let dataTable of dataTables )
+{
+	new DataTable( dataTable );
+}

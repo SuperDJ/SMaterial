@@ -373,6 +373,44 @@ $bottom-nav--icon-only__item-padding: rem-calc(16px) rem-calc(12px) !default;
 $bottom-nav--icon-only__item--active-padding: rem-calc(8px) rem-calc(12px) rem-calc(12px) rem-calc(12px) !default;
 
 /**************************************
+ * Buttons
+ **************************************/
+
+$button-height: rem-calc(36px) !default;
+$button-min-width: rem-calc(64px) !default;
+$button-border-radius: var(--border-radius) !default;
+
+$button__icon-size: rem-calc(18px) !default;
+
+$button--contained-padding: 0 rem-calc(16px) !default;
+$button--contained--hover-background: rgba($white, .08) !default;
+$button--contained--active-background: rgba($white, .32) !default;
+$button--contained--disabled-color: rgba($black, .38) !default;
+$button--contained--disabled-background: rgba($black, .12) !default;
+$button--contained--icon-left-padding: 0 rem-calc(16px) 0 rem-calc(12px) !default;
+$button--contained--icon-left__icon-margin: 0 rem-calc(8px) 0 0 !default;
+$button--contained--icon-right-padding: 0 rem-calc(12px) 0 rem-calc(16px) !default;
+$button--contained--icon-right__icon-margin: 0 0 0 rem-calc(8px) !default;
+
+$button--outlined-border: rem-calc(1px) solid rgba($black, .12) !default;
+$button--outlined-padding: 0 rem-calc(16px) !default;
+$button--outlined--icon-left-padding: 0 rem-calc(16px) 0 rem-calc(12px) !default;
+$button--outlined--icon-left__icon-margin: 0 rem-calc(8px) 0 0 !default;
+$button--outlined--icon-right-padding: 0 rem-calc(12px) 0 rem-calc(16px) !default;
+$button--outlined--icon-right__icon-margin: 0 0 0 rem-calc(8px) !default;
+
+$button--text-padding: 0 rem-calc(8px) !default;
+$button--text--icon-left-padding: 0 rem-calc(8px) 0 rem-calc(4px) !default;
+$button--text--icon-left__icon-margin: 0 rem-calc(4px) 0 0 !default;
+$button--text--icon-right-padding: 0 rem-calc(4px) 0 rem-calc(8px) !default;
+$button--text--icon-right__icon-margin: 0 0 0 rem-calc(4px) !default;
+
+$button--text--outlined--hover-background: rgba($primary-color, .08) !default; // color-mod(var(--primary-color) alpha(.08))
+$button--text--outlined--active-background: rgba($primary-color, .32) !default; // color-mod(var(--primary-color) alpha(.32))
+$button--text--outlined-color: var(--primary-color) !default;
+$button--text--outline--disabled-color: rgba($black, .38) !default;
+
+/**************************************
  * Chips
  **************************************/
 

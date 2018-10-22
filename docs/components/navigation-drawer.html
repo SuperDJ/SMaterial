@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Bottom sheet | Material Design</title>
+        <title>Navigation drawer | Material Design</title>
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -18,7 +18,7 @@
             <i class="material-icons icon" data-trigger="drawer">menu</i>
 
             <div class="app-bar__title">
-                Bottom sheet
+                Navigation drawer
             </div>
 
             <div class="app-bar__actions">
@@ -28,133 +28,151 @@
 
         <main class="container">
             <article class="row">
-                <h1 class="xs12">Bottom sheet</h1>
+                <h1 class="xs12">Navigation drawer</h1>
 
                 <section class="xs12 sm6">
                     <p>
-                        The bottom sheet has two varieties:
-                        <a href="#list">list</a> and <a href="#grid">grid</a>.
+                        The navigation drawer is a component that can be triggered from the <a href="./app-bar.html">app bar</a>.
+                        You can use the navigation drawer in a couple of ways. You can use the <a href="#default">default drawer</a>
+                        which has a <a href="#full-height">full height</a> and <a href="#clipped">clipped</a> option or the <a href="#modal">modal drawer</a>.
+                        It's also possible to add a <a href="#header">header</a> or a <a href="#small-header">small header</a>.
                     </p>
                 </section>
             </article>
 
-            <article class="row">
-                <h2 class="xs12" id="list">List</h2>
+            <article class="row" id="default">
+                <h2 class="xs12">Default drawer</h2>
 
                 <section class="xs12 sm6">
                     <p>
-                        For the bottom sheet with a list all you need to do is use the following classes:
-                        <code class="language-css">.sheet .sheet--list</code>
+                        The default drawer has 2 option you can choose from.
+                        These options are <a href="#full-height">full-height</a> and <a href="#clipped">clipped</a>
+                        The full-height will cover the entire screen height while the clipped option remains below the <a href="app-bar.html">app bar</a>.
                     </p>
 
-                    <button class="button button--contained" data-trigger="bottom-list">Show bottom sheet list</button>
-
-                    <div class="bottom-sheet bottom-sheet--list" id="bottom-list">
-                        <a class="bottom-sheet__item">
-                            <i class="material-icons icon bottom-sheet__icon">person</i>
-                            <div class="bottom-sheet__content">Persons</div>
-                        </a>
-                        <a class="bottom-sheet__item">
-                            <i class="material-icons icon bottom-sheet__icon">cloud_download</i>
-                            <div class="bottom-sheet__content">Download</div>
-                        </a>
-                        <a class="bottom-sheet__item">
-                            <i class="material-icons icon bottom-sheet__icon">cloud</i>
-                            <div class="bottom-sheet__content">Cloud</div>
-                        </a>
-                    </div>
+                    <p>
+                        In order to make a navigation drawer item active you need to add the
+                        <code class="language-css">.drawer__item--active</code> class to the <code class="language-css">.drawer__item</code> element.
+                        When this class is added to a sub menu item it makes sure the sub menu is opened automatically.
+                    </p>
                 </section>
 
                 <section class="xs12 sm6">
+                    Basic markup for the navigation drawer
+
 <pre class="language-html">
     <code>
-&lt;div class="bottom-sheet bottom-sheet--list">
-    &lt;a class="bottom-sheet__item">
-        &lt;i class="material-icons icon bottom-sheet__icon">person&lt;/i>
-        &lt;div class="bottom-sheet__content">Persons&lt;/div>
+&lt;nav class="drawer" id="drawer">
+    &lt;ul>
+        &lt;li>&lt;a href="../" class="drawer__item">&lt;span class="drawer__item__content">Home&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="../getting-started.html" class="drawer__item">&lt;span class="drawer__item__content">Getting started&lt;/span>&lt;/a>&lt;/li>
+        &lt;li>
+            &lt;div class="drawer__item drawer__item__parent">&lt;span class="drawer__item__content">Layout&lt;/span>&lt;/div>
+
+            &lt;ul class="drawer__item__children">
+                &lt;li>&lt;a href="../layout/grid.html" class="drawer__item">&lt;span class="drawer__item__content">Grid&lt;/span>&lt;/a>&lt;/li>
+                &lt;li>&lt;a href="../layout/shadow.html" class="drawer__item">&lt;span class="drawer__item__content">Shadows&lt;/span>&lt;/a>&lt;/li>
+            &lt;/ul>
+        &lt;/li>
+    &lt;/ul>
+&lt;/nav>
+    </code>
+</pre>
+
+                    Active menu item
+
+<pre class="language-html">
+    <code>
+&lt;li>
+    &lt;a href="./navigation-drawer.html" class="drawer__item drawer__item--active">
+        &lt;span class="drawer__item__content">Navigation drawer&lt;/span>
     &lt;/a>
-    &lt;a class="bottom-sheet__item">
-        &lt;i class="material-icons icon bottom-sheet__icon">cloud_download&lt;/i>
-        &lt;div class="bottom-sheet__content">Download&lt;/div>
-    &lt;/a>
-    &lt;a class="bottom-sheet__item">
-        &lt;i class="material-icons icon bottom-sheet__icon">cloud&lt;/i>
-        &lt;div class="bottom-sheet__content">Cloud&lt;/div>
-    &lt;/a>
-&lt;/div>
+&lt;/li>
     </code>
 </pre>
                 </section>
             </article>
 
-            <article class="row">
-                <h2 class="xs12" id="grid">Grid</h2>
+            <article class="row" id="full-height">
+                <h3 class="xs12">Full height</h3>
+
+                <section class="xs12 sm6">
+                    To make the default drawer full height all you need to do is add the
+                    <code class="language-css">.drawer--full-height</code> class to the <code class="language-css">.drawer</code> element.
+                </section>
+
+                <section class="xs12 sm6">
+                    <code class="language-html">
+                        &lt;nav class="drawer drawer--full-height" id="drawer">
+                    </code>
+                </section>
+            </article>
+
+            <article class="row" id="clipped">
+                <h3 class="xs12">Clipped</h3>
+
+                <section class="xs12 sm6">
+                    To make the default drawer clipped all you need to do is add the
+                    <code class="language-css">.drawer--clipped</code> class to the <code class="language-css">.drawer</code> element.
+                </section>
+
+                <section class="xs12 sm6">
+                    <code class="language-html">
+                        &lt;nav class="drawer drawer--clipped" id="drawer">
+                    </code>
+                </section>
+            </article>
+
+            <article class="row" id="header">
+                <h2 class="xs12">Header</h2>
 
                 <section class="xs12 sm6">
                     <p>
-                        For the bottom sheet with a grid all you need to do is use the following classes:
-                        <code class="language-css">.sheet .sheet--grid</code>
+                        For the header you have 2 options. The default header or a small header.
                     </p>
 
-                    <button class="button button--contained" data-trigger="bottom-grid">Show bottom sheet grid</button>
+                    <p>
+                        The default header has a optional background image.
+                        When you don't use a background image you can still use a background color.
+                    </p>
 
-                    <div class="bottom-sheet bottom-sheet--grid" id="bottom-grid">
-                        <a class="bottom-sheet__item">
-                            <i class="material-icons icon bottom-sheet__icon">person</i>
-                            <div class="bottom-sheet__content">Persons</div>
-                        </a>
-                        <a class="bottom-sheet__item">
-                            <i class="material-icons icon bottom-sheet__icon">cloud_download</i>
-                            <div class="bottom-sheet__content">Download</div>
-                        </a>
-                        <a class="bottom-sheet__item">
-                            <i class="material-icons icon bottom-sheet__icon">cloud</i>
-                            <div class="bottom-sheet__content">Cloud</div>
-                        </a>
-                        <a class="bottom-sheet__item">
-                            <i class="material-icons icon bottom-sheet__icon">person</i>
-                            <div class="bottom-sheet__content">Persons</div>
-                        </a>
-                        <a class="bottom-sheet__item">
-                            <i class="material-icons icon bottom-sheet__icon">cloud_download</i>
-                            <div class="bottom-sheet__content">Download</div>
-                        </a>
-                        <a class="bottom-sheet__item">
-                            <i class="material-icons icon bottom-sheet__icon">cloud</i>
-                            <div class="bottom-sheet__content">Cloud</div>
-                        </a>
-                    </div>
+                    <p>
+                        It is also possible to add a divider below the header.
+                        You can simply do this by adding the
+                        <code class="language-css">.drawer__header--divider</code> class to the <code class="language-css">.drawer__header</code> element.
+                    </p>
                 </section>
 
                 <section class="xs12 sm6">
 <pre class="language-html">
     <code>
-&lt;div class="bottom-sheet bottom-sheet--grid">
-    &lt;a class="bottom-sheet__item">
-        &lt;i class="material-icons icon bottom-sheet__icon">person&lt;/i>
-        &lt;div class="bottom-sheet__content">Persons&lt;/div>
-    &lt;/a>
-    &lt;a class="bottom-sheet__item">
-        &lt;i class="material-icons icon bottom-sheet__icon">cloud_download&lt;/i>
-        &lt;div class="bottom-sheet__content">Download&lt;/div>
-    &lt;/a>
-    &lt;a class="bottom-sheet__item">
-        &lt;i class="material-icons icon bottom-sheet__icon">cloud&lt;/i>
-        &lt;div class="bottom-sheet__content">Cloud&lt;/div>
-    &lt;/a>
-    &lt;a class="bottom-sheet__item">
-        &lt;i class="material-icons icon bottom-sheet__icon">person&lt;/i>
-        &lt;div class="bottom-sheet__content">Persons&lt;/div>
-    &lt;/a>
-    &lt;a class="bottom-sheet__item">
-        &lt;i class="material-icons icon bottom-sheet__icon">cloud_download&lt;/i>
-        &lt;div class="bottom-sheet__content">Download&lt;/div>
-    &lt;/a>
-    &lt;a class="bottom-sheet__item">
-        &lt;i class="material-icons icon bottom-sheet__icon">cloud&lt;/i>
-        &lt;div class="bottom-sheet__content">Cloud&lt;/div>
-    &lt;/a>
-&lt;/div>
+&lt;li class="drawer__header">
+    &lt;img src="//placeimg.com/256/112/arch" class="drawer__header__background">
+    &lt;img src="//randomuser.me/api/portraits/men/85.jpg" class="drawer__header__profile-image">
+    &lt;span class="drawer__header__profile-name">John Doe&lt;/span>
+    &lt;span class="drawer__header__profile-email">johndoe@example.com&lt;/span>
+&lt;/li>
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row" id="small-header">
+                <h3 class="xs12">Small header</h3>
+
+                <section class="xs12 sm6">
+                    The small header has the same height as the app bar.
+                    To use the small header all you need to do is add the
+                    <code class="language-css">.drawer__header--small</code> class to the <code class="language-css">.drawer__header</code> element.
+                </section>
+
+                <section class="xs12 sm6">
+<pre class="language-html">
+    <code>
+&lt;li class="drawer__header drawer__header--small">
+    &lt;img src="//randomuser.me/api/portraits/men/85.jpg" class="drawer__header__profile-image">
+    &lt;span class="drawer__header__profile-name">John Doe&lt;/span>
+&lt;/li>
     </code>
 </pre>
                 </section>
@@ -183,7 +201,7 @@
                         <li><a href="./app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
                         <li><a href="./banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
                         <li><a href="./bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
-                        <li><a href="./bottom-sheet.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                        <li><a href="./bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
                         <li><a href="./buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
                         <li><a href="./buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
                         <li><a href="./cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
@@ -193,7 +211,7 @@
                         <li><a href="./dividers.html" class="drawer__item"><span class="drawer__item__content">Dividers</span></a></li>
                         <li><a href="./list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
                         <li><a href="./menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
-                        <li><a href="./navigation-drawer.html" class="drawer__item"><span class="drawer__item__content">Navigation drawer</span></a></li>
+                        <li><a href="./navigation-drawer.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">Navigation drawer</span></a></li>
                         <li><a href="./progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
                         <li><a href="./selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
                         <li><a href="./sliders.html" class="drawer__item"><span class="drawer__item__content">Sliders</span></a></li>
