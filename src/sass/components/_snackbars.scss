@@ -53,21 +53,19 @@
     &__actions {
         padding: var(--snackbar__actions-padding);
     }
-}
 
-:root {
-    --snackbar-width: #{$snackbar-width};
-    --snackbar-min-height: #{$snackbar-min-height};
-    --snackbar-background: #{$snackbar-background};
-    --snackbar-border-radius: #{$snackbar-border-radius};
+	--snackbar-width: #{$snackbar-width};
+	--snackbar-min-height: #{$snackbar-min-height};
+	--snackbar-background: #{$snackbar-background};
+	--snackbar-border-radius: #{$snackbar-border-radius};
 
 	--snackbar__content-color: #{$snackbar__content-color};
 	--snackbar__content-padding: #{$snackbar__content-padding};
 
 	--snackbar__actions-padding: #{$snackbar__actions-padding};
 
-    --snackbar--two-line-min-height: #{$snackbar--two-line-min-height};
-    --snackbar--two-line__actions-padding: #{$snackbar--two-line__actions-padding};
-    --snackbar--two-line--long-action__content-padding: #{$snackbar--two-line--long-action__content-padding};
-    --snackbar--two-line--long-action__actions-padding: #{$snackbar--two-line--long-action__actions-padding};
+	--snackbar--two-line-min-height: #{$snackbar--two-line-min-height};
+	--snackbar--two-line__actions-padding: #{$snackbar--two-line__actions-padding};
+	--snackbar--two-line--long-action__content-padding: #{$snackbar--two-line--long-action__content-padding};
+	--snackbar--two-line--long-action__actions-padding: #{$snackbar--two-line--long-action__actions-padding};
 }

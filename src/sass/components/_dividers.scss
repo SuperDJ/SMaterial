@@ -1,4 +1,8 @@
 .divider {
+	--divider-height: #{$divider-height};
+	--divider-background: #{$divider-background};
+	--divider-margin: #{$divider-margin};
+
     width: 100%;
     height: var(--divider-height);
     background: var(--divider-background);
@@ -8,10 +12,4 @@
 	&--vertical {
 		transform: rotate(90deg);
 	}
-}
-
-:root {
-    --divider-height: #{$divider-height};
-    --divider-background: #{$divider-background};
-	--divider-margin: #{$divider-margin};
 }

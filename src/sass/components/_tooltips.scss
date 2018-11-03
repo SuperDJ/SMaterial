@@ -1,4 +1,17 @@
 .tooltip {
+	--tooltip-height: #{$tooltip-height};
+	--tooltip-padding: #{$tooltip-padding};
+	--tooltip-font-size: #{$tooltip-font-size};
+	--tooltip-distance: #{$tooltip-distance};
+	--tooltip-color: #{$tooltip-color};
+	--tooltip-background-color: #{$tooltip-background-color};
+
+	@media #{$md-up} {
+		--tooltip-height: #{$tooltip-md-up-height};
+		--tooltip-padding: #{$tooltip-md-up-padding};
+		--tooltip-font-size: #{$tooltip-md-up-font-size};
+	}
+
     $el: &;
     position: relative;
     display: inline-block;
@@ -39,20 +52,5 @@
         #{$el}--right {
             left: calc(100% + var(--tooltip-distance));
         }
-    }
-}
-
-:root {
-    --tooltip-height: #{$tooltip-height};
-    --tooltip-padding: #{$tooltip-padding};
-    --tooltip-font-size: #{$tooltip-font-size};
-    --tooltip-distance: #{$tooltip-distance};
-	--tooltip-color: #{$tooltip-color};
-	--tooltip-background-color: #{$tooltip-background-color};
-
-    @media #{$md-up} {
-        --tooltip-height: #{$tooltip-md-up-height};
-        --tooltip-padding: #{$tooltip-md-up-padding};
-        --tooltip-font-size: #{$tooltip-md-up-font-size};
     }
 }

@@ -1,4 +1,11 @@
 .dialog {
+	--dialog-border-radius: var(--border-radius);
+	--dialog-background: var(--background-color);
+
+	--dialog__header-color: #{$black}de;
+
+	--dialog__content-color: #{$black}99;
+
 	$el: &;
     border-radius: var(--dialog-border-radius);
     @extend %z24;
@@ -130,14 +137,4 @@
 		pointer-events: all;
 		opacity: 1;
 	}
-}
-
-:root {
-	--dialog-border-radius: var(--border-radius);
-	--dialog-background: var(--background-color);
-
-	--dialog__header-color: #{$black}de;
-
-	--dialog__content-color: #{$black}99;
-
 }

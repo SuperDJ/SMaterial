@@ -1,7 +1,7 @@
-@mixin responsive-ratio($x,$y, $pseudo: false) 
+@mixin responsive-ratio($x,$y, $pseudo: false)
 {
     $padding: unquote( ( $y / $x ) * 100 + '%' );
-    @if $pseudo 
+    @if $pseudo
     {
         &:before {
             @include pseudo($pos: relative);
@@ -24,9 +24,14 @@
 @mixin progress-bar-value {
     &::-webkit-progress-value {
         @content;
-    }    
+    }
 
     &::-moz-progress-bar {
         @content;
     }
+}
+
+@mixin border-top-radius( $arg )
+{
+	@include chain(border-top-left-radius, border-top-right-radius, $arg);
 }

@@ -1,4 +1,22 @@
 .fab {
+	--fab-size: #{$fab-size};
+	--fab-padding: #{$fab-padding};
+	--fab-background: #{$fab-background};
+	--fab__icon-size: #{$fab__icon-size};
+	--fab--hover-background: #{$fab--hover-background};
+	--fab--active-background: #{$fab--active-background};
+
+	--fab--mini-size: #{$fab--mini-size};
+	--fab--mini-padding: #{$fab--mini-padding};
+
+	--fab--extended-height: #{$fab--extended-height};
+	--fab--extended-border-radius: #{$fab--extended-border-radius};
+	--fab--extended-padding: #{$fab--extended-padding};
+	--fab--extended--icon-left-padding: #{$fab--extended--icon-left-padding};
+	--fab--extended--icon-left__icon-margin-right: #{$fab--extended--icon-left__icon-margin-right};
+	--fab--extended--icon-right-padding: #{$fab--extended--icon-right-padding};
+	--fab--extended--icon-right__icon-margin-left: #{$fab--extended--icon-right__icon-margin-left};
+
 	@extend %button;
 	@include chain(width, height, var(--fab-size));
 	padding: var(--fab-padding);
@@ -47,24 +65,4 @@
 			}
 		}
 	}
-}
-
-:root {
-	--fab-size: #{$fab-size};
-	--fab-padding: #{$fab-padding};
-	--fab-background: #{$fab-background};
-	--fab__icon-size: #{$fab__icon-size};
-	--fab--hover-background: #{$fab--hover-background};
-	--fab--active-background: #{$fab--active-background};
-
-	--fab--mini-size: #{$fab--mini-size};
-	--fab--mini-padding: #{$fab--mini-padding};
-
-	--fab--extended-height: #{$fab--extended-height};
-	--fab--extended-border-radius: #{$fab--extended-border-radius};
-	--fab--extended-padding: #{$fab--extended-padding};
-	--fab--extended--icon-left-padding: #{$fab--extended--icon-left-padding};
-	--fab--extended--icon-left__icon-margin-right: #{$fab--extended--icon-left__icon-margin-right};
-	--fab--extended--icon-right-padding: #{$fab--extended--icon-right-padding};
-	--fab--extended--icon-right__icon-margin-left: #{$fab--extended--icon-right__icon-margin-left};
 }

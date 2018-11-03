@@ -1,6 +1,6 @@
 {
 	"name": "material",
-	"version": "2018.10.0",
+	"version": "2018.8.0",
 	"description": "A CSS framework based on Material Design",
 	"main": "dist/material.js",
 	"scripts": {
@@ -14,22 +14,22 @@
 		"material",
 		"design",
 		"material-design",
+		"css",
 		"scss",
 		"css",
-		"Google",
-		"es6",
-		"no-jquery"
+		"stylus",
+		"Google"
 	],
 	"author": "Derkjan Super",
 	"devDependencies": {
 		"@babel/core": "^7.1.2",
 		"@babel/preset-env": "^7.1.0",
-		"autoprefixer": "^9.2.1",
+		"autoprefixer": "^9.3.1",
 		"babel-loader": "^8.0.4",
 		"babel-plugin-dynamic-import-node": "^2.2.0",
 		"clean-webpack-plugin": "^0.1.19",
 		"cross-env": "^5.2.0",
-		"css-loader": "^1.0.0",
+		"css-loader": "^1.0.1",
 		"file-loader": "^2.0.0",
 		"mini-css-extract-plugin": "^0.4.4",
 		"node-sass": "^4.9.4",
@@ -37,15 +37,15 @@
 		"postcss-color-hex-alpha": "^5.0.2",
 		"postcss-color-mod-function": "^3.0.3",
 		"postcss-loader": "^3.0.0",
-		"postcss-preset-env": "^6.1.2",
+		"postcss-preset-env": "^6.3.0",
 		"postcss-scss": "^2.0.0",
 		"sass-loader": "^7.1.0",
 		"style-loader": "^0.23.1",
 		"sw-precache-webpack-plugin": "^0.11.5",
 		"uglifyjs-webpack-plugin": "^2.0.1",
-		"webpack": "^4.22.0",
+		"webpack": "^4.24.0",
 		"webpack-cli": "^3.1.2",
-		"webpack-dev-server": "^3.1.9",
+		"webpack-dev-server": "^3.1.10",
 		"webpack-merge": "^4.1.4",
 		"webpack-serve": "^2.0.2"
 	},
@@ -53,7 +53,7 @@
 		"> 2.9%"
 	],
 	"dependencies": {
-		"eslint": "^5.7.0",
+		"eslint": "^5.8.0",
 		"eslint-loader": "^2.1.1"
 	}
 }

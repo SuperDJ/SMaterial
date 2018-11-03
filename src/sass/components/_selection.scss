@@ -1,4 +1,17 @@
 .checkbox {
+	--checkbox-size: #{rem-calc(20px)};
+	--checkbox-stroke: #{rem-calc(2px)};
+	--checkbox-radial-size: #{rem-calc(16px)};
+
+	--radio-size: var(--checkbox-size);
+	--radio-radial-size: var(--checkbox-radial-size);
+	--radio-stroke: #{rem-calc(2px)};
+	--switch-size: var(--checkbox-size);
+
+	--switch-radial-size: var(--checkbox-radial-size);
+	--switch__track-width: #{rem-calc(36px)};
+	--switch__track-height: #{rem-calc(16px)};
+
     @include chain(width, height, var(--checkbox-size));
     -webkit-appearance: none;
     border: var(--checkbox-stroke) solid rgba($black, .54);
@@ -219,19 +232,4 @@
             content: unset;
         }
     }
-}
-
-:root {
-    --checkbox-size: #{rem-calc(20px)};
-    --checkbox-stroke: #{rem-calc(2px)};
-    --checkbox-radial-size: #{rem-calc(16px)};
-
-    --radio-size: var(--checkbox-size);
-    --radio-radial-size: var(--checkbox-radial-size);
-    --radio-stroke: #{rem-calc(2px)};
-    --switch-size: var(--checkbox-size);
-
-    --switch-radial-size: var(--checkbox-radial-size);
-    --switch__track-width: #{rem-calc(36px)};
-    --switch__track-height: #{rem-calc(16px)};
 }

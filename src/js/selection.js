@@ -2,97 +2,97 @@
  * Switch
  **************************************/
 
-const switches = Array.from( document.querySelectorAll( '.switch' ) );
+const switches = document.getElementsByClassName( 'switch' );
 
 class Switch
 {
-	constructor( switches )
+	constructor( switchEl )
 	{
-		this.switches = switches;
+		this.switchEl = switchEl;
 
 		this.setRole();
 	}
 
 	setRole()
 	{
-		this.switches.forEach( switchElement =>
-		{
-			switchElement.setAttribute( 'role', 'switch' );
-			switchElement.setAttribute( 'aria-checked', switchElement.checked );
-			switchElement.setAttribute( 'aria-disabled', switchElement.disabled );
+		this.switchEl.setAttribute( 'role', 'switch' );
+		this.switchEl.setAttribute( 'aria-checked', this.switchEl.checked );
+		this.switchEl.setAttribute( 'aria-disabled', this.switchEl.disabled );
 
-			switchElement.addEventListener( 'click', () =>
-			{
-				switchElement.setAttribute( 'aria-checked', switchElement.checked );
-			});
+		this.switchEl.addEventListener( 'click', () =>
+		{
+			this.switchEl.setAttribute( 'aria-checked', this.switchEl.checked );
 		});
 	}
 }
 
-new Switch( switches );
+for( let switchEl of switches )
+{
+	new Switch( switchEl );
+}
 
 /**************************************
  * Checkbox
  **************************************/
 
-const checkboxes = Array.from( document.querySelectorAll( '.checkbox' ) );
+const checkboxes = document.getElementsByClassName( 'checkbox' );
 
 class Checkbox
 {
-	constructor( checkboxes )
+	constructor( checkbox )
 	{
-		this.checkboxes = checkboxes;
+		this.checkbox = checkbox;
 
 		this.setRole();
 	}
 
 	setRole()
 	{
-		this.checkboxes.forEach( checkbox =>
-		{
-			checkbox.setAttribute( 'role', 'checkbox' );
-			checkbox.setAttribute( 'aria-checked', checkbox.checked );
-			checkbox.setAttribute( 'aria-disabled', checkbox.disabled );
+		this.checkbox.setAttribute( 'role', 'checkbox' );
+		this.checkbox.setAttribute( 'aria-checked', this.checkbox.checked );
+		this.checkbox.setAttribute( 'aria-disabled', this.checkbox.disabled );
 
-			checkbox.addEventListener( 'click', () =>
-			{
-				checkbox.setAttribute( 'aria-checked', checkbox.checked );
-			});
+		this.checkbox.addEventListener( 'click', () =>
+		{
+			this.checkbox.setAttribute( 'aria-checked', this.checkbox.checked );
 		});
 	}
 }
 
-new Checkbox( checkboxes );
+for( let checkbox of checkboxes )
+{
+	new Checkbox( checkbox );
+}
 
 /**************************************
  * Radio buttons
  **************************************/
 
-const radios = Array.from( document.querySelectorAll( '.radio' ) );
+const radios = document.getElementsByClassName( 'radio' );
 
 class Radio
 {
-	constructor( radios )
+	constructor( radio )
 	{
-		this.radios = radios;
+		this.radio = radio;
 
 		this.setRole();
 	}
 
 	setRole()
 	{
-		this.radios.forEach( radio =>
-		{
-			radio.setAttribute( 'role', 'radio' );
-			radio.setAttribute( 'aria-checked', radio.checked );
-			radio.setAttribute( 'aria-disabled', radio.disabled );
+		this.radio.setAttribute( 'role', 'radio' );
+		this.radio.setAttribute( 'aria-checked', this.radio.checked );
+		this.radio.setAttribute( 'aria-disabled', this.radio.disabled );
 
-			radio.addEventListener( 'click', () =>
-			{
-				radio.setAttribute( 'aria-checked', radio.checked );
-			});
+		this.radio.addEventListener( 'click', () =>
+		{
+			this.radio.setAttribute( 'aria-checked', this.radio.checked );
 		});
 	}
 }
 
-new Radio( radios );
+for( let radio of radios )
+{
+	new Radio( radio );
+}

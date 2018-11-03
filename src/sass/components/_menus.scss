@@ -1,4 +1,18 @@
 .menu {
+	--menu-max-width: #{rem-calc(280px)};
+	--menu__icon-margin: #{rem-calc(12px)} 0 #{rem-calc(12px)} #{rem-calc(16px)};
+	--menu__content-margin: 0 0 0 #{rem-calc(16px)};
+	--menu-color: #{$black}de;
+	--menu-left: auto;
+	--menu-right: auto;
+
+	@media #{$md-up} {
+		--menu-max-width: #{rem-calc(320px)};
+		--menu__icon-margin: #{rem-calc(12px)} #{rem-calc(-4px)} #{rem-calc(12px)} #{rem-calc(16px)};
+		--menu__content-margin: 0 0 0 #{rem-calc(24px)};
+		--menu-color: #444;
+	}
+
     list-style-type: none;
     margin: 0;
     min-width: rem-calc(112px);
@@ -66,20 +80,4 @@
 		opacity: 1;
 		pointer-events: all;
 	}
-}
-
-:root {
-    --menu-max-width: #{rem-calc(280px)};
-    --menu__icon-margin: #{rem-calc(12px)} 0 #{rem-calc(12px)} #{rem-calc(16px)};
-    --menu__content-margin: 0 0 0 #{rem-calc(16px)};
-    --menu-color: #{$black}de;
-	--menu-left: auto;
-	--menu-right: auto;
-
-    @media #{$md-up} {
-        --menu-max-width: #{rem-calc(320px)};
-        --menu__icon-margin: #{rem-calc(12px)} #{rem-calc(-4px)} #{rem-calc(12px)} #{rem-calc(16px)};
-        --menu__content-margin: 0 0 0 #{rem-calc(24px)};
-        --menu-color: #444;
-    }
 }

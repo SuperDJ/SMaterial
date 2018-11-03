@@ -1,4 +1,31 @@
 .chip {
+	--chip-height: #{$chip-height};
+	--chip-padding: #{$chip-padding};
+	--chip-background: #{$chip-background};
+	--chip-color: #{$chip-color};
+	--chip--hover-background: #{$chip--hover-background};
+	--chip--active-background: #{$chip--active-background};
+	--chip--disabled-color: #{$chip--disabled-color};
+	--chip--disabled-background: #{$chip--disabled-background};
+
+	--chip__thumbnail-size: #{$chip__thumbnail-size};
+	--chip__thumbnail-color: #{$chip__thumbnail-color};
+	--chip__thumbnail-margin: #{$chip__thumbnail-margin};
+	--chip__thumbnail-padding-left: #{$chip__thumbnail-padding-left};
+
+	--chip__remove-size: #{$chip__remove-size};
+	--chip__remove-margin: #{$chip__remove-margin};
+	--chip__remove-color: #{$chip__remove-color};
+	--chip--remove-padding-right: #{$chip__remove-padding-right};
+
+	--chip--outlined-border: #{$chip--outlined-border};
+	--chip--outlined--hover-background: #{$chip--outlined--hover-background};
+	--chip--outlined--active-background: #{$chip--outlined--active-background};
+	--chip--outlined--disabled-color: #{$chip--outlined--disabled-color};
+	--chip--outlined--disabled-background: #{$chip--outlined--disabled-background};
+	--chip--outlined--thumbnail-padding-left: #{$chip--outlined--thumbnail-padding-left};
+	--chip--outlined--remove-padding-right: #{$chip--outlined--remove-padding-right};
+
     $el: &;
     height: var(--chip-height);
     padding: var(--chip-padding);
@@ -68,33 +95,4 @@
             padding-right: var(--chip--outlined--remove-padding-right);
         }
     }
-}
-
-:root {
-    --chip-height: #{$chip-height};
-    --chip-padding: #{$chip-padding};
-    --chip-background: #{$chip-background};
-    --chip-color: #{$chip-color};
-    --chip--hover-background: #{$chip--hover-background};
-    --chip--active-background: #{$chip--active-background};
-    --chip--disabled-color: #{$chip--disabled-color};
-    --chip--disabled-background: #{$chip--disabled-background};
-
-    --chip__thumbnail-size: #{$chip__thumbnail-size};
-    --chip__thumbnail-color: #{$chip__thumbnail-color};
-    --chip__thumbnail-margin: #{$chip__thumbnail-margin};
-    --chip__thumbnail-padding-left: #{$chip__thumbnail-padding-left};
-
-    --chip__remove-size: #{$chip__remove-size};
-    --chip__remove-margin: #{$chip__remove-margin}; 
-    --chip__remove-color: #{$chip__remove-color};
-    --chip--remove-padding-right: #{$chip__remove-padding-right};
-
-    --chip--outlined-border: #{$chip--outlined-border};
-    --chip--outlined--hover-background: #{$chip--outlined--hover-background};
-    --chip--outlined--active-background: #{$chip--outlined--active-background};
-    --chip--outlined--disabled-color: #{$chip--outlined--disabled-color};
-    --chip--outlined--disabled-background: #{$chip--outlined--disabled-background};
-    --chip--outlined--thumbnail-padding-left: #{$chip--outlined--thumbnail-padding-left};
-    --chip--outlined--remove-padding-right: #{$chip--outlined--remove-padding-right};
 }

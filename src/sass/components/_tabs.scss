@@ -1,10 +1,24 @@
 .tabs {
+	--tabs-background: var(--primary-color);
+
+	--tabs__tab-min-width: #{rem-calc(90px)};
+	--tabs__tab-max-width: #{rem-calc(360px)};
+	--tabs__tab-color: #{$white};
+	--tabs__tab--hover-background: #{rgba($white, .08)};
+	--tabs__tab--active-background: #{rgba($white, .32)};
+
     $el: &;
     display: grid;
     grid-auto-columns: max-content;
     background: var(--tabs-background);
     width: 100%;
     grid-auto-flow: column;
+
+	&__content, .icon {
+		display: block;
+		width: 100%;
+		color: #{$white}99;
+	}
 
     &__tab {
         display: block;
@@ -20,16 +34,10 @@
         &--active {
             border-bottom: rem-calc(2px) solid $white;
 
-            #{$el}__content, #{$el}__icon {
+            #{$el}__content, .icon {
                 color: $white;
             }
         }
-    }
-
-    &__content, &__icon {
-        display: block;
-        width: 100%;
-        color: #{$white}99;
     }
 
     &__content {
@@ -55,7 +63,7 @@
         }
 
         #{$el}__content {
-            padding: 0 rem-calc(16px) rem-calc(8px) rem-calc(16px); 
+            padding: 0 rem-calc(16px) rem-calc(8px) rem-calc(16px);
         }
     }
 
@@ -72,14 +80,4 @@
             }
         }
     }
-}
-
-:root {
-    --tabs-background: var(--primary-color);
-
-    --tabs__tab-min-width: #{rem-calc(90px)}; 
-    --tabs__tab-max-width: #{rem-calc(360px)}; 
-    --tabs__tab-color: #{$white};
-    --tabs__tab--hover-background: #{rgba($white, .08)};
-    --tabs__tab--active-background: #{rgba($white, .32)};
 }

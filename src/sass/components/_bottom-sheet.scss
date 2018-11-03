@@ -9,13 +9,13 @@
 	display: inline-block;
     z-index: 2;
 	@include chain(left, bottom, 0);
-    margin: 0;
+    margin: 0 0 -102% 0;
     padding: 0;
     @extend %z8;
     background: var(--background-color);
-	opacity: 0;
 	pointer-events: none;
-	transition: max-height .1s $easing-standard;
+	transition: margin .1s $easing-standard;
+	@include border-top-radius(var(--border-radius));
 
 	@media #{$md-and-up} {
 		left: 50%;
@@ -24,7 +24,8 @@
 	}
 
 	&--active {
-		opacity: 1;
+		transition: margin .1s $easing-standard;
+		margin: 0;
 		pointer-events: all;
 	}
 
@@ -83,6 +84,16 @@
     &__item {
         display: block;
         @extend %cursor--pointer;
+		background: transparent;
+		transition: background .1s $easing-standard;
+
+		&:hover {
+			background: rgba($black, .04);
+		}
+
+		&:active {
+			background: rgba($black, .12);
+		}
     }
 
     &__header {

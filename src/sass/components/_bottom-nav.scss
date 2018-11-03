@@ -1,59 +1,62 @@
 .bottom-nav {
+	--bottom-nav-background: #{$bottom-nav-background};
+	--bottom-nav-height: #{$bottom-nav-height};
+
+	--bottom-nav__icon-size: #{$bottom-nav__icon-size};
+
+	--bottom-nav__item-min-width: #{$bottom-nav__item-min-width};
+	--bottom-nav__item-max-width: #{$bottom-nav__item-max-width};
+	--bottom-nav__item-padding: #{$bottom-nav__item-padding};
+	--bottom-nav__item__text-font-size: #{$bottom-nav__item__text-font-size};
+	--bottom-nav__item-color: #{$bottom-nav__item-color};
+	--bottom-nav__item--hover-color: #{$bottom-nav__item--hover-color};
+
+	--bottom-nav--icon-only__item-padding: #{$bottom-nav--icon-only__item-padding};
+	--bottom-nav--icon-only__item--active-padding: #{$bottom-nav--icon-only__item--active-padding};
+
     $el: &;
     width: 100%;
     background: var(--bottom-nav-background);
-    height: var(--bottom-nav-height);
     z-index: 1;
     bottom: 0;
     left: 0;
 	position: fixed;
     @extend %z8;
-
-    ul {
-        @include chain(margin, padding, 0);
-        list-style-type: none;
-    }
-
-    li {
-        display: inline-block;
-    }
-
-    &__items {
-        display: flex;
-        justify-content: space-evenly;
-    }
+	display: grid;
+	justify-content: space-evenly;
+	grid-template-columns: repeat(auto-fit, minmax(var(--bottom-nav__item-min-width), var(--bottom-nav__item-max-width)));
+	grid-template-rows: var(--bottom-nav-height);
 
     &__item {
-        min-width: var(--bottom-nav__item-min-width);
-        max-width: var(--bottom-nav__item-max-width);
-        height: var(--bottom-nav-height);
         padding: var(--bottom-nav__item-padding);
-        display: grid;
-        grid-template-rows: var(--bottom-nav__icon-size) auto;
+		display: block;
         text-align: center;
 
-        &__icon {
-            grid-row-start: 1;
-
-            .icon {
-				--icon-size: var(--bottom-nav__icon-size);
-            }
+        .icon {
+			--icon-size: var(--bottom-nav__icon-size);
         }
 
         &__text {
-            grid-row-start: 2;
             font-size: var(--bottom-nav__item__text-font-size);
+			line-height: calc(var(--bottom-nav__item__text-font-size) * 1.4);
         }
 
-        &__icon, &__text {
+		&__icon, &__text {
+			width: 100%;
+		}
+
+        .icon, &__text {
             color: var(--bottom-nav__item-color);
+            --primary-color: var(--bottom-nav__item-color);
             transition: color .1s $easing-standard;
         }
 
         &:hover, &#{$el}__item--active {
-            #{$el}__item__icon, #{$el}__item__text {
-                color: var(--bottom_nav__item--hover-color);
-            }
+			.icon, #{$el}__item__text {
+				color: var(--bottom-nav__item--hover-color);
+				--secondary-color: var(--bottom-nav__item--hover-color);
+				--icon-color: var(--bottom-nav__item--hover-color);
+			}
         }
     }
 
@@ -74,21 +77,4 @@
             }
         }
     }
-}
-
-:root {
-	--bottom-nav-background: #{$bottom-nav-background};
-    --bottom-nav-height: #{$bottom-nav-height};
-
-    --bottom-nav__icon-size: #{$bottom-nav__icon-size};
-
-    --bottom-nav__item-min-width: #{$bottom-nav__item-min-width};
-    --bottom-nav__item-max-width: #{$bottom-nav__item-max-width};
-    --bottom-nav__item-padding: #{$bottom-nav__item-padding};
-    --bottom-nav__item__text-font-size: #{$bottom-nav__item__text-font-size};
-	--bottom-nav__item-color: #{$bottom-nav__item-color};
-	--bottom-nav__item--hover-color: #{$bottom-nav__item--hover-color};
-
-    --bottom-nav--icon-only__item-padding: #{$bottom-nav--icon-only__item-padding};
-    --bottom-nav--icon-only__item--active-padding: #{$bottom-nav--icon-only__item--active-padding};
 }

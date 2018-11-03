@@ -1,4 +1,17 @@
 .data-table {
+	--data-table__header-font-size: #{$data-table__header-font-size};
+	--data-table__header-color: #{$data-table__header-color};
+	--data-table__header-font-weight: #{$data-table__header-font-weight};
+	--data-table__header--hover-color: #{$data-table__header--hover-color};
+
+	--data-table__body-color: #{$data-table__body-color};
+	--data-table__body-font-size: #{$data-table__body-font-size};
+
+	--data-table__row-height: #{$data-table__row-height};
+	--data-table__row-border-bottom: #{$data-table__row-border-bottom};
+	--data-table__row__icon-size: #{$data-table__row__icon-size};
+	--data-table__row--hover-background: #{$data-table__row--hover-background};
+
     width: 100%;
     border-collapse: collapse;
 
@@ -40,19 +53,4 @@
     &--responsive {
         overflow-x: auto;
     }
-}
-
-:root {
-    --data-table__header-font-size: #{$data-table__header-font-size};
-    --data-table__header-color: #{$data-table__header-color};
-    --data-table__header-font-weight: #{$data-table__header-font-weight};
-    --data-table__header--hover-color: #{$data-table__header--hover-color};
-
-    --data-table__body-color: #{$data-table__body-color};
-    --data-table__body-font-size: #{$data-table__body-font-size};
-
-    --data-table__row-height: #{$data-table__row-height};
-    --data-table__row-border-bottom: #{$data-table__row-border-bottom};
-    --data-table__row__icon-size: #{$data-table__row__icon-size};
-    --data-table__row--hover-background: #{$data-table__row--hover-background};
 }

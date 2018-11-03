@@ -1,5 +1,16 @@
 //TODO add <progress> tag styling
 .progress {
+	--progress-background: #{rgba($primary-color, .6)};
+	--progress-height: #{rem-calc(4px)};
+
+	--progress__bar-background: #{var(--primary-color)};
+
+	--progress--circle-size: #{rem-calc(100px)};
+	--progress--circle--indeterminate-color1: #{var(--primary-color)};
+	--progress--circle--indeterminate-color2: #{var(--primary-color)};
+	--progress--circle--indeterminate-color3: #{var(--primary-color)};
+	--progress--circle--indeterminate-color4: #{var(--primary-color)};
+
     $el: &;
     width: 100%;
     height: var(--progress-height);
@@ -119,24 +130,9 @@
 			transform: rotate(360deg);
 		}
 	}
-
-
 }
 
 // Fix styling for the progress HTML element
 progress.progress {
     background: none;
-}
-
-:root {
-    --progress-background: #{rgba($primary-color, .6)};
-	--progress-height: #{rem-calc(4px)};
-
-    --progress__bar-background: #{var(--primary-color)};
-
-	--progress--circle-size: #{rem-calc(100px)};
-	--progress--circle--indeterminate-color1: #{var(--primary-color)};
-	--progress--circle--indeterminate-color2: #{var(--primary-color)};
-	--progress--circle--indeterminate-color3: #{var(--primary-color)};
-	--progress--circle--indeterminate-color4: #{var(--primary-color)};
 }

@@ -332,8 +332,8 @@ $app-bar__actions-margin: 0 0 0 rem-calc(24px) !default;
  **************************************/
 
 $banner--single-line-height: rem-calc(54px) !default;
-$banner--single-line-padding: rem-calc(10px) rem-calc(8px) rem-calc(8px) rem-calc(16px) !default;
-$banner--single-line__actions-margin: 0 0 rem-calc(8px) rem-calc(36px) !default;
+$banner--single-line__content-padding: 0 0 0 rem-calc(16px) !default;
+$banner--single-line__actions-padding: rem-calc(10px) rem-calc(8px) rem-calc(8px) rem-calc(36px) !default;
 
 $banner--multi-line-height: rem-calc(122px) !default;
 $banner--multi-line__content-padding: rem-calc(24px) rem-calc(16px) rem-calc(12px) rem-calc(16px) !default;
@@ -345,11 +345,11 @@ $banner--image-multi-line__image-padding: rem-calc(24px) 0 0 rem-calc(16px) !def
 $banner--image-multi-line__content-padding: rem-calc(24px) rem-calc(16px) 0 rem-calc(16px) !default;
 $banner--image-multi-line__content-margin: 0 0 rem-calc(20px) 0 !default;
 
-$banner__actions-margin: 0 0 rem-calc(8px) rem-calc(8px) !default;
+$banner__actions-margin: 0 0 0 rem-calc(8px) !default;
 
 $banner-md-up--single-line-height: rem-calc(52px) !default;
-$banner-md-up--single-line-padding: rem-calc(8px) rem-calc(8px) rem-calc(8px) rem-calc(24px) !default;
-$banner-md-up--single-line__actions-margin: 0 0 0 rem-calc(90px) !default;
+$banner-md-up--single-line__content-padding: 0 0 0 rem-calc(24px) !default;
+$banner-md-up--single-line__actions-padding: rem-calc(8px) rem-calc(8px) rem-calc(8px) 0 !default;
 
 $banner-md-up--multi-line-height: rem-calc(90px) !default;
 

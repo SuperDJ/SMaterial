@@ -1,35 +1,39 @@
-const progressBars = Array.from( document.querySelectorAll( '.progress' ) );
+const progressBars = document.getElementsByClassName( 'progress' );
 
 class Progress
 {
-	constructor( progressBars )
+	constructor( progressBar )
 	{
-		this.progressBars = progressBars;
+		this.progressBar = progressBar;
 
 		this.setRole();
 	}
 
 	setRole()
 	{
-		this.progressBars.forEach( progressBar =>
+		let progress = this.progressBar.querySelector( '.progress__bar' );
+
+		// If element has a progressbar child
+		if( progress )
 		{
-			let progress = progressBar.querySelector( '.progress__bar' );
+			this.progressBar.setAttribute( 'aria-valuenow', progress.style.width.replace('%', '') );
+		}
 
-			// If element has a progressbar child
-			if( progress )
-			{
-				progressBar.setAttribute( 'aria-valuenow', progress.style.width.replace('%', '') );
-			}
+		this.progressBar.setAttribute( 'role', 'progressbar' );
 
-			progressBar.setAttribute( 'role', 'progressbar' );
+		/**
+		 * TODO make values dynamic
+		 */
 
-			/**
-			 * TODO make values dynamic
-			 */
-			progressBar.setAttribute( 'aria-valuemin', '0' );
-			progressBar.setAttribute( 'aria-valuemax', '100' );
-		});
+		const min = this.progressBar.getAttribute('min');
+		const max = this.progressBar.getAttribute('max');
+
+		this.progressBar.setAttribute( 'aria-valuemin',  min ? min : 0 );
+		this.progressBar.setAttribute( 'aria-valuemax', max ? max : 100 );
 	}
 }
 
-new Progress( progressBars );
+for( let progressBar of progressBars )
+{
+	new Progress( progressBar );
+}

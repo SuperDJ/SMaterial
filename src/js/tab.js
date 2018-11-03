@@ -1,27 +1,27 @@
-const tabBars = Array.from( document.querySelectorAll( '.tabs' ) );
+const tabBars = document.getElementsByClassName( 'tabs' );
 
 class TabBar
 {
-	constructor( tabBars )
+	constructor( tabBar )
 	{
-		this.tabBars = tabBars;
+		this.tabBar = tabBar;
 
 		this.setRole();
 	}
 
 	setRole()
 	{
-		this.tabBars.forEach( tabBar =>
-		{
-			tabBar.setAttribute( 'role', 'tablist' );
+			this.tabBar.setAttribute( 'role', 'tablist' );
 
 			// Tabs
-			Array.from( tabBar.querySelectorAll( '.tabs__tab' ) ).forEach( tab =>
+			Array.from( this.tabBar.querySelectorAll( '.tabs__tab' ) ).forEach( tab =>
 			{
 				tab.setAttribute( 'role', 'tab' );
 			});
-		});
 	}
 }
 
-new TabBar( tabBars );
+for( let tabBar of tabBars )
+{
+	new TabBar( tabBar );
+}
