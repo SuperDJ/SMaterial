@@ -1,6 +1,4 @@
-const buttons = document.getElementsByClassName( 'button' );
-
-class Button
+export default class Button
 {
 	constructor( button )
 	{
@@ -13,9 +11,4 @@ class Button
 	{
 		this.button.setAttribute('role', 'button');
 	}
-}
-
-for( let button of buttons )
-{
-	new Button( button );
 }

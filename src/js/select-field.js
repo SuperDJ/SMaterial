@@ -1,6 +1,4 @@
-const selectFields = document.getElementsByClassName( 'select-field' );
-
-class SelectField
+export default class SelectField
 {
 	constructor( selectField )
 	{
@@ -24,7 +22,7 @@ class SelectField
 		{
 			html += `   
    				<div class="select-field__option">
-					<input type="${this.multiple ? 'checkbox' : 'radio' }" value="${option.value}" name="${this.name}" id="${this.name}-${i}">
+					<input type="${this.multiple ? 'checkbox' : 'radio' }" value="${option.value}" name="${this.name}" id="${this.name}-${i}" checked="${option.checked}">
 					<label for="${this.name}-${i}">${option.innerHTML}</label>
 				</div>
 			`;
@@ -99,9 +97,4 @@ class SelectField
 			});
 		}
 	}
-}
-
-for( let selectField of selectFields )
-{
-	new SelectField( selectField );
 }

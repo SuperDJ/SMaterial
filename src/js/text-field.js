@@ -1,38 +1,59 @@
-const textFields = Array.from( document.querySelectorAll( '.text-field__input' ) );
-
-textFields.forEach( textField =>
+export default class TextField
 {
-	let value = textField.value;
-	let container = textField.parentElement;
-
-	if( !container )
+	constructor( textField )
 	{
-		console.error('Input does not have a container');
+		this.textField = textField;
+		this.value = this.textField.value;
+		this.container = this.textField.parentElement;
+
+		this.checkContainer();
+		this.loaded();
+		this.input();
+		this.focus();
+		this.blur();
 	}
 
-	value !== '' && value.length > 0 ? container.classList.add( 'text-field--active' ) : container.classList.remove( 'text-field--active' );
-
-	textField.addEventListener( 'focus', () =>
+	checkContainer()
 	{
-		container.classList.add( 'text-field--focus' );
-	});
-
-	textField.addEventListener( 'blur', () =>
-	{
-		container.classList.remove( 'text-field--focus' );
-	});
-
-	textField.addEventListener( 'input', () =>
-	{
-		value = textField.value;
-
-		if( value !== '' && value.length > 0 )
-		{
-			container.classList.add( 'text-field--active' );
+		if( !this.container ) {
+			console.warn( 'Input has no container' );
 		}
-		else
+	}
+
+	loaded()
+	{
+		this.value !== '' && this.value.length > 0 ? this.container.classList.add( 'text-field--active' ) : this.container.classList.remove( 'text-field--active' );
+	}
+
+	input()
+	{
+		this.textField.addEventListener( 'input', () => {
+			this.value = this.textField.value;
+
+			if( this.value !== '' && this.value.length > 0 )
+			{
+				this.container.classList.add( 'text-field--active' );
+			}
+			else
+			{
+				this.container.classList.remove( 'text-field--active' );
+			}
+		});
+	}
+
+	focus()
+	{
+		this.textField.addEventListener( 'focus', () =>
 		{
-			container.classList.remove( 'text-field--active' );
-		}
-	});
-});
+			this.container.classList.add( 'text-field--focus' );
+		});
+	}
+
+	blur()
+	{
+		this.textField.addEventListener( 'blur', () =>
+		{
+			this.container.classList.remove( 'text-field--focus' );
+		});
+	}
+}

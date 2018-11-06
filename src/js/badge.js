@@ -1,6 +1,4 @@
-const badges = document.getElementsByClassName( 'badge' );
-
-class Badge
+export default class Badge
 {
 	constructor( badge )
 	{
@@ -17,9 +15,4 @@ class Badge
 		content.style.setProperty( '--badge-width', `${size.width}px` );
 		content.style.setProperty( '--badge-height', `${size.height}px` );
 	}
-}
-
-for( let badge of badges )
-{
-	new Badge( badge );
 }

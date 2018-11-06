@@ -1,6 +1,4 @@
-const tabBars = document.getElementsByClassName( 'tabs' );
-
-class TabBar
+export default class TabBar
 {
 	constructor( tabBar )
 	{
@@ -19,9 +17,4 @@ class TabBar
 				tab.setAttribute( 'role', 'tab' );
 			});
 	}
-}
-
-for( let tabBar of tabBars )
-{
-	new TabBar( tabBar );
 }

@@ -1,6 +1,4 @@
-const dataTables = document.getElementsByClassName( 'data-table' );
-
-class DataTable
+export default class DataTable
 {
 	constructor( dataTable )
 	{
@@ -34,9 +32,4 @@ class DataTable
 		container.classList.add( 'data-table--responsive' );
 		container.appendChild( this.dataTable );
 	}
-}
-
-for( let dataTable of dataTables )
-{
-	new DataTable( dataTable );
 }

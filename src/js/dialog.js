@@ -1,6 +1,4 @@
-const dialogs = document.getElementsByClassName( 'dialog' );
-
-class Dialog
+export default class Dialog
 {
 	constructor( dialog )
 	{
@@ -36,9 +34,4 @@ class Dialog
 			console.error( `The following dialog doesn't have an ID to trigger it`, this.dialog );
 		}
 	}
-}
-
-for( let dialog of dialogs )
-{
-	new Dialog( dialog );
 }

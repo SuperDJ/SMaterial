@@ -2,9 +2,7 @@
  * Switch
  **************************************/
 
-const switches = document.getElementsByClassName( 'switch' );
-
-class Switch
+export class Switch
 {
 	constructor( switchEl )
 	{
@@ -26,18 +24,11 @@ class Switch
 	}
 }
 
-for( let switchEl of switches )
-{
-	new Switch( switchEl );
-}
-
 /**************************************
  * Checkbox
  **************************************/
 
-const checkboxes = document.getElementsByClassName( 'checkbox' );
-
-class Checkbox
+export class Checkbox
 {
 	constructor( checkbox )
 	{
@@ -59,18 +50,11 @@ class Checkbox
 	}
 }
 
-for( let checkbox of checkboxes )
-{
-	new Checkbox( checkbox );
-}
-
 /**************************************
  * Radio buttons
  **************************************/
 
-const radios = document.getElementsByClassName( 'radio' );
-
-class Radio
+export class Radio
 {
 	constructor( radio )
 	{
@@ -90,9 +74,4 @@ class Radio
 			this.radio.setAttribute( 'aria-checked', this.radio.checked );
 		});
 	}
-}
-
-for( let radio of radios )
-{
-	new Radio( radio );
 }

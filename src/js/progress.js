@@ -1,6 +1,4 @@
-const progressBars = document.getElementsByClassName( 'progress' );
-
-class Progress
+export default class Progress
 {
 	constructor( progressBar )
 	{
@@ -31,9 +29,4 @@ class Progress
 		this.progressBar.setAttribute( 'aria-valuemin',  min ? min : 0 );
 		this.progressBar.setAttribute( 'aria-valuemax', max ? max : 100 );
 	}
-}
-
-for( let progressBar of progressBars )
-{
-	new Progress( progressBar );
 }

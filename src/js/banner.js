@@ -1,6 +1,4 @@
-const banners = document.getElementsByClassName( 'banner' );
-
-class Banner
+export default class Banner
 {
 	constructor( banner )
 	{
@@ -13,9 +11,4 @@ class Banner
 	{
 		this.banner.setAttribute( 'role', 'banner' );
 	}
-}
-
-for( let banner of banners )
-{
-	new Banner( banner );
 }

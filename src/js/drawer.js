@@ -1,6 +1,4 @@
-const drawers = document.getElementsByClassName( 'drawer' );
-
-class Drawer {
+export default class Drawer {
 	constructor( drawer )
 	{
 		this.drawer = drawer;
@@ -53,9 +51,4 @@ class Drawer {
 			}
 		}
 	}
-}
-
-for( let drawer of drawers )
-{
-	new Drawer( drawer );
 }

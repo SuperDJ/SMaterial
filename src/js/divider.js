@@ -1,6 +1,4 @@
-const dividers = document.getElementsByClassName( 'divider' );
-
-class Divider
+export default class Divider
 {
 	constructor( divider )
 	{
@@ -32,9 +30,4 @@ class Divider
 			this.divider.style.setProperty('width', `${parent.getBoundingClientRect().height}px`);
 		}
 	}
-}
-
-for( let divider of dividers )
-{
-	new Divider( divider );
 }

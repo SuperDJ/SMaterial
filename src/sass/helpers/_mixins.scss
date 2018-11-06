@@ -35,3 +35,51 @@
 {
 	@include chain(border-top-left-radius, border-top-right-radius, $arg);
 }
+
+@mixin thumb-styling( $background, $size ) {
+	background: $background;
+	@include chain(width, height, $size);
+	cursor: pointer;
+	border-radius: 50%;
+	border: none;
+	z-index: 2;
+}
+
+@mixin thumb-selector( $margin ) {
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		margin: $margin;
+		@content;
+	}
+
+	&::-moz-range-thumb {
+		@content;
+	}
+
+	&::-ms-thumb {
+		@content;
+	}
+}
+
+@mixin track-styling( $height, $background ) {
+	width: 100%;
+	height: $height;
+	background: $background;
+	cursor: pointer;
+	z-index: 0;
+}
+
+@mixin track-selector() {
+	&::-webkit-slider-runnable-track {
+		@content;
+	}
+
+	&::-moz-range-track {
+		@content;
+	}
+
+	& ::-ms-track {
+		@content;
+		@include chain(background, border-color, color, transparent);
+	}
+}
