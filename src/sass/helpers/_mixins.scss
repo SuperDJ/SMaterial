@@ -36,6 +36,11 @@
 	@include chain(border-top-left-radius, border-top-right-radius, $arg);
 }
 
+@mixin border-bottom-radius( $arg )
+{
+	@include chain(border-bottom-left-radius, border-bottom-right-radius, $arg);
+}
+
 @mixin thumb-styling( $background, $size ) {
 	background: $background;
 	@include chain(width, height, $size);

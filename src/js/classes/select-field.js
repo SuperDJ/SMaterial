@@ -15,13 +15,13 @@ export default class SelectField
 
 	renderHTML()
 	{
-		let html = '<div class="select-field__input"></div><div class="select-field__options">';
+		let html = '<div class="text-field__options">';
 		let i = 0;
 
 		for( let option of this.options )
 		{
 			html += `   
-   				<div class="select-field__option">
+   				<div class="text-field__option">
 					<input type="${this.multiple ? 'checkbox' : 'radio' }" value="${option.value}" name="${this.name}" id="${this.name}-${i}" checked="${option.checked}">
 					<label for="${this.name}-${i}">${option.innerHTML}</label>
 				</div>
@@ -36,7 +36,7 @@ export default class SelectField
 
 	openOptions()
 	{
-		let selectFieldOptions = this.selectField.querySelector( '.select-field__options' );
+		let selectFieldOptions = this.selectField.querySelector( '.text-field__options' );
 		let selectFieldOptionsHeight = selectFieldOptions.getBoundingClientRect().height;
 
 		selectFieldOptions.style.maxHeight = 0;
@@ -58,9 +58,9 @@ export default class SelectField
 
 	setValue()
 	{
-		let selectFieldOptions = this.selectField.querySelector( '.select-field__options' );
+		let selectFieldOptions = this.selectField.querySelector( '.text-field__options' );
 		let selectFieldOptionsInputs = Array.from( selectFieldOptions.querySelectorAll( 'input' ) );
-		let selectFieldInput = this.selectField.querySelector( '.select-field__input' );
+		let selectFieldInput = this.selectField.querySelector( '.text-field__input' );
 		let inner = [];
 		let value = [];
 

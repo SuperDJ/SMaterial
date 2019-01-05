@@ -23,10 +23,10 @@ export default class Progress
 		 * TODO make values dynamic
 		 */
 
-		const min = this.progressBar.getAttribute('min');
-		const max = this.progressBar.getAttribute('max');
+		const min = this.progressBar.getAttribute('min') || 0;
+		const max = this.progressBar.getAttribute('max') || 100;
 
-		this.progressBar.setAttribute( 'aria-valuemin',  min ? min : 0 );
-		this.progressBar.setAttribute( 'aria-valuemax', max ? max : 100 );
+		this.progressBar.setAttribute( 'aria-valuemin',  min );
+		this.progressBar.setAttribute( 'aria-valuemax', max );
 	}
 }

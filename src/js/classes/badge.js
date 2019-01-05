@@ -4,12 +4,12 @@ export default class Badge
 	{
 		this.badge = badge;
 
-		this.setDimensions();
+		this.setStyle();
 	}
 
-	setDimensions()
+	setStyle()
 	{
-		let content = this.badge.querySelector( '.badge__content' );
+		let content = this.badge.getElementsByClassName( 'badge__content' )[0];
 		let size = this.badge.getBoundingClientRect();
 
 		content.style.setProperty( '--badge-width', `${size.width}px` );

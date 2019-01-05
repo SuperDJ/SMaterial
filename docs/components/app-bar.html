@@ -31,7 +31,80 @@
                 <h1 class="xs12">App bar</h1>
 
                 <section class="xs12 sm6">
+                    <p>
+                        There are a couple of app bars that you can choose from. There is a default and fixed option.
+                    </p>
+                </section>
+            </article>
 
+            <article class="row">
+                <h2 class="xs12">Default</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        The default app bar will scroll with the page.
+                        For the default app bar you only need to add the <code class="language-css">.app-bar</code> class to an element.
+                    </p>
+
+                    <p>
+                        The menu icon is used to trigger the menu.
+                        The <code class="language-html">data-trigger</code> attribute must match the
+                        <code class="language-html">id</code> of the <a href="navigation-drawer.html">navigation drawer</a>.
+                    </p>
+
+                    <p>
+                        The <code class="language-css">.app-bar-__title</code> contains the title of the page.
+                        In the example a <code class="language-html">div</code> is used but a <code class="language-html">h1 - h6</code> element is also supported.
+                    </p>
+
+                    <p>
+                        In the <code class="language-css">.app-bar__actions</code> section it is possible to add actions. Do note that you are responsible for hiding actions on mobile screens.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+<pre class="language-html">
+    <code>
+&lt;header class="app-bar">
+    &lt;i class="material-icons icon" data-trigger="drawer">menu&lt;/i>
+
+    &lt;div class="app-bar__title">
+        App bar
+    &lt;/div>
+
+    &lt;div class="app-bar__actions">
+        &lt;i class="material-icons icon">person&lt;/i>
+    &lt;/div>
+&lt;/header>
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row">
+                <h2 class="xs12">Fixed</h2>
+
+                <section class="xs12 sm6">
+                    If you prefer for the app bar to stay at the top of the page you only need to add the
+                    <code class="language-css">.app-bar--fixed</code> class.
+                </section>
+
+                <section class="xs12 sm6">
+<pre class="language-html">
+    <code>
+&lt;header class="app-bar app-bar--fixed">
+    &lt;i class="material-icons icon" data-trigger="drawer">menu&lt;/i>
+
+    &lt;div class="app-bar__title">
+        App bar
+    &lt;/div>
+
+    &lt;div class="app-bar__actions">
+        &lt;i class="material-icons icon">person&lt;/i>
+    &lt;/div>
+&lt;/header>
+    </code>
+</pre>
                 </section>
             </article>
 
@@ -68,6 +141,7 @@
                             <td>$app-bar-padding</td>
                             <td>--app-bar-padding</td>
                             <td>Change app bar padding</td>
+                            <td>
                         </tr>
                         <tr>
                             <td>$app-bar__title-margin</td>

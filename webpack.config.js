@@ -37,14 +37,14 @@ module.exports = {
 				test: /\.(sa|sc|c)ss$/,
 				exclude: ['/node_modules', '/dist', '/src/js', '/docs'],
 				use: [
-					MiniCSSExtractPlugin.loader,
 					{
-						loader: 'css-loader',
+						loader: MiniCSSExtractPlugin.loader,
 						options: {
 							sourceMap: true,
 							minimize: process.env.NODE_ENV === 'production',
 						}
 					},
+					'css-loader',
 					{
 						loader: 'postcss-loader',
 						options: {

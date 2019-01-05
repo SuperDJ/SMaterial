@@ -8,8 +8,9 @@
 	--text-field--filled__input-padding-sides: #{rem-calc(12px)};
 	--text-field--filled__input-padding: #{var(--text-field--filled__input-padding-top) var(--text-field--filled__input-padding-sides) 0 var(--text-field--filled__input-padding-sides)};
 	--text-field--filled__input-background: #{rgba($black, .1)};
-	--text-field--filled__input--hover-border-bottom: #{rem-calc(1px) solid rgba($black, .12)};
-	--text-field--filled__input--focus-border-bottom: #{rem-calc(2px) solid var(--text-field--active-color)};
+	--text-field--filled__input--border-bottom: #{rem-calc(1px) solid rgba($black, .38)};
+	--text-field--filled__input--focus-border-bottom: #{rem-calc(2px) solid rgba($black, .38)};
+	--text-field--filled__input--active-border-bottom: #{rem-calc(2px) solid var(--text-field--active-color)};
 	--text-field--filled__input--focus__label-top: #{calc(#{rem-calc(20px)} - var(--text-field__input--focus__label-font-size))}; // 20px for baseline, 12px for font-size
 	--text-field--filled__input--active-background: #{rgba($black, .16)};
 	--text-field--filled__input--invalid-border-bottom: #{rem-calc(2px) solid var(--text-field--invalid-color)};
@@ -50,15 +51,15 @@
         #{$el}__input {
             padding: var(--text-field--filled__input-padding);
             background: var(--text-field--filled__input-background);
-            @include chain(border-top-left-radius, border-top-right-radius, var(--border-radius));
+            @include border-top-radius(var(--border-radius));
             transition: border-bottom .1s $easing-standard, background .1s $easing-standard;
+			border-bottom: var(--text-field--filled__input--border-bottom);
 
             &:hover {
-                border-bottom: var(--text-field--filled__input--hover-border-bottom);
             }
 
             &:focus {
-                border-bottom: var(--text-field--filled__input--focus-border-bottom);
+                border-bottom: var(--text-field--filled__input--active-border-bottom);
 
                 + #{$el}__label {
                     top: var(--text-field--filled__input--focus__label-top);
@@ -67,6 +68,7 @@
 
             &:active {
                 background: var(--text-field--filled__input--active-background);
+				border-bottom: var(--text-field--filled__input--active-border-bottom);
             }
 
             /*
@@ -191,6 +193,7 @@
 
         &:focus {
             caret-color: var(--text-field__input--focus-caret-color);
+			border-color: var(--text-field--active-color);
 
             + #{$el}__label {
                 color: var(--text-field__input--focus__label-color);
@@ -228,8 +231,69 @@
     textarea {
         resize: none;
     }
-}
 
+	&--select {
+		select, input {
+			display: none;
+		}
+
+		#{$el}--filled {
+			#{$el}__label {
+				top: var(--text-field--filled__input--focus__label-top);
+				font-size: var(--text-field__input--focus__label-font-size);
+			}
+
+			#{$el}__input  {
+				padding: var(--text-field--filled__input-padding);
+			}
+		}
+
+		> label {
+			left: var(--text-field--filled__input-padding-sides);
+			@extend .text-field__label;
+		}
+
+		#{$el}__options {
+			position: absolute;
+			width: 100%;
+			background: var(--background-color);
+			border-radius: var(--border-radius);
+			@extend %z8;
+			padding: rem-calc(8px) 0;
+			z-index: 1;
+			overflow: auto;
+			top: var(--text-field__input-height);
+			max-height: var(--text-field__options-height);
+			opacity: 0;
+			transition: max-height .1s $easing-standard;
+			pointer-events: none;
+
+			&.active {
+				transition: max-height .1s $easing-standard, opacity 0  $easing-standard .1s;
+				pointer-events: all;
+				opacity: 1;
+			}
+		}
+
+		#{$el}__option label {
+			width: 100%;
+			padding: 0 rem-calc(16px);
+			@include chain(height, line-height, rem-calc(48px));
+			display: block;
+			background: transparent;
+			@extend %cursor--pointer;
+
+			&:hover {
+				background: rgba($black, .16);
+			}
+		}
+
+		input:checked + label {
+			background: rgba($primary-color, .16);
+		}
+	}
+}
+/*
 .select-field {
 	$el: &;
     position: relative;
@@ -248,15 +312,6 @@
         &:hover {
             border-bottom: var(--text-field--filled__input--hover-border-bottom);
         }
-
-		#{$el}__label {
-			top: var(--text-field--filled__input--focus__label-top);
-			font-size: var(--text-field__input--focus__label-font-size);
-		}
-
-		#{$el}__input  {
-			padding: var(--text-field--filled__input-padding);
-		}
     }
 
     > label {
@@ -302,7 +357,4 @@
     input:checked + label {
         background: rgba($primary-color, .16);
     }
-
-
-
-}
+}  */
