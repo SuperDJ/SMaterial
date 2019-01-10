@@ -31,7 +31,7 @@ module.exports = {
 							fix: true
 						}
 					}
-				]
+				],
 			},
 			{
 				test: /\.(sa|sc|c)ss$/,
@@ -79,7 +79,7 @@ module.exports = {
 	},
 	devtool: process.env.NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
 	resolve: {
-		extensions: ['.js', '.css', '.styl', '.scss'],
+		extensions: ['.js', '.css', '.styl', '.scss', '.sass', '.ts', '.tsx'],
 		alias: {
 			'js': path.resolve(__dirname, './src/js'),
 			'css': path.resolve(__dirname, './src/css')
