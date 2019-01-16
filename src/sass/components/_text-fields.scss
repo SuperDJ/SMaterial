@@ -86,7 +86,7 @@
             }
         }
 
-        input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"] input[type="week"] {
+        input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"] input[type="week"], select {
             + #{$el}__label {
                 top: var(--text-field--filled__input--focus__label-top);
                 font-size: var(--text-field__input--focus__label-font-size);
@@ -132,7 +132,7 @@
             }*/
         }
 
-        input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"] input[type="week"] {
+        input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"] input[type="week"], select {
             + #{$el}__label {
                 top: var(--text-field--outlined__input--focus__label-top);
                 font-size: var(--text-field__input--focus__label-font-size)
@@ -237,21 +237,10 @@
 			display: none;
 		}
 
-		#{$el}--filled {
-			#{$el}__label {
-				top: var(--text-field--filled__input--focus__label-top);
-				font-size: var(--text-field__input--focus__label-font-size);
-			}
-
-			#{$el}__input  {
-				padding: var(--text-field--filled__input-padding);
-			}
-		}
-
-		> label {
+		/*> label {
 			left: var(--text-field--filled__input-padding-sides);
 			@extend .text-field__label;
-		}
+		}*/
 
 		#{$el}__options {
 			position: absolute;
@@ -288,6 +277,7 @@
 			}
 		}
 
+		// Checkbox/ radiobutton
 		input:checked + label {
 			background: rgba($primary-color, .16);
 		}

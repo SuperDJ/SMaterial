@@ -7,9 +7,12 @@ export default class SelectField
 		this.name = this.select.getAttribute( 'name' );
 		this.options = this.select.getElementsByTagName( 'option' );
 		this.multiple = this.select.multiple;
+		this.selectFieldInput = this.selectField.getElementsByClassName('text-field__input')[0];
+		this.selectFieldOptions = null;
 
 		this.renderHTML();
 		this.openOptions();
+		this.setCurrentValue();
 		this.setValue();
 	}
 
@@ -22,7 +25,7 @@ export default class SelectField
 		{
 			html += `   
    				<div class="text-field__option">
-					<input type="${this.multiple ? 'checkbox' : 'radio' }" value="${option.value}" name="${this.name}" id="${this.name}-${i}" checked="${option.checked}">
+					<input type="${this.multiple ? 'checkbox' : 'radio' }" value="${option.value}" name="${this.name}" id="${this.name}-${i}">
 					<label for="${this.name}-${i}">${option.innerHTML}</label>
 				</div>
 			`;
@@ -31,36 +34,56 @@ export default class SelectField
 
 		html += '</div>';
 
-		this.selectField.insertAdjacentHTML( 'afterbegin', html );
+		this.selectField.insertAdjacentHTML( 'beforeend', html );
+		this.selectFieldOptions = this.selectField.querySelector( '.text-field__options' );
+	}
+
+	setCurrentValue()
+	{
+		let selectedOptions = this.select.selectedOptions;
+		let inputs = Array.from( this.selectFieldOptions.querySelectorAll( 'input' ) );
+		let inputValue = '';
+		let i = 0;
+
+		for( let selectedOption of selectedOptions ) {
+			inputs[ selectedOption.index ].checked = true;
+
+			if( selectedOptions.length > 1 ) {
+				inputValue += i === 0 ? selectedOption.innerHTML : `,${selectedOption.innerHTML}`;
+				i++;
+			} else
+			{
+				inputValue += selectedOption.innerHTML;
+			}
+		}
+
+		this.selectFieldInput.innerHTML = inputValue;
 	}
 
 	openOptions()
 	{
-		let selectFieldOptions = this.selectField.querySelector( '.text-field__options' );
-		let selectFieldOptionsHeight = selectFieldOptions.getBoundingClientRect().height;
+		let selectFieldOptionsHeight = this.selectFieldOptions.getBoundingClientRect().height;
 
-		selectFieldOptions.style.maxHeight = 0;
+		this.selectFieldOptions.style.maxHeight = 0;
 
 		this.selectField.addEventListener( 'click', () =>
 		{
-			if( selectFieldOptions.classList.contains( 'active' ) )
+			if( this.selectFieldOptions.classList.contains( 'active' ) )
 			{
-				selectFieldOptions.style.maxHeight = 0;
-				selectFieldOptions.classList.remove( 'active' );
+				this.selectFieldOptions.style.maxHeight = 0;
+				this.selectFieldOptions.classList.remove( 'active' );
 			}
 			else
 			{
-				selectFieldOptions.style.maxHeight = `${selectFieldOptionsHeight}px`;
-				selectFieldOptions.classList.add( 'active' );
+				this.selectFieldOptions.style.maxHeight = `${selectFieldOptionsHeight}px`;
+				this.selectFieldOptions.classList.add( 'active' );
 			}
 		});
 	}
 
 	setValue()
 	{
-		let selectFieldOptions = this.selectField.querySelector( '.text-field__options' );
-		let selectFieldOptionsInputs = Array.from( selectFieldOptions.querySelectorAll( 'input' ) );
-		let selectFieldInput = this.selectField.querySelector( '.text-field__input' );
+		let selectFieldOptionsInputs = Array.from( this.selectFieldOptions.querySelectorAll( 'input' ) );
 		let inner = [];
 		let value = [];
 
@@ -85,12 +108,12 @@ export default class SelectField
 						value.push( select.value );
 					});
 
-					selectFieldInput.innerHTML = inner.join();
+					this.selectFieldInput.innerHTML = inner.join();
 					this.select.value = value;
 				}
 				else
 				{
-		 			selectFieldInput.innerHTML = selected[0].inner;
+		 			this.selectFieldInput.innerHTML = selected[0].inner;
 		 			this.select.value = selected[0].value;
 		 			this.selectField.click();
 				}

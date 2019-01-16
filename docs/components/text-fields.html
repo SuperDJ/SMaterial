@@ -3,6 +3,10 @@
     <head>
         <title>Text fields | Material Design</title>
 
+        <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16">
+
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../dist/css/material-light.css">
@@ -98,13 +102,14 @@
                         </div>
 
                         <div class="xs12">
-                            <div class="select-field select-field--filled">
+                            <div class="text-field text-field--filled text-field--select">
+                                <div class="text-field__input"></div>
                                 <select id="select-filled-multi" name="select-filled-multi" multiple>
-                                    <option>1</option>
+                                    <option selected>1</option>
                                     <option>2</option>
-                                    <option>3</option>
+                                    <option selected>3</option>
                                 </select>
-                                <label class="select-field__label" for="select-filled-multi">Select filled</label>
+                                <label class="text-field__label" for="select-filled-multi">Select filled</label>
                             </div>
                         </div>
                     </div>
@@ -196,6 +201,30 @@
                             <div class="text-field text-field--outlined">
                                 <input type="text" id="disabled-outlined" class="text-field__input" disabled>
                                 <label class="text-field__label" for="disabled-outlined">Label</label>
+                            </div>
+                        </div>
+
+                        <div class="xs12">
+                            <div class="text-field text-field--outlined text-field--select">
+                                <div class="text-field__input"></div>
+                                <select id="select-outlined" name="select-outlined">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option selected>3</option>
+                                </select>
+                                <label class="text-field__label" for="select-outlined">Select filled</label>
+                            </div>
+                        </div>
+
+                        <div class="xs12">
+                            <div class="text-field text-field--outlined text-field--select">
+                                <div class="text-field__input"></div>
+                                <select id="select-outlined-multi" name="select-outlined-multi" multiple>
+                                    <option selected>1</option>
+                                    <option>2</option>
+                                    <option selected>3</option>
+                                </select>
+                                <label class="text-field__label" for="select-outlined-multi">Select filled</label>
                             </div>
                         </div>
                     </div>
