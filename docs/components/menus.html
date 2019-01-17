@@ -26,7 +26,24 @@
             </div>
 
             <div class="app-bar__actions">
-                <i class="material-icons icon">person</i>
+                <i class="material-icons icon" data-trigger="profile">person</i>
+
+                <div class="menu" id="profile">
+                    <a href="#" class="menu__item">
+                        <span class="menu__content">Login</span>
+                    </a>
+
+                    <a href="#" class="menu__item">
+                        <span class="menu__content">Register</span>
+                    </a>
+                </div>
+
+                <a href="//github.com/SuperDJ/material" target="_blank">
+                    <div class="tooltip">
+                        <i class="material-icons icon">code</i>
+                        <span class="tooltip__content tooltip--bottom">Github</span>
+                    </div>
+                </a>
             </div>
         </header>
 
@@ -41,15 +58,17 @@
                         The content of a menu item is wrapped inside a class <code class="language-css">.menu__content</code>
                         If you would like to add an icon to the menu item than use the class <code class="language-css">.menu__icon</code> on the icon.
                     </p>
+
+                    <button class="button button--contained" data-trigger="menu-example">Trigger menu</button>
                 </section>
 
                 <section class="xs12 sm6">
-                    <ul class="menu">
+                    <ul class="menu" id="menu-example">
                         <li class="menu__item">
                             <span class="menu__content">Menu item</span>
                         </li>
                         <li class="menu__item">
-                            <i class="material-icon icon menu__icon">cloud</i>
+                            <i class="material-icons icon menu__icon">cloud</i>
                             <span class="menu__content">Menu item</span>
                         </li>
                         <li class="menu__divider"></li>
@@ -60,7 +79,7 @@
                         </li>
                         <li class="menu__item">
                             <a href="#">
-                                <i class="material-icon icon menu__icon">cloud</i>
+                                <i class="material-icons icon menu__icon">cloud</i>
                                 <span class="menu__content">Menu item</span>
                             </a>
                         </li>
