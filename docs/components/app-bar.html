@@ -56,6 +56,11 @@
                         There are a couple of app bars that you can choose from. There is a default and fixed option.
                     </p>
                 </section>
+
+                <section class="xs12 sm6">
+                    Click the button to switch between the two options.
+                    <button class="button button--contained" id="toggle">Toggle</button>
+                </section>
             </article>
 
             <article class="row">
@@ -234,5 +239,18 @@
 
         <script src="../dist/js/material.js"></script>
         <script src="../src/prism.js"></script>
+        <script>
+            const button = document.getElementById('toggle');
+            const appBar = document.getElementsByClassName('app-bar')[0];
+
+            button.addEventListener('click', () => {
+                if(appBar.classList.contains('app-bar--fixed'))
+                {
+                	appBar.classList.remove('app-bar--fixed');
+                } else {
+                	appBar.classList.add('app-bar--fixed');
+                }
+            });
+        </script>
     </body>
 </html>

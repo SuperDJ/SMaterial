@@ -198,6 +198,51 @@
 </pre>
                 </section>
             </article>
+
+            <article class="row" id="fixed">
+                <h2 class="xs12">Fixed</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        It is also possible to use a fixed drawer.
+                        With the fixed drawer the drawer remains visible on larger screen sizes.
+                        This also means that the content is pushed over more.
+                        In order to use the fixed drawer you need to change a couple of elements.
+                    </p>
+
+                    <p>
+                        On the drawer you need to add the <code class="language-css">.drawer--fixed</code> class.
+                    </p>
+
+                    <p>
+                        On the <code class="language-css">.container</code> you need to add the <code class="language-css">.container-drawer--fixed</code> class.
+                    </p>
+
+                    <p>
+                        On the <code class="language-css">.app-bar</code> you need to add the <code class="language-css">.app-bar-drawer--fixed</code> class.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+ <pre class="language-html">
+    <code>
+&lt;nav class="drawer drawer--fixed" id="drawer">
+    </code>
+</pre>
+
+<pre class="language-html">
+    <code>
+&lt;main class="container container-drawer--fixed">
+    </code>
+</pre>
+
+<pre class="language-html">
+    <code>
+&lt;header class="app-bar app-bar-drawer--fixed">
+    </code>
+</pre>
+                </section>
+            </article>
         </main>
 
         <nav class="drawer drawer--modal" id="drawer">

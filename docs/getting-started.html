@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Getting started | Material Design</title>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="./dist/css/material-light.css">
+        <link rel="stylesheet" href="./src/prism.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    </head>
+
+    <body>
+        <div class="app-wrap">
+            <header class="app-bar app-bar--fixed">
+                <i class="material-icons icon" data-trigger="drawer">menu</i>
+
+                <div class="app-bar__title">
+                    Getting started
+                </div>
+
+                <div class="app-bar__actions">
+                    <i class="material-icons icon" data-trigger="profile">person</i>
+
+                    <div class="menu" id="profile">
+                        <a href="#" class="menu__item">
+                            <span class="menu__content">Login</span>
+                        </a>
+
+                        <a href="#" class="menu__item">
+                            <span class="menu__content">Register</span>
+                        </a>
+                    </div>
+
+                    <a href="//github.com/SuperDJ/material" target="_blank">
+                        <div class="tooltip">
+                            <i class="material-icons icon">code</i>
+                            <span class="tooltip__content tooltip--bottom">Github</span>
+                        </div>
+                    </a>
+                </div>
+            </header>
+
+            <main class="container">
+                <article class="row">
+                    <h2 class="xs12">Material</h2>
+
+                    <section class="xs12 sm6">
+                        There are a couple of ways you can get started with Material.
+                        The first and easiest option is to use the normal <a href="#css">CSS</a> way.
+                        The second completely customizable option is with SCSS.
+                    </section>
+                </article>
+
+                <article class="row" id="css">
+                    <h3 class="xs12">CSS</h3>
+
+                    <section class="xs12 sm6">
+                        <p>
+                            First of all you need to download the CSS and JS files required.
+                            You can find the required CSS and JS files in <a href="https://github.com/SuperDJ/material/tree/master/docs/dist" target="_blank">here</a>.
+                        </p>
+
+                        <p>
+                            It is then recommended to load the JS file at the end of the body.
+                            This way the JS won't stop the loading of the HTML.
+                        </p>
+
+                        <p>
+                            In order to make your website responsive and for media queries to function
+                            you need to add the following line in the <code class="language-html">&lt;head></code> as well:
+                            <code class="language-html">
+                                &lt;meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+                            </code>
+
+                            The <code class="language-html">user-scalable=no</code> is optional. This will prevent users from zooming on your website.
+                            The zoom setting is only affected on smartdevices.
+                        </p>
+
+                        <p>
+                            If you would like to use the Roboto font all you need to do is add the following line in the <code class="language-html">&lt;head></code>:
+                            <code class="language-html">
+                                &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+                            </code>.
+                            This line should come before the loading of the material stylesheet.
+                        </p>
+
+                        <p>
+                            It is also possible to use the Material Design icon font.
+                            For that all you need to do is add the following line in the <code class="language-html">&lt;head></code>:
+                            <code class="language-html">
+                                &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                            </code>.
+                            This line should also come before the material stylesheet.
+                        </p>
+                    </section>
+
+                    <section class="xs12 sm6">
+<pre class="language-html">
+    <code>
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+    &lt;head>
+        &lt;title>Index&lt;/title>
+
+        &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+        &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        &lt;link rel="stylesheet" href="./material-light.css">
+
+        &lt;meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    &lt;/head>
+
+    &lt;body>
+        &lt;!-- Content -->
+
+        &lt;script src="./material.js">&lt;/script>
+    &lt;/body>
+&lt;/html>
+    </code>
+</pre>
+                    </section>
+                </article>
+
+                <article class="row">
+                    <h3 class="xs12">SCSS</h3>
+
+                    <section class="xs12 sm6">
+                        <p>
+                            The SCSS is little bit more involved.
+                            The easiest way to get started using SCSS is to just download/ clone the project from
+                            <a href="//github.com/SuperDJ/material" target="_blank">GitHub</a>.
+                        </p>
+
+                        <p>
+                            After downloading all you need to do is delete the irrelevant files and folders.
+                            Except:
+                            <code class="language-html">/src, license, package.json and . prefixed files</code>
+                        </p>
+
+                        <p>
+                            To compile the SCSS and JS files you first need to run the command:
+                            <code class="language-html">npm install</code>.
+                            This command will install all relevant packages.
+                        </p>
+
+                        <p>
+                            For development you can then use the command:
+                            <code class="language-html">npm run dev</code>.
+                            This will command will output debuggable code.
+                        </p>
+
+                        <p>
+                            For production you can use the command
+                            <code class="language-html">npm run prod</code>.
+                            This command will compress both SCSS and JS files.
+                        </p>
+                    </section>
+                </article>
+
+                <article class="row">
+                    <h3 class="xs12">Settings</h3>
+
+                    <section class="xs12 sm6">
+                        It is possible to change the stylesheet settings in both CSS and SCSS.
+                        In CSS you can simply change the variable.
+                        In SCSS you can also overwrite settings from the settings.scss file.
+                        This file can be found in: <code class="language-html">src/sass/foundation/_settings.scss</code>
+                    </section>
+                </article>
+            </main>
+
+            <nav class="drawer drawer--modal" id="drawer">
+                <ul>
+                    <li><a href="./" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
+                    <li><a href="./getting-started.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">Getting started</span></a></li>
+                    <li>
+                        <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
+
+                        <ul class="drawer__item__children">
+                            <li><a href="./layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
+                            <li><a href="./layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
+                    <li><a href="./typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
+                    <li><a href="./iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
+                    <li>
+                        <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
+
+                        <ul class="drawer__item__children">
+                            <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                            <li><a href="./components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
+                            <li><a href="./components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
+                            <li><a href="./components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                            <li><a href="./components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
+                            <li><a href="./components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
+                            <li><a href="./components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
+                            <li><a href="./components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
+                            <li><a href="./components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
+                            <li><a href="./components/dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
+                            <li><a href="./components/dividers.html" class="drawer__item"><span class="drawer__item__content">Dividers</span></a></li>
+                            <li><a href="./components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
+                            <li><a href="./components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
+                            <li><a href="./components/navigation-drawer.html" class="drawer__item"><span class="drawer__item__content">Navigation drawer</span></a></li>
+                            <li><a href="./components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                            <li><a href="./components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
+                            <li><a href="./components/sliders.html" class="drawer__item"><span class="drawer__item__content">Sliders</span></a></li>
+                            <li><a href="./components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
+                            <li><a href="./components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
+                            <li><a href="./components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
+                            <li><a href="./components/tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
+
+                        <ul class="drawer__item__children">
+                            <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+            <script src="./dist/js/material.js"></script>
+            <script src="./src/prism.js"></script>
+        </div>
+    </body>
+</html>
