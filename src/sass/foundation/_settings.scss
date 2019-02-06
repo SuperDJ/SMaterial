@@ -314,7 +314,7 @@ $elevation-ambient-map: (
 	24: 0px 11px 15px 0px
 );
 
-$surface-corner: 4px;
+$surface-corner: 4px !default;
 
 /**************************************
  * App bar

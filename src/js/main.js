@@ -1,3 +1,4 @@
+import Autocomplete from 'js/classes/autocomplete';
 import Badge from 'js/classes/badge';
 import Banner from 'js/classes/banner';
 import Button from 'js/classes/button';
@@ -13,6 +14,13 @@ import Slider from 'js/classes/slider';
 import TabBar from 'js/classes/tab';
 import TextField from 'js/classes/text-field';
 import Tooltip from 'js/classes/tooltip';
+
+const autocompletes = document.getElementsByClassName('text-field--autocomplete');
+
+for( let autocomplete of autocompletes )
+{
+	new Autocomplete( autocomplete );
+}
 
 const badges = document.getElementsByClassName( 'badge' );
 

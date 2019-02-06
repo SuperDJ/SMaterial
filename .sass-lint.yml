@@ -1,0 +1,7 @@
+rules:
+  attribute-quotes: true
+  bem-depth: 3
+  border-zero: '0'
+  brace-style:
+    style: '1tbs'
+    allow-sigle-line: false

@@ -5,7 +5,8 @@ const
 	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
 	path = require('path'),
 	postCssPresetEnv = require('postcss-preset-env'),
-	postCssScss = require('postcss-scss');
+	postCssScss = require('postcss-scss'),
+	SassLintPlugin = require('sass-lint-webpack');
 
 const OUTPUT_DIR = path.resolve(__dirname, 'docs');
 
@@ -90,5 +91,6 @@ module.exports = {
 			filename: 'dist/css/[name].css',
 		}),
 		new CleanWebpackPlugin(['./dist/', './docs/dist']),
+		//new SassLintPlugin()
 	]
 };

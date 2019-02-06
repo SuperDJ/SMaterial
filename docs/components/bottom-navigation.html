@@ -3,6 +3,10 @@
     <head>
         <title>Bottom navigation | Material Design</title>
 
+        <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16">
+
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../dist/css/material-light.css">
@@ -22,7 +26,24 @@
             </div>
 
             <div class="app-bar__actions">
-                <i class="material-icons icon">person</i>
+                <i class="material-icons icon" data-trigger="profile">person</i>
+
+                <div class="menu" id="profile">
+                    <a href="#" class="menu__item">
+                        <span class="menu__content">Login</span>
+                    </a>
+
+                    <a href="#" class="menu__item">
+                        <span class="menu__content">Register</span>
+                    </a>
+                </div>
+
+                <a href="//github.com/SuperDJ/material" target="_blank">
+                    <div class="tooltip">
+                        <i class="material-icons icon">code</i>
+                        <span class="tooltip__content tooltip--bottom">Github</span>
+                    </div>
+                </a>
             </div>
         </header>
 

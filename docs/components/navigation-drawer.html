@@ -3,6 +3,10 @@
     <head>
         <title>Navigation drawer | Material Design</title>
 
+        <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16">
+
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="../dist/css/material-light.css">
@@ -22,7 +26,24 @@
             </div>
 
             <div class="app-bar__actions">
-                <i class="material-icons icon">person</i>
+                <i class="material-icons icon" data-trigger="profile">person</i>
+
+                <div class="menu" id="profile">
+                    <a href="#" class="menu__item">
+                        <span class="menu__content">Login</span>
+                    </a>
+
+                    <a href="#" class="menu__item">
+                        <span class="menu__content">Register</span>
+                    </a>
+                </div>
+
+                <a href="//github.com/SuperDJ/material" target="_blank">
+                    <div class="tooltip">
+                        <i class="material-icons icon">code</i>
+                        <span class="tooltip__content tooltip--bottom">Github</span>
+                    </div>
+                </a>
             </div>
         </header>
 
@@ -173,6 +194,51 @@
     &lt;img src="//randomuser.me/api/portraits/men/85.jpg" class="drawer__header__profile-image">
     &lt;span class="drawer__header__profile-name">John Doe&lt;/span>
 &lt;/li>
+    </code>
+</pre>
+                </section>
+            </article>
+
+            <article class="row" id="fixed">
+                <h2 class="xs12">Fixed</h2>
+
+                <section class="xs12 sm6">
+                    <p>
+                        It is also possible to use a fixed drawer.
+                        With the fixed drawer the drawer remains visible on larger screen sizes.
+                        This also means that the content is pushed over more.
+                        In order to use the fixed drawer you need to change a couple of elements.
+                    </p>
+
+                    <p>
+                        On the drawer you need to add the <code class="language-css">.drawer--fixed</code> class.
+                    </p>
+
+                    <p>
+                        On the <code class="language-css">.container</code> you need to add the <code class="language-css">.container-drawer--fixed</code> class.
+                    </p>
+
+                    <p>
+                        On the <code class="language-css">.app-bar</code> you need to add the <code class="language-css">.app-bar-drawer--fixed</code> class.
+                    </p>
+                </section>
+
+                <section class="xs12 sm6">
+ <pre class="language-html">
+    <code>
+&lt;nav class="drawer drawer--fixed" id="drawer">
+    </code>
+</pre>
+
+<pre class="language-html">
+    <code>
+&lt;main class="container container-drawer--fixed">
+    </code>
+</pre>
+
+<pre class="language-html">
+    <code>
+&lt;header class="app-bar app-bar-drawer--fixed">
     </code>
 </pre>
                 </section>

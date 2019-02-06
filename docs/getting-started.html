@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Material | Material Design</title>
+        <title>Getting started | Material Design</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
         <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32">
@@ -23,7 +23,7 @@
                 <i class="material-icons icon" data-trigger="drawer">menu</i>
 
                 <div class="app-bar__title">
-                    Material
+                    Getting started
                 </div>
 
                 <div class="app-bar__actions">
@@ -49,53 +49,137 @@
             </header>
 
             <main class="container">
-                <article class="row text-center">
-                    <section class="xs12 sm4">
-                        <div class="row">
-                            <div class="xs12">
-                                <i class="material-icons icon icon--48 text--primary">code</i>
-                            </div>
+                <article class="row">
+                    <h2 class="xs12">Material</h2>
 
-                            <div class="xs12">
-                                Material is made to be easy for development.
-                                All classes follow the BEM naming convention.
-                                This naming convention has also continued into the naming for both scss and CSS variables.
-                                For <a href="./getting-started.html">starting</a> with Material you only need to load 2 files.
-                            </div>
-                        </div>
+                    <section class="xs12 sm6">
+                        There are a couple of ways you can get started with Material.
+                        The first and easiest option is to use the normal <a href="#css">CSS</a> way.
+                        The second completely customizable option is with SCSS.
+                    </section>
+                </article>
+
+                <article class="row" id="css">
+                    <h3 class="xs12">CSS</h3>
+
+                    <section class="xs12 sm6">
+                        <p>
+                            First of all you need to download the CSS and JS files required.
+                            You can find the required CSS and JS files in <a href="https://github.com/SuperDJ/material/tree/master/docs/dist" target="_blank">here</a>.
+                        </p>
+
+                        <p>
+                            It is then recommended to load the JS file at the end of the body.
+                            This way the JS won't stop the loading of the HTML.
+                        </p>
+
+                        <p>
+                            In order to make your website responsive and for media queries to function
+                            you need to add the following line in the <code class="language-html">&lt;head></code> as well:
+                            <code class="language-html">
+                                &lt;meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+                            </code>
+
+                            The <code class="language-html">user-scalable=no</code> is optional. This will prevent users from zooming on your website.
+                            The zoom setting is only affected on smartdevices.
+                        </p>
+
+                        <p>
+                            If you would like to use the Roboto font all you need to do is add the following line in the <code class="language-html">&lt;head></code>:
+                            <code class="language-html">
+                                &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+                            </code>.
+                            This line should come before the loading of the material stylesheet.
+                        </p>
+
+                        <p>
+                            It is also possible to use the Material Design icon font.
+                            For that all you need to do is add the following line in the <code class="language-html">&lt;head></code>:
+                            <code class="language-html">
+                                &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                            </code>.
+                            This line should also come before the material stylesheet.
+                        </p>
                     </section>
 
-                    <section class="xs12 sm4">
-                        <div class="row">
-                            <div class="xs12">
-                                <i class="material-icons icon icon--48 text--primary">accessibility</i>
-                            </div>
+                    <section class="xs12 sm6">
+<pre class="language-html">
+    <code>
+&lt;!DOCTYPE html>
+&lt;html lang="en">
+    &lt;head>
+        &lt;title>Index&lt;/title>
 
-                            <div class="xs12">
-                                Since Material follows the guide lines of <a href="//material.io/design/" target="_blank" >Google's Material Design</a> it is easy to get recognized by your users.
-                            </div>
-                        </div>
+        &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" rel="stylesheet">
+        &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        &lt;link rel="stylesheet" href="./material-light.css">
+
+        &lt;meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    &lt;/head>
+
+    &lt;body>
+        &lt;!-- Content -->
+
+        &lt;script src="./material.js">&lt;/script>
+    &lt;/body>
+&lt;/html>
+    </code>
+</pre>
                     </section>
+                </article>
 
-                    <section class="xs12 sm4">
-                        <div class="row">
-                            <div class="xs12">
-                                <i class="material-icons icon icon--48 text--primary">group</i>
-                            </div>
+                <article class="row">
+                    <h3 class="xs12">SCSS</h3>
 
-                            <div class="xs12">
-                                Do you like Material but do you feel that it can be improved?
-                                Please let us know by leaving an issue or add a pull request <a href="//github.com/SuperDJ/material" target="_blank">here</a>.
-                            </div>
-                        </div>
+                    <section class="xs12 sm6">
+                        <p>
+                            The SCSS is little bit more involved.
+                            The easiest way to get started using SCSS is to just download/ clone the project from
+                            <a href="//github.com/SuperDJ/material" target="_blank">GitHub</a>.
+                        </p>
+
+                        <p>
+                            After downloading all you need to do is delete the irrelevant files and folders.
+                            Except:
+                            <code class="language-html">/src, license, package.json and . prefixed files</code>
+                        </p>
+
+                        <p>
+                            To compile the SCSS and JS files you first need to run the command:
+                            <code class="language-html">npm install</code>.
+                            This command will install all relevant packages.
+                        </p>
+
+                        <p>
+                            For development you can then use the command:
+                            <code class="language-html">npm run dev</code>.
+                            This will command will output debuggable code.
+                        </p>
+
+                        <p>
+                            For production you can use the command
+                            <code class="language-html">npm run prod</code>.
+                            This command will compress both SCSS and JS files.
+                        </p>
+                    </section>
+                </article>
+
+                <article class="row">
+                    <h3 class="xs12">Settings</h3>
+
+                    <section class="xs12 sm6">
+                        It is possible to change the stylesheet settings in both CSS and SCSS.
+                        In CSS you can simply change the variable.
+                        In SCSS you can also overwrite settings from the settings.scss file.
+                        This file can be found in: <code class="language-html">src/sass/foundation/_settings.scss</code>
                     </section>
                 </article>
             </main>
 
             <nav class="drawer drawer--modal" id="drawer">
                 <ul>
-                    <li><a href="./" class="drawer__item drawer__item--active"><span class="drawer__item__content">Home</span></a></li>
-                    <li><a href="./getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
+                    <li><a href="./" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
+                    <li><a href="./getting-started.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">Getting started</span></a></li>
                     <li>
                         <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
 

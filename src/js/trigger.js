@@ -1,5 +1,6 @@
 let triggered = []; // Store all elements that are triggered
 const triggers = Array.from( document.querySelectorAll( '[data-trigger]' ) );
+const exceptions = ['drawer']; // TODO make more dynamic
 
 triggers.forEach( trigger =>
 {
@@ -22,6 +23,7 @@ triggers.forEach( trigger =>
 	trigger.addEventListener( 'click', event =>
 	{
 		event.preventDefault();
+		let css = '';
 
 		// Set the currently triggered element(s) in array
 		if( triggered.indexOf( element ) < 0 )
@@ -32,12 +34,17 @@ triggers.forEach( trigger =>
 		if( element.classList.contains( className ) )
 		{
 			element.classList.remove( className );
-			element.style.cssText = `max-width: 0; max-height: 0;`;
+			css = `max-width: 0; max-height: 0;`;
 		}
 		else
 		{
 			element.classList.add( className );
-			element.style.cssText = `max-width: ${width}px; max-height: ${height}px;`;
+			css = `max-width: ${width}px; max-height: ${height}px;`;
+		}
+
+		if( exceptions.indexOf(element.classList[0]) > 0 )
+		{
+			element.style.cssText = css;
 		}
 	} );
 });

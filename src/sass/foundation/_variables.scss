@@ -11,11 +11,11 @@
 	--font-on-background: #{$font-on-background};
 	--font-on-surface: #{$font-on-surface};
 	--font-on-error: #{$font-on-error};
-	--border-radius: #{$surface-corner};
+	--border-radius: #{rem-calc($surface-corner)};
 
 	--gutter: #{rem-calc( $xs-gutter )};
 	--margin: #{rem-calc( $xs-margin )};
-	
+
 	@media #{$sm-and-up} {
 		--gutter: #{rem-calc( $sm-gutter )};
 		--margin: #{rem-calc( $sm-margin )};

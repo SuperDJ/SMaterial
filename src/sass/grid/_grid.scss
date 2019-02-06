@@ -1,15 +1,32 @@
 .container {
+	--container--large-width: 80%;
+
+	$el: &;
 	margin-top: var(--app-bar-height);
 	width: 100%;
 	padding: var(--margin) 0;
 
-	@media #{$sm-and-up} {
-		width: 80%;
-		margin: var(--app-bar-height) auto 0 auto;
+	@media #{$sm-up} {
+		width: var(--container--large-width);
+		margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc((100% - var(--container--large-width)) / 2);
 	}
 
 	&--fluid {
 		width: 100%;
+	}
+
+	&-drawer--fixed {
+		@media #{$sm-up} {
+			margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc(calc((100% - var(--container--large-width)) / 2) + var(--drawer-width));
+			width: calc(var(--container--large-width) - var(--drawer-width));
+		}
+	}
+
+	&--fluid#{$el}-drawer--fixed {
+		@media #{$sm-up} {
+			width: calc(100% - var(--drawer-width));
+			margin: var(--app-bar-height) 0 0 var(--drawer-width);
+		}
 	}
 }
 
@@ -42,11 +59,10 @@
 
 @for $i from 1 through $xs-columns {
 	.xs#{$i} {
-		grid-column: auto / span $i;
+		grid-column: span $i;
 	}
 
 	.start-xs#{$i} {
-		grid-column-start: $i;
 		order: $i;
 	}
 }
@@ -54,11 +70,11 @@
 @media #{$sm-and-up} {
 	@for $i from 1 through $sm-columns {
 		.sm#{$i} {
-			grid-column: auto / span $i;
+			grid-column: span $i;
 		}
 
 		.start-sm#{$i} {
-			grid-column-start: $i;
+			order: $i;
 		}
 	}
 }
@@ -66,11 +82,11 @@
 @media #{$md-and-up} {
 	@for $i from 1 through $md-columns {
 		.md#{$i} {
-			grid-column: auto / span $i;
+			grid-column: span $i;
 		}
 
 		.start-md#{$i} {
-			grid-column-start: $i;
+			order: $i;
 		}
 	}
 }
@@ -78,11 +94,11 @@
 @media #{$lg-and-up} {
 	@for $i from 1 through $lg-columns {
 		.lg#{$i} {
-			grid-column: auto / span $i;
+			grid-column: span $i;
 		}
 
 		.start-lg#{$i} {
-			grid-column-start: $i;
+			order: $i;
 		}
 	}
 }
@@ -90,11 +106,11 @@
 @media #{$xl-and-up} {
 	@for $i from 1 through $xl-columns {
 		.xl#{$i} {
-			grid-column: auto / span $i;
+			grid-column: span $i;
 		}
 
 		.start-xl#{$i} {
-			grid-column-start: $i;
+			order: $i;
 		}
 	}
 }

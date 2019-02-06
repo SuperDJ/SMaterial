@@ -1,17 +1,4 @@
 .checkbox {
-	--checkbox-size: #{rem-calc(20px)};
-	--checkbox-stroke: #{rem-calc(2px)};
-	--checkbox-radial-size: #{rem-calc(16px)};
-
-	--radio-size: var(--checkbox-size);
-	--radio-radial-size: var(--checkbox-radial-size);
-	--radio-stroke: #{rem-calc(2px)};
-	--switch-size: var(--checkbox-size);
-
-	--switch-radial-size: var(--checkbox-radial-size);
-	--switch__track-width: #{rem-calc(36px)};
-	--switch__track-height: #{rem-calc(16px)};
-
     @include chain(width, height, var(--checkbox-size));
     -webkit-appearance: none;
     border: var(--checkbox-stroke) solid rgba($black, .54);
@@ -24,8 +11,8 @@
     // Radial
     &:before {
         border-radius: 50%;
-        @include chain(top, left, calc((-1 * var(--checkbox-stroke)) + (-1 * (var(--checkbox-radial-size) / 2)) ));
-        @include chain(width, height, calc( var( --checkbox-size) + var(--checkbox-radial-size) ) );
+        @include chain(top, left, calc((-1 * var(--checkbox-stroke)) + (-1 * (var(--checkbox--radial-size) / 2)) ));
+        @include chain(width, height, calc( var( --checkbox-size) + var(--checkbox--radial-size) ) );
         transition: background .1s $easing-standard;
     }
 
@@ -76,6 +63,10 @@
 }
 
 .radio {
+	--radio-size: var(--checkbox-size);
+	--radio-radial-size: var(--checkbox--radial-size);
+	--radio-stroke: #{rem-calc(2px)};
+
     @include chain(width, height, var(--radio-size));
     border: rem-calc(2px) solid rgba($black, .54);
     border-radius: 50%;
@@ -136,6 +127,11 @@
 }
 
 .switch {
+	--switch--radial-size: var(--checkbox--radial-size);
+	--switch-size: var(--checkbox-size);
+	--switch__track-width: #{rem-calc(36px)};
+	--switch__track-height: #{rem-calc(16px)};
+
     width: var(--switch__track-width);
     height: var(--switch__track-height);
     background: lighten($black, 100% - 38%);
@@ -152,10 +148,10 @@
 
     // Radial
     &:before {
-        @include chain(width, height, calc(var(--switch-size) + var(--switch-radial-size)));
+        @include chain(width, height, calc(var(--switch-size) + var(--switch--radial-size)));
         background: transparent;
-        left: calc(-1 * (var(--switch-radial-size) / 2));
-        top: calc(-1 * (var(--switch-radial-size) / 2) - ( (var(--switch-size) - var(--switch__track-height)) / 2));
+        left: calc(-1 * (var(--switch--radial-size) / 2));
+        top: calc(-1 * (var(--switch--radial-size) / 2) - ( (var(--switch-size) - var(--switch__track-height)) / 2));
     }
 
     &:hover:before {
@@ -188,7 +184,7 @@
         }
 
         &:before {
-            left: calc(100% - (var(--switch-radial-size) * 1.75));
+            left: calc(100% - (var(--switch--radial-size) * 1.75));
         }
 
         &:hover:before {
@@ -210,6 +206,10 @@
 }
 
 .checkbox, .radio, .switch {
+	--checkbox-size: #{rem-calc(20px)};
+	--checkbox-stroke: #{rem-calc(2px)};
+	--checkbox--radial-size: #{rem-calc(16px)};
+
     @extend %cursor--pointer;
     position: relative;
     vertical-align: text-bottom;
