@@ -39,7 +39,7 @@
     @extend %cursor--pointer;
     user-select: none;
 	vertical-align: middle;
-    @extend %ripple;
+    @include ripple();
     --ripple--hover-background: #{rgba($black, .04)};
     --ripple--active-background: #{rgba($black, .16)};
 

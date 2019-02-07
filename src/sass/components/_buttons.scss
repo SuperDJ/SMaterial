@@ -33,6 +33,7 @@
 	--button--text--outlined-color: #{$button--text--outlined-color};
 	--button--text--outline--disabled-color: #{$button--text--outline--disabled-color};
 
+	$el: &;
 	@extend %button;
 	height: var(--button-height);
 	line-height: var(--button-height);
@@ -46,7 +47,7 @@
 	user-select: none;
 	display: inline-block;
     vertical-align: middle;
-	@extend %ripple;
+	@include ripple();
 
 	&--contained {
 		--ripple--hover-background: var(--button--contained--hover-background);
@@ -62,7 +63,7 @@
 			color: var(--font-on-primary);
 		}
 
-		&:disabled {
+		&:disabled, &--disabled {
 			color: var(--button--contained--disabled-color);
 			background: var(--button--contained--disabled-background);
 			box-shadow: unset;
@@ -147,7 +148,7 @@
 			color: var(--button--text--outlined-color);
 		}
 
-		&:disabled {
+		&:disabled, &--disabled {
 			color: var(--button--text--outline--disabled-color);
 			background: unset;
 		}

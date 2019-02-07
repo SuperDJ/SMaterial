@@ -36,19 +36,23 @@
         transition: background .1s $easing-standard, color .1s $easing-standard;
 		@extend %cursor--pointer;
 
-        &__icon {
-            grid-column-start: 1;
-            margin: 0 rem-calc(24px) 0 rem-calc(8px);
-        }
+		.icon {
+			--icons-size: #{rem-calc(24px)};
+			grid-column-start: 1;
+			margin: 0 rem-calc(24px) 0 rem-calc(8px);
+		}
 
         &__content {
             grid-column-start: 2;
-            @include chain(height, line-height, rem-calc(48px));
             @extend %body-1;
             color: #{$black}de;
             margin: 0 rem-calc(8px) 0 rem-calc(8px);
             font-weight: 500;
         }
+
+		.icon, &__content {
+			@include chain(height, line-height, rem-calc(48px));
+		}
 
         &:hover {
             background: rgba($black, .04);
@@ -67,7 +71,7 @@
             background: rgba($primary-color, .12);
             color: var(--primary-color);
 
-            #{$el}__item__icon, #{$el}__item__content {
+            .icon, #{$el}__item__content {
                 color: var(--primary-color);
             }
 
@@ -192,6 +196,10 @@
 		&--divider {
 			border-bottom: rem-calc(1px) solid rgba($black, .12);
 		}
+	}
+
+	.divider {
+		margin: rem-calc(8px) 0;
 	}
 }
 

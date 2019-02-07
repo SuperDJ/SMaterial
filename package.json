@@ -1,8 +1,13 @@
 {
 	"name": "material",
-	"version": "2018.8.0",
+	"version": "2019.2.7",
 	"description": "A CSS framework based on Material Design",
 	"main": "dist/material.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SuperDJ/material"
+	},
+	"homepage": "https://superdj.github.io/material/",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "cross-env webpack-dev-server --config webpack.config.js --mode=development -w --hot",
@@ -10,6 +15,7 @@
 		"prod": "cross-env webpack --config webpack.config.js --mode=production -p",
 		"production": "npm run prod"
 	},
+	"license": "MIT",
 	"keywords": [
 		"material",
 		"design",
@@ -24,7 +30,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.2.2",
 		"@babel/preset-env": "^7.3.1",
-		"autoprefixer": "^9.4.6",
+		"autoprefixer": "^9.4.7",
 		"babel-loader": "^8.0.5",
 		"babel-plugin-dynamic-import-node": "^2.2.0",
 		"clean-webpack-plugin": "^1.0.1",
@@ -55,7 +61,7 @@
 		"> 2.9%"
 	],
 	"dependencies": {
-		"eslint": "^5.12.1",
+		"eslint": "^5.13.0",
 		"eslint-loader": "^2.1.1"
 	}
 }

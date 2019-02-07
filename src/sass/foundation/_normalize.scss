@@ -8,8 +8,9 @@ html, body {
 	outline: none;
     border: none;
 
-    &:disabled {
-        cursor: not-allowed !important // TODO remove important when possible;
+    &:disabled, [class*="disabled"] {
+        cursor: not-allowed !important; // TODO remove important when possible
+		pointer-events: none !important;
     }
 }
 
@@ -31,7 +32,7 @@ img {
 /**************************************
  * Scrollbar
  **************************************/
- 
+
 ::-webkit-scrollbar, ::-webkit-scrollbar-track {
     background: transparent;
 }

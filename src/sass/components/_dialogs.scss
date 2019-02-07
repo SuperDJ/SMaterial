@@ -6,6 +6,8 @@
 
 	--dialog__content-color: #{$black}99;
 
+	--dialog--scroll__content-max-height: 70vh;
+
 	$el: &;
     border-radius: var(--dialog-border-radius);
     @extend %z24;
@@ -82,6 +84,7 @@
 
 		#{$el}__content {
 			padding-bottom: rem-calc(16px);
+			max-height: var(--dialog--scroll__content-max-height);
 		}
 
 		#{$el}__actions {

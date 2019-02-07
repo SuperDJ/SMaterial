@@ -2,7 +2,6 @@
 	$el: &;
 	--app-bar-background: #{$app-bar-background};
 	--app-bar-font-color: #{$app-bar-font-color};
-	--app-bar-height: #{$app-bar-height};
 	--app-bar-padding: #{$app-bar-padding};
 	--app-bar__title-margin: #{$app-bar__title-margin};
 	--app-bar__actions-margin: #{$app-bar__actions-margin};
@@ -44,6 +43,7 @@
 	.icon {
 		@extend %cursor--pointer;
 		color: var(--app-bar-font-color);
+		--icon-size: #{rem-calc(24px)};
 	}
 
 	&-drawer--fixed {
@@ -54,4 +54,8 @@
 			}
 		}
 	}
+}
+
+:root {
+	--app-bar-height: #{$app-bar-height};
 }

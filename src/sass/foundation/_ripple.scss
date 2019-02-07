@@ -1,4 +1,4 @@
-%ripple {
+@mixin ripple() {
     position: relative;
     overflow: hidden;
 
@@ -19,7 +19,7 @@
     //     background: var(--ripple-focus-background);
     // }
 
-    &:active:after {
+    &:active:after, &--active:after {
         background: var(--ripple--active-background);
     }
 

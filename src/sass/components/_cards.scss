@@ -10,8 +10,11 @@
         @extend %z8;
     }
 
-    &__thumbnail img {
-        @include responsive-ratio(1,1);
+    &__thumbnail {
+		img {
+			@include responsive-ratio(1, 1);
+			display: block;
+		}
     }
 
     &__header {
@@ -56,4 +59,12 @@
     &--bottom {
         @include chain(border-bottom-left-radius, border-bottom-right-radius, var(--border-radius));
     }
+
+	&--left {
+		@include chain(border-bottom-left-radius, border-top-left-radius, var(--border-radius));
+	}
+
+	&--right {
+		@include chain(border-bottom-right-radius, border-top-right-radius, var(--border-radius));
+	}
 }

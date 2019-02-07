@@ -27,7 +27,7 @@
         position: relative;
         min-width: var(--tabs__tab-min-width);
         max-width: var(--tabs__tab-max-width);
-        @extend %ripple;
+       	@include ripple();
         --ripple--hover-background: var(--tabs__tab--hover-background);
         --ripple--active-background: var(--tabs__tab--active-background);
 

@@ -12,6 +12,13 @@
 		{
 			 color: map_get( $setting, color );
 		}
+
+		@if( $scale != body-1 )
+		{
+			.icon {
+				--icon-size: #{rem-calc(map-get($setting, size))};
+			}
+		}
 	}
 }
 

@@ -17,6 +17,7 @@
 	--fab--extended--icon-right-padding: #{$fab--extended--icon-right-padding};
 	--fab--extended--icon-right__icon-margin-left: #{$fab--extended--icon-right__icon-margin-left};
 
+	$el: &;
 	@extend %button;
 	@include chain(width, height, var(--fab-size));
 	padding: var(--fab-padding);
@@ -29,7 +30,7 @@
 	user-select: none;
 	position: relative;
 	display: inline-block;
-	@extend %ripple;
+	@include ripple();
 	--ripple--hover-background: var(--fab--hover-background);
 	--ripple--active-background: var(--fab--active-background);
 	--icon-color: var(--font-on-primary);
