@@ -1,8 +1,7 @@
 {
-	"name": "material",
+	"name": "smaterial",
 	"version": "2019.4.17",
 	"description": "A CSS framework based on Material Design",
-	"main": "dist/material.js",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/SuperDJ/material"
@@ -23,10 +22,12 @@
 		"css",
 		"scss",
 		"css",
-		"stylus",
 		"Google"
 	],
 	"author": "Derkjan Super",
+	"files": [
+		"docs/dist/{css,js}/*.{css,js,map}"
+	],
 	"devDependencies": {
 		"@babel/core": "^7.4.3",
 		"@babel/preset-env": "^7.4.3",
