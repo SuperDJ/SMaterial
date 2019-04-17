@@ -5,7 +5,7 @@
 	--list--single-line__content-height: var(--list--single-line-height);
 
 	--list--two-line-height: #{rem-calc(64px)};
-	--list--two-line__content-padding: #{rem-calc(16) 0 0 rem-calc(16px)};
+	--list--two-line__content-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
 	--list--two-line__support-height: #{rem-calc(72px)};
 	--list--two-line__support__icon-padding: #{rem-calc(16px)};
 	--list--two-line__support__image-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
@@ -16,7 +16,7 @@
 	--list--two-line__support__contol-padding: #{rem-calc(24px) rem-calc(16px) 0 rem-calc(16px)};
 
 	--list--three-line-height: #{rem-calc(88px)};
-	--list--three-line__content-padding: #{rem-calc(16) 0 0 rem-calc(16px)};
+	--list--three-line__content-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
 	--list--three-line__support__icon-padding: #{rem-calc(16px)};
 	--list--three-line__support__image-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
 	--list--three-line__support__image__img-size: #{rem-calc(40px)};

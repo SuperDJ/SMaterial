@@ -9,12 +9,12 @@ export default class TabBar
 
 	setRole()
 	{
-			this.tabBar.setAttribute( 'role', 'tablist' );
+		this.tabBar.setAttribute( 'role', 'tablist' );
 
-			// Tabs
-			Array.from( this.tabBar.querySelectorAll( '.tabs__tab' ) ).forEach( tab =>
-			{
-				tab.setAttribute( 'role', 'tab' );
-			});
+		// Tabs
+		Array.from( this.tabBar.querySelectorAll( '.tabs__tab' ) ).forEach( tab =>
+		{
+			tab.setAttribute( 'role', 'tab' );
+		});
 	}
 }

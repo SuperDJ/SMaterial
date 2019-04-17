@@ -1,4 +1,7 @@
 docs
+!docs/dist/css
+!docs/dist/js/material.js
+src
 node_modules
 .*
 webpack.config.js

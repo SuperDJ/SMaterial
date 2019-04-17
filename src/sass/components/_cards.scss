@@ -10,17 +10,15 @@
         @extend %z8;
     }
 
-    &__thumbnail {
-		img {
-			@include responsive-ratio(1, 1);
-			display: block;
-		}
+    &__thumbnail img {
+        @include responsive-ratio(1,1);
     }
 
     &__header {
         @extend .h6;
         color: rgba($black, .84);
         padding: rem-calc(16px) rem-calc(16px) rem-calc(16px) rem-calc(16px);
+		@include border-top-radius(var(--border-radius));
     }
 
     &__subheader {

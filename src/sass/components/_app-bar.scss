@@ -10,7 +10,7 @@
 	color: var(--app-bar-font-color);
 	min-height: var(--app-bar-height); // Min height to allow more content in the app bar
 	padding: var(--app-bar-padding);
-	width: 100%;
+	width: 100vw;
 	@extend %z4;
 	display: grid;
 	grid-template-columns: rem-calc(24px) 1fr auto 1fr;
@@ -46,7 +46,7 @@
 		--icon-size: #{rem-calc(24px)};
 	}
 
-	&-drawer--fixed {
+	&--drawer-fixed {
 		@media #{$sm-up} {
 			#{$el}__title {
 				// TODO make more dynamic

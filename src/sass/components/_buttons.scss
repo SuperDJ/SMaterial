@@ -48,6 +48,7 @@
 	display: inline-block;
     vertical-align: middle;
 	@include ripple();
+    white-space: nowrap;
 
 	&--contained {
 		--ripple--hover-background: var(--button--contained--hover-background);
@@ -58,7 +59,7 @@
 		color: var(--font-on-primary);
 		@extend %z2;
 
-		&:hover {
+		&:hover, &--active {
 			@extend %z8;
 			color: var(--font-on-primary);
 		}
@@ -71,6 +72,10 @@
 			&:hover {
 				box-shadow: unset;
 			}
+
+            > * {
+                color: var(--button--contained--disabled-color);
+            }
 		}
 
 		&--icon-left {
@@ -144,13 +149,17 @@
 		--icon-color: var(--button--text--outlined-color);
 		color: var(--button--text--outlined-color);
 
-		&:hover {
+		&:hover, &--active {
 			color: var(--button--text--outlined-color);
 		}
 
 		&:disabled, &--disabled {
 			color: var(--button--text--outline--disabled-color);
 			background: unset;
+
+            > * {
+                color: var(--button--text--outline--disabled-color);
+            }
 		}
 	}
 

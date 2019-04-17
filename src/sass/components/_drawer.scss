@@ -30,7 +30,7 @@
         min-height: rem-calc(48px);
         width: calc(100% - (#{rem-calc(8px)} * 2));
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: auto 1fr auto;
         margin: 0 rem-calc(8px);
         border-radius: var(--border-radius);
         transition: background .1s $easing-standard, color .1s $easing-standard;
@@ -42,6 +42,15 @@
 			margin: 0 rem-calc(24px) 0 rem-calc(8px);
 		}
 
+        .arrow {
+            grid-column-start: 3;
+            margin: 0 rem-calc(8px) 0 rem-calc(24px);
+        }
+
+        .icon, .arrow {
+            --icons-size: #{rem-calc(24px)};
+        }
+
         &__content {
             grid-column-start: 2;
             @extend %body-1;
@@ -50,7 +59,7 @@
             font-weight: 500;
         }
 
-		.icon, &__content {
+		.icon, &__content, &__arrow {
 			@include chain(height, line-height, rem-calc(48px));
 		}
 
@@ -113,10 +122,30 @@
         width: 100%;
 
         ul {
-            margin-left: rem-calc(8px);
             padding: 0;
+
+            &.active {
+                margin: rem-calc(8px) 0 rem-calc(8px) rem-calc(8px);
+                padding: rem-calc(8px) 0;
+                @include chain(border-top, border-bottom, rem-calc(1px) solid rgba($black, .12));
+            }
+
+            #{$el}__item {
+                width: calc(100% - (#{rem-calc(8px)} * 3));
+            }
         }
     }
+
+	.menu {
+		position: absolute;
+		top: 95%;
+		right: rem-calc(4px);
+
+		ul {
+			padding: 0;
+			margin: 0;
+		}
+	}
 
 	&--modal {
 		@extend %z16;
@@ -144,7 +173,7 @@
 		$header: &;
 		background: var(--drawer__header-background);
 		height: var(--drawer__header-height);
-		margin: rem-calc(-8) 0 rem-calc(8px) 0;
+		margin: rem-calc(-8px) 0 rem-calc(8px) 0;
 		position: relative;
 
 		&__background {
@@ -167,14 +196,19 @@
 		&__profile-email {
 			color: var(--drawer__header__profile-email-color);
 			@extend %body-2;
-			top: calc( var(--app-bar-height) + #{rem-calc( map-get( map-get($type-scale, body-2), size ) * 1.4)} + #{rem-calc(8px)} ); // TODO fix line-height
+			top: calc( var(--app-bar-height) + #{rem-calc( map-get( map-get($type-scale, body-2), size ) * 1.4 + 0px)} + #{rem-calc(8px)} ); // TODO fix line-height
 		}
 
 		&__profile-image, &__profile-name, &__profile-email {
 			left: rem-calc(16px);
 		}
 
-		&__background, &__profile-image, &__profile-name, &__profile-email {
+		&__profile-icon {
+			right: rem-calc(16px);
+			top: calc( var(--app-bar-height) + #{rem-calc( map-get( map-get($type-scale, body-2), size ) * 1.4 + 0px)} + #{rem-calc(8px)} ); // TODO fix line-height
+		}
+
+		&__background, &__profile-image, &__profile-name, &__profile-email, &__profile-icon {
 			position: absolute;
 			user-select: none;
 		}

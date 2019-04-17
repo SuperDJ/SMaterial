@@ -45,13 +45,16 @@ export default class SelectField
 		let inputValue = '';
 		let i = 0;
 
-		for( let selectedOption of selectedOptions ) {
+		for( let selectedOption of selectedOptions )
+		{
 			inputs[ selectedOption.index ].checked = true;
 
-			if( selectedOptions.length > 1 ) {
+			if( selectedOptions.length > 1 )
+			{
 				inputValue += i === 0 ? selectedOption.innerHTML : `,${selectedOption.innerHTML}`;
 				i++;
-			} else
+			}
+			else
 			{
 				inputValue += selectedOption.innerHTML;
 			}

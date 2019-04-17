@@ -1,6 +1,6 @@
 let triggered = []; // Store all elements that are triggered
 const triggers = Array.from( document.querySelectorAll( '[data-trigger]' ) );
-const exceptions = ['drawer']; // TODO make more dynamic
+const exceptions = [ 'drawer', ]; // TODO make more dynamic
 
 triggers.forEach( trigger =>
 {

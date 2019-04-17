@@ -8,7 +8,7 @@ html, body {
 	outline: none;
     border: none;
 
-    &:disabled, [class*="disabled"] {
+    &:disabled, &[class*="disabled"] {
         cursor: not-allowed !important; // TODO remove important when possible
 		pointer-events: none !important;
     }
@@ -25,7 +25,7 @@ a {
 }
 
 img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 

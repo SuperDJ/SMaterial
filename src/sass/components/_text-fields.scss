@@ -2,7 +2,7 @@
 	--text-field--active-color: #{$primary-color};
 	--text-field--invalid-color: var(--error-color);
 	--text-field-height: var(--text-field__input-height);
-	--text-field__label-font-size: #{rem-calc( map-get( map-get( $type-scale, body-1 ), size ) )};
+	--text-field__label-font-size: #{rem-calc( map-get( map-get( $type-scale, body-1 ), size ) + 0px )};
 
 	--text-field--filled__input-padding-top: #{rem-calc(20px)};
 	--text-field--filled__input-padding-sides: #{rem-calc(12px)};
@@ -37,15 +37,16 @@
 	--text-field__input--focus__label-color: var(--text-field--active-color);
 	--text-field__input--focus__label-font-size: #{rem-calc(12px)};
 
-	--text-field__assitive-text-padding: 0 var(--text-field--filled__input-padding-sides);
-	--text-field__assitive-text-height: #{rem-calc(16px)};
-	--text-field--assitive-text-height: calc(var(--text-field-height) + var(--text-field__assitive-text-height));
+	--text-field__helper-text-padding: 0 var(--text-field--filled__input-padding-sides);
+	--text-field__helper-text-height: #{rem-calc(16px)};
 
     $el: &;
     min-height: var(--text-field-height);
     width: 100%;
     position: relative;
     margin: rem-calc(8px) 0;
+    display: grid;
+    grid-template-columns: 1fr auto;
 
     &--filled {
         #{$el}__input {
@@ -170,6 +171,7 @@
     }
 
     &__label {
+        grid-column: 1;
         @extend %cursor--pointer;
         pointer-events: none;
         color: var(--text-field__label-color);
@@ -186,6 +188,7 @@
         position: absolute;
         @include chain(left, top, 0);
         min-height: var(--text-field__input-height);
+        grid-column: 1;
 
         &:hover {
             @extend %cursor--pointer;
@@ -202,19 +205,19 @@
         }
     }
 
-    &__assitive-text {
+    &__helper-text {
         display: block;
         width: 100%;
         color: #{$black}99;
         @extend %caption;
-        @include chain(height, line-height, var(--text-field__assitive-text-height));
-        padding: var(--text-field__assitive-text-padding);
+        @include chain(height, line-height, var(--text-field__helper-text-height));
+        padding: var(--text-field__helper-text-padding);
         position: absolute;
         bottom: 0;
     }
 
-    &--assitive-text {
-        --text-field-height: var(--text-field--assitive-text-height);
+    &--helper-text {
+        --text-field-height: calc(var(--text-field__input-height) + var(--text-field__helper-text-height));
     }
 
     &--invalid {
@@ -223,7 +226,7 @@
             caret-color: var(--text-field--invalid-color);
         }
 
-        #{$el}__label, #{$el}__assitive-text {
+        #{$el}__label, #{$el}__helper-text {
             color: var(--text-field--invalid-color);
         }
     }
@@ -249,7 +252,7 @@
 			border-radius: var(--border-radius);
 			@extend %z8;
 			padding: rem-calc(8px) 0;
-			z-index: 1;
+			z-index: 2;
 			overflow: auto;
 			top: var(--text-field__input-height);
 			max-height: var(--text-field__options-height);
@@ -282,6 +285,12 @@
 			background: rgba($primary-color, .16);
 		}
 	}
+
+    .icon {
+        grid-column: 2;
+        margin: 0 rem-calc(12px);
+        line-height: var(--text-field-height);
+    }
 }
 /*
 .select-field {
@@ -348,3 +357,31 @@
         background: rgba($primary-color, .16);
     }
 }  */
+
+input[type="date"] {
+    &:after {
+        content: "\25BC";
+        color: #555;
+        padding: 0 rem-calc(5px);
+        margin-top: rem-calc(-5px);
+    }
+
+    /* make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker*/
+    &::-webkit-calendar-picker-indicator {
+        position: absolute;
+        @include chain(top, right, bottom, left, 0);
+        @include chain(width, height, auto);
+        @include chain(color, background, transparent);
+    }
+
+    /* adjust increase/decrease button */
+    &::-webkit-inner-spin-button, &::-webkit-clear-button {
+        z-index: 1;
+    }
+}
+
+input[type="search"] {
+    &::-webkit-search-cancel-button {
+        display: none;
+    }
+}

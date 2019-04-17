@@ -2,10 +2,10 @@
  *	Convert unit to rem
  */
 @function rem-calc( $sp, $default: $font-size ) {
-	@if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) != null )
+	@if( type_of( $sp ) != null AND str_index( #{$sp}, px ) != null )
 	{
 		@return $sp / ( $default + 0px ) * 1rem;
-	} @else if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) == null )
+	} @else if( type_of( $sp ) != null AND str_index( #{$sp}, px ) == null )
 	{
 		@return ( $sp + 0px ) / ( $default + 0px ) * 1rem;
 	} @else {
@@ -17,14 +17,14 @@
  *	Convert unit to em
  */
 @function em-calc( $sp, $default: $font-size ) {
-	@if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) != null )
+	@if( type_of( $sp ) != null AND str_index( #{$sp}, px ) != null )
 	{
 		@return $sp / ( $default + 0px ) * 1em;
-	} @else if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) == null )
+	} @else if( type_of( $sp ) != null AND str_index( #{$sp}, px ) == null )
 	{
 		@return ( $sp + 0px ) / ( $default + 0px ) * 1em;
 	} @else {
-		@warn 'Wrong argument parsed to rem-calc';
+		@warn 'Wrong argument parsed to em-calc';
 	}
 }
 

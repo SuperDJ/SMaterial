@@ -1,19 +1,19 @@
-import Autocomplete from 'js/classes/autocomplete';
-import Badge from 'js/classes/badge';
-import Banner from 'js/classes/banner';
-import Button from 'js/classes/button';
-import DataTable from 'js/classes/data-table';
-import Dialog from 'js/classes/dialog';
-import Divider from 'js/classes/divider';
-import Drawer from 'js/classes/drawer';
+import Autocomplete from'js/classes/autocomplete';
+import Badge from'js/classes/badge';
+import Banner from'js/classes/banner';
+import Button from'js/classes/button';
+import DataTable from'js/classes/data-table';
+import Dialog from'js/classes/dialog';
+import Divider from'js/classes/divider';
+import Drawer from'js/classes/drawer';
 
-import Progress from 'js/classes/progress';
-import SelectField from 'js/classes/select-field';
-import { Switch, Checkbox, Radio } from 'js/classes/selection';
-import Slider from 'js/classes/slider';
-import TabBar from 'js/classes/tab';
-import TextField from 'js/classes/text-field';
-import Tooltip from 'js/classes/tooltip';
+import Progress from'js/classes/progress';
+import SelectField from'js/classes/select-field';
+import{ Switch, Checkbox, Radio } from'js/classes/selection';
+import Slider from'js/classes/slider';
+import TabBar from'js/classes/tab';
+import TextField from'js/classes/text-field';
+import Tooltip from'js/classes/tooltip';
 
 const autocompletes = document.getElementsByClassName('text-field--autocomplete');
 
@@ -65,7 +65,6 @@ for( let divider of dividers )
 }
 
 const drawers = document.getElementsByClassName( 'drawer' );
-
 
 for( let drawer of drawers )
 {

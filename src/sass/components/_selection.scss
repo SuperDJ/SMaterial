@@ -41,14 +41,14 @@
     }
 
     &:checked {
-        @include chain(border-color, background, var(--primary-color-variant));
+        @include chain(border-color, background, var(--primary-color));
 
         &:hover:before {
-            background: rgba($primary-color-variant, .04);
+            background: rgba($primary-color, .04);
         }
 
         &:active:before {
-            background: rgba($primary-color-variant, .16);
+            background: rgba($primary-color, .16);
         }
 
 
@@ -57,7 +57,7 @@
         }
 
         &:disabled {
-            @include chain(border-color, background, rgba($primary-color-variant, .38));
+            @include chain(border-color, background, rgba($primary-color, .38));
         }
     }
 }
@@ -102,25 +102,25 @@
     }
 
     &:checked {
-        border-color: var(--primary-color-variant);
+        border-color: var(--primary-color);
 
         &:hover:before {
-            background: rgba($primary-color-variant, .04);
+            background: rgba($primary-color, .04);
         }
 
         &:active:before {
-            background: rgba($primary-color-variant, .12);
+            background: rgba($primary-color, .12);
         }
 
         &:after {
-            background: var(--primary-color-variant);
+            background: var(--primary-color);
         }
 
         &:disabled {
-            border-color: rgba($primary-color-variant, .38);
+            border-color: rgba($primary-color, .38);
 
             &:after {
-                background: rgba($primary-color-variant, .38);
+                background: rgba($primary-color, .38);
             }
         }
     }
@@ -176,10 +176,10 @@
     }
 
     &:checked {
-        background: rgba($primary-color-variant, .54);
+        background: rgba($primary-color, .54);
 
         &:after {
-            background: $primary-color-variant;
+            background: $primary-color;
             left: calc(100% - var(--switch-size));
         }
 
@@ -188,18 +188,18 @@
         }
 
         &:hover:before {
-            background: rgba($primary-color-variant, .04);
+            background: rgba($primary-color, .04);
         }
 
         &:active:before {
-            background: rgba($primary-color-variant, .12);
+            background: rgba($primary-color, .12);
         }
 
         &:disabled {
-            background: rgba(rgba($primary-color-variant, .54), .38);
+            background: rgba(rgba($primary-color, .54), .38);
 
             &:after {
-                background: lighten($primary-color-variant, 38%);
+                background: lighten($primary-color, 38%);
             }
         }
     }

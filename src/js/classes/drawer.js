@@ -1,4 +1,5 @@
-export default class Drawer {
+export default class Drawer
+{
 	constructor( drawer )
 	{
 		this.drawer = drawer;
