@@ -1,19 +1,27 @@
-import Autocomplete from'js/classes/autocomplete';
-import Badge from'js/classes/badge';
-import Banner from'js/classes/banner';
-import Button from'js/classes/button';
-import DataTable from'js/classes/data-table';
-import Dialog from'js/classes/dialog';
-import Divider from'js/classes/divider';
-import Drawer from'js/classes/drawer';
+import AppBar from'js/classes/AppBar';
+import Autocomplete from'js/classes/Autocomplete';
+import Badge from'js/classes/Badge';
+import Banner from'js/classes/Banner';
+import Button from'js/classes/Button';
+import DataTable from'js/classes/DataTable';
+import Dialog from'js/classes/Dialog';
+import Divider from'js/classes/Divider';
+import Drawer from'js/classes/Drawer';
+import Menu from'js/classes/Menu';
+import Progress from'js/classes/Progress';
+import SelectField from'js/classes/SelectField';
+import{ Switch, Checkbox, Radio } from'js/classes/Selection';
+import Slider from'js/classes/Slider';
+import TabBar from'js/classes/Tab';
+import TextField from'js/classes/TextField';
+import Tooltip from'js/classes/Tooltip';
 
-import Progress from'js/classes/progress';
-import SelectField from'js/classes/select-field';
-import{ Switch, Checkbox, Radio } from'js/classes/selection';
-import Slider from'js/classes/slider';
-import TabBar from'js/classes/tab';
-import TextField from'js/classes/text-field';
-import Tooltip from'js/classes/tooltip';
+const appBars = document.getElementsByClassName('app-bar');
+
+for( let appBar of appBars )
+{
+	new AppBar( appBar );
+}
 
 const autocompletes = document.getElementsByClassName('text-field--autocomplete');
 
@@ -69,6 +77,13 @@ const drawers = document.getElementsByClassName( 'drawer' );
 for( let drawer of drawers )
 {
 	new Drawer( drawer );
+}
+
+const menus = document.getElementsByClassName( 'menu' );
+
+for( let menu of menus )
+{
+	new Menu( menu );
 }
 
 const progressBars = document.getElementsByClassName( 'progress' );

@@ -1,0 +1,19 @@
+$i: 0;
+$amount: 4;
+$max: 24;
+
+@while $i <= $max {
+	@if(in-array(padding, $helper-settings)) {
+		.padding--#{$i} {
+			padding: rem-calc($i+0px) !important;
+		}
+	}
+
+	@if(in-array(margin, $helper-settings)) {
+		.margin--#{$i} {
+			margin: rem-calc($i+0px) !important;
+		}
+	}
+
+	$i: $i + $amount;
+}

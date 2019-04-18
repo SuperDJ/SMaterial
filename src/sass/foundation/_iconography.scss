@@ -11,20 +11,28 @@
         color: var(--icon--active--focus-color);
     }
 
-	&--18 {
-		--icon-size: #{rem-calc(18px)};
+	@if(in-array(18, $icon-settings)) {
+		&--18 {
+			--icon-size: #{rem-calc(18px)};
+		}
 	}
 
-	&--24 {
-		--icon-size: #{rem-calc(24px)};
+	@if(in-array(24, $icon-settings)) {
+		&--24 {
+			--icon-size: #{rem-calc(24px)};
+		}
 	}
 
-	&--36 {
-		--icon-size: #{rem-calc(36px)};
+	@if(in-array(36, $icon-settings)) {
+		&--36 {
+			--icon-size: #{rem-calc(36px)};
+		}
 	}
 
-	&--48 {
-		--icon-size: #{rem-calc(48px)};
+	@if(in-array(48, $icon-settings)) {
+		&--48 {
+			--icon-size: #{rem-calc(48px)};
+		}
 	}
 }
 

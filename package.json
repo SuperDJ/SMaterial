@@ -22,11 +22,13 @@
 		"css",
 		"scss",
 		"css",
+		"front-end",
 		"Google"
 	],
 	"author": "Derkjan Super",
 	"files": [
-		"docs/dist/{css,js}/*.{css,js,map}"
+		"docs/dist/",
+		"src/"
 	],
 	"devDependencies": {
 		"@babel/core": "^7.4.3",
