@@ -1,0 +1,77 @@
+@if(in-array(snackbar, $component-settings)) {
+	.snackbar {
+		--snackbar-width: #{$snackbar-width};
+		--snackbar-min-height: #{$snackbar-min-height};
+		--snackbar-background: #{$snackbar-background};
+		--snackbar-border-radius: #{$snackbar-border-radius};
+
+		--snackbar__content-color: #{$snackbar__content-color};
+		--snackbar__content-padding: #{$snackbar__content-padding};
+
+		--snackbar__actions-padding: #{$snackbar__actions-padding};
+
+		@if(in-array(two, $snackbar-settings)) {
+			--snackbar--two-line-min-height: #{$snackbar--two-line-min-height};
+			--snackbar--two-line__actions-padding: #{$snackbar--two-line__actions-padding};
+			--snackbar--two-line--long-action__content-padding: #{$snackbar--two-line--long-action__content-padding};
+			--snackbar--two-line--long-action__actions-padding: #{$snackbar--two-line--long-action__actions-padding};
+		}
+
+		$el: &;
+		background: var(--snackbar-background);
+		border-radius: var(--snackbar-border-radius);
+		width: var(--snackbar-width);
+		min-height: var(--snackbar-min-height);
+		@extend %z6;
+
+		&--single-line, &--two-line {
+			display: grid;
+			grid-template-columns: 1fr auto;
+
+			#{$el}__content {
+				grid-column-start: 1;
+			}
+
+			#{$el}__actions {
+				grid-column-start: 2;
+			}
+		}
+
+		@if(in-array(two, $snackbar-settings)) {
+			&--two-line {
+				min-height: var(--snackbar--two-line-min-height);
+
+				#{$el}__actions {
+					padding: var(--snackbar--two-line__actions-padding);
+				}
+
+				&--long-action {
+					grid-template-rows: auto auto;
+					grid-template-columns: unset;
+
+					#{$el}__content {
+						grid-row-start: 1;
+						padding: var(--snackbar--two-line--long-action__content-padding);
+						width: 100%;
+					}
+
+					#{$el}__actions {
+						grid-row-start: 2;
+						width: 100%;
+						padding: var(--snackbar--two-line--long-action__actions-padding);
+					}
+				}
+			}
+		}
+
+		&__content {
+			@extend %body-2;
+			color: var(--snackbar__content-color);
+			padding: var(--snackbar__content-padding);
+		}
+
+		&__actions {
+			padding: var(--snackbar__actions-padding);
+		}
+	}
+}

@@ -1,0 +1,155 @@
+@if(in-array(dialog, $component-settings)) {
+	.dialog {
+		--dialog-border-radius: var(--border-radius);
+		--dialog-background: var(--background-color);
+
+		--dialog__header-color: #{$black}de;
+
+		--dialog__content-color: #{$black}99;
+
+		--dialog--scroll__content-max-height: 70vh;
+
+		$el: &;
+		border-radius: var(--dialog-border-radius);
+		@extend %z24;
+		background: var(--dialog-background);
+		@extend %body-2;
+		max-width: 100%;
+		overflow: hidden;
+		z-index: 3;
+		position: fixed;
+		display: inline-block;
+		opacity: 0;
+		pointer-events: none;
+		@include chain(top, left, 50%);
+		transform: translateX(-50%) translateY(-50%);
+		transition: max-height .1s $easing-standard;
+
+		@media #{$xs-up} {
+			min-width: rem-calc(280px);
+		}
+
+		&__header {
+			@include chain(height, line-height, rem-calc(64px));
+			@extend %h6;
+			color: var(--dialog__header-color);
+			padding: 0 rem-calc(24px);
+		}
+
+		&__content {
+			overflow: auto;
+			@extend %body-1;
+			color: var(--dialog__content-color);
+			padding: 0 rem-calc(24px);
+		}
+
+		&__actions {
+			height: rem-calc(52px);
+			text-align: right;
+			padding: rem-calc(8px);
+
+			> * {
+				margin-left: rem-calc(8px);
+			}
+		}
+
+		&__header, &__actions {
+			position: relative;
+			background: var(--dialog-background);
+		}
+
+		@if (in-array(simple, $dialog-settings)) {
+			&--simple .list {
+				&__support__image {
+					padding-left: rem-calc(24px) !important; // TODO fix important if possible
+				}
+
+				&__content {
+					padding: 0 rem-calc(24px) 0 rem-calc(20px);
+				}
+			}
+		}
+
+		@if (in-array(alert, $dialog-settings)) {
+			&--alert &__content {
+				@include chain(height, line-height, rem-calc(66px));
+			}
+		}
+
+		@if (in-array(confirm, $dialog-settings)) {
+			&--confirm {
+				#{$el}__content {
+					padding: 0 rem-calc(24px) rem-calc(28px) rem-calc(24px);
+				}
+			}
+		}
+
+		@if (in-array(scroll, $dialog-settings)) {
+			&--scroll {
+				#{$el}__header {
+					border-bottom: rem-calc(1px) solid rgba($black, .12);
+				}
+
+				#{$el}__content {
+					padding-bottom: rem-calc(16px);
+					max-height: var(--dialog--scroll__content-max-height);
+				}
+
+				#{$el}__actions {
+					border-top: rem-calc(1px) solid rgba($black, .12);
+				}
+			}
+		}
+
+		@if (in-array(full-screen, $dialog-settings)) {
+			&--full-screen {
+				@include chain(width, height, 100%);
+				z-index: 2;
+				position: fixed;
+				@include chain(top, left, 0);
+				transform: unset;
+
+				#{$el}__header {
+					@include chain(height, line-height, rem-calc(56px));
+					background: var(--primary-color);
+					display: grid;
+					grid-template-columns: auto 1fr 1fr;
+					padding: 0 rem-calc(8px) 0 rem-calc(16px);
+					@extend %z4;
+
+					.icon {
+						grid-column-start: 1;
+					}
+
+					&__title {
+						grid-column-start: 2;
+						@extend %h6;
+						padding-left: rem-calc(32px);
+					}
+
+					&__action {
+						grid-column-start: 3;
+						text-align: right;
+					}
+
+					.icon, &__title, .button {
+						color: var(--font-on-primary);
+					}
+
+					.icon, &__title, &__action {
+						line-height: rem-calc(56px);
+					}
+				}
+
+				#{$el}__content {
+					padding: rem-calc(16px) rem-calc(8px) 0 rem-calc(16px);
+				}
+			}
+		}
+
+		&--active {
+			pointer-events: all;
+			opacity: 1;
+		}
+	}
+}

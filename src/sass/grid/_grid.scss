@@ -11,22 +11,28 @@
 		margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc((100% - var(--container--large-width)) / 2);
 	}
 
-	&--fluid {
-		width: 100%;
-        margin: var(--app-bar-height) 0 0 0;
-	}
-
-	&-drawer--fixed {
-		@media #{$sm-up} {
-			margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc(calc((100% - var(--container--large-width)) / 2) + var(--drawer-width));
-			width: calc(var(--container--large-width) - var(--drawer-width));
+	@if(in-array(fluid, $grid-settings)) {
+		&--fluid {
+			width: 100%;
+			margin: var(--app-bar-height) 0 0 0;
 		}
 	}
 
-	&--fluid#{$el}-drawer--fixed {
-		@media #{$sm-up} {
-			width: calc(100% - var(--drawer-width));
-			margin: var(--app-bar-height) 0 0 var(--drawer-width);
+	@if(in-array(fixed, $drawer-settings)) {
+		&-drawer--fixed {
+			@media #{$sm-up} {
+				margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc(calc((100% - var(--container--large-width)) / 2) + var(--drawer-width));
+				width: calc(var(--container--large-width) - var(--drawer-width));
+			}
+		}
+	}
+
+	@if(in-array(fluid, $grid-settings) and in-array(fixed, $drawer-settings)) {
+		&--fluid#{$el}-drawer--fixed {
+			@media #{$sm-up} {
+				width: calc(100% - var(--drawer-width));
+				margin: var(--app-bar-height) 0 0 var(--drawer-width);
+			}
 		}
 	}
 }

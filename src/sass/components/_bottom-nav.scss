@@ -1,80 +1,82 @@
-.bottom-nav {
-	--bottom-nav-background: #{$bottom-nav-background};
-	--bottom-nav-height: #{$bottom-nav-height};
+@if(in-array(bottom-nav, $component-settings)) {
+	.bottom-nav {
+		--bottom-nav-background: #{$bottom-nav-background};
+		--bottom-nav-height: #{$bottom-nav-height};
 
-	--bottom-nav__icon-size: #{$bottom-nav__icon-size};
+		--bottom-nav__icon-size: #{$bottom-nav__icon-size};
 
-	--bottom-nav__item-min-width: #{$bottom-nav__item-min-width};
-	--bottom-nav__item-max-width: #{$bottom-nav__item-max-width};
-	--bottom-nav__item-padding: #{$bottom-nav__item-padding};
-	--bottom-nav__item__text-font-size: #{$bottom-nav__item__text-font-size};
-	--bottom-nav__item-color: #{$bottom-nav__item-color};
-	--bottom-nav__item--hover-color: #{$bottom-nav__item--hover-color};
+		--bottom-nav__item-min-width: #{$bottom-nav__item-min-width};
+		--bottom-nav__item-max-width: #{$bottom-nav__item-max-width};
+		--bottom-nav__item-padding: #{$bottom-nav__item-padding};
+		--bottom-nav__item__text-font-size: #{$bottom-nav__item__text-font-size};
+		--bottom-nav__item-color: #{$bottom-nav__item-color};
+		--bottom-nav__item--hover-color: #{$bottom-nav__item--hover-color};
 
-	--bottom-nav--icon-only__item-padding: #{$bottom-nav--icon-only__item-padding};
-	--bottom-nav--icon-only__item--active-padding: #{$bottom-nav--icon-only__item--active-padding};
+		--bottom-nav--icon-only__item-padding: #{$bottom-nav--icon-only__item-padding};
+		--bottom-nav--icon-only__item--active-padding: #{$bottom-nav--icon-only__item--active-padding};
 
-    $el: &;
-    width: 100%;
-    background: var(--bottom-nav-background);
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-	position: fixed;
-    @extend %z8;
-	display: grid;
-	justify-content: space-evenly;
-	grid-template-columns: repeat(auto-fit, minmax(var(--bottom-nav__item-min-width), var(--bottom-nav__item-max-width)));
-	grid-template-rows: var(--bottom-nav-height);
+		$el: &;
+		width: 100%;
+		background: var(--bottom-nav-background);
+		z-index: 1;
+		bottom: 0;
+		left: 0;
+		position: fixed;
+		@extend %z8;
+		display: grid;
+		justify-content: space-evenly;
+		grid-template-columns: repeat(auto-fit, minmax(var(--bottom-nav__item-min-width), var(--bottom-nav__item-max-width)));
+		grid-template-rows: var(--bottom-nav-height);
 
-    &__item {
-        padding: var(--bottom-nav__item-padding);
-		display: block;
-        text-align: center;
+		&__item {
+			padding: var(--bottom-nav__item-padding);
+			display: block;
+			text-align: center;
 
-        .icon {
-			--icon-size: var(--bottom-nav__icon-size);
-        }
+			.icon {
+				--icon-size: var(--bottom-nav__icon-size);
+			}
 
-        &__text {
-            font-size: var(--bottom-nav__item__text-font-size);
-			line-height: calc(var(--bottom-nav__item__text-font-size) * 1.4);
-        }
+			&__text {
+				font-size: var(--bottom-nav__item__text-font-size);
+				line-height: calc(var(--bottom-nav__item__text-font-size) * 1.4);
+			}
 
-		&__icon, &__text {
-			width: 100%;
+			&__icon, &__text {
+				width: 100%;
+			}
+
+			.icon, &__text {
+				color: var(--bottom-nav__item-color);
+				--primary-color: var(--bottom-nav__item-color);
+				transition: color .1s $easing-standard;
+			}
+
+			&:hover, &#{$el}__item--active {
+				.icon, #{$el}__item__text {
+					color: var(--bottom-nav__item--hover-color);
+					--secondary-color: var(--bottom-nav__item--hover-color);
+					--icon-color: var(--bottom-nav__item--hover-color);
+				}
+			}
 		}
 
-        .icon, &__text {
-            color: var(--bottom-nav__item-color);
-            --primary-color: var(--bottom-nav__item-color);
-            transition: color .1s $easing-standard;
-        }
-
-        &:hover, &#{$el}__item--active {
-			.icon, #{$el}__item__text {
-				color: var(--bottom-nav__item--hover-color);
-				--secondary-color: var(--bottom-nav__item--hover-color);
-				--icon-color: var(--bottom-nav__item--hover-color);
+		&--icon-only {
+			#{$el}__item {
+				padding: var(--bottom-nav--icon-only__item-padding);
 			}
-        }
-    }
 
-    &--icon-only {
-        #{$el}__item {
-            padding: var(--bottom-nav--icon-only__item-padding);
-        }
+			#{$el}__item__text {
+				display: none;
+			}
 
-        #{$el}__item__text {
-            display: none;
-        }
+			#{$el}__item--active {
+				padding: var(--bottom-nav--icon-only__item--active-padding);
 
-        #{$el}__item--active {
-            padding: var(--bottom-nav--icon-only__item--active-padding);
-
-            #{$el}__item__text {
-                display: block;
-            }
-        }
-    }
+				#{$el}__item__text {
+					display: block;
+				}
+			}
+		}
+	}
 }

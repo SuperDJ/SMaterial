@@ -1,72 +1,78 @@
-.data-table {
-	--data-table__header-font-size: #{$data-table__header-font-size};
-	--data-table__header-color: #{$data-table__header-color};
-	--data-table__header-font-weight: #{$data-table__header-font-weight};
-	--data-table__header--hover-color: #{$data-table__header--hover-color};
+@if(in-array(data-table, $component-settings)) {
+	.data-table {
+		--data-table__header-font-size: #{$data-table__header-font-size};
+		--data-table__header-color: #{$data-table__header-color};
+		--data-table__header-font-weight: #{$data-table__header-font-weight};
+		--data-table__header--hover-color: #{$data-table__header--hover-color};
 
-	--data-table__body-color: #{$data-table__body-color};
-	--data-table__body-font-size: #{$data-table__body-font-size};
+		--data-table__body-color: #{$data-table__body-color};
+		--data-table__body-font-size: #{$data-table__body-font-size};
 
-	--data-table__row-height: #{$data-table__row-height};
-	--data-table__row-border-bottom: #{$data-table__row-border-bottom};
-	--data-table__row__icon-size: #{$data-table__row__icon-size};
-	--data-table__row--hover-background: #{$data-table__row--hover-background};
+		--data-table__row-height: #{$data-table__row-height};
+		--data-table__row-border-bottom: #{$data-table__row-border-bottom};
+		--data-table__row__icon-size: #{$data-table__row__icon-size};
+		--data-table__row--hover-background: #{$data-table__row--hover-background};
 
-    width: 100%;
-    border-collapse: collapse;
+		width: 100%;
+		border-collapse: collapse;
 
-    th, th a {
-        font-size: var(--data-table__header-font-size);
-        color: var(--data-table__header-color);
-        font-weight: var(--data-table__header-font-weight);
-        text-align: left;
-        transition: color .1s $easing-standard;
-        @extend %cursor--pointer;
+		th, th a {
+			font-size: var(--data-table__header-font-size);
+			color: var(--data-table__header-color);
+			font-weight: var(--data-table__header-font-weight);
+			text-align: left;
+			transition: color .1s $easing-standard;
+			@extend %cursor--pointer;
 
-        &:hover, &:hover .icon {
-            color: var(--data-table__header--hover-color);
-        }
-    }
+			&:hover, &:hover .icon {
+				color: var(--data-table__header--hover-color);
+			}
+		}
 
-    @media #{$lg-and-up} {
-        th {
-            position: sticky;
-            top: var(--app-bar-height);
-            background: $white;
-            z-index: 1;
-        }
-    }
+		@media #{$lg-and-up} {
+			th {
+				position: sticky;
+				top: var(--app-bar-height);
+				background: $white;
+				z-index: 1;
+			}
+		}
 
-    td {
-        color: var(--data-table__body-color);
-        font-size: var(--data-table__body-font-size);
-    }
+		td {
+			color: var(--data-table__body-color);
+			font-size: var(--data-table__body-font-size);
+		}
 
-    td, th {
-        @include chain(height, line-height, var(--data-table__row-height));
-        border-bottom: var(--data-table__row-border-bottom);
-        padding: 0 rem-calc(16px);
+		td, th {
+			@include chain(height, line-height, var(--data-table__row-height));
+			border-bottom: var(--data-table__row-border-bottom);
+			padding: 0 rem-calc(16px);
 
-        .icon {
-            vertical-align: middle;
-            --icon-size: var(--data-table__row__icon-size);
-        }
-    }
+			.icon {
+				vertical-align: middle;
+				--icon-size: var(--data-table__row__icon-size);
+			}
+		}
 
-    &--hover {
-        tbody tr:hover {
-            transition: background .1s $easing-standard;
-            background: var(--data-table__row--hover-background);
-        }
-    }
+		@if(in-array(hover, $data-table-settings)) {
+			&--hover {
+				tbody tr:hover {
+					transition: background .1s $easing-standard;
+					background: var(--data-table__row--hover-background);
+				}
+			}
+		}
 
-    &--numeric {
-        text-align: right !important; // TODO Fix important
-    }
+		@if(in-array(numeric, $data-table-settings)) {
+			&--numeric {
+				text-align: right !important; // TODO Fix important
+			}
+		}
 
-    @media #{$md-and-down} {
-        &--responsive {
-            overflow-x: auto;
-        }
-    }
+		@media #{$md-and-down} {
+			&--responsive {
+				overflow-x: auto;
+			}
+		}
+	}
 }

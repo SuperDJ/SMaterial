@@ -1,113 +1,119 @@
-.bottom-sheet {
-    $el: &;
-    width: 100%;
-    height: auto;
-    min-height: rem-calc(56px);
-    max-height: 50%;
-    list-style-type: none;
-    position: fixed;
-	display: inline-block;
-    z-index: 2;
-	@include chain(left, bottom, 0);
-    margin: 0 0 -102% 0;
-    padding: 0;
-    @extend %z8;
-    background: var(--background-color);
-	pointer-events: none;
-	transition: margin .1s $easing-standard;
-	@include border-top-radius(var(--border-radius));
-
-	@media #{$md-and-up} {
-		left: 50%;
-		transform: translateX(-50%);
-		max-width: 75%;
-	}
-
-	&--active {
+@if(in-array(bottom-sheet, $component-settings)) {
+	.bottom-sheet {
+		$el: &;
+		width: 100%;
+		height: auto;
+		min-height: rem-calc(56px);
+		max-height: 50%;
+		list-style-type: none;
+		position: fixed;
+		display: inline-block;
+		z-index: 2;
+		@include chain(left, bottom, 0);
+		margin: 0 0 -102% 0;
+		padding: 0;
+		@extend %z8;
+		background: var(--background-color);
+		pointer-events: none;
 		transition: margin .1s $easing-standard;
-		margin: 0;
-		pointer-events: all;
+		@include border-top-radius(var(--border-radius));
+
+		@media #{$md-and-up} {
+			left: 50%;
+			transform: translateX(-50%);
+			max-width: 75%;
+		}
+
+		&--active {
+			transition: margin .1s $easing-standard;
+			margin: 0;
+			pointer-events: all;
+		}
+
+		@if(in-array(list, $bottom-sheet-settings)) {
+			&--list {
+				#{$el}__item {
+					height: rem-calc(56px);
+					grid-template-columns: auto 1fr;
+					display: grid;
+				}
+
+				#{$el}__icon {
+					margin: rem-calc(16px);
+					grid-column-start: 1;
+				}
+
+				#{$el}__content {
+					grid-column-start: 2;
+					@include chain(height, line-height, rem-calc(56px));
+					margin-left: rem-calc(16px);
+				}
+			}
+		}
+
+		@if(in-array(grid, $bottom-sheet-settings)) {
+			&--grid {
+				display: grid;
+				padding: 0 rem-calc(24px);
+				grid-template-columns: repeat(3, 1fr);
+
+				#{$el}__icon {
+					@include chain(width, height, font-size, rem-calc(48px));
+				}
+
+				#{$el}__item {
+					text-align: center;
+					min-width: rem-calc(48px);
+					grid-column-start: auto;
+				}
+
+				#{$el}__content {
+					padding: rem-calc(8px) 0 rem-calc(24px) 0;
+				}
+			}
+		}
+
+		&--modal {
+			@extend %z16;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba($black, .32);
+			}
+		}
+
+		&__item {
+			display: block;
+			@extend %cursor--pointer;
+			background: transparent;
+			transition: background .1s $easing-standard;
+
+			&:hover {
+				background: rgba($black, .04);
+			}
+
+			&:active {
+				background: rgba($black, .12);
+			}
+		}
+
+		&__header {
+			color: #{$black}8a;
+			width: 100%;
+			@include chain(height, line-height, #{rem-calc(56px)});
+			padding: #{0 rem-calc(16px)};
+		}
+
+		&__icon, &__content {
+			color: #{$black}de;
+		}
+
+		&__content, &__header {
+			@extend %body-1;
+		}
 	}
-
-    &--list {
-        #{$el}__item {
-            height: rem-calc(56px);
-            grid-template-columns: auto 1fr;
-            display: grid;
-        }
-
-        #{$el}__icon {
-            margin: rem-calc(16px);
-            grid-column-start: 1;
-        }
-
-        #{$el}__content {
-            grid-column-start: 2;
-            @include chain(height, line-height, rem-calc(56px));
-            margin-left: rem-calc(16px);
-        }
-    }
-
-    &--grid {
-        display: grid;
-        padding: 0 rem-calc(24px);
-		grid-template-columns: repeat(3, 1fr);
-
-        #{$el}__icon {
-            @include chain(width, height, font-size, rem-calc(48px));
-        }
-
-        #{$el}__item {
-            text-align: center;
-            min-width: rem-calc(48px);
-			grid-column-start: auto;
-        }
-
-        #{$el}__content {
-            padding: rem-calc(8px) 0 rem-calc(24px) 0;
-        }
-    }
-
-    &--modal {
-        @extend %z16;
-
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba($black, .32);
-        }
-    }
-
-    &__item {
-        display: block;
-        @extend %cursor--pointer;
-		background: transparent;
-		transition: background .1s $easing-standard;
-
-		&:hover {
-			background: rgba($black, .04);
-		}
-
-		&:active {
-			background: rgba($black, .12);
-		}
-    }
-
-    &__header {
-        color: #{$black}8a;
-        width: 100%;
-        @include chain(height, line-height, #{rem-calc(56px)});
-        padding: #{0 rem-calc(16px)};
-    }
-
-    &__icon, &__content {
-        color: #{$black}de;
-    }
-
-    &__content, &__header {
-        @extend %body-1;
-    }
 }

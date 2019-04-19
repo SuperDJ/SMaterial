@@ -1,68 +1,78 @@
-.fab {
-	--fab-size: #{$fab-size};
-	--fab-padding: #{$fab-padding};
-	--fab-background: #{$fab-background};
-	--fab__icon-size: #{$fab__icon-size};
-	--fab--hover-background: #{$fab--hover-background};
-	--fab--active-background: #{$fab--active-background};
+@if(in-array(fab, $component-settings)) {
+	.fab {
+		--fab-size: #{$fab-size};
+		--fab-padding: #{$fab-padding};
+		--fab-background: #{$fab-background};
+		--fab__icon-size: #{$fab__icon-size};
+		--fab--hover-background: #{$fab--hover-background};
+		--fab--active-background: #{$fab--active-background};
 
-	--fab--mini-size: #{$fab--mini-size};
-	--fab--mini-padding: #{$fab--mini-padding};
+		@if(in-array(mini, $fab-settings)) {
+			--fab--mini-size: #{$fab--mini-size};
+			--fab--mini-padding: #{$fab--mini-padding};
+		}
 
-	--fab--extended-height: #{$fab--extended-height};
-	--fab--extended-border-radius: #{$fab--extended-border-radius};
-	--fab--extended-padding: #{$fab--extended-padding};
-	--fab--extended--icon-left-padding: #{$fab--extended--icon-left-padding};
-	--fab--extended--icon-left__icon-margin-right: #{$fab--extended--icon-left__icon-margin-right};
-	--fab--extended--icon-right-padding: #{$fab--extended--icon-right-padding};
-	--fab--extended--icon-right__icon-margin-left: #{$fab--extended--icon-right__icon-margin-left};
+		@if(in-array(extended, $fab-settings)) {
+			--fab--extended-height: #{$fab--extended-height};
+			--fab--extended-border-radius: #{$fab--extended-border-radius};
+			--fab--extended-padding: #{$fab--extended-padding};
+			--fab--extended--icon-left-padding: #{$fab--extended--icon-left-padding};
+			--fab--extended--icon-left__icon-margin-right: #{$fab--extended--icon-left__icon-margin-right};
+			--fab--extended--icon-right-padding: #{$fab--extended--icon-right-padding};
+			--fab--extended--icon-right__icon-margin-left: #{$fab--extended--icon-right__icon-margin-left};
+		}
 
-	$el: &;
-	@extend %button;
-	@include chain(width, height, var(--fab-size));
-	padding: var(--fab-padding);
-	border-radius: 50%;
-	background: var(--fab-background);
-	@extend %z6;
-	color: var(--font-on-primary);
-	text-align: center;
-	@extend %cursor--pointer;
-	user-select: none;
-	position: relative;
-	display: inline-block;
-	@include ripple();
-	--ripple--hover-background: var(--fab--hover-background);
-	--ripple--active-background: var(--fab--active-background);
-	--icon-color: var(--font-on-primary);
+		$el: &;
+		@extend %button;
+		@include chain(width, height, var(--fab-size));
+		padding: var(--fab-padding);
+		border-radius: 50%;
+		background: var(--fab-background);
+		@extend %z6;
+		color: var(--font-on-primary);
+		text-align: center;
+		@extend %cursor--pointer;
+		user-select: none;
+		position: relative;
+		display: inline-block;
+		@include ripple();
+		--ripple--hover-background: var(--fab--hover-background);
+		--ripple--active-background: var(--fab--active-background);
+		--icon-color: var(--font-on-primary);
 
-	.icon {
-		--icon-size: var(--fab__icon-size);
-	}
+		.icon {
+			--icon-size: var(--fab__icon-size);
+		}
 
-	&--mini {
-		@include chain(width, height, var(--fab--mini-size));
-		padding: var(--fab--mini-padding);
-	}
-
-	&--extended {
-		width: auto;
-		height: var(--fab--extended-height);
-		border-radius: var(--fab--extended-border-radius);
-		padding: var(--fab--extended-padding);
-
-		&--icon-left {
-			padding: var(--fab--extended--icon-left-padding);
-
-			.icon {
-				margin-right: var(--fab--extended--icon-left__icon-margin-right);
+		@if (in-array(mini, $fab-settings)) {
+			&--mini {
+				@include chain(width, height, var(--fab--mini-size));
+				padding: var(--fab--mini-padding);
 			}
 		}
 
-		&--icon-right {
-			padding: var(--fab--extended--icon-right-padding);
+		@if (in-array(extended, $fab-settings)) {
+			&--extended {
+				width: auto;
+				height: var(--fab--extended-height);
+				border-radius: var(--fab--extended-border-radius);
+				padding: var(--fab--extended-padding);
 
-			.icon {
-				margin-left: var(--fab--extended--icon-right__icon-margin-left);
+				&--icon-left {
+					padding: var(--fab--extended--icon-left-padding);
+
+					.icon {
+						margin-right: var(--fab--extended--icon-left__icon-margin-right);
+					}
+				}
+
+				&--icon-right {
+					padding: var(--fab--extended--icon-right-padding);
+
+					.icon {
+						margin-left: var(--fab--extended--icon-right__icon-margin-left);
+					}
+				}
 			}
 		}
 	}

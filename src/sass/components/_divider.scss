@@ -1,0 +1,19 @@
+@if(in-array(divider, $component-settings)) {
+	.divider {
+		--divider-height: #{$divider-height};
+		--divider-background: #{$divider-background};
+		--divider-margin: #{$divider-margin};
+
+		width: 100%;
+		height: var(--divider-height);
+		background: var(--divider-background);
+		border: none 0;
+		margin: var(--divider-margin);
+
+		@if(in-array(vertical, $divider-settings)) {
+			&--vertical {
+				transform: rotate(90deg);
+			}
+		}
+	}
+}

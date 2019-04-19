@@ -1,47 +1,49 @@
-@each $depth, $setting in $elevation-umbra-map {
-	$umbra: map_get( $elevation-umbra-map, $depth );
-	$penumbra: map_get( $elevation-penumbra-map, $depth );
-	$ambient: map_get( $elevation-ambient-map, $depth );
+@if(in-array(shadows, $foundation-settings)) {
+	@each $depth, $setting in $elevation-umbra-map {
+		$umbra: map_get($elevation-umbra-map, $depth);
+		$penumbra: map_get($elevation-penumbra-map, $depth);
+		$ambient: map_get($elevation-ambient-map, $depth);
 
-	$umbra-shadow: '';
-	@each $px in $umbra {
-		$umbra-shadow: $umbra-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
-	}
-	$umbra-shadow: $umbra-shadow + ' ' + $elevation-umbra-color;
-
-	$penumbra-shadow: '';
-	@each $px in $penumbra {
-		$penumbra-shadow: $penumbra-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
-	}
-	$penumbra-shadow: $penumbra-shadow + ' ' + $elevation-penumbra-color;
-
-	$ambient-shadow: '';
-	@each $px in $ambient {
-		$ambient-shadow: $ambient-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
-	}
-	$ambient-shadow: $ambient-shadow + ' ' + $elevation-ambient-color;
-
-	@if(in-array($depth, $shadow-settings)) {
-		%z#{$depth} {
-			$shadow: $umbra-shadow + ', ' + $penumbra-shadow + ', ' + $ambient-shadow;
-			box-shadow: unquote($shadow);
+		$umbra-shadow: '';
+		@each $px in $umbra {
+			$umbra-shadow: $umbra-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
 		}
+		$umbra-shadow: $umbra-shadow + ' ' + $elevation-umbra-color;
 
-		%z#{$depth}--inset {
-			$shadow: 'inset ' + $umbra-shadow + ', inset ' + $penumbra-shadow + ', inset ' + $ambient-shadow;
-			box-shadow: unquote($shadow);
+		$penumbra-shadow: '';
+		@each $px in $penumbra {
+			$penumbra-shadow: $penumbra-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
 		}
+		$penumbra-shadow: $penumbra-shadow + ' ' + $elevation-penumbra-color;
 
-		.z#{$depth} {
-			@extend %z#{$depth};
+		$ambient-shadow: '';
+		@each $px in $ambient {
+			$ambient-shadow: $ambient-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
 		}
+		$ambient-shadow: $ambient-shadow + ' ' + $elevation-ambient-color;
 
-		.z#{$depth}--inset {
-			@extend %z#{$depth}--inset;
+		@if (in-array($depth, $shadow-settings)) {
+			%z#{$depth} {
+				$shadow: $umbra-shadow + ', ' + $penumbra-shadow + ', ' + $ambient-shadow;
+				box-shadow: unquote($shadow);
+			}
+
+			%z#{$depth}--inset {
+				$shadow: 'inset ' + $umbra-shadow + ', inset ' + $penumbra-shadow + ', inset ' + $ambient-shadow;
+				box-shadow: unquote($shadow);
+			}
+
+			.z#{$depth} {
+				@extend %z#{$depth};
+			}
+
+			.z#{$depth}--inset {
+				@extend %z#{$depth}--inset;
+			}
 		}
 	}
-}
 
-.z0 {
-	box-shadow: none !important;
+	.z0 {
+		box-shadow: none !important;
+	}
 }
