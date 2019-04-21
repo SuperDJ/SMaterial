@@ -1,6 +1,6 @@
 {
 	"name": "smaterial",
-	"version": "2019.4.17",
+	"version": "2019.4.19",
 	"description": "A CSS framework based on Material Design",
 	"repository": {
 		"type": "git",
@@ -27,7 +27,6 @@
 	],
 	"author": "Derkjan Super",
 	"files": [
-		"docs/dist/",
 		"src/"
 	],
 	"devDependencies": {

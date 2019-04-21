@@ -16,7 +16,7 @@ $component-settings: (app-bar, badge, banner, bottom-nav, bottom-sheet, button, 
 $app-bar-settings: (title, actions, fixed) !default;
 $banner-settings: (single, multi, image) !default;
 $bottom-sheet-settings: (list, grid) !default;
-$button-settings: (contained, text, outlined) !default;
+$button-settings: (contained, text, outlined, fluid) !default;
 $chip-settings: (outlined, thumbnail, remove) !default;
 $data-table-settings: (numeric, hover) !default;
 $dialog-settings: (simple, alert, confirm, full-screen, scroll) !default;
@@ -59,6 +59,5 @@ $cursor-settings: (alias, all-scroll, auto, cell, context-menu, col-resize, copy
 @import 'foundation/variables';
 @import 'foundation/ripple';
 @import 'foundation/iconography';
-
 
 @import 'components/index';

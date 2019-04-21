@@ -175,8 +175,10 @@
 			}
 		}
 
-		&--fluid {
-			width: 100%;
+		@if(in-array(fluid, $button-settings)) {
+			&--fluid {
+				width: 100%;
+			}
 		}
 
 		.icon {
