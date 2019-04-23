@@ -75,5 +75,14 @@
 				}
 			}
 		}
+
+		&:disabled, &--disabled {
+			color: rgba($black, .38);
+			--fab-background: #{rgba($black, .12)};
+
+			.icon {
+				color: rgba($black, .38);
+			}
+		}
 	}
 }

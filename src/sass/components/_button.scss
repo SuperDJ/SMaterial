@@ -182,8 +182,9 @@
 		}
 
 		.icon {
-			@include chain(width, height, font-size, var(--button__icon-size));
-			vertical-align: middle;
+			@include chain(width, font-size, var(--button__icon-size));
+			vertical-align: top;
+			padding: calc((var(--button-height) - var(--button__icon-size)) / 2) 0;
 		}
 	}
 }

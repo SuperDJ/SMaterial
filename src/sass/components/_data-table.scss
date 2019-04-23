@@ -48,7 +48,7 @@
 			border-bottom: var(--data-table__row-border-bottom);
 			padding: 0 rem-calc(16px);
 
-			.icon {
+			> .icon {
 				vertical-align: middle;
 				--icon-size: var(--data-table__row__icon-size);
 			}

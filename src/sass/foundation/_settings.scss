@@ -472,14 +472,14 @@ $divider-margin: 0 !default;
  **************************************/
 
 $fab-size: rem-calc(56px) !default;
-$fab-padding: 0 rem-calc(16px) !default;
+$fab-padding: rem-calc(16px) !default;
 $fab-background: var(--primary-color) !default;
 $fab__icon-size: rem-calc(24px) !default;
 $fab--hover-background: rgba($white, .08) !default;
 $fab--active-background: rgba($white, .32) !default;
 
 $fab--mini-size: rem-calc(40px) !default;
-$fab--mini-padding: 0 rem-calc(8px) !default;
+$fab--mini-padding: rem-calc(8px) !default;
 
 $fab--extended-height: rem-calc(48px) !default;
 $fab--extended-border-radius: rem-calc(32px) !default;
