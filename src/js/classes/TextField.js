@@ -13,7 +13,8 @@ export default class TextField
 
 	checkContainer()
 	{
-		if( !this.container ) {
+		if( !this.container )
+		{
 			console.warn( 'Input has no container' );
 		}
 	}

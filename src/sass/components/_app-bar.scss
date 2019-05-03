@@ -1,57 +1,71 @@
-.app-bar {
-	$el: &;
-	--app-bar-background: #{$app-bar-background};
-	--app-bar-font-color: #{$app-bar-font-color};
-	--app-bar-height: #{$app-bar-height};
-	--app-bar-padding: #{$app-bar-padding};
-	--app-bar__title-margin: #{$app-bar__title-margin};
-	--app-bar__actions-margin: #{$app-bar__actions-margin};
+@if(in-array(app-bar, $component-settings)) {
+	.app-bar {
+		$el: &;
+		--app-bar-background: #{$app-bar-background};
+		--app-bar-font-color: #{$app-bar-font-color};
+		--app-bar-padding: #{$app-bar-padding};
+		--app-bar__title-margin: #{$app-bar__title-margin};
+		--app-bar__actions-margin: #{$app-bar__actions-margin};
 
-	background: var(--app-bar-background);
-	color: var(--app-bar-font-color);
-	min-height: var(--app-bar-height); // Min height to allow more content in the app bar
-	padding: var(--app-bar-padding);
-	width: 100%;
-	@extend %z4;
-	display: grid;
-	grid-template-columns: rem-calc(24px) 1fr auto 1fr;
-	margin-bottom: calc(var(--app-bar-height) * -1);
-
-	&__title {
-		grid-column-start: 2;
-		@extend %h6;
-		margin: var(--app-bar__title-margin);
-		line-height: initial;
-	}
-
-	&__actions {
-		grid-column-start: 4;
-		justify-content: flex-end;
-		display: flex;
-
-		> * {
-			margin: var(--app-bar__actions-margin);
-		}
-	}
-
-	&--fixed {
-		position: fixed;
-		top: 0;
-		left: 0;
-		z-index: 2;
-	}
-
-	.icon {
-		@extend %cursor--pointer;
+		background: var(--app-bar-background);
 		color: var(--app-bar-font-color);
-	}
+		min-height: var(--app-bar-height); // Min height to allow more content in the app bar
+		padding: var(--app-bar-padding);
+		width: 100vw;
+		@extend %z4;
+		display: grid;
+		grid-template-columns: rem-calc(24px) 1fr auto 1fr;
+		margin-bottom: calc(var(--app-bar-height) * -1);
 
-	&-drawer--fixed {
-		@media #{$sm-up} {
-			#{$el}__title {
-				// TODO make more dynamic
-				margin: 0 0 0 calc(var(--drawer-width) + #{rem-calc(32px)} - var(--icon-size) - #{rem-calc(16px)});
+		@if(in-array(title, $app-bar-settings)) {
+			&__title {
+				grid-column-start: 2;
+				@extend %h6;
+				margin: var(--app-bar__title-margin);
+				line-height: initial;
 			}
 		}
+
+		@if(in-array(actions, $app-bar-settings)) {
+			&__actions {
+				grid-column-start: 4;
+				justify-content: flex-end;
+				display: flex;
+
+				> * {
+					margin: var(--app-bar__actions-margin);
+				}
+			}
+		}
+
+		@if(in-array(fixed, $app-bar-settings)) {
+			&--fixed {
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 2;
+			}
+		}
+
+		.icon {
+			@extend %cursor--pointer;
+			color: var(--app-bar-font-color);
+			--icon-size: #{rem-calc(24px)};
+		}
+
+		@if(in-array(fixed, $drawer-settings)) {
+			&--drawer-fixed {
+				@media #{$sm-up} {
+					#{$el}__title {
+						// TODO make more dynamic
+						margin: 0 0 0 calc(var(--drawer-width) + #{rem-calc(32px)} - var(--icon-size) - #{rem-calc(16px)});
+					}
+				}
+			}
+		}
+	}
+
+	:root {
+		--app-bar-height: #{$app-bar-height};
 	}
 }

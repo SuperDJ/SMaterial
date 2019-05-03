@@ -1,36 +1,46 @@
-.icon {
-    color: var(--icon-color);
-	vertical-align: middle;
-    @include chain(width, height, font-size, var(--icon-size));
+@if(in-array(icons, $foundation-settings)) {
+	.icon {
+		color: var(--icon-color);
+		vertical-align: middle;
+		@include chain(width, height, font-size, var(--icon-size));
 
-    &:active {
-        color: var(--icon--active-color);
-    }
+		&:active {
+			color: var(--icon--active-color);
+		}
 
-    &:focus:active {
-        color: var(--icon--active--focus-color);
-    }
+		&:focus:active {
+			color: var(--icon--active--focus-color);
+		}
 
-	&--18 {
-		--icon-size: #{rem-calc(18px)};
+		@if (in-array(18, $icon-settings)) {
+			&--18 {
+				--icon-size: #{rem-calc(18px)};
+			}
+		}
+
+		@if (in-array(24, $icon-settings)) {
+			&--24 {
+				--icon-size: #{rem-calc(24px)};
+			}
+		}
+
+		@if (in-array(36, $icon-settings)) {
+			&--36 {
+				--icon-size: #{rem-calc(36px)};
+			}
+		}
+
+		@if (in-array(48, $icon-settings)) {
+			&--48 {
+				--icon-size: #{rem-calc(48px)};
+			}
+		}
 	}
 
-	&--24 {
-		--icon-size: #{rem-calc(24px)};
+	:root {
+		--icon-size: #{$icon-size};
+		--icon-color: #{$icon-color};
+		--icon--active-color: #{$icon--active-color};
+		--icon--active--focus-color: #{$icon--active--focus-color};
 	}
-
-	&--36 {
-		--icon-size: #{rem-calc(36px)};
-	}
-
-	&--48 {
-		--icon-size: #{rem-calc(48px)};
-	}
-}
-
-:root {
-    --icon-size: #{$icon-size};
-    --icon-color: #{$icon-color};
-    --icon--active-color: #{$icon--active-color};
-    --icon--active--focus-color: #{$icon--active--focus-color};
 }

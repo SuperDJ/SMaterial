@@ -1,91 +1,134 @@
-@each $scale, $setting in $type-scale {
-	%#{$scale} {
-		font-family: var(#{--#{$scale}-font-family}), sans-serif;
-		line-height: rem-calc(( map-get( $setting, size ) * 1.4 ) );
-		font-size: rem-calc(map-get($setting, size));
-		font-weight: map-get($setting, font);
-		text-transform: map-get($setting, case);
-		letter-spacing: if(map-get( $setting, spacing ) == 0, 0, rem-calc(map-get($setting, spacing)));
-		margin: 0;
+@if(in-array(typography, $foundation-settings)) {
+	@each $scale, $setting in $type-scale {
+		@if (in-array($scale, $typography-settings)) {
+			%#{$scale} {
+				font-family: var(#{--#{$scale}-font-family}), sans-serif;
+				line-height: rem-calc(( map-get( $setting, size ) * 1.4 ) + 0px);
+				font-size: rem-calc(map-get($setting, size) + 0px);
+				font-weight: map-get($setting, font);
+				text-transform: map-get($setting, case);
+				letter-spacing: if(map-get( $setting, spacing ) == 0, 0, rem-calc(map-get($setting, spacing) + 0px));
+				margin: 0;
 
-		@if( map-get( $setting, color ) )
-		{
-			 color: map_get( $setting, color );
+				@if (map-get($setting, color)) {
+					color: map_get($setting, color);
+				}
+
+				@if ($scale != body-1) {
+					.icon {
+						--icon-size: #{rem-calc(map-get($setting, size) + 0px)};
+					}
+				}
+			}
 		}
 	}
-}
 
-h1, .h1 {
-	@extend %h1;
-}
-
-h2, .h2 {
-	@extend %h2;
-}
-
-h3, .h3 {
-	@extend %h3;
-}
-
-h4, .h4 {
-	@extend %h4;
-}
-
-h5, .h5 {
-	@extend %h5;
-}
-
-h6, .h6 {
-	@extend %h6;
-}
-
-.subtitle-1 {
-	@extend %subtitle-1;
-}
-
-.subtitle-2 {
-	@extend %subtitle-2;
-}
-
-body, .body-1 {
-	@extend %body-1;
-}
-
-.body-2 {
-	@extend %body-2;
-}
-
-.caption {
-	@extend %caption;
-}
-
-.overline {
-	@extend %overline;
-}
-
-p {
-	@extend %body-1;
-	margin: 0 0 calc( #{map-get( map-get($type-scale, body-1), size ) + 0px } * .75 ) 0;
-}
-
-.text {
-	&-left {
-		text-align: left !important;
+	@if (in-array(h1, $typography-settings)) {
+		h1, .h1 {
+			@extend %h1;
+		}
 	}
 
-	&-center {
-		text-align: center !important;
+	@if (in-array(h2, $typography-settings)) {
+		h2, .h2 {
+			@extend %h2;
+		}
 	}
 
-	&-right {
-		text-align: right !important;
+	@if (in-array(h3, $typography-settings)) {
+		h3, .h3 {
+			@extend %h3;
+		}
 	}
-}
 
-:root {
-	--font-family: #{$font-family};
+	@if (in-array(h4, $typography-settings)) {
+		h4, .h4 {
+			@extend %h4;
+		}
+	}
 
-	@each $scale, $setting in $type-scale {
-		--#{$scale}-font-family: #{if( map-get( $setting, typeface ) == $font-family, var(--font-family), map-get($setting, typeface) )};
+	@if (in-array(h5, $typography-settings)) {
+		h5, .h5 {
+			@extend %h5;
+		}
+	}
+
+	@if (in-array(h6, $typography-settings)) {
+		h6, .h6 {
+			@extend %h6;
+		}
+	}
+
+	@if (in-array(subtitle-1, $typography-settings)) {
+		.subtitle-1 {
+			@extend %subtitle-1;
+		}
+	}
+
+	@if (in-array(subtitle-2, $typography-settings)) {
+		.subtitle-2 {
+			@extend %subtitle-2;
+		}
+	}
+
+	@if (in-array(body-1, $typography-settings)) {
+		body, .body-1 {
+			@extend %body-1;
+		}
+	}
+
+	@if (in-array(body-2, $typography-settings)) {
+		.body-2 {
+			@extend %body-2;
+		}
+	}
+
+	@if (in-array(caption, $typography-settings)) {
+		.caption {
+			@extend %caption;
+		}
+	}
+
+	@if (in-array(overline, $typography-settings)) {
+		.overline {
+			@extend %overline;
+		}
+	}
+
+	@if (in-array(body-1, $typography-settings)) {
+		p {
+			@extend %body-1;
+			margin: 0 0 calc(#{map-get( map-get($type-scale, body-1), size ) + 0px } * .75) 0;
+		}
+	}
+
+	.text {
+		@if (in-array(left, $typography-settings)) {
+			&--left {
+				text-align: left !important;
+			}
+		}
+
+		@if (in-array(center, $typography-settings)) {
+			&--center {
+				text-align: center !important;
+			}
+		}
+
+		@if (in-array(right, $typography-settings)) {
+			&--right {
+				text-align: right !important;
+			}
+		}
+	}
+
+	:root {
+		--font-family: #{$font-family};
+
+		@each $scale, $setting in $type-scale {
+			@if (in-array($scale, $typography-settings)) {
+				--#{$scale}-font-family: #{if( map-get( $setting, typeface ) == $font-family, var(--font-family), map-get($setting, typeface) )};
+			}
+		}
 	}
 }

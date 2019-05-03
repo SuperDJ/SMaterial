@@ -1,0 +1,162 @@
+@if(in-array(card, $component-settings)) {
+	.card {
+		--card__thumbnail-size: #{rem-calc(40px)};
+		--card__header-padding: #{rem-calc(16px)};
+		--card__title-color: #{rgba($black, .84)};
+		--card__subtitle-color: #{rgba($black, .60)};
+		--card__content-color: #{rgba($black, .60)};
+		--card__content-padding: #{rem-calc(16px) rem-calc(16px) rem-calc(8px) rem-calc(16px)};
+
+		$el: &;
+		background: var(--surface-color);
+		width: 100%;
+		@extend %z1;
+		border-radius: var(--border-radius);
+		transition: box-shadow $easing-standard .1s;
+		display: block;
+
+		&:hover {
+			@extend %z8;
+		}
+
+		img#{$el}__thumbnail {
+			grid-area: thumbnail;
+			@extend .shape--circle;
+			@include chain(width, height, var(--card__thumbnail-size));
+		}
+
+		&__header {
+			grid-area: header;
+			padding: var(--card__header-padding);
+			@include border-top-radius(var(--border-radius));
+		}
+
+		&__title {
+			grid-area: title;
+			@extend .h6;
+			color: var(--card__title-color);
+		}
+
+		&__subtitle {
+			grid-area: subtitle;
+			color: var(--card__subtitle-color);
+		}
+
+		&__media {
+			grid-area: media;
+
+			img {
+				width: 100%;
+				display: inherit;
+			}
+		}
+
+		&__content {
+			grid-area: content;
+			color: var(--card__content-color);
+			padding: var(--card__content-padding);
+
+			> * {
+				padding: 0;
+			}
+		}
+
+		&__actions {
+			grid-area: actions;
+			padding: 0 rem-calc(8px) rem-calc(8px) rem-calc(8px);
+
+			> * {
+				margin-right: rem-calc(8px);
+			}
+		}
+
+		&__header, &__media, &__content, &__actions, &__title, &__subtitle {
+			width: 100%;
+		}
+
+		&--outlined {
+			border: rem-calc(1px) solid rgba($black, .12);
+		}
+
+		&--top {
+			@include chain(border-top-left-radius, border-top-right-radius, var(--border-radius));
+		}
+
+		&--bottom {
+			@include chain(border-bottom-left-radius, border-bottom-right-radius, var(--border-radius));
+		}
+
+		&--left {
+			@include chain(border-bottom-left-radius, border-top-left-radius, var(--border-radius));
+		}
+
+		&--right {
+			@include chain(border-bottom-right-radius, border-top-right-radius, var(--border-radius));
+		}
+
+		// TODO fix naming
+		&__default {
+			#{$el}__header {
+				height: rem-calc(72px);
+				display: grid;
+				grid-template:
+					"thumbnail title"
+					"thumbnail subtitle";
+				grid-template-columns: calc(var(--card__header-padding) + var(--card__thumbnail-size)) 1fr;
+			}
+		}
+
+		&__simple {
+			display: grid;
+			grid-template:
+				"header media"
+				"content media"
+				"actions actions";
+			grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
+
+			#{$el}__media {
+				padding: rem-calc(16px);
+
+				img {
+					@include chain(width, height, rem-calc(80px));
+				}
+			}
+		}
+
+		&__album {
+			display: grid;
+			grid-template:
+				"media header"
+				"content content";
+			grid-template-columns: rem-calc(80px) 1fr;
+
+			#{$el}__media img {
+				@include chain(width, height, rem-calc(80px));
+				border-top-left-radius: var(--border-radius);
+			}
+
+			#{$el}__content {
+				border: rem-calc(1px) solid rgba($black, .12);
+			}
+
+			#{$el}__header  {
+				height: rem-calc(80px);
+			}
+		}
+
+		&--media {
+			position: relative;
+
+			img {
+				display: inherit;
+				width: 100%;
+				border-radius: var(--border-radius);
+			}
+
+			#{$el}__header, #{$el}__content, #{$el}__actions {
+				position: absolute;
+				background: rgba($white, .32);
+			}
+		}
+	}
+}

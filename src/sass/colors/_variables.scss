@@ -1,13 +1,17 @@
-:root {
-	@each $color-name, $color-swatch in $colors {
-		@each $color-type, $color-value in $color-swatch {
-			// Since base and 500 color are equal merge them together
-			@if ($color-type == 'base') {
-	 			--#{$color-name}: #{$color-value};
-			} @else if( str-index( $color-name, 'shades' ) ) {
-				--#{$color-type}: #{$color-value};
-			}  @else if( $color-type != '500' ) {
-				--#{$color-name}-#{$color-type}: #{$color-value};
+@if(in-array(variables, $color-settings) and in-array(colors, $color-settings)) {
+	:root {
+		@each $color-name, $color-swatch in $colors {
+			@if(in-array($color-name, $color-settings)) {
+				@each $color-type, $color-value in $color-swatch {
+					// Since base and 500 color are equal merge them together
+					@if ($color-type == 'base') {
+						--#{$color-name}: #{$color-value};
+					} @else if (str-index($color-name, 'shades')) {
+						--#{$color-type}: #{$color-value};
+					} @else if ($color-type != '500') {
+						--#{$color-name}-#{$color-type}: #{$color-value};
+					}
+				}
 			}
 		}
 	}

@@ -1,16 +1,19 @@
-$cursors: alias, all-scroll, auto, cell, context-menu, col-resize, copy, crosshair, default, e-resize, ew-resize, grab, grabbing, help, move, n-resize, ne-resize, nesw-resize, ns-resize, nw-resize, nwse-resize, no-drop, none, not-allowed, pointer, progress, row-resize, s-resize, se-resize, sw-resize, text, wait, zoom-in, zoom-out;
+@if(in-array(cursor, $helper-settings)) {
+	$cursors: alias, all-scroll, auto, cell, context-menu, col-resize, copy, crosshair, default, e-resize, ew-resize, grab, grabbing, help, move, n-resize, ne-resize, nesw-resize, ns-resize, nw-resize, nwse-resize, no-drop, none, not-allowed, pointer, progress, row-resize, s-resize, se-resize, sw-resize, text, wait, zoom-in, zoom-out;
 
-@each $cursor in $cursors {
-	%cursor--#{$cursor} {
-		cursor: #{$cursor};
+	@each $cursor in $cursors {
+		@if (in-array($cursor, $cursor-settings)) {
+			%cursor--#{$cursor} {
+				cursor: #{$cursor};
 
-		@if( $cursor == pointer )
-		{
-			user-select: none;
+				@if ($cursor == pointer) {
+					user-select: none;
+				}
+			}
+
+			.cursor--#{$cursor} {
+				@extend %cursor--#{$cursor};
+			}
 		}
-	}
-
-	.cursor--#{$cursor} {
-		@extend %cursor--#{$cursor};
 	}
 }

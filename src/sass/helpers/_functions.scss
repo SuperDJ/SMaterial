@@ -2,10 +2,10 @@
  *	Convert unit to rem
  */
 @function rem-calc( $sp, $default: $font-size ) {
-	@if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) != null )
+	@if( type_of( $sp ) != null AND str_index( #{$sp}, px ) != null )
 	{
 		@return $sp / ( $default + 0px ) * 1rem;
-	} @else if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) == null )
+	} @else if( type_of( $sp ) != null AND str_index( #{$sp}, px ) == null )
 	{
 		@return ( $sp + 0px ) / ( $default + 0px ) * 1rem;
 	} @else {
@@ -17,17 +17,20 @@
  *	Convert unit to em
  */
 @function em-calc( $sp, $default: $font-size ) {
-	@if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) != null )
+	@if( type_of( $sp ) != null AND str_index( #{$sp}, px ) != null )
 	{
 		@return $sp / ( $default + 0px ) * 1em;
-	} @else if( type_of( $sp ) != null AND str_index( quote( $sp ), px ) == null )
+	} @else if( type_of( $sp ) != null AND str_index( #{$sp}, px ) == null )
 	{
 		@return ( $sp + 0px ) / ( $default + 0px ) * 1em;
 	} @else {
-		@warn 'Wrong argument parsed to rem-calc';
+		@warn 'Wrong argument parsed to em-calc';
 	}
 }
 
+/**
+ * Explode a string
+ */
 @function explode($string, $delimiter) {
 	$result: ();
 	@if $delimiter == "" {
@@ -58,6 +61,9 @@
 	@return $result;
 }
 
+/**
+ * Change type to number
+ */
 @function number( $value ) {
 	@if type-of( $value ) == 'number' {
 		@return $value;
@@ -93,4 +99,34 @@
 @function line-height( $type, $type-scale )
 {
 	@return rem-calc( map-get( map-get( $type-scale, $type ), size ) * 1.4 );
+}
+
+/**
+ * Find a specific color
+ */
+@function color( $color, $accent, $colors: $colors ) {
+	$color-search: null; // Store color name array
+	$accent: '#{$accent}';
+
+	// Search color name array
+	@each $color-name, $swatches in $colors {
+		@each $color-type, $color-value in $swatches {
+			@if $color == $color-value {
+				$color-search: $color-name; // Set color array name
+			}
+		}
+	}
+
+	// Return color $accent
+	@each $color-name, $swatches in $colors {
+		@if $color-name == $color-search {
+			@each $color-type, $color-value in $swatches {
+				@if $color-type == $accent {
+					@return $color-value;
+				}
+			}
+		}
+	}
+
+	@return false;
 }

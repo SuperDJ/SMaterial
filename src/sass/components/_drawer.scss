@@ -1,200 +1,254 @@
-.drawer {
-	--drawer-background: #{var(--background-color)};
+@if(in-array(drawer, $component-settings)) {
+	.drawer {
+		--drawer-background: #{var(--background-color)};
 
-	--drawer__item__children-height: auto;
+		--drawer__item__children-height: auto;
 
-	--drawer__header-height: #{calc(var(--app-bar-height) * 2)};
-	--drawer__header__profile-image-size: #{rem-calc(40px)};
-	--drawer__header__profile-name-color: #{rgba($black, .87)};
-	--drawer__header__profile-email-color: #{rgba($black, .54)};
+		--drawer__header-height: #{calc(var(--app-bar-height) * 2)};
+		--drawer__header__profile-image-size: #{rem-calc(40px)};
+		--drawer__header__profile-name-color: #{rgba($black, .87)};
+		--drawer__header__profile-email-color: #{rgba($black, .54)};
 
-    $el: &;
-    width: var(--drawer-width);
-    position: fixed;
-    margin-left: -102%;
-    margin-right: rem-calc(56px); // Make sure there is some room left on the right side of the screen
-    background: var(--drawer-background);
-    z-index: 2;
-    height: 100vh;
-    overflow-x: hidden;
-	overflow-y: auto;
-    transition: margin-left .3s $easing-accelerate;
-	border-right: rem-calc(1px) solid rgba($black, .12);
+		$el: &;
+		width: var(--drawer-width);
+		position: fixed;
+		margin-left: -102%;
+		margin-right: rem-calc(56px); // Make sure there is some room left on the right side of the screen
+		background: var(--drawer-background);
+		z-index: 2;
+		height: 100vh;
+		overflow-x: hidden;
+		overflow-y: auto;
+		transition: margin-left .3s $easing-accelerate;
+		border-right: rem-calc(1px) solid rgba($black, .12);
 
-    &--active {
-        margin-left: 0;
-        transition: margin-left .3s $easing-decelerate;
-    }
-
-    &__item {
-        min-height: rem-calc(48px);
-        width: calc(100% - (#{rem-calc(8px)} * 2));
-        display: grid;
-        grid-template-columns: auto 1fr;
-        margin: 0 rem-calc(8px);
-        border-radius: var(--border-radius);
-        transition: background .1s $easing-standard, color .1s $easing-standard;
-		@extend %cursor--pointer;
-
-        &__icon {
-            grid-column-start: 1;
-            margin: 0 rem-calc(24px) 0 rem-calc(8px);
-        }
-
-        &__content {
-            grid-column-start: 2;
-            @include chain(height, line-height, rem-calc(48px));
-            @extend %body-1;
-            color: #{$black}de;
-            margin: 0 rem-calc(8px) 0 rem-calc(8px);
-            font-weight: 500;
-        }
-
-        &:hover {
-            background: rgba($black, .04);
-            color: initial;
-        }
-
-        // &:focus {
-        //     background: rgba($black, .12);
-        // }
-
-        &:active {
-            background: rgba($black, .16);
-        }
-
-        &--active {
-            background: rgba($primary-color, .12);
-            color: var(--primary-color);
-
-            #{$el}__item__icon, #{$el}__item__content {
-                color: var(--primary-color);
-            }
-
-            &:hover {
-                background: rgba($primary-color, .04);
-            }
-
-            &:active {
-                background: rgba($primary-color, .16);
-            }
-        }
-
-        &__children {
-            transition: max-height .1s $easing-decelerate;
-            opacity: 0;
-			pointer-events: none;
-			overflow: hidden;
-
-            &.active {
-                transition: max-height .1s $easing-decelerate;
-                opacity: 1;
-				pointer-events: all;
-            }
-
-            #{$el}__item__content {
-                font-weight: 400;
-            }
-        }
-    }
-
-    &__scrim {
-        background: rgba($black, .32);
-    }
-
-    ul {
-        list-style-type: none;
-        padding: rem-calc(8px) 0;
-        margin: 0;
-        width: 100%;
-
-        ul {
-            margin-left: rem-calc(8px);
-            padding: 0;
-        }
-    }
-
-	&--modal {
-		@extend %z16;
-		border-right: 0;
-	}
-
-	&--modal, &--full-height, &--fixed {
-		@include chain(top, left, bottom, 0);
-	}
-
-	&--clipped {
-		@include chain(left, bottom, 0);
-		top: var(--app-bar-height);
-		box-shadow: none;
-	}
-
-	&--fixed {
-		@media #{$sm-up} {
+		&--active {
 			margin-left: 0;
-			box-shadow: none;
-		}
-	}
-
-	&__header {
-		$header: &;
-		background: var(--drawer__header-background);
-		height: var(--drawer__header-height);
-		margin: rem-calc(-8) 0 rem-calc(8px) 0;
-		position: relative;
-
-		&__background {
-			width: 100%;
-			height: var(--drawer__header-height);
+			transition: margin-left .3s $easing-decelerate;
 		}
 
-		&__profile-image {
-			@include chain(width, height, var(--drawer__header__profile-image-size));
-			top: rem-calc(16px);
-			border-radius: 50%;
-		}
+		&__item {
+			min-height: rem-calc(48px);
+			width: calc(100% - (#{rem-calc(8px)} * 2));
+			display: grid;
+			grid-template-columns: auto 1fr auto;
+			margin: 0 rem-calc(8px);
+			border-radius: var(--border-radius);
+			transition: background .1s $easing-standard, color .1s $easing-standard;
+			@extend %cursor--pointer;
 
-		&__profile-name {
-			color: var(--drawer__header__profile-name-color);
-			@extend %h6;
-			top: var(--app-bar-height);
-		}
-
-		&__profile-email {
-			color: var(--drawer__header__profile-email-color);
-			@extend %body-2;
-			top: calc( var(--app-bar-height) + #{rem-calc( map-get( map-get($type-scale, body-2), size ) * 1.4)} + #{rem-calc(8px)} ); // TODO fix line-height
-		}
-
-		&__profile-image, &__profile-name, &__profile-email {
-			left: rem-calc(16px);
-		}
-
-		&__background, &__profile-image, &__profile-name, &__profile-email {
-			position: absolute;
-			user-select: none;
-		}
-
-		&--small {
-			height: var(--app-bar-height);
-
-			#{$header}__profile-image {
-				top: rem-calc(8px);
+			.icon {
+				--icons-size: #{rem-calc(24px)};
+				grid-column-start: 1;
+				margin: 0 rem-calc(24px) 0 rem-calc(8px);
 			}
 
-			#{$header}__profile-name {
+			.arrow {
+				grid-column-start: 3;
+				margin: 0 rem-calc(8px) 0 rem-calc(24px);
+			}
+
+			.icon, .arrow {
+				--icons-size: #{rem-calc(24px)};
+			}
+
+			&__content {
+				grid-column-start: 2;
 				@extend %body-1;
-				top: rem-calc(16px);
-				left: calc( var(--drawer__header__profile-image-size) + ( #{rem-calc(16px)} * 2) );
+				color: #{$black}de;
+				margin: 0 rem-calc(8px) 0 rem-calc(8px);
+				font-weight: 500;
+			}
+
+			.icon, &__content, &__arrow {
+				@include chain(height, line-height, rem-calc(48px));
+			}
+
+			&:hover {
+				background: rgba($black, .04);
+				color: initial;
+			}
+
+			// &:focus {
+			//     background: rgba($black, .12);
+			// }
+
+			&:active {
+				background: rgba($black, .16);
+			}
+
+			&--active {
+				background: rgba($primary-color, .12);
+				color: var(--primary-color);
+
+				.icon, #{$el}__item__content {
+					color: var(--primary-color);
+				}
+
+				&:hover {
+					background: rgba($primary-color, .04);
+				}
+
+				&:active {
+					background: rgba($primary-color, .16);
+				}
+			}
+
+			&__children {
+				transition: max-height .1s $easing-decelerate;
+				opacity: 0;
+				pointer-events: none;
+				overflow: hidden;
+
+				&.active {
+					transition: max-height .1s $easing-decelerate;
+					opacity: 1;
+					pointer-events: all;
+				}
+
+				#{$el}__item__content {
+					font-weight: 400;
+				}
 			}
 		}
 
-		&--divider {
-			border-bottom: rem-calc(1px) solid rgba($black, .12);
+		&__scrim {
+			background: rgba($black, .32);
+		}
+
+		ul {
+			list-style-type: none;
+			padding: rem-calc(8px) 0;
+			margin: 0;
+			width: 100%;
+
+			ul {
+				padding: 0;
+
+				&.active {
+					margin: rem-calc(8px) 0 rem-calc(8px) rem-calc(8px);
+					padding: rem-calc(8px) 0;
+					@include chain(border-top, border-bottom, rem-calc(1px) solid rgba($black, .12));
+				}
+
+				#{$el}__item {
+					width: calc(100% - (#{rem-calc(8px)} * 3));
+				}
+			}
+		}
+
+		@if(in-array(modal, $drawer-settings)) {
+			&--modal {
+				@extend %z16;
+				border-right: 0;
+			}
+		}
+
+		@if(in-array(modal, $drawer-settings) or in-array(full-height, $drawer-settings) or in-array(fixed, $drawer-settings)) {
+			&--modal, &--full-height, &--fixed {
+				@include chain(top, left, bottom, 0);
+			}
+		}
+
+		@if(in-array(clipped, $drawer-settings)) {
+			&--clipped {
+				@include chain(left, bottom, 0);
+				top: var(--app-bar-height);
+				box-shadow: none;
+			}
+		}
+
+		@if(in-array(fixed, $drawer-settings)) {
+			&--fixed {
+				@media #{$sm-up} {
+					margin-left: 0;
+					box-shadow: none;
+				}
+			}
+		}
+
+		@if(in-array(header, $drawer-settings)) {
+			&__header {
+				$header: &;
+				background: var(--drawer__header-background);
+				height: var(--drawer__header-height);
+				margin: rem-calc(-8px) 0 rem-calc(8px) 0;
+				position: relative;
+
+				&__background {
+					width: 100%;
+					height: var(--drawer__header-height);
+				}
+
+				&__profile-image {
+					@include chain(width, height, var(--drawer__header__profile-image-size));
+					top: rem-calc(16px);
+					border-radius: 50%;
+				}
+
+				&__profile-name {
+					color: var(--drawer__header__profile-name-color);
+					@extend %h6;
+					top: var(--app-bar-height);
+				}
+
+				&__profile-email {
+					color: var(--drawer__header__profile-email-color);
+					@extend %body-2;
+					top: calc(var(--app-bar-height) + #{rem-calc( map-get( map-get($type-scale, body-2), size ) * 1.4 + 0px)} + #{rem-calc(8px)}); // TODO fix line-height
+				}
+
+				&__profile-image, &__profile-name, &__profile-email {
+					left: rem-calc(16px);
+				}
+
+				&__profile-icon {
+					right: rem-calc(16px);
+					top: calc(var(--app-bar-height) + #{rem-calc( map-get( map-get($type-scale, body-2), size ) * 1.4 + 0px)} + #{rem-calc(8px)}); // TODO fix line-height
+				}
+
+				&__background, &__profile-image, &__profile-name, &__profile-email, &__profile-icon {
+					position: absolute;
+					user-select: none;
+				}
+
+				&--small {
+					height: var(--app-bar-height);
+
+					#{$header}__profile-image {
+						top: rem-calc(8px);
+					}
+
+					#{$header}__profile-name {
+						@extend %body-1;
+						top: rem-calc(16px);
+						left: calc(var(--drawer__header__profile-image-size) + (#{rem-calc(16px)} * 2));
+					}
+				}
+
+				&--divider {
+					border-bottom: rem-calc(1px) solid rgba($black, .12);
+				}
+			}
+
+			.menu {
+				position: absolute;
+				top: 95%;
+				right: rem-calc(4px);
+
+				ul {
+					padding: 0;
+					margin: 0;
+				}
+			}
+		}
+
+		.divider {
+			margin: rem-calc(8px) 0;
 		}
 	}
-}
 
-:root {
-	--drawer-width: #{rem-calc(256px)};
+	:root {
+		--drawer-width: #{rem-calc(256px)};
+	}
 }

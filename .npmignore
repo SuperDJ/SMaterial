@@ -1,4 +1,9 @@
 docs
+src
 node_modules
 .*
 webpack.config.js
+*.tgz
+*.html
+*.png
+*.ai

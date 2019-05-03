@@ -55,7 +55,7 @@
                     <section class="xs12 sm6">
                         There are a couple of ways you can get started with Material.
                         The first and easiest option is to use the normal <a href="#css">CSS</a> way.
-                        The second completely customizable option is with SCSS.
+                        The second completely customizable option is with <a href="#sass">SASS</a>.
                     </section>
                 </article>
 
@@ -66,6 +66,11 @@
                         <p>
                             First of all you need to download the CSS and JS files required.
                             You can find the required CSS and JS files in <a href="https://github.com/SuperDJ/material/tree/master/docs/dist" target="_blank">here</a>.
+                            Or you can use them like the following:
+                            <code class="language-html">
+                                &lt;link rel="stylesheet" href="//superdj.github.io/material/dist/css/material-light.css">
+                                &lt;script src="//superdj.github.io/material/dist/js/material.js">&lt;/script>
+                            </code>
                         </p>
 
                         <p>
@@ -128,23 +133,19 @@
                     </section>
                 </article>
 
-                <article class="row">
-                    <h3 class="xs12">SCSS</h3>
+                <article class="row" id="sass">
+                    <h3 class="xs12">SASS</h3>
 
                     <section class="xs12 sm6">
                         <p>
-                            The SCSS is little bit more involved.
-                            The easiest way to get started using SCSS is to just download/ clone the project from
-                            <a href="//github.com/SuperDJ/material" target="_blank">GitHub</a>.
+                            If you want to use SASS you can start in two ways.
+                            You can just download/ clone the project from <a href="//github.com/SuperDJ/material" target="_blank">GitHub</a>.
+                            Or you use the NPM package by using: <code class="language-html">npm i -D smaterial</code>.
                         </p>
 
                         <p>
-                            After downloading all you need to do is delete the irrelevant files and folders.
-                            Except:
-                            <code class="language-html">/src, license, package.json and . prefixed files</code>
-                        </p>
-
-                        <p>
+                            If you chose to download all you need to do is delete the irrelevant files and folders except:
+                            <code class="language-html">/src, license, package.json and . prefixed files</code>.
                             To compile the SCSS and JS files you first need to run the command:
                             <code class="language-html">npm install</code>.
                             This command will install all relevant packages.
@@ -162,6 +163,13 @@
                             This command will compress both SCSS and JS files.
                         </p>
                     </section>
+
+                    <section class="xs12 sm6">
+                        If you chose to use npm you still need to import the SASS and JS files.
+                        To import the SASS file just use the following: <code class="language-css">@import '~smaterial/src/sass/material'</code>.
+                        To import the JS file you can choose to only import the required classes or import the main file.
+                        To import the main file use the following: <code class="language-css">import '~smaterial/src/js/main'</code>
+                    </section>
                 </article>
 
                 <article class="row">
@@ -170,9 +178,142 @@
                     <section class="xs12 sm6">
                         It is possible to change the stylesheet settings in both CSS and SCSS.
                         In CSS you can simply change the variable.
-                        In SCSS you can also overwrite settings from the settings.scss file.
-                        This file can be found in: <code class="language-html">src/sass/foundation/_settings.scss</code>
+                        In SCSS you can also overwrite settings from the <code class="language-html">settings.scss</code> file.
+                        This file can be found in: <code class="language-html">src/sass/foundation/_settings.scss</code>.
+                        The variables are also listed on the related documentation pages.
                     </section>
+
+                    <div class="xs12 padding--0">
+                        <div class="row padding--0">
+                            <section class="xs12 sm6">
+                                For SCSS it is quite simple to minify the output.
+                                There are arrays specifying which components and options should be included.
+                                All the variables can be overridden so you can choose what is included.
+                            </section>
+
+                            <section class="xs12 sm6">
+                                <table class="data-table">
+                                    <thead>
+                                    <tr>
+                                        <th>Variable</th>
+                                        <th>Result</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>$color-settings</td>
+                                        <td>If the (colors, variables) are included and which specific colors (red, pink, purple, deep-purple, indigo, blue, light-blue, cyan, teal, green, light-green, lime, yellow, amber, orange, deep-orange, brown, grey, blue-grey)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$component-settings</td>
+                                        <td>Which components (app-bar, badge, banner, bottom-nav, bottom-sheet, button, card, chip, data-table, dialog, divider, drawer, fab, list, menu, notification, progress, selection, slider, snackbar, tab, text-field, tooltip) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$app-bar-settings</td>
+                                        <td>Which elements (title, actions, fixed) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$banner-settings</td>
+                                        <td>Which elements (single, multi, image) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$bottom-sheet-settings</td>
+                                        <td>Which elements (list, grid) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$button-settings</td>
+                                        <td>Which elements (contained, text, outlined, fluid) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$chip-settings</td>
+                                        <td>Which elements (outlined, thumbnail, remove) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$data-table-settings</td>
+                                        <td>Which elements (numeric, hover) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$dialog-settings</td>
+                                        <td>Which element (simple, alert, confirm, full-screen, scroll) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$divider-settings</td>
+                                        <td>If the vertical element should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$drawer-settings</td>
+                                        <td>Which elements (header, modal, full-height, fixed, clipped) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$fab-settings</td>
+                                        <td>Which elements (mini, extended) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$list-settings</td>
+                                        <td>Which elements (single, two, three) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$progress-settings</td>
+                                        <td>Which elements (determinate, indeterminate, circle) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$selection-settings</td>
+                                        <td>Which element (checkbox, switch, radio) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$snackbar-settings</td>
+                                        <td>If the two element should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$tab-settings</td>
+                                        <td>Which elements (text, icon, icon-text, scroll) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$text-field-settings</td>
+                                        <td>Which elements (filled, outlined, helper, select) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$foundation-settings</td>
+                                        <td>Which components (icons, shadows, shapes, typography) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$normalize-settings</td>
+                                        <td>If the scrollbar should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$icon-settings</td>
+                                        <td>Which elements (18, 24, 36, 48) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$typography-settings</td>
+                                        <td>Which elements (h1, h2, h3, h4, h5, h6, subtitle-1, subtitle-2, body-1, body-2, button, caption, overline, left, right, center) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$shadow-settings</td>
+                                        <td>Which elements (1, 2, 3, 4, 6, 8, 9, 12, 16, 24) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$shape-settings</td>
+                                        <td>Which elements (square, circle, diamond, triangle, hexagon, heptagon, octagon, bevel) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$grid-settings</td>
+                                        <td>If the fluid element should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$helper-settings</td>
+                                        <td>Which components (cursor, padding, margin, aspect-ratio, flex) should be included</td>
+                                    </tr>
+                                    <tr>
+                                        <td>$cursor-settings</td>
+                                        <td>Which elements (alias, all-scroll, auto, cell, context-menu, col-resize, copy, crosshair, default, e-resize, ew-resize, grab, grabbing, help, move, n-resize, ne-resize, nesw-resize, ns-resize, nw-resize, nwse-resize, no-drop, none, not-allowed, pointer, progress, row-resize, s-resize, se-resize, sw-resize, text, wait, zoom-in, zoom-out) should be included</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                        </div>
+                    </div>
                 </article>
             </main>
 

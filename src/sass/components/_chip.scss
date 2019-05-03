@@ -1,0 +1,109 @@
+@if(in-array(chip, $component-settings)) {
+	.chip {
+		--chip-height: #{$chip-height};
+		--chip-padding: #{$chip-padding};
+		--chip-background: #{$chip-background};
+		--chip-color: #{$chip-color};
+		--chip--hover-background: #{$chip--hover-background};
+		--chip--active-background: #{$chip--active-background};
+		--chip--disabled-color: #{$chip--disabled-color};
+		--chip--disabled-background: #{$chip--disabled-background};
+
+		--chip__thumbnail-size: #{$chip__thumbnail-size};
+		--chip__thumbnail-color: #{$chip__thumbnail-color};
+		--chip__thumbnail-margin: #{$chip__thumbnail-margin};
+		--chip__thumbnail-padding-left: #{$chip__thumbnail-padding-left};
+
+		--chip__remove-size: #{$chip__remove-size};
+		--chip__remove-margin: #{$chip__remove-margin};
+		--chip__remove-color: #{$chip__remove-color};
+		--chip--remove-padding-right: #{$chip__remove-padding-right};
+
+		--chip--outlined-border: #{$chip--outlined-border};
+		--chip--outlined--hover-background: #{$chip--outlined--hover-background};
+		--chip--outlined--active-background: #{$chip--outlined--active-background};
+		--chip--outlined--disabled-color: #{$chip--outlined--disabled-color};
+		--chip--outlined--disabled-background: #{$chip--outlined--disabled-background};
+		--chip--outlined--thumbnail-padding-left: #{$chip--outlined--thumbnail-padding-left};
+		--chip--outlined--remove-padding-right: #{$chip--outlined--remove-padding-right};
+
+		$el: &;
+		height: var(--chip-height);
+		padding: var(--chip-padding);
+		border-radius: calc(var(--chip-height) / 2);
+		background: var(--chip-background);
+		@extend %body-2;
+		line-height: var(--chip-height);
+		display: inline-flex;
+		align-items: center;
+		color: var(--chip-color);
+		@extend %cursor--pointer;
+		user-select: none;
+		vertical-align: middle;
+		@include ripple();
+		--ripple--hover-background: #{rgba($black, .04)};
+		--ripple--active-background: #{rgba($black, .16)};
+
+		&:disabled {
+			color: var(--chip--disabled-color);
+			background: var(--chip--disabled-background);
+		}
+
+		@if(in-array(thumbnail, $chip-settings)) {
+			&__thumbnail {
+				@include chain(width, height, font-size, var(--chip__thumbnail-size));
+				margin: var(--chip__thumbnail-margin);
+				border-radius: 50%;
+				color: var(--chip__thumbnail-color);
+			}
+
+			&--thumbnail {
+				padding-left: var(--chip__thumbnail-padding-left);
+			}
+		}
+
+		@if(in-array(remove, $chip-settings)) {
+			&__remove {
+				@include chain(width, height, font-size, var(--chip__remove-size));
+				margin: var(--chip__remove-margin);
+				color: var(--chip__remove-color);
+			}
+		}
+
+		&--remove {
+			padding-right: var(--chip--remove-padding-right);
+		}
+
+		@if(in-array(outlined, $chip-settings)) {
+			&--outlined {
+				border: var(--chip--outlined-border);
+				background: transparent;
+
+				&:hover {
+					background: var(--chip--outlined--hover-background);
+				}
+
+				&:active {
+					background: var(--chip--outlined--active-background);
+				}
+
+				&:disabled {
+					color: var(--chip--outlined--disabled-color);
+					background: var(--chip--outlined--disabled-background);
+				}
+
+				@if(in-array(thumbnail, $chip-settings)) {
+					&#{$el}--thumbnail {
+						padding-left: var(--chip--outlined--thumbnail-padding-left);
+					}
+				}
+
+				@if(in-array(remove, $chip-settings)) {
+					&#{$el}--remove {
+						padding-right: var(--chip--outlined--remove-padding-right);
+					}
+				}
+			}
+		}
+	}
+}

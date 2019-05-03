@@ -1,235 +1,243 @@
-.checkbox {
-    @include chain(width, height, var(--checkbox-size));
-    -webkit-appearance: none;
-    border: var(--checkbox-stroke) solid rgba($black, .54);
-    border-radius: var(--border-radius);
+@if(in-array(selection, $component-settings)) {
+	@if(in-array(checkbox, $selection-settings)) {
+		.checkbox {
+			@include chain(width, height, var(--checkbox-size));
+			-webkit-appearance: none;
+			border: var(--checkbox-stroke) solid rgba($black, .54);
+			border-radius: var(--border-radius);
 
-    &:disabled {
-        border-color: rgba($black, .38);
-    }
+			&:disabled {
+				border-color: rgba($black, .38);
+			}
 
-    // Radial
-    &:before {
-        border-radius: 50%;
-        @include chain(top, left, calc((-1 * var(--checkbox-stroke)) + (-1 * (var(--checkbox--radial-size) / 2)) ));
-        @include chain(width, height, calc( var( --checkbox-size) + var(--checkbox--radial-size) ) );
-        transition: background .1s $easing-standard;
-    }
+			// Radial
+			&:before {
+				border-radius: 50%;
+				@include chain(top, left, calc((-1 * var(--checkbox-stroke)) + (-1 * (var(--checkbox--radial-size) / 2))));
+				@include chain(width, height, calc(var(--checkbox-size) + var(--checkbox--radial-size)));
+				transition: background .1s $easing-standard;
+			}
 
-    &:after {
-        width: calc(var(--checkbox-size) / 4);
-        height: calc(var(--checkbox-size) / 2);
-        transform: rotate(45deg);
-        border-bottom: rem-calc(1px) solid var(--background-color);
-        border-right: rem-calc(1px) solid var(--background-color);
-        left: calc(var(--checkbox-size) / 4);
-        opacity: 0;
-        transition: opacity .1s $easing-standard;
-    }
+			&:after {
+				width: calc(var(--checkbox-size) / 4);
+				height: calc(var(--checkbox-size) / 2);
+				transform: rotate(45deg);
+				border-bottom: rem-calc(1px) solid var(--background-color);
+				border-right: rem-calc(1px) solid var(--background-color);
+				left: calc(var(--checkbox-size) / 4);
+				opacity: 0;
+				transition: opacity .1s $easing-standard;
+			}
 
-    &:before, &:after {
-        background: transparent;
-    }
+			&:before, &:after {
+				background: transparent;
+			}
 
-    &:hover:before {
-        opacity: 1;
-        background: rgba($black, .04);
-    }
+			&:hover:before {
+				opacity: 1;
+				background: rgba($black, .04);
+			}
 
-    &:active:before {
-        background: rgba($black, .16);
-    }
+			&:active:before {
+				background: rgba($black, .16);
+			}
 
-    &:checked {
-        @include chain(border-color, background, var(--primary-color-variant));
+			&:checked {
+				@include chain(border-color, background, var(--primary-color));
 
-        &:hover:before {
-            background: rgba($primary-color-variant, .04);
-        }
+				&:hover:before {
+					background: rgba($primary-color, .04);
+				}
 
-        &:active:before {
-            background: rgba($primary-color-variant, .16);
-        }
+				&:active:before {
+					background: rgba($primary-color, .16);
+				}
 
 
-        &:after, &:disabled:after {
-            opacity: 1;
-        }
+				&:after, &:disabled:after {
+					opacity: 1;
+				}
 
-        &:disabled {
-            @include chain(border-color, background, rgba($primary-color-variant, .38));
-        }
-    }
-}
+				&:disabled {
+					@include chain(border-color, background, rgba($primary-color, .38));
+				}
+			}
+		}
+	}
 
-.radio {
-	--radio-size: var(--checkbox-size);
-	--radio-radial-size: var(--checkbox--radial-size);
-	--radio-stroke: #{rem-calc(2px)};
+	@if(in-array(radio, $selection-settings)) {
+		.radio {
+			--radio-size: var(--checkbox-size);
+			--radio-radial-size: var(--checkbox--radial-size);
+			--radio-stroke: #{rem-calc(2px)};
 
-    @include chain(width, height, var(--radio-size));
-    border: rem-calc(2px) solid rgba($black, .54);
-    border-radius: 50%;
-    transition: border-color .1s $easing-standard;
+			@include chain(width, height, var(--radio-size));
+			border: rem-calc(2px) solid rgba($black, .54);
+			border-radius: 50%;
+			transition: border-color .1s $easing-standard;
 
-    &:disabled {
-        border-color: rgba($black, .38);
-    }
+			&:disabled {
+				border-color: rgba($black, .38);
+			}
 
-    &:after {
-        @include chain(width, height, calc(var(--radio-size) / 2));
-        @include chain(left, bottom, calc( #{rem-calc(-2px)} + ( var(--radio-size) / 4 )));
-    }
+			&:after {
+				@include chain(width, height, calc(var(--radio-size) / 2));
+				@include chain(left, bottom, calc(#{rem-calc(-2px)} + (var(--radio-size) / 4)));
+			}
 
-    // Radial
-    &:before {
-        @include chain(width, height, calc(var(--radio-size) + var(--radio-radial-size)));
-        @include chain(left, top, calc((-1 * var(--radio-stroke)) + (-1 * (var(--radio-radial-size) / 2)) ));
-    }
+			// Radial
+			&:before {
+				@include chain(width, height, calc(var(--radio-size) + var(--radio-radial-size)));
+				@include chain(left, top, calc((-1 * var(--radio-stroke)) + (-1 * (var(--radio-radial-size) / 2))));
+			}
 
-    &:after, &:before {
-        background: transparent;
-        transition: background .1s $easing-standard;
-        border-radius: 50%;
-    }
+			&:after, &:before {
+				background: transparent;
+				transition: background .1s $easing-standard;
+				border-radius: 50%;
+			}
 
-    &:hover:before {
-        background: rgba($black, .04);
-    }
+			&:hover:before {
+				background: rgba($black, .04);
+			}
 
-    &:active:before {
-        background: rgba($black, .12);
-    }
+			&:active:before {
+				background: rgba($black, .12);
+			}
 
-    &:checked {
-        border-color: var(--primary-color-variant);
+			&:checked {
+				border-color: var(--primary-color);
 
-        &:hover:before {
-            background: rgba($primary-color-variant, .04);
-        }
+				&:hover:before {
+					background: rgba($primary-color, .04);
+				}
 
-        &:active:before {
-            background: rgba($primary-color-variant, .12);
-        }
+				&:active:before {
+					background: rgba($primary-color, .12);
+				}
 
-        &:after {
-            background: var(--primary-color-variant);
-        }
+				&:after {
+					background: var(--primary-color);
+				}
 
-        &:disabled {
-            border-color: rgba($primary-color-variant, .38);
+				&:disabled {
+					border-color: rgba($primary-color, .38);
 
-            &:after {
-                background: rgba($primary-color-variant, .38);
-            }
-        }
-    }
-}
+					&:after {
+						background: rgba($primary-color, .38);
+					}
+				}
+			}
+		}
+	}
 
-.switch {
-	--switch--radial-size: var(--checkbox--radial-size);
-	--switch-size: var(--checkbox-size);
-	--switch__track-width: #{rem-calc(36px)};
-	--switch__track-height: #{rem-calc(16px)};
+	@if(in-array(swtich, $selection-settings)) {
+		.switch {
+			--switch--radial-size: var(--checkbox--radial-size);
+			--switch-size: var(--checkbox-size);
+			--switch__track-width: #{rem-calc(36px)};
+			--switch__track-height: #{rem-calc(16px)};
 
-    width: var(--switch__track-width);
-    height: var(--switch__track-height);
-    background: lighten($black, 100% - 38%);
-    border-radius: calc(var(--switch__track-height) / 2);
-    transition: background .1s $easing-standard;
+			width: var(--switch__track-width);
+			height: var(--switch__track-height);
+			background: lighten($black, 100% - 38%);
+			border-radius: calc(var(--switch__track-height) / 2);
+			transition: background .1s $easing-standard;
 
-    &:disabled {
-        background: rgba($black, .12);
+			&:disabled {
+				background: rgba($black, .12);
 
-        &:after {
-            background: lighten($black, 96%);
-        }
-    }
+				&:after {
+					background: lighten($black, 96%);
+				}
+			}
 
-    // Radial
-    &:before {
-        @include chain(width, height, calc(var(--switch-size) + var(--switch--radial-size)));
-        background: transparent;
-        left: calc(-1 * (var(--switch--radial-size) / 2));
-        top: calc(-1 * (var(--switch--radial-size) / 2) - ( (var(--switch-size) - var(--switch__track-height)) / 2));
-    }
+			// Radial
+			&:before {
+				@include chain(width, height, calc(var(--switch-size) + var(--switch--radial-size)));
+				background: transparent;
+				left: calc(-1 * (var(--switch--radial-size) / 2));
+				top: calc(-1 * (var(--switch--radial-size) / 2) - ((var(--switch-size) - var(--switch__track-height)) / 2));
+			}
 
-    &:hover:before {
-        background: rgba($black, .04);
-    }
+			&:hover:before {
+				background: rgba($black, .04);
+			}
 
-    &:active:before {
-        background: rgba($black, .12);
-    }
+			&:active:before {
+				background: rgba($black, .12);
+			}
 
-    &:after {
-        @include chain(width, height, var(--switch-size));
-        background: var(--background-color);
-        @extend %z2;
-        left: 0;
-        top: calc( -1 * ( (var(--switch-size) - var(--switch__track-height)) / 2) );
-        transition: background .1s $easing-standard, left .1s $easing-standard;
-    }
+			&:after {
+				@include chain(width, height, var(--switch-size));
+				background: var(--background-color);
+				@extend %z2;
+				left: 0;
+				top: calc(-1 * ((var(--switch-size) - var(--switch__track-height)) / 2));
+				transition: background .1s $easing-standard, left .1s $easing-standard;
+			}
 
-    &:after, &:before {
-        border-radius: 50%;
-    }
+			&:after, &:before {
+				border-radius: 50%;
+			}
 
-    &:checked {
-        background: rgba($primary-color-variant, .54);
+			&:checked {
+				background: rgba($primary-color, .54);
 
-        &:after {
-            background: $primary-color-variant;
-            left: calc(100% - var(--switch-size));
-        }
+				&:after {
+					background: $primary-color;
+					left: calc(100% - var(--switch-size));
+				}
 
-        &:before {
-            left: calc(100% - (var(--switch--radial-size) * 1.75));
-        }
+				&:before {
+					left: calc(100% - (var(--switch--radial-size) * 1.75));
+				}
 
-        &:hover:before {
-            background: rgba($primary-color-variant, .04);
-        }
+				&:hover:before {
+					background: rgba($primary-color, .04);
+				}
 
-        &:active:before {
-            background: rgba($primary-color-variant, .12);
-        }
+				&:active:before {
+					background: rgba($primary-color, .12);
+				}
 
-        &:disabled {
-            background: rgba(rgba($primary-color-variant, .54), .38);
+				&:disabled {
+					background: rgba(rgba($primary-color, .54), .38);
 
-            &:after {
-                background: lighten($primary-color-variant, 38%);
-            }
-        }
-    }
-}
+					&:after {
+						background: lighten($primary-color, 38%);
+					}
+				}
+			}
+		}
+	}
 
-.checkbox, .radio, .switch {
-	--checkbox-size: #{rem-calc(20px)};
-	--checkbox-stroke: #{rem-calc(2px)};
-	--checkbox--radial-size: #{rem-calc(16px)};
+	.checkbox, .radio, .switch {
+		--checkbox-size: #{rem-calc(20px)};
+		--checkbox-stroke: #{rem-calc(2px)};
+		--checkbox--radial-size: #{rem-calc(16px)};
 
-    @extend %cursor--pointer;
-    position: relative;
-    vertical-align: text-bottom;
-    -webkit-appearance: none;
-    @include chain(padding, margin, 0);
+		@extend %cursor--pointer;
+		position: relative;
+		vertical-align: text-bottom;
+		-webkit-appearance: none;
+		@include chain(padding, margin, 0);
 
-    &:disabled:before {
-        content: unset;
-    }
+		&:disabled:before {
+			content: unset;
+		}
 
-    &:after, &:before {
-        content: '';
-        position: absolute;
-    }
+		&:after, &:before {
+			content: '';
+			position: absolute;
+		}
 
-    &:before {
-        pointer-events: none;
+		&:before {
+			pointer-events: none;
 
-        @media #{$md-up} {
-            content: unset;
-        }
-    }
+			@media #{$md-up} {
+				content: unset;
+			}
+		}
+	}
 }
