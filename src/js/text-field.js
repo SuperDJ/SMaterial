@@ -1,4 +1,4 @@
-/* const textFields = Array.from( document.querySelectorAll( '.text-field__input' ) );
+/* Const textFields = Array.from( document.querySelectorAll( '.text-field__input' ) );
 
 textFields.forEach( textField =>
 {

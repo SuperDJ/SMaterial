@@ -94,68 +94,103 @@
 			@include chain(border-bottom-right-radius, border-top-right-radius, var(--border-radius));
 		}
 
-		// TODO fix naming
-		&__default {
-			#{$el}__header {
-				height: rem-calc(72px);
-				display: grid;
-				grid-template:
-					"thumbnail title"
-					"thumbnail subtitle";
-				grid-template-columns: calc(var(--card__header-padding) + var(--card__thumbnail-size)) 1fr;
-			}
+		&--no-hover:hover {
+			@extend .z1;
 		}
 
-		&__simple {
-			display: grid;
-			grid-template:
-				"header media"
-				"content media"
-				"actions actions";
-			grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
-
-			#{$el}__media {
-				padding: rem-calc(16px);
-
-				img {
-					@include chain(width, height, rem-calc(80px));
+		// TODO fix naming
+		@if(in-array(default, $card-settings)) {
+			&__default {
+				#{$el}__header {
+					height: rem-calc(72px);
+					display: grid;
+					grid-template: "thumbnail title" "thumbnail subtitle";
+					grid-template-columns: calc(var(--card__header-padding) + var(--card__thumbnail-size)) 1fr;
 				}
 			}
 		}
 
-		&__album {
-			display: grid;
-			grid-template:
-				"media header"
-				"content content";
-			grid-template-columns: rem-calc(80px) 1fr;
+		@if(in-array(simple, $card-settings)) {
+			&__simple {
+				display: grid;
+				grid-template: "header media" "content media" "actions actions";
+				grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
 
-			#{$el}__media img {
-				@include chain(width, height, rem-calc(80px));
-				border-top-left-radius: var(--border-radius);
-			}
+				#{$el}__media {
+					padding: rem-calc(16px);
 
-			#{$el}__content {
-				border: rem-calc(1px) solid rgba($black, .12);
-			}
-
-			#{$el}__header  {
-				height: rem-calc(80px);
+					img {
+						@include chain(width, height, rem-calc(80px));
+					}
+				}
 			}
 		}
 
-		&--media {
-			position: relative;
+		@if(in-array(overline, $card-settings)) {
+			&__overline {
+				display: grid;
+				grid-template: "overline media" "header media" "content media" "actions actions";
+				grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
 
-			img {
-				display: inherit;
-				width: 100%;
-				border-radius: var(--border-radius);
+				.overline {
+					grid-area: overline;
+					padding: rem-calc(16px) rem-calc(16px) 0 rem-calc(16px);
+				}
+
+				#{$el}__header {
+					padding: rem-calc(8px) rem-calc(16px) 0 rem-calc(16px);
+				}
+
+				#{$el}__media {
+					padding: rem-calc(16px);
+
+					img {
+						@include chain(width, height, rem-calc(80px));
+					}
+				}
 			}
+		}
 
-			#{$el}__header, #{$el}__content, #{$el}__actions {
-				position: absolute;
-				background: rgba($white, .32);
+		@if(in-array(album, $card-settings)) {
+			&__album {
+				display: grid;
+				grid-template: "media header" "content content";
+				grid-template-columns: rem-calc(80px) 1fr;
+
+				#{$el}__media img {
+					@include chain(width, height, rem-calc(80px));
+					border-top-left-radius: var(--border-radius);
+				}
+
+				#{$el}__content {
+					border: rem-calc(1px) solid rgba($black, .12);
+				}
+
+				#{$el}__header {
+					height: rem-calc(80px);
+				}
+			}
+		}
+
+		@if(in-array(media, $card-settings)) {
+			&--media {
+				position: relative;
+				display: flex;
+
+				img {
+					display: inherit;
+					width: 100%;
+					border-radius: var(--border-radius);
+				}
+
+				#{$el}__container {
+					position: absolute;
+					background: rgba($white, .32);
+
+					&--bottom {
+						align-self: flex-end;
+					}
+				}
 			}
 		}
 	}
