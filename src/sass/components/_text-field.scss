@@ -6,10 +6,10 @@
 		--text-field--invalid-color: var(--error-color);
 
 		--text-field__label-font-size: #{rem-calc( map-get( map-get( $type-scale, body-1 ), size ) + 0px )};
-		--text-field__label-color: #{$black}99;
+		--text-field__label-color: #{rgba($black, .60)};
 
 		--text-field__input-height: #{rem-calc(56px)};
-		--text-field__input-color: #{$black}de;
+		--text-field__input-color: #{rgba($black, .87)};
 		--text-field__input--focus-caret-color: var(--text-field--active-color);
 		--text-field__input--focus__label-color: var(--text-field--active-color);
 		--text-field__input--focus__label-font-size: #{rem-calc(12px)};
@@ -221,7 +221,7 @@
 			&__helper-text {
 				display: block;
 				width: 100%;
-				color: #{$black}99;
+				color: rgba($black, .6);
 				@extend %caption;
 				@include chain(height, line-height, var(--text-field__helper-text-height));
 				padding: var(--text-field__helper-text-padding);
@@ -276,7 +276,7 @@
 					pointer-events: none;
 
 					&.active {
-						transition: max-height .1s $easing-standard, opacity 0 $easing-standard .1s;
+						transition: max-height .1s $easing-standard, opacity .1s $easing-standard;
 						pointer-events: all;
 						opacity: 1;
 					}

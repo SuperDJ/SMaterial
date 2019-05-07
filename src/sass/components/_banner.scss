@@ -35,7 +35,7 @@
 		background: var(--background-color);
 		@extend %body-2;
 		border-bottom: rem-calc(1px) solid rgba($font-on-surface, .12);
-		color: #{$black}de;
+		color: rgba($black, .87);
 
 		@if (in-array(single, $banner-settings)) {
 			&--single-line {

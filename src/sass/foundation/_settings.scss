@@ -272,9 +272,9 @@ $type-scale: (
  * Shadow & elevation
  **************************************/
 
-$elevation-umbra-color: rgba(#000, .14) !default;
-$elevation-penumbra-color: rgba(#000, .12) !default;
-$elevation-ambient-color: rgba(#000, .2) !default;
+$elevation-umbra-color: rgba($black, .14) !default;
+$elevation-penumbra-color: rgba($black, .12) !default;
+$elevation-ambient-color: rgba($black, .2) !default;
 
 $elevation-umbra-map: (
 	1: 0px 0px 2px 0px,
@@ -418,7 +418,7 @@ $button--text--outline--disabled-color: rgba($black, .38) !default;
 $chip-height: rem-calc(32px) !default;
 $chip-padding: 0 rem-calc(12px) !default;
 $chip-background: rgba($black, .12) !default;
-$chip-color: #{$black}de !default;
+$chip-color: rgba($black, .87) !default;
 $chip--hover-background: rgba($black, .08) !default;
 $chip--active-background: rgba($black, .32) !default;
 $chip--disabled-color: rgba($black, .38) !default;
@@ -447,11 +447,11 @@ $chip--outlined--remove-padding-right: rem-calc(6px) !default;
  **************************************/
 
 $data-table__header-font-size: rem-calc(12px) !default;
-$data-table__header-color: #{$black}99 !default;
+$data-table__header-color: rgba($black, .60) !default;
 $data-table__header-font-weight: 500 !default;
 $data-table__header--hover-color: $black !default;
 
-$data-table__body-color: #{$black}de !default;
+$data-table__body-color: rgba($black, .87) !default;
 $data-table__body-font-size: rem-calc(14px) !default;
 
 $data-table__row-height: rem-calc(48px) !default;

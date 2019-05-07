@@ -100,7 +100,7 @@
 
 		// TODO fix naming
 		@if(in-array(default, $card-settings)) {
-			&__default {
+			&--default {
 				#{$el}__header {
 					height: rem-calc(72px);
 					display: grid;
@@ -111,7 +111,7 @@
 		}
 
 		@if(in-array(simple, $card-settings)) {
-			&__simple {
+			&--simple {
 				display: grid;
 				grid-template: "header media" "content media" "actions actions";
 				grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
@@ -127,7 +127,7 @@
 		}
 
 		@if(in-array(overline, $card-settings)) {
-			&__overline {
+			&--overline {
 				display: grid;
 				grid-template: "overline media" "header media" "content media" "actions actions";
 				grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
@@ -152,7 +152,7 @@
 		}
 
 		@if(in-array(album, $card-settings)) {
-			&__album {
+			&--album {
 				display: grid;
 				grid-template: "media header" "content content";
 				grid-template-columns: rem-calc(80px) 1fr;

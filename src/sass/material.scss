@@ -1,7 +1,5 @@
-/**
- * Check if a specific value is in an array
- * TODO Place in some partial file
- */
+//Check if value is in a array
+// TODO place in some partial file
 @function in-array( $value, $array ) {
 	@if index( $array, $value ) {
 		@return true;
@@ -10,7 +8,7 @@
 	}
 }
 
-$color-settings: (color, variables, red, pink, purple, deep-purple, indigo, blue, light-blue, cyan, teal, green, light-green, lime, yellow, amber, orange, deep-orange, brown, grey, blue-grey) !default;
+$color-settings: (color, variables, red, pink, purple, deep-purple, indigo, blue, light-blue, cyan, teal, green, light-green, lime, yellow, amber, orange, deep-orange, brown, grey, blue-grey, shades) !default;
 
 $component-settings: (app-bar, badge, banner, bottom-nav, bottom-sheet, button, card, chip, data-table, dialog, divider, drawer, fab, list, menu, notification, progress, selection, slider, snackbar, tab, text-field, tooltip);
 $app-bar-settings: (title, actions, fixed) !default;

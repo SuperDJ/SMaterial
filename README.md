@@ -9,7 +9,7 @@
 [Material](https://superdj.github.io/material/) is a CSS framework based on the Material Design guidelines.
 
 # Getting started
-To get started all you can choose to use the source files or the minified files.
+To get started you can choose to use the source files or the minified files.
 In order to use the minified files the easiest way is to load them from GitHub for now:
 
 	<link rel="styleheet" href="//superdj.github.io/material/dist/css/material-light.css">

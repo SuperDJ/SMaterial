@@ -84,7 +84,7 @@
 			.icon {
 				grid-column-start: 1;
 				margin: var(--menu__icon-margin);
-				color: #{$black}de;
+				color: rgba($black, .87);
 				@include chain(width, height, line-height, rem-calc(24px));
 			}
 

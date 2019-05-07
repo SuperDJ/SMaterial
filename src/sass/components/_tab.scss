@@ -18,7 +18,7 @@
 		&__content, .icon {
 			display: block;
 			width: 100%;
-			color: #{$white}99;
+			color: rgba($white, .60);
 		}
 
 		&__tab {

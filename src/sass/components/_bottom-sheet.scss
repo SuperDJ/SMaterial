@@ -102,14 +102,14 @@
 		}
 
 		&__header {
-			color: #{$black}8a;
+			color: rgba($black, .54);
 			width: 100%;
 			@include chain(height, line-height, #{rem-calc(56px)});
 			padding: #{0 rem-calc(16px)};
 		}
 
 		&__icon, &__content {
-			color: #{$black}de;
+			color: rgba($black, .87);
 		}
 
 		&__content, &__header {
