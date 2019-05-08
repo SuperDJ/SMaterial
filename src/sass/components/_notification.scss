@@ -1,6 +1,6 @@
 @if(in-array(notification, $component-settings)) {
 	.notification {
-		--notification-font-color: #{$black}99;
+		--notification-font-color: #{rgba($black, .60)};
 		--notification__header__icon-size: #{rem-calc(16px)};
 
 		border-radius: var(--border-radius);

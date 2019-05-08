@@ -2,19 +2,24 @@
 	.dialog {
 		--dialog-border-radius: var(--border-radius);
 		--dialog-background: var(--background-color);
+		--dialog-width: #{rem-calc(280px)};
 
-		--dialog__header-color: #{$black}de;
+		--dialog__header-color: #{rgba($black, .87)};
 
-		--dialog__content-color: #{$black}99;
+		--dialog__content-color: #{rgba($black, .60)};
 
 		--dialog--scroll__content-max-height: 70vh;
+
+		@media #{$md-and-up} {
+			--dialog-width: #{rem-calc(560px)};
+		}
 
 		$el: &;
 		border-radius: var(--dialog-border-radius);
 		@extend %z24;
 		background: var(--dialog-background);
 		@extend %body-2;
-		max-width: 100%;
+		width: var(--dialog-width);
 		overflow: hidden;
 		z-index: 3;
 		position: fixed;
@@ -24,10 +29,6 @@
 		@include chain(top, left, 50%);
 		transform: translateX(-50%) translateY(-50%);
 		transition: max-height .1s $easing-standard;
-
-		@media #{$xs-up} {
-			min-width: rem-calc(280px);
-		}
 
 		&__header {
 			@include chain(height, line-height, rem-calc(64px));
@@ -119,6 +120,7 @@
 
 					.icon {
 						grid-column-start: 1;
+						font-size: rem-calc(24px);
 					}
 
 					&__title {

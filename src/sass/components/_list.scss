@@ -32,10 +32,10 @@
 			--list--three-line__support__control-padding: #{rem-calc(16px) rem-calc(16px) 0 rem-calc(16px)};
 		}
 
-		--list__content-color: #{$black}de;
+		--list__content-color: #{rgba($black, .87)};
 		--list__content-padding-left: #{rem-calc(16px)};
 		--list__content__title-color: var(--list__content-color);
-		--list__content__text-color: #{$black}99;
+		--list__content__text-color: #{rgba($black, .60)};
 		--list__content__overline-color: var(--list__content__text-color);
 
 		--list-divider-border-bottom: #{rem-calc(1px) solid rgba($black, .12)};

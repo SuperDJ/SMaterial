@@ -29,10 +29,7 @@ img {
     height: auto;
 }
 
-/**************************************
- * Scrollbar
- **************************************/
-
+// Scrollbar
 ::-webkit-scrollbar, ::-webkit-scrollbar-track {
     background: transparent;
 }
@@ -53,4 +50,8 @@ img {
 
 ::-webkit-scrollbar-thumb {
     background: rgba($black, .2);
+}
+
+::selection {
+	background: rgba($primary-color, .12);
 }

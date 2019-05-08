@@ -3,7 +3,7 @@
 		--menu-max-width: #{rem-calc(280px)};
 		--menu__icon-margin: #{rem-calc(12px)} 0 #{rem-calc(12px)} #{rem-calc(16px)};
 		--menu__content-margin: 0 #{rem-calc(16px)};
-		--menu-color: #{$black}de;
+		--menu-color: #{rgba($black, .87)};
 		--menu-left: auto;
 
 		@media #{$md-up} {
@@ -35,7 +35,7 @@
 			grid-column: 1 / 3;
 
 			.icon {
-				color: #{$black}de;
+				color: #{rgba($black, .87)};
 			}
 		}*/
 

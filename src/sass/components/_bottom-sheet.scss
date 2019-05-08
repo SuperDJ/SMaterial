@@ -38,7 +38,7 @@
 					display: grid;
 				}
 
-				#{$el}__icon {
+				.icon {
 					margin: rem-calc(16px);
 					grid-column-start: 1;
 				}
@@ -57,7 +57,7 @@
 				padding: 0 rem-calc(24px);
 				grid-template-columns: repeat(3, 1fr);
 
-				#{$el}__icon {
+				.icon {
 					@include chain(width, height, font-size, rem-calc(48px));
 				}
 
@@ -108,7 +108,7 @@
 			padding: #{0 rem-calc(16px)};
 		}
 
-		&__icon, &__content {
+		.icon, &__content {
 			color: rgba($black, .87);
 		}
 
