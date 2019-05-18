@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/smaterial.svg)](https://badge.fury.io/js/smaterial)
+
 # Content
 
 - About Material
