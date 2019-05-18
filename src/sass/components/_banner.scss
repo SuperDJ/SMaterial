@@ -1,5 +1,9 @@
 @if(in-array(banner, $component-settings)) {
 	.banner {
+		--banner-background: #{$banner-background};
+
+		--banner__actions-margin: #{$banner__actions-margin};
+
 		@if (in-array(single, $banner-settings)) {
 			--banner--single-line-height: #{$banner--single-line-height};
 			--banner--single-line__content-padding: #{$banner--single-line__content-padding};
@@ -20,8 +24,6 @@
 			--banner--image-multi-line__content-margin: #{$banner--image-multi-line__content-margin};
 		}
 
-		--banner__actions-margin: #{$banner__actions-margin};
-
 		@media #{$md-up} {
 			--banner--single-line-height: #{$banner-md-up--single-line-height};
 			--banner--single-line__content-padding: #{$banner-md-up--single-line__content-padding};
@@ -32,7 +34,7 @@
 
 		$el: &;
 		width: 100%;
-		background: var(--background-color);
+		background: var(--banner-background);
 		@extend %body-2;
 		border-bottom: rem-calc(1px) solid rgba($font-on-surface, .12);
 		color: rgba($black, .87);

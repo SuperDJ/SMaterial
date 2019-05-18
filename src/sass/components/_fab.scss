@@ -7,6 +7,9 @@
 		--fab--hover-background: #{$fab--hover-background};
 		--fab--active-background: #{$fab--active-background};
 
+		--fab--disabled-color: #{$fab--disabled-color};
+		--fab--disabled-background: #{$fab--disabled-background};
+
 		@if(in-array(mini, $fab-settings)) {
 			--fab--mini-size: #{$fab--mini-size};
 			--fab--mini-padding: #{$fab--mini-padding};
@@ -77,11 +80,11 @@
 		}
 
 		&:disabled, &--disabled {
-			color: rgba($black, .38);
-			--fab-background: #{rgba($black, .12)};
+			color: var(--fab--disabled-color);
+			--fab-background: var(--fab--disabled-background);
 
 			.icon {
-				color: rgba($black, .38);
+				--icon-color: var(--fab--disabled-color);
 			}
 		}
 	}

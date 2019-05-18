@@ -332,6 +332,7 @@ $app-bar__actions-margin: 0 0 0 rem-calc(24px) !default;
  * Banners
  **************************************/
 
+$banner-background: var(--background-color) !default;
 $banner--single-line-height: rem-calc(54px) !default;
 $banner--single-line__content-padding: 0 0 0 rem-calc(16px) !default;
 $banner--single-line__actions-padding: rem-calc(10px) rem-calc(8px) rem-calc(8px) rem-calc(36px) !default;
@@ -372,6 +373,34 @@ $bottom-nav__item--hover-color: $white !default;
 
 $bottom-nav--icon-only__item-padding: rem-calc(16px) rem-calc(12px) !default;
 $bottom-nav--icon-only__item--active-padding: rem-calc(8px) rem-calc(12px) rem-calc(12px) rem-calc(12px) !default;
+
+/**************************************
+ * Bottom sheet
+ **************************************/
+
+$bottom-sheet-width: 100% !default;
+$bottom-sheet-min-height: rem-calc(56px) !default;
+$bottom-sheet-max-height: 50% !default;
+
+$bottom-sheet__item--hover-background: rgba($black, .04) !default;
+$bottom-sheet__item--active-background: rgba($black, .12) !default;
+
+$bottom-sheet__header-color: rgba($black, .54) !default;
+$bottom-sheet__header-size: rem-calc(56px) !default;
+$bottom-sheet__header-padding: 0 rem-calc(16px) !default;
+
+$bottom-sheet__content-color: rgba($black, .87) !default;
+
+$bottom-sheet--list__item-height: rem-calc(56px) !default;
+$bottom-sheet--list__icon-margin: rem-calc(16px) !default;
+$bottom-sheet--list__content-size: var(--bottom-sheet--list__item-height) !default;
+$bottom-sheet--list__content-margin: rem-calc(16px) !default;
+
+$bottom-sheet--grid-padding: 0 rem-calc(24px) !default;
+$bottom-sheet--grid__icon-size: rem-calc(48px) !default;
+$bottom-sheet--grid__content-padding: rem-calc(8px) 0 rem-calc(24px) 0 !default;
+
+$bottom-sheet-md-up-width: 75%;
 
 /**************************************
  * Buttons
@@ -459,6 +488,48 @@ $data-table__row-border-bottom: rem-calc(1px) solid rgba($black, .12) !default;
 $data-table__row__icon-size: rem-calc(18px) !default;
 $data-table__row--hover-background: rgba($black, .12) !default;
 
+$data-table__column-padding: 0 rem-calc(16px) !default;
+
+/**************************************
+ * Dialog
+ **************************************/
+$dialog-border-radius: var(--border-radius) !default;
+$dialog-background: var(--background-color) !default;
+$dialog-width: rem-calc(280px) !default;
+$dialog-max-height: 50vh !default;
+
+$dialog__header-color: rgba($black, .87) !default;
+$dialog__header-height: rem-calc(64px) !default;
+$dialog__header-padding: 0 rem-calc(24px) !default;
+
+$dialog__content-color: rgba($black, .60) !default;
+$dialog__content-padding: 0 rem-calc(24px) !default;
+
+$dialog__actions-height: rem-calc(52px) !default;
+$dialog__actions-padding: rem-calc(8px) !default;
+$dialog__actions-margin-left: rem-calc(8px) !default;
+
+$dialog-md-up-width: rem-calc(560px) !default;
+
+$dialog--simple__list__support__image-padding-left: rem-calc(24px) !important !default;
+$dialog--simple__list__content-padding: 0 rem-calc(24px) 0 rem-calc(20px) !default;
+
+$dialog--alert__content-height: rem-calc(66px) !default;
+
+$dialog--confirm__content-padding: 0 rem-calc(24px) rem-calc(28px) rem-calc(24px) !default;
+
+$dialog--scroll__header-border-bottom: rem-calc(1px) solid rgba($black, .12) !default;
+$dialog--scroll__actions-border-top: var(--dialog--scroll__header-border-bottom) !default;
+$dialog--scroll__content-padding-bottom: rem-calc(16px) !default;
+
+$dialog--full-screen__header-height: rem-calc(56px) !default;
+$dialog--full-screen__header-background: var(--primary-color) !default;
+$dialog--full-screen__header-padding: 0 rem-calc(8px) 0 rem-calc(16px) !default;
+$dialog--full-screen__header__icon-size: rem-calc(24px) !default;
+$dialog--full-screen__header__title-padding-left: rem-calc(32px) !default;
+$dialog--full-screen__header__color: var(--font-on-primary) !default;
+$dialog--full-screen__content-padding: rem-calc(16px) rem-calc(8px) 0 rem-calc(16px) !default;
+
 /**************************************
  * Divers
  **************************************/
@@ -480,6 +551,9 @@ $fab--active-background: rgba($white, .32) !default;
 
 $fab--mini-size: rem-calc(40px) !default;
 $fab--mini-padding: rem-calc(8px) !default;
+
+$fab--disabled-color: rgba($black, .38) !default;
+$fab--disabled-background: rgba($black, .12) !default;
 
 $fab--extended-height: rem-calc(48px) !default;
 $fab--extended-border-radius: rem-calc(32px) !default;

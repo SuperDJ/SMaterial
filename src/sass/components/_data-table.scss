@@ -13,6 +13,8 @@
 		--data-table__row__icon-size: #{$data-table__row__icon-size};
 		--data-table__row--hover-background: #{$data-table__row--hover-background};
 
+		--data-table__column-padding: #{$data-table__column-padding};
+
 		width: 100%;
 		border-collapse: collapse;
 
@@ -46,7 +48,7 @@
 		td, th {
 			@include chain(height, line-height, var(--data-table__row-height));
 			border-bottom: var(--data-table__row-border-bottom);
-			padding: 0 rem-calc(16px);
+			padding: var(--data-table__column-padding);
 
 			> .icon {
 				vertical-align: middle;

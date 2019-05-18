@@ -1,10 +1,42 @@
 @if(in-array(bottom-sheet, $component-settings)) {
 	.bottom-sheet {
+		--bottom-sheet-width: #{$bottom-sheet-width};
+		--bottom-sheet-min-height: #{$bottom-sheet-min-height};
+		--bottom-sheet-max-height: #{$bottom-sheet-max-height};
+
+		--bottom-sheet__item--hover-background: #{$bottom-sheet__item--hover-background};
+		--bottom-sheet__item--active-background: #{$bottom-sheet__item--active-background};
+
+		--bottom-sheet__header-color: #{$bottom-sheet__header-color};
+		--bottom-sheet__header-size: #{$bottom-sheet__header-size};
+		--bottom-sheet__header-padding: #{$bottom-sheet__header-padding};
+
+		--bottom-sheet__content-color: #{$bottom-sheet__content-color};
+
+		@if(in-array(list, $bottom-sheet-settings)) {
+			--bottom-sheet--list__item-height: #{$bottom-sheet--list__item-height};
+			--bottom-sheet--list__icon-margin: #{$bottom-sheet--list__icon-margin};
+			--bottom-sheet--list__content-size: #{$bottom-sheet--list__content-size};
+			--bottom-sheet--list__content-margin: #{$bottom-sheet--list__content-margin};
+		}
+
+		@if(in-array(grid, $bottom-sheet-settings)) {
+			--bottom-sheet--grid-padding: #{$bottom-sheet--grid-padding};
+			--bottom-sheet--grid__icon-size: #{$bottom-sheet--grid__icon-size};
+			--bottom-sheet--grid__content-padding: #{$bottom-sheet--grid__content-padding};
+		}
+
+		@media #{$md-and-up} {
+			--bottom-sheet-width: 75%;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
 		$el: &;
-		width: 100%;
+		width: var(--bottom-sheet-width);
 		height: auto;
-		min-height: rem-calc(56px);
-		max-height: 50%;
+		min-height: var(--bottom-sheet-min-height);
+		max-height: var(--bottom-sheet-max-height);
 		list-style-type: none;
 		position: fixed;
 		display: inline-block;
@@ -18,12 +50,6 @@
 		transition: margin .1s $easing-standard;
 		@include border-top-radius(var(--border-radius));
 
-		@media #{$md-and-up} {
-			left: 50%;
-			transform: translateX(-50%);
-			max-width: 75%;
-		}
-
 		&--active {
 			transition: margin .1s $easing-standard;
 			margin: 0;
@@ -33,20 +59,20 @@
 		@if(in-array(list, $bottom-sheet-settings)) {
 			&--list {
 				#{$el}__item {
-					height: rem-calc(56px);
+					height: var(--bottom-sheet--list__item-height);
 					grid-template-columns: auto 1fr;
 					display: grid;
 				}
 
 				.icon {
-					margin: rem-calc(16px);
+					margin: var(--bottom-sheet--list__icon-margin);
 					grid-column-start: 1;
 				}
 
 				#{$el}__content {
 					grid-column-start: 2;
-					@include chain(height, line-height, rem-calc(56px));
-					margin-left: rem-calc(16px);
+					@include chain(height, line-height, var(--bottom-sheet--list__content-size));
+					margin-left: var(--bottom-sheet--list__content-margin);
 				}
 			}
 		}
@@ -54,21 +80,21 @@
 		@if(in-array(grid, $bottom-sheet-settings)) {
 			&--grid {
 				display: grid;
-				padding: 0 rem-calc(24px);
+				padding: var(--bottom-sheet--grid-padding);
 				grid-template-columns: repeat(3, 1fr);
 
 				.icon {
-					@include chain(width, height, font-size, rem-calc(48px));
+					@include chain(width, height, font-size, var(--bottom-sheet--grid__icon-size));
 				}
 
 				#{$el}__item {
 					text-align: center;
-					min-width: rem-calc(48px);
+					min-width: var(--bottom-sheet--grid__icon-size);
 					grid-column-start: auto;
 				}
 
 				#{$el}__content {
-					padding: rem-calc(8px) 0 rem-calc(24px) 0;
+					padding: var(--bottom-sheet--grid__content-padding);
 				}
 			}
 		}
@@ -93,23 +119,23 @@
 			transition: background .1s $easing-standard;
 
 			&:hover {
-				background: rgba($black, .04);
+				background: var(--bottom-sheet__item--hover-background);
 			}
 
 			&:active {
-				background: rgba($black, .12);
+				background: var(--bottom-sheet__item--active-background);
 			}
 		}
 
 		&__header {
-			color: rgba($black, .54);
+			color: var(--bottom-sheet__header-color);
 			width: 100%;
-			@include chain(height, line-height, #{rem-calc(56px)});
-			padding: #{0 rem-calc(16px)};
+			@include chain(height, line-height, var(--bottom-sheet__header-size));
+			padding: var(--bottom-sheet__header-padding);
 		}
 
 		.icon, &__content {
-			color: rgba($black, .87);
+			color: var(--bottom-sheet__content-color);
 		}
 
 		&__content, &__header {
