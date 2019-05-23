@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Notification | Material Design</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/favicon-16x16.png" sizes="16x16">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../dist/css/material-light.css">
+    <link rel="stylesheet" href="../src/prism.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+
+<body>
+<header class="app-bar app-bar--fixed">
+    <i class="material-icons icon" data-trigger="drawer">menu</i>
+
+    <div class="app-bar__title">
+        Notification
+    </div>
+
+    <div class="app-bar__actions">
+        <i class="material-icons icon" data-trigger="profile">person</i>
+
+        <div class="menu" id="profile">
+            <a href="#" class="menu__item">
+                <span class="menu__content">Login</span>
+            </a>
+
+            <a href="#" class="menu__item">
+                <span class="menu__content">Register</span>
+            </a>
+        </div>
+
+        <a href="//github.com/SuperDJ/material" target="_blank">
+            <div class="tooltip">
+                <i class="material-icons icon">code</i>
+                <span class="tooltip__content tooltip--bottom">Github</span>
+            </div>
+        </a>
+    </div>
+</header>
+
+<main class="container">
+    <article class="row">
+        <h1 class="xs12">Notification</h1>
+
+        <section class="xs12 md6">
+
+        </section>
+    </article>
+
+    <!-- Standard -->
+    <article class="row">
+        <h2 class="xs12">Standard notification</h2>
+
+        <section class="xs12 md6">
+            The standard notification looks like the following:
+        </section>
+
+        <section class="xs12 md6">
+            <div class="notification notification--standard">
+                <header class="notification__header">
+                    <i class="material-icons icon">event</i>
+                    <div class="notification__header__content">Calendar</div>
+                    <i class="material-icons icon expand">expand_more</i>
+                </header>
+
+                <div class="notification__content">
+                    <div class="notification__content__title">Design team meeting</div>
+                    <div class="notification__content__text">3:00 - 4:00 PM</div>
+                </div>
+
+                <div class="notification__expanded">
+                    <div class="notification__expanded__actions">
+                        <button class="button button--text">Email Guests</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <!-- Big text -->
+    <article class="row">
+        <h2 class="xs12">Big text</h2>
+
+        <section class="xs12 md6">
+            This is how notification with a big text looks like:
+        </section>
+
+        <section class="xs12 md6">
+            <div class="notification notification--big-text">
+                <header class="notification__header">
+                    <i class="material-icons icon">email</i>
+                    <div class="notification__header__content">Gmail</div>
+                    <div class="notification__header__date">8 min ago</div>
+                    <i class="material-icons icon expand">expand_more</i>
+                </header>
+
+                <div class="notification__content">
+                    <div class="notification__content__title">Lily MacDonald</div>
+                    <div class="notification__content__text">Lasagna</div>
+                    <div class="notification__content__image">
+                        <img src="//i.pravatar.cc/40" class="shape--circle" alt="notification image"/>
+                    </div>
+                </div>
+
+                <div class="notification__expanded">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aut consectetur consequuntur debitis dignissimos dolor eligendi fuga inventore iste itaque laborum maxime nihil numquam obcaecati omnis quod, soluta vel voluptate?
+                    </p>
+
+                    <div class="notification__expanded__actions">
+                        <button class="button button--text">Reply</button>
+                        <button class="button button--text">Archive</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <!-- Big picture -->
+    <article class="row">
+        <h2 class="xs12">Big picture</h2>
+
+        <section class="xs12 md6">
+            This is how a big picture notification looks like:
+        </section>
+
+        <section class="xs12 md6">
+            <div class="notification notification--big-text">
+                <header class="notification__header">
+                    <i class="material-icons icon">image</i>
+                    <div class="notification__header__content">Android System</div>
+                    <div class="notification__header__date">Now</div>
+                    <i class="material-icons icon expand">expand_more</i>
+                </header>
+
+                <div class="notification__content">
+                    <div class="notification__content__title">Screenshot captured</div>
+                    <div class="notification__content__text">Tap to view your screenshot</div>
+                    <div class="notification__content__image">
+                        <img src="//placeimg.com/40/40/nature" alt="notification image"/>
+                    </div>
+                </div>
+
+                <div class="notification__expanded">
+                    <img src="//placeimg.com/400/200/nature" alt="big picture"/>
+
+                    <div class="notification__expanded__actions">
+                        <button class="button button--text">Share</button>
+                        <button class="button button--text">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <!-- Progress -->
+    <article class="row">
+        <h2 class="xs12">Progress</h2>
+
+        <section class="xs12 md6">
+            This is how a progress notification looks like:
+        </section>
+
+        <section class="xs12 md6">
+            <div class="notification notification--progress">
+                <header class="notification__header">
+                    <i class="material-icons icon">get_app</i>
+                    <div class="notification__header__content">Download Manager</div>
+                    <div class="notification__header__date">68%</div>
+                    <i class="material-icons icon expand">expand_more</i>
+                </header>
+
+                <div class="notification__content">
+                    <div class="notification__content__title">App name</div>
+                    <div class="notification__content__text">2 seconds left</div>
+                    <div class="notification__content__image">
+                        <progress min="0" max="100" value="68" class="progress progress--determinate">
+                            <div class="progress progress--determinate">
+                                <div class="progress__bar" style="width:68%"></div>
+                            </div>
+                        </progress>
+                    </div>
+                </div>
+
+                <div class="notification__expanded">
+                    <div class="notification__expanded__actions">
+                        <button class="button button--text">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <!-- Messaging -->
+    <article class="row">
+        <h2 class="xs12">Messaging</h2>
+
+        <section class="xs12 md6">
+            This is how a messaging notification looks like:
+        </section>
+
+        <section class="xs12 md6">
+            <div class="notification notification--messaging">
+                <header class="notification__header">
+                    <i class="material-icons icon">message</i>
+                    <div class="notification__header__content">Messages</div>
+                    <div class="notification__header__date">lilym@gmail.com</div>
+                    <i class="material-icons icon expand">expand_more</i>
+                </header>
+
+                <div class="notification__content">
+                    <div class="notification__content__image">
+                        <img src="//i.pravatar.cc/40" class="shape--circle" alt="notification image"/>
+                    </div>
+                    <div class="notification__content__title">Lily MacDonald</div>
+                    <div class="notification__content__text">Do you want to see a movie</div>
+                    <i class="material-icons icon">reply</i>
+                </div>
+
+                <div class="notification__expanded">
+                    <div class="notification__expanded__actions">
+                        <button class="button button--text">Reply</button>
+                        <button class="button button--text">Archive</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+</main>
+
+<nav class="drawer drawer--modal" id="drawer">
+    <ul>
+        <li><a href="../" class="drawer__item"><span class="drawer__item__content">Home</span></a></li>
+        <li><a href="../getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
+        <li>
+            <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
+
+            <ul class="drawer__item__children">
+                <li><a href="../layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
+                <li><a href="../layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
+            </ul>
+        </li>
+        <li><a href="../color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
+        <li><a href="../typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
+        <li><a href="../iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
+        <li>
+            <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
+
+            <ul class="drawer__item__children">
+                <li><a href="./app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                <li><a href="./banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
+                <li><a href="./bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
+                <li><a href="./bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                <li><a href="./buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
+                <li><a href="./buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
+                <li><a href="./cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
+                <li><a href="./chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
+                <li><a href="./data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
+                <li><a href="./dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
+                <li><a href="./dividers.html" class="drawer__item"><span class="drawer__item__content">Dividers</span></a></li>
+                <li><a href="./list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
+                <li><a href="./menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
+                <li><a href="./navigation-drawer.html" class="drawer__item"><span class="drawer__item__content">Navigation drawer</span></a></li>
+                <li><a href="./notification.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">Notification</span></a></li>
+                <li><a href="./progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                <li><a href="./selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
+                <li><a href="./sliders.html" class="drawer__item"><span class="drawer__item__content">Sliders</span></a></li>
+                <li><a href="./snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
+                <li><a href="./tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
+                <li><a href="./text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
+                <li><a href="./tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
+
+            <ul class="drawer__item__children">
+                <li><a href="./app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<script src="../dist/js/material.js"></script>
+<script src="../src/prism.js"></script>
+</body>
+</html>

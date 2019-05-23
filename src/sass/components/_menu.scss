@@ -1,23 +1,39 @@
 @if(in-array(menu, $component-settings)) {
 	.menu {
-		--menu-max-width: #{rem-calc(280px)};
-		--menu__icon-margin: #{rem-calc(12px)} 0 #{rem-calc(12px)} #{rem-calc(16px)};
-		--menu__content-margin: 0 #{rem-calc(16px)};
-		--menu-color: #{rgba($black, .87)};
-		--menu-left: auto;
+		--menu-min-width: #{$menu-min-width};
+		--menu-max-width: #{$menu-max-width};
+		--menu__icon-margin: #{$menu__icon-margin};
+		--menu__content-margin: #{$menu__content-margin};
+		--menu-color: #{$menu-color};
+		--menu-left: #{$menu-left};
+		--menu-right: #{$menu-right};
+		--menu-padding: #{$menu-padding};
+
+		--menu__divider-margin: #{$menu__divider-margin};
+		--menu__divider-height: #{$menu__divider-height};
+		--menu__divider-background: #{$menu__divider-background};
+
+		--menu__content-font-size: #{$menu__content-font-size};
+
+		--menu__icon-size: #{$menu__icon-size};
+
+		--menu__item-height: #{$menu__item-height};
+		--menu__item--hover-background: #{$menu__item--hover-background};
+		--menu__item--active-background: #{$menu__item--active-background};
+		--menu__item--disabled-color: #{$menu__item--disabled-color};
 
 		@media #{$md-up} {
-			--menu-max-width: #{rem-calc(320px)};
-			--menu__icon-margin: #{rem-calc(12px)} #{rem-calc(-4px)} #{rem-calc(12px)} #{rem-calc(16px)};
-			--menu__content-margin: 0 #{rem-calc(24px)};
-			--menu-color: #444;
+			--menu-max-width: #{$menu-md-up-max-width};
+			--menu__icon-margin: #{$menu-md-up__icon-margin};
+			--menu__content-margin: #{$menu-md-up__content-margin};
 		}
 
+		$el: &;
 		list-style-type: none;
 		margin: 0;
-		min-width: rem-calc(112px);
+		min-width: var(--menu-min-width);
 		max-width: var(--menu-max-width);
-		padding: rem-calc(8px) 0;
+		padding: var(--menu-padding);
 		border-radius: var(--border-radius);
 		background: var(--background-color);
 		@extend %z8;
@@ -26,36 +42,29 @@
 		overflow: auto;
 		position: absolute;
 		left: var(--menu-left);
-		right: rem-calc(8px);
+		right: var(--menu-right);
 		z-index: 1;
 		transition: max-width .1s $easing-standard, max-height .1s $easing-standard;
 		pointer-events: none;
 
-		/*a {
-			grid-column: 1 / 3;
-
-			.icon {
-				color: #{rgba($black, .87)};
-			}
-		}*/
-
 		&__content {
-			grid-column-start: 2;
-			line-height: rem-calc(48px);
+			grid-area: content;
+			line-height: var(--menu__item-height);
 			margin: var(--menu__content-margin);
 			@extend %body-2;
 			color: var(--menu-color);
 			text-align: left;
+			font-size: var(--menu__content-font-size);
 		}
 
 		&__indicator {
-			grid-column-start: 3;
+			grid-area: indicator;
 		}
 
 		&__divider {
-			margin: rem-calc(8px) 0;
-			height: rem-calc(1px);
-			background: rgba($black, .12);
+			margin: var(--menu__divider-margin);
+			height: var(--menu__divider-height);
+			background: var(--menu__divider-background);
 		}
 
 		&--active {
@@ -73,34 +82,35 @@
 			width: 100%;
 		}
 
+		.icon {
+			grid-area: icon;
+			margin: var(--menu__icon-margin);
+			color: var(--menu-color);
+			--icon-size: var(--menu__icon-size);
+		}
+
 		&__item {
 			display: grid;
+			grid-template-areas: "icon content indicator";
 			grid-template-columns: auto 1fr auto;
-			height: rem-calc(48px);
+			height: var(--menu__item-height);
 			width: 100%;
 			transition: background .1s $easing-standard;
 			@extend %cursor--pointer;
 
-			.icon {
-				grid-column-start: 1;
-				margin: var(--menu__icon-margin);
-				color: rgba($black, .87);
-				@include chain(width, height, line-height, rem-calc(24px));
-			}
-
 			&:hover {
-				background: rgba($primary-color, .04);
+				background: var(--menu__item--hover-background);
 			}
 
 			&:active {
-				background: rgba($primary-color, .12);
+				background: var(--menu__item--active-background);
 			}
 
 			&:disabled, &--disabled {
-				color: rgba($black, .38);
+				color: var(--menu__item--disabled-color);
 
-				.icon, .menu__content {
-					color: rgba($black, .38);
+				.icon, #{$el}__content {
+					color: var(--menu__item--disabled-color);
 				}
 			}
 		}

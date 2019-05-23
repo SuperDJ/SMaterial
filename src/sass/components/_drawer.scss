@@ -1,7 +1,15 @@
 @if(in-array(drawer, $component-settings)) {
 	.drawer {
 		--drawer-background: #{var(--background-color)};
+		--drawer-border-right: #{rem-calc(1px) solid rgba($black, .12)};
 
+		--drawer__icon-size: #{rem-calc(24px)};
+
+		--drawer__item-margin: #{0 rem-calc(8px)};
+		--drawer__item-min-height: #{rem-calc(48px)};
+		--drawer__item-width: #{calc(100% - (rem-calc(8px) * 2))};
+		--drawer__item__icon-margin: #{0 rem-calc(24px) 0 rem-calc(8px)};
+		--drawer__item__arrow-margin: #{0 rem-calc(8px) 0 rem-calc(24px)};
 		--drawer__item__children-height: auto;
 
 		--drawer__header-height: #{calc(var(--app-bar-height) * 2)};
@@ -20,7 +28,7 @@
 		overflow-x: hidden;
 		overflow-y: auto;
 		transition: margin-left .3s $easing-accelerate;
-		border-right: rem-calc(1px) solid rgba($black, .12);
+		border-right: var(--drawer-border-right);
 
 		&--active {
 			margin-left: 0;
@@ -28,39 +36,39 @@
 		}
 
 		&__item {
-			min-height: rem-calc(48px);
-			width: calc(100% - (#{rem-calc(8px)} * 2));
+			min-height: var(--drawer__item-min-height);
+			width: var(--drawer__item-width);
 			display: grid;
+			grid-template-areas: "icon content arrow";
 			grid-template-columns: auto 1fr auto;
-			margin: 0 rem-calc(8px);
+			margin: var(--drawer__item-margin);
 			border-radius: var(--border-radius);
 			transition: background .1s $easing-standard, color .1s $easing-standard;
 			@extend %cursor--pointer;
 
 			.icon {
-				--icons-size: #{rem-calc(24px)};
-				grid-column-start: 1;
-				margin: 0 rem-calc(24px) 0 rem-calc(8px);
+				grid-area: icon;
+				margin: var(--drawer__item__icon-margin);
 			}
 
 			.arrow {
-				grid-column-start: 3;
-				margin: 0 rem-calc(8px) 0 rem-calc(24px);
+				grid-area: arrow;
+				margin: var(--drawer__item__arrow-margin);
 			}
 
 			.icon, .arrow {
-				--icons-size: #{rem-calc(24px)};
+				--icons-size: var(--drawer__icon-size);
 			}
 
 			&__content {
-				grid-column-start: 2;
+				grid-area: content;
 				@extend %body-1;
 				color: rgba($black, .87);
 				margin: 0 rem-calc(8px) 0 rem-calc(8px);
 				font-weight: 500;
 			}
 
-			.icon, &__content, &__arrow {
+			.icon, &__content, .arrow {
 				@include chain(height, line-height, rem-calc(48px));
 			}
 

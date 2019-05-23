@@ -1,59 +1,139 @@
 @if(in-array(notification, $component-settings)) {
 	.notification {
-		--notification-font-color: #{rgba($black, .60)};
+		--notification-color: #{rgba($black, .60)};
 		--notification__header__icon-size: #{rem-calc(16px)};
 
+		$el: &;
 		border-radius: var(--border-radius);
 		background: var(--background-color);
-		position: absolute;
+		//position: absolute;
 		@extend %z2;
 		padding: rem-calc(16px);
-		color: var(--notification-font-color);
+		color: var(--notification-color);
+		display: inline-grid;
+		grid-template-areas:
+			"header"
+			"content"
+			"expanded";
 
 		.icon {
-			color: var(--notification-font-color);
+			color: var(--notification-color);
 		}
 
 		&__header {
+			grid-area: header;
 			width: 100%;
 			margin: 0 0 rem-calc(16px) 0;
 			line-height: rem-calc(16px);
 			font-size: rem-calc(12px);
 			display: grid;
+			grid-template-areas: "icon content date expand";
 			grid-template-columns: var(--notification__header__icon-size) auto auto var(--notification__header__icon-size);
 			grid-column-gap: rem-calc(8px);
 
 			.icon {
-				@include chain(width, height, font-size, var(--notification__header__icon-size));
-			}
-
-			&__icon {
-				grid-column-start: 1;
+				grid-area: icon;
+				--icon-size: var(--notification__header__icon-size);
 			}
 
 			&__content {
-				grid-column-start: 2;
+				grid-area: content;
 			}
 
 			&__date {
-				grid-column-start: 3;
+				grid-area: date;
 			}
 
-			&__dropdown {
-				grid-column-start: 4;
+			.expand {
+				grid-area: expand;
 			}
 		}
 
 		&__content {
-			width: 100%;
+			grid-area: content;
+			display: grid;
 
-			&__header {
-				width: 100%;
+			&__title {
+				grid-area: title;
 				font-weight: 500;
 			}
 
 			&__text {
+				grid-area: text;
+			}
+
+			&__image {
+				grid-area: image;
+
+				img {
+					@include chain(width, height, rem-calc(40px));
+				}
+			}
+		}
+
+		&__expanded {
+			grid-area: expanded;
+			opacity: 0;
+			max-height: 0;
+			margin: 0 rem-calc(16px) rem-calc(16px) rem-calc(16px);
+
+			&__actions {
+				margin-left: rem-calc(-8px);
+
+				> * {
+					margin-right: rem-calc(8px);
+				}
+			}
+		}
+
+		&--standard {
+			#{$el}__content {
+				grid-template-areas: "title""text";
+			}
+		}
+
+		&--big-text {
+			#{$el}__content {
+				grid-template-columns: 1fr rem-calc(40px);
+				grid-template-areas: "title image" "text image";
+			}
+		}
+
+		&--big-picture {
+			#{$el}__content {
+				grid-template-columns: 1fr rem-calc(40px);
+				grid-template-areas: "title image" "text image";
+			}
+
+			#{$el}__expanded img {
 				width: 100%;
+			}
+		}
+
+		&--progress {
+			#{$el}__content {
+				grid-template-areas:
+					"title text"
+					"image image";
+				grid-template-columns: auto auto;
+			}
+		}
+
+		&--messaging {
+			#{$el}__content {
+				grid-template-areas:
+					"image title icon"
+					"image text icon";
+				grid-template-columns: rem-calc(40px) auto auto;
+
+				.icon {
+					grid-area: icon;
+					--icon-size: #{rem-calc(30px)};
+				}
+
+				&__title, &__text {
+					padding: 0 rem-calc(16px);
+				}
 			}
 		}
 	}

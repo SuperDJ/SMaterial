@@ -564,6 +564,36 @@ $fab--extended--icon-right-padding: 0 rem-calc(16px) 0 rem-calc(20px) !default;
 $fab--extended--icon-right__icon-margin-left: rem-calc(8px) !default;
 
 /**************************************
+ * Menu
+ **************************************/
+
+$menu-min-width: rem-calc(112px) !default;
+$menu-max-width: rem-calc(280px) !default;
+$menu__icon-margin: rem-calc(12px) 0 rem-calc(12px) rem-calc(16px) !default;
+$menu__content-margin: 0 rem-calc(16px) !default;
+$menu-color: rgba($black, .87) !default;
+$menu-left: auto !default;
+$menu-right: rem-calc(8px) !default;
+$menu-padding: rem-calc(8px) 0 !default;
+
+$menu__divider-margin: rem-calc(8px) 0 !default;
+$menu__divider-height: rem-calc(1px) !default;
+$menu__divider-background: rgba($black, .12) !default;
+
+$menu__content-font-size: rem-calc(14px) !default;
+
+$menu__icon-size: rem-calc(24px) !default;
+
+$menu__item-height: rem-calc(48px) !default;
+$menu__item--hover-background: rgba($primary-color, .04) !default;
+$menu__item--active-background: rgba($primary-color, .12) !default;
+$menu__item--disabled-color: rgba($black, .38) !default;
+
+$menu-md-up-max-width: rem-calc(320px) !default;
+$menu-md-up__icon-margin: rem-calc(12px) rem-calc(-4px) rem-calc(12px) rem-calc(16px) !default;
+$menu-md-up__content-margin: 0 rem-calc(24px) !default;
+
+/**************************************
  * Snackbars
  **************************************/
 
