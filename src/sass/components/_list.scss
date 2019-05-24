@@ -75,7 +75,7 @@
 
 						img {
 							@include chain(width, height, rem-calc(40px));
-							border-radius: 50%;
+							@extend .shape--circle;
 						}
 					}
 

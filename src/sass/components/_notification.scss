@@ -1,14 +1,18 @@
 @if(in-array(notification, $component-settings)) {
 	.notification {
-		--notification-color: #{rgba($black, .60)};
+		--notification-color: #{rgba($black, .87)};
+		--notification-border-radius: #{var(--border-radius)};
+		--notification-background: #{var(--background-color)};
+		--notification-padding: #{rem-calc(16px)};
+
 		--notification__header__icon-size: #{rem-calc(16px)};
+		--notification__header-padding: #{0 0 rem-calc(16px) 0};
 
 		$el: &;
-		border-radius: var(--border-radius);
-		background: var(--background-color);
-		//position: absolute;
+		border-radius: var(--notification-border-radius);
+		background: var(--notification-background);
 		@extend %z2;
-		padding: rem-calc(16px);
+		padding: var(--notification-padding);
 		color: var(--notification-color);
 		display: inline-grid;
 		grid-template-areas:
@@ -22,8 +26,7 @@
 
 		&__header {
 			grid-area: header;
-			width: 100%;
-			margin: 0 0 rem-calc(16px) 0;
+			padding: var(--notification__header-padding);
 			line-height: rem-calc(16px);
 			font-size: rem-calc(12px);
 			display: grid;
@@ -75,7 +78,7 @@
 			grid-area: expanded;
 			opacity: 0;
 			max-height: 0;
-			margin: 0 rem-calc(16px) rem-calc(16px) rem-calc(16px);
+			transition: max-height .3s $easing-accelerate, opacity .3s $easing-accelerate;
 
 			&__actions {
 				margin-left: rem-calc(-8px);
@@ -84,55 +87,67 @@
 					margin-right: rem-calc(8px);
 				}
 			}
-		}
 
-		&--standard {
-			#{$el}__content {
-				grid-template-areas: "title""text";
+			&--active {
+				opacity: 1;
+				max-height: 100vh;
+				transition: max-height .3s $easing-decelerate, opacity .3s $easing-decelerate;
 			}
 		}
 
-		&--big-text {
-			#{$el}__content {
-				grid-template-columns: 1fr rem-calc(40px);
-				grid-template-areas: "title image" "text image";
+		@if(in-array(standard, $notification-settings)) {
+			&--standard {
+				#{$el}__content {
+					grid-template-areas: "title""text";
+				}
 			}
 		}
 
-		&--big-picture {
-			#{$el}__content {
-				grid-template-columns: 1fr rem-calc(40px);
-				grid-template-areas: "title image" "text image";
-			}
-
-			#{$el}__expanded img {
-				width: 100%;
+		@if(in-array(big-text, $notification-settings)) {
+			&--big-text {
+				#{$el}__content {
+					grid-template-columns: 1fr rem-calc(40px);
+					grid-template-areas: "title image" "text image";
+				}
 			}
 		}
 
-		&--progress {
-			#{$el}__content {
-				grid-template-areas:
-					"title text"
-					"image image";
-				grid-template-columns: auto auto;
-			}
-		}
-
-		&--messaging {
-			#{$el}__content {
-				grid-template-areas:
-					"image title icon"
-					"image text icon";
-				grid-template-columns: rem-calc(40px) auto auto;
-
-				.icon {
-					grid-area: icon;
-					--icon-size: #{rem-calc(30px)};
+		@if(in-array(big-picture, $notification-settings)) {
+			&--big-picture {
+				#{$el}__content {
+					grid-template-columns: 1fr rem-calc(40px);
+					grid-template-areas: "title image" "text image";
 				}
 
-				&__title, &__text {
-					padding: 0 rem-calc(16px);
+				#{$el}__expanded img {
+					width: 100%;
+				}
+			}
+		}
+
+		@if(in-array(progress, $notification-settings)) {
+			&--progress {
+				#{$el}__content {
+					grid-template-areas: "title text" "image image";
+					grid-template-columns: auto auto;
+				}
+			}
+		}
+
+		@if(in-array(messaging, $notification-settings)) {
+			&--messaging {
+				#{$el}__content {
+					grid-template-areas: "image title icon" "image text icon";
+					grid-template-columns: rem-calc(40px) auto auto;
+
+					.icon {
+						grid-area: icon;
+						--icon-size: #{rem-calc(30px)};
+					}
+
+					&__title, &__text {
+						padding: 0 rem-calc(16px);
+					}
 				}
 			}
 		}

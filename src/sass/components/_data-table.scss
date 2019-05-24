@@ -2,6 +2,7 @@
 	.data-table {
 		--data-table__header-font-size: #{$data-table__header-font-size};
 		--data-table__header-color: #{$data-table__header-color};
+		--data-table__header-background: #{$data-table__header-background};
 		--data-table__header-font-weight: #{$data-table__header-font-weight};
 		--data-table__header--hover-color: #{$data-table__header--hover-color};
 
@@ -35,7 +36,7 @@
 			th {
 				position: sticky;
 				top: var(--app-bar-height);
-				background: $white;
+				background: var(--data-table__header-background);
 				z-index: 1;
 			}
 		}

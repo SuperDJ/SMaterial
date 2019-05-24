@@ -65,7 +65,7 @@
         </section>
 
         <section class="xs12 md6">
-            <div class="notification notification--standard">
+            <div class="notification notification--standard" data-trigger="standard-expand">
                 <header class="notification__header">
                     <i class="material-icons icon">event</i>
                     <div class="notification__header__content">Calendar</div>
@@ -77,12 +77,35 @@
                     <div class="notification__content__text">3:00 - 4:00 PM</div>
                 </div>
 
-                <div class="notification__expanded">
+                <div class="notification__expanded" id="standard-expand">
                     <div class="notification__expanded__actions">
                         <button class="button button--text">Email Guests</button>
                     </div>
                 </div>
             </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="notification notification--standard" data-trigger="standard-expand">
+    &lt;header class="notification__header">
+        &lt;i class="material-icons icon">event&lt;/i>
+        &lt;div class="notification__header__content">Calendar&lt;/div>
+        &lt;i class="material-icons icon expand">expand_more&lt;/i>
+    &lt;/header>
+
+    &lt;div class="notification__content">
+        &lt;div class="notification__content__title">Design team meeting&lt;/div>
+        &lt;div class="notification__content__text">3:00 - 4:00 PM&lt;/div>
+    &lt;/div>
+
+    &lt;div class="notification__expanded" id="standard-expand">
+        &lt;div class="notification__expanded__actions">
+            &lt;button class="button button--text">Email Guests&lt;/button>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
         </section>
     </article>
 
@@ -95,7 +118,7 @@
         </section>
 
         <section class="xs12 md6">
-            <div class="notification notification--big-text">
+            <div class="notification notification--big-text" data-trigger="text-expand">
                 <header class="notification__header">
                     <i class="material-icons icon">email</i>
                     <div class="notification__header__content">Gmail</div>
@@ -111,7 +134,7 @@
                     </div>
                 </div>
 
-                <div class="notification__expanded">
+                <div class="notification__expanded" id="text-expand">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aut consectetur consequuntur debitis dignissimos dolor eligendi fuga inventore iste itaque laborum maxime nihil numquam obcaecati omnis quod, soluta vel voluptate?
                     </p>
@@ -122,6 +145,38 @@
                     </div>
                 </div>
             </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="notification notification--big-text" data-trigger="text-expand">
+    &lt;header class="notification__header">
+        &lt;i class="material-icons icon">email&lt;/i>
+        &lt;div class="notification__header__content">Gmail&lt;/div>
+        &lt;div class="notification__header__date">8 min ago&lt;/div>
+        &lt;i class="material-icons icon expand">expand_more&lt;/i>
+    &lt;/header>
+
+    &lt;div class="notification__content">
+        &lt;div class="notification__content__title">Lily MacDonald&lt;/div>
+        &lt;div class="notification__content__text">Lasagna&lt;/div>
+        &lt;div class="notification__content__image">
+            &lt;img src="//i.pravatar.cc/40" class="shape--circle" alt="notification image"/>
+        &lt;/div>
+    &lt;/div>
+
+    &lt;div class="notification__expanded" id="text-expand">
+        &lt;p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aut consectetur consequuntur debitis dignissimos dolor eligendi fuga inventore iste itaque laborum maxime nihil numquam obcaecati omnis quod, soluta vel voluptate?
+        &lt;/p>
+
+        &lt;div class="notification__expanded__actions">
+            &lt;button class="button button--text">Reply&lt;/button>
+            &lt;button class="button button--text">Archive&lt;/button>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
         </section>
     </article>
 
@@ -134,7 +189,7 @@
         </section>
 
         <section class="xs12 md6">
-            <div class="notification notification--big-text">
+            <div class="notification notification--big-text" data-trigger="picture-expand">
                 <header class="notification__header">
                     <i class="material-icons icon">image</i>
                     <div class="notification__header__content">Android System</div>
@@ -150,7 +205,7 @@
                     </div>
                 </div>
 
-                <div class="notification__expanded">
+                <div class="notification__expanded" id="picture-expand">
                     <img src="//placeimg.com/400/200/nature" alt="big picture"/>
 
                     <div class="notification__expanded__actions">
@@ -159,6 +214,36 @@
                     </div>
                 </div>
             </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="notification notification--big-text" data-trigger="picture-expand">
+    &lt;header class="notification__header">
+        &lt;i class="material-icons icon">image&lt;/i>
+        &lt;div class="notification__header__content">Android System&lt;/div>
+        &lt;div class="notification__header__date">Now&lt;/div>
+        &lt;i class="material-icons icon expand">expand_more&lt;/i>
+    &lt;/header>
+
+    &lt;div class="notification__content">
+        &lt;div class="notification__content__title">Screenshot captured&lt;/div>
+        &lt;div class="notification__content__text">Tap to view your screenshot&lt;/div>
+        &lt;div class="notification__content__image">
+            &lt;img src="//placeimg.com/40/40/nature" alt="notification image"/>
+        &lt;/div>
+    &lt;/div>
+
+    &lt;div class="notification__expanded" id="picture-expand">
+        &lt;img src="//placeimg.com/400/200/nature" alt="big picture"/>
+
+        &lt;div class="notification__expanded__actions">
+            &lt;button class="button button--text">Share&lt;/button>
+            &lt;button class="button button--text">Delete&lt;/button>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
         </section>
     </article>
 
@@ -171,7 +256,7 @@
         </section>
 
         <section class="xs12 md6">
-            <div class="notification notification--progress">
+            <div class="notification notification--progress" data-trigger="progress-expand">
                 <header class="notification__header">
                     <i class="material-icons icon">get_app</i>
                     <div class="notification__header__content">Download Manager</div>
@@ -191,12 +276,43 @@
                     </div>
                 </div>
 
-                <div class="notification__expanded">
+                <div class="notification__expanded" id="progress-expand">
                     <div class="notification__expanded__actions">
                         <button class="button button--text">Cancel</button>
                     </div>
                 </div>
             </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="notification notification--progress" data-trigger="progress-expand">
+    &lt;header class="notification__header">
+        &lt;i class="material-icons icon">get_app&lt;/i>
+        &lt;div class="notification__header__content">Download Manager&lt;/div>
+        &lt;div class="notification__header__date">68%&lt;/div>
+        &lt;i class="material-icons icon expand">expand_more&lt;/i>
+    &lt;/header>
+
+    &lt;div class="notification__content">
+        &lt;div class="notification__content__title">App name&lt;/div>
+        &lt;div class="notification__content__text">2 seconds left&lt;/div>
+        &lt;div class="notification__content__image">
+            &lt;progress min="0" max="100" value="68" class="progress progress--determinate">
+                &lt;div class="progress progress--determinate">
+                    &lt;div class="progress__bar" style="width:68%">&lt;/div>
+                &lt;/div>
+            &lt;/progress>
+        &lt;/div>
+    &lt;/div>
+
+    &lt;div class="notification__expanded" id="progress-expand">
+        &lt;div class="notification__expanded__actions">
+            &lt;button class="button button--text">Cancel&lt;/button>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
         </section>
     </article>
 
@@ -209,7 +325,7 @@
         </section>
 
         <section class="xs12 md6">
-            <div class="notification notification--messaging">
+            <div class="notification notification--messaging" data-trigger="messaging-expand">
                 <header class="notification__header">
                     <i class="material-icons icon">message</i>
                     <div class="notification__header__content">Messages</div>
@@ -226,14 +342,44 @@
                     <i class="material-icons icon">reply</i>
                 </div>
 
-                <div class="notification__expanded">
+                <div class="notification__expanded" id="messaging-expand">
                     <div class="notification__expanded__actions">
                         <button class="button button--text">Reply</button>
                         <button class="button button--text">Archive</button>
                     </div>
                 </div>
             </div>
+
+<pre class="language-html">
+    <code>
+&lt;div class="notification notification--messaging" data-trigger="messaging-expand">
+    &lt;header class="notification__header">
+        &lt;i class="material-icons icon">message&lt;/i>
+        &lt;div class="notification__header__content">Messages&lt;/div>
+        &lt;div class="notification__header__date">lilym@gmail.com&lt;/div>
+        &lt;i class="material-icons icon expand">expand_more&lt;/i>
+    &lt;/header>
+
+    &lt;div class="notification__content">
+        &lt;div class="notification__content__image">
+            &lt;img src="//i.pravatar.cc/40" class="shape--circle" alt="notification image"/>
+        &lt;/div>
+        &lt;div class="notification__content__title">Lily MacDonald&lt;/div>
+        &lt;div class="notification__content__text">Do you want to see a movie&lt;/div>
+        &lt;i class="material-icons icon">reply&lt;/i>
+    &lt;/div>
+
+    &lt;div class="notification__expanded" id="messaging-expand">
+        &lt;div class="notification__expanded__actions">
+            &lt;button class="button button--text">Reply&lt;/button>
+            &lt;button class="button button--text">Archive&lt;/button>
+        &lt;/div>
+    &lt;/div>
+&lt;/div>
+    </code>
+</pre>
         </section>
+    </article>
 </main>
 
 <nav class="drawer drawer--modal" id="drawer">

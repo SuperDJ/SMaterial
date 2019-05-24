@@ -477,6 +477,7 @@ $chip--outlined--remove-padding-right: rem-calc(6px) !default;
 
 $data-table__header-font-size: rem-calc(12px) !default;
 $data-table__header-color: rgba($black, .60) !default;
+$data-table__header-background: $white !default;
 $data-table__header-font-weight: 500 !default;
 $data-table__header--hover-color: $black !default;
 
@@ -592,6 +593,54 @@ $menu__item--disabled-color: rgba($black, .38) !default;
 $menu-md-up-max-width: rem-calc(320px) !default;
 $menu-md-up__icon-margin: rem-calc(12px) rem-calc(-4px) rem-calc(12px) rem-calc(16px) !default;
 $menu-md-up__content-margin: 0 rem-calc(24px) !default;
+
+/**************************************
+ * Selection
+ **************************************/
+$checkbox-size: rem-calc(20px) !default;
+$checkbox-stroke: rem-calc(2px) !default;
+$checkbox-border: var(--checkbox-stroke) solid rgba($black, .54) !default;
+$checkbox-border-radius: var(--border-radius) !default;
+
+$checkbox--disabled-color: rgba($black, .38) !default;
+
+$checkbox__radial-size: rem-calc(16px) !default;
+$checkbox__radial--hover-background: rgba($black, .04) !default;
+$checkbox__radial--active-background: rgba($black, .16) !default;
+$checkbox__radial--checked--hover: rgba($primary-color, .04) !default;
+$checkbox__radial--checked--active: rgba($primary-color, .16) !default;
+
+$radio-size: rem-calc(20px) !default;
+$radio__radial-size: var(--checkbox__radial-size) !default;
+$radio-stroke: rem-calc(2px) !default;
+$radio--checked-color: var(--primary-color) !default;
+
+$radio__radial--hover-background: rgba($black, .04) !default;
+$radio__radial--active-background: rgba($black, .12) !default;
+$radio__radial--checked--hover-background: rgba($primary-color, .04) !default;
+$radio__radial--checked--active-background: rgba($primary-color, .12) !default;
+$radio--checked--disabled-color: rgba($primary-color, .38) !default;
+
+$radio--disabled-color: rgba($black, .38) !default;
+
+$switch__radial-size: var(--checkbox__radial-size) !default;
+
+$switch__knob-size: rem-calc(20px) !default;
+$switch__knob--checked-color: var(--primary-color) !default;
+
+$switch__track-width: rem-calc(36px) !default;
+$switch__track-height: rem-calc(16px) !default;
+$switch__track--checked-background: rgba($primary-color, .54) !default;
+
+$switch--disabled-background: rgba($black, .12) !default;
+$switch--disabled__after-background: lighten($black, 96%) !default;
+$switch--checked--disabled-background: rgba(rgba($primary-color, .54), .38) !default;
+$switch--checked--disabled__knob-background: lighten($primary-color, 38%) !default;
+
+$switch__radial--hover-background: rgba($black, .04) !default;
+$switch__radial--active-background: rgba($black, .12) !default;
+$switch__radial--checked--hover-background: rgba($primary-color, .04) !default;
+$switch__radial--checked--active-background: rgba($primary-color, .12) !default;
 
 /**************************************
  * Snackbars
