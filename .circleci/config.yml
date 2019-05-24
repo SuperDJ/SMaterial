@@ -7,5 +7,13 @@ jobs:
       - image: circleci/node:8
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - node-{{ checksum "package-lock.json" }}
+            - node-
       - run: npm install
-      - run: npm prod
+      - save_cache:
+          paths:
+            - ~/usr/local/lib/node_modules
+          key: node-{{ checksum "package-lock.json" }}
+      - run: npm run prod
