@@ -7,7 +7,7 @@
 
 		--drawer__item-margin: #{0 rem-calc(8px)};
 		--drawer__item-min-height: #{rem-calc(48px)};
-		--drawer__item-width: #{calc(100% - (rem-calc(8px) * 2))};
+		--drawer__item-width: #{calc(100% - #{rem-calc(8px) * 2})};
 		--drawer__item__icon-margin: #{0 rem-calc(24px) 0 rem-calc(8px)};
 		--drawer__item__arrow-margin: #{0 rem-calc(8px) 0 rem-calc(24px)};
 		--drawer__item__children-height: auto;
@@ -140,7 +140,7 @@
 				}
 
 				#{$el}__item {
-					width: calc(100% - (#{rem-calc(8px)} * 3));
+					width: calc(100% - #{rem-calc(8px) * 3});
 				}
 			}
 		}

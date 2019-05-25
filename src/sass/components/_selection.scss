@@ -217,10 +217,10 @@
 
 			// Radial
 			&:before {
-				@include chain(width, height, calc(var(--switch-size) + var(--switch__radial-size)));
+				@include chain(width, height, calc(var(--switch__knob-size) + var(--switch__radial-size)));
 				background: transparent;
 				left: calc(-1 * (var(--switch__radial-size) / 2));
-				top: calc(-1 * (var(--switch__radial-size) / 2) - ((var(--switch-size) - var(--switch__track-height)) / 2));
+				top: calc(-1 * (var(--switch__radial-size) / 2) - ((var(--switch__knob-size) - var(--switch__track-height)) / 2));
 			}
 
 			&:hover:before {

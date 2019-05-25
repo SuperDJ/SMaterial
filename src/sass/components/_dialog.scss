@@ -33,7 +33,7 @@
 			--dialog--confirm__content-padding: #{$dialog--confirm__content-padding};
 		}
 
-		@if(in-array(scroll,$dialog-settings)) {
+		@if(in-array(scroll, $dialog-settings)) {
 			--dialog--scroll__header-border-bottom: #{$dialog--scroll__header-border-bottom};
 			--dialog--scroll__actions-border-top: #{$dialog--scroll__actions-border-top};
 			--dialog--scroll__content-padding-bottom: #{$dialog--scroll__content-padding-bottom};
@@ -102,7 +102,7 @@
 				}
 
 				&__content {
-					padding: var(dialog--simple__list__content-padding);
+					padding: var(--dialog--simple__list__content-padding);
 				}
 			}
 		}

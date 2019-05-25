@@ -64,37 +64,38 @@
                 </p>
             </section>
 
-            <!--<section class="row">
+            <section class="row">
                 <h3 class="xs12">Theme</h3>
 
                 <p class="xs12 sm6">
-                    With SMaterial and SCSS you're also able to choose between a light and dark theme.
-                    You can define the theme in the <strong>_settings.scss</strong> file or by overwriting the <code class="language-css">$theme</code> variable.
+                    With Material and SCSS you're also able to choose between a light and dark theme.
+                    You can define the theme by overwriting the <code class="language-css">$theme</code> variable.
                     The variable can either be light or dark.
 
-                    <button type="button" id="theme-switch" class="raised-button raised-button-dense">Switch theme</button>
+                    <button type="button" id="theme-switch" class="button button--contained">Switch theme</button>
 
                     <script>
 						var btn = document.getElementById('theme-switch');
 						btn.addEventListener('click', function() {
 							var $styles = document.getElementsByTagName('link');
 							for(var i = 0; i < $styles.length; i++) {
-								if( $styles[i].getAttribute('href') === '/stylesheets/smaterial-light.css' ) {
-									$styles[i].setAttribute('href', '/stylesheets/smaterial-dark.css');
-								} else if( $styles[i].getAttribute('href') === '/stylesheets/smaterial-dark.css' ) {
-									$styles[i].setAttribute('href', '/stylesheets/smaterial-light.css');
+								if( $styles[i].getAttribute('href') === './dist/css/material-light.css' ) {
+									$styles[i].setAttribute('href', './dist/css/material-dark.css');
+								} else if( $styles[i].getAttribute('href') === './dist/css/material-dark.css' ) {
+									$styles[i].setAttribute('href', './dist/css/material-light.css');
 								}
 							}
 						});
                     </script>
                 </p>
 
-                <pre class="language-css xs12 s12 md6">
-		<code>
+<pre class="language-css xs12 s12 md6">
+    <code>
 $theme: light;
 $theme: dark;
-		</code>
-            </section>-->
+    </code>
+</pre>
+            </section>
 
             <section class="row">
                 <div class="xs12 md4">
