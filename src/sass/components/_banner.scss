@@ -1,6 +1,8 @@
 @if(in-array(banner, $component-settings)) {
 	.banner {
 		--banner-background: #{$banner-background};
+		--banner-border-bottom: #{$banner-border-bottom};
+		--banner-color: #{$banner-color};
 
 		--banner__actions-margin: #{$banner__actions-margin};
 
@@ -36,8 +38,8 @@
 		width: 100%;
 		background: var(--banner-background);
 		@extend %body-2;
-		border-bottom: rem-calc(1px) solid rgba($font-on-surface, .12);
-		color: rgba($black, .87);
+		border-bottom: var(--banner-border-bottom);
+		color: var(--banner-color);
 
 		@if (in-array(single, $banner-settings)) {
 			&--single-line {

@@ -1,27 +1,39 @@
 @if(in-array(drawer, $component-settings)) {
 	.drawer {
-		--drawer-background: #{var(--background-color)};
-		--drawer-border-right: #{rem-calc(1px) solid rgba($black, .12)};
+		--drawer-background: #{$drawer-background};
+		--drawer-margin-right: #{$drawer-margin-right};
+		--drawer-border-right: #{$drawer-border-right};
 
-		--drawer__icon-size: #{rem-calc(24px)};
+		--drawer__icon-size: #{$drawer__icon-size};
 
-		--drawer__item-margin: #{0 rem-calc(8px)};
-		--drawer__item-min-height: #{rem-calc(48px)};
-		--drawer__item-width: #{calc(100% - #{rem-calc(8px) * 2})};
-		--drawer__item__icon-margin: #{0 rem-calc(24px) 0 rem-calc(8px)};
-		--drawer__item__arrow-margin: #{0 rem-calc(8px) 0 rem-calc(24px)};
-		--drawer__item__children-height: auto;
+		--drawer__item-margin: #{$drawer__item-margin};
+		--drawer__item-min-height: #{$drawer__item-min-height};
+		--drawer__item-width: #{$drawer__item-width};
+		--drawer__item--hover-background: #{$drawer__item--hover-background};
+		--drawer__item--click-background: #{$drawer__item--click-background};
+		--drawer__item--active-background: #{$drawer__item--active-background};
+		--drawer__item--active-color: #{$drawer__item--active-color};
+		--drawer__item--active--hover-color: #{$drawer__item--active--hover-color};
+		--drawer__item--active--active-color: #{$drawer__item--active--active-color};
+		--drawer__item__icon-margin: #{$drawer__item__icon-margin};
+		--drawer__item__arrow-margin: #{$drawer__item__arrow-margin};
+		--drawer__item__children-height: #{$drawer__item__children-height};
+		--drawer__item__content-color: #{$drawer__item__content-color};
+		--drawer__item__content-margin: #{$drawer__item__content-margin};
+		--drawer__item__content-height: #{$drawer__item__content-height};
 
-		--drawer__header-height: #{calc(var(--app-bar-height) * 2)};
-		--drawer__header__profile-image-size: #{rem-calc(40px)};
-		--drawer__header__profile-name-color: #{rgba($black, .87)};
-		--drawer__header__profile-email-color: #{rgba($black, .54)};
+		--drawer__header-height: #{$drawer__header-height};
+		--drawer__header__profile-image-size: #{$drawer__header__profile-image-size};
+		--drawer__header__profile-name-color: #{$drawer__header__profile-name-color};
+		--drawer__header__profile-email-color: #{$drawer__header__profile-email-color};
+
+		--drawer__scrim-background: #{$drawer__scrim-background};
 
 		$el: &;
 		width: var(--drawer-width);
 		position: fixed;
 		margin-left: -102%;
-		margin-right: rem-calc(56px); // Make sure there is some room left on the right side of the screen
+		margin-right: var(--drawer-margin-right); // Make sure there is some room left on the right side of the screen
 		background: var(--drawer-background);
 		z-index: 2;
 		height: 100vh;
@@ -63,17 +75,17 @@
 			&__content {
 				grid-area: content;
 				@extend %body-1;
-				color: rgba($black, .87);
-				margin: 0 rem-calc(8px) 0 rem-calc(8px);
+				color: var(--drawer__item__content-color);
+				margin: var(--drawer__item__content-margin);
 				font-weight: 500;
 			}
 
 			.icon, &__content, .arrow {
-				@include chain(height, line-height, rem-calc(48px));
+				@include chain(height, line-height, var(--drawer__item__content-height));
 			}
 
 			&:hover {
-				background: rgba($black, .04);
+				background: var(--drawer__item--hover-background);
 				color: initial;
 			}
 
@@ -82,23 +94,23 @@
 			// }
 
 			&:active {
-				background: rgba($black, .16);
+				background: var(--drawer__item--click-background);
 			}
 
 			&--active {
-				background: rgba($primary-color, .12);
-				color: var(--primary-color);
+				background: var(--drawer__item--active-background);
+				color: var(--drawer__item--active-color);
 
 				.icon, #{$el}__item__content {
-					color: var(--primary-color);
+					color: var(--drawer__item--active-color);
 				}
 
 				&:hover {
-					background: rgba($primary-color, .04);
+					background: var(--drawer__item--active--hover-color);
 				}
 
 				&:active {
-					background: rgba($primary-color, .16);
+					background: var(--drawer__item--active--active-color);
 				}
 			}
 
@@ -121,7 +133,7 @@
 		}
 
 		&__scrim {
-			background: rgba($black, .32);
+			background: var(--drawer__scrim-background);
 		}
 
 		ul {

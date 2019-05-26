@@ -21,9 +21,14 @@ If you prefer to use the source file you can do so by installing the package:
 
 	npm i -D smaterial
 	
-In order to use the source files for sass you use:
+In order to use the source files for sass you case use one of the following:
 
-	@import '~smaterial/src/sass/material'
+	@import '~smaterial/src/sass/material-light'
+	@import '~smaterial/src/sass/material-dark'
+	@import '~smaterial/src/sass/index'
+	
+If `index` and `material-light` are basically the same. However `material-dark` will result in a dark theme.
+The dark theme can also be achieved by importing `index` and override the variable `$theme: dark`
 
 and for js:
 

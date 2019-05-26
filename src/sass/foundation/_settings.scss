@@ -336,6 +336,9 @@ $app-bar__actions-margin: 0 0 0 rem-calc(24px) !default;
  **************************************/
 
 $banner-background: var(--background-color) !default;
+$banner-color: if($theme == light, rgba($black, .87), rgba($white, .87)) !default;
+$banner-border-bottom: rem-calc(1px) solid if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
+
 $banner--single-line-height: rem-calc(54px) !default;
 $banner--single-line__content-padding: 0 0 0 rem-calc(16px) !default;
 $banner--single-line__actions-padding: rem-calc(10px) rem-calc(8px) rem-calc(8px) rem-calc(36px) !default;
@@ -444,6 +447,17 @@ $button--text--outlined-color: var(--primary-color) !default;
 $button--text--outline--disabled-color: $disabled-color !default;
 
 /**************************************
+ * Card
+ **************************************/
+
+$card__thumbnail-size: rem-calc(40px) !default;
+$card__header-padding: rem-calc(16px) !default;
+$card__title-color: if($theme == light, rgba($black, .84), rgba($white, .84)) !default;
+$card__subtitle-color: if($theme == light, rgba($black, .6), rgba($white, .6)) !default;
+$card__content-color: if($theme == light, rgba($black, .6), rgba($white, .6)) !default;
+$card__content-padding: rem-calc(16px) rem-calc(16px) rem-calc(8px) rem-calc(16px) !default;
+
+/**************************************
  * Chips
  **************************************/
 
@@ -541,6 +555,38 @@ $dialog--full-screen__content-padding: rem-calc(16px) rem-calc(8px) 0 rem-calc(1
 $divider-height: rem-calc(1px) !default;
 $divider-background: if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
 $divider-margin: 0 !default;
+
+/**************************************
+ * Drawer
+ **************************************/
+$drawer-background: var(--background-color) !default;
+$drawer-margin-right: rem-calc(56px) !default;
+$drawer-border-right: rem-calc(1px) solid if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
+
+$drawer__icon-size: rem-calc(24px) !default;
+
+$drawer__item-margin: 0 rem-calc(8px) !default;
+$drawer__item-min-height: rem-calc(48px) !default;
+$drawer__item-width: calc(100% - #{rem-calc(8px) * 2}) !default;
+$drawer__item--hover-background: if($theme == light, rgba($black, .04), rgba($white, .04)) !default;
+$drawer__item--click-background: if($theme == light, rgba($black, .16), rgba($white, .16)) !default;
+$drawer__item--active-background: rgba($primary-color, .12) !default;
+$drawer__item--active-color: var(--primary-color) !default;
+$drawer__item--active--hover-color: rgba($primary-color, .04) !default;
+$drawer__item--active--active-color: rgba($primary-color, .16) !default;
+$drawer__item__icon-margin: 0 rem-calc(24px) 0 rem-calc(8px) !default;
+$drawer__item__arrow-margin: 0 rem-calc(8px) 0 rem-calc(24px) !default;
+$drawer__item__children-height: auto;
+$drawer__item__content-color: if($theme == light, rgba($black, .87), rgba($white, .87)) !default;
+$drawer__item__content-margin: 0 rem-calc(8px) 0 rem-calc(8px) !default;
+$drawer__item__content-height: rem-calc(48px) !default;
+
+$drawer__header-height: calc(var(--app-bar-height) * 2) !default;
+$drawer__header__profile-image-size: rem-calc(40px) !default;
+$drawer__header__profile-name-color: if($theme == light, rgba($black, .87), rgba($white, .87)) !default;
+$drawer__header__profile-email-color: if($theme == light, rgba($black, .54), rgba($white, .54)) !default;
+
+$drawer__scrim-background: if($theme == light, rgba($black, .32), rgba($white, .32)) !default;
 
 /**************************************
  * Buttons: FAB
