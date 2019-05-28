@@ -17,12 +17,23 @@ export default class Dialog
 	setScroll()
 	{
 
-		const content = this.dialog.querySelector('.dialog__content');
-		let vertical = content.scrollHeight > content.clientHeight;
+		this.checkScroll();
+		window.addEventListener('resize', () => this.checkScroll());
+	}
+
+	checkScroll()
+	{
+		let content = this.dialog.querySelector( '.dialog__content' );
+		let vertical = content.scrollHeight > content.offsetHeight;
+		console.log( vertical, content.scrollHeight, content.offsetHeight );
 
 		if( vertical )
 		{
-			this.dialog.classList.add('dialog--scroll');
+			this.dialog.classList.add( 'dialog--scroll' );
+		}
+		else
+		{
+			this.dialog.classList.remove( 'dialog--scroll' )
 		}
 	}
 

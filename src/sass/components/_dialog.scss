@@ -16,30 +16,24 @@
 		--dialog__actions-padding: #{$dialog__actions-padding};
 		--dialog__actions-margin-left: #{$dialog__actions-margin-left};
 
+		--dialog--scroll__header-border-bottom: #{$dialog--scroll__header-border-bottom};
+		--dialog--scroll__actions-border-top: #{$dialog--scroll__actions-border-top};
+		--dialog--scroll__content-padding-bottom: #{$dialog--scroll__content-padding-bottom};
+
 		@media #{$md-and-up} {
-			--dialog-width: #{$dialog-width};
+			--dialog-width: #{$dialog-md-up-width};
 		}
 
-		@if(in-array(simple, $dialog-settings)) {
+		@if (in-array(simple, $dialog-settings)) {
 			--dialog--simple__list__support__image-padding-left: #{$dialog--simple__list__support__image-padding-left};
 			--dialog--simple__list__content-padding: #{$dialog--simple__list__content-padding};
 		}
 
-		@if(in-array(alert, $dialog-settings)) {
+		@if (in-array(alert, $dialog-settings)) {
 			--dialog--alert__content-height: #{$dialog--alert__content-height};
 		}
 
-		@if(in-array(confirm, $dialog-settings)) {
-			--dialog--confirm__content-padding: #{$dialog--confirm__content-padding};
-		}
-
-		@if(in-array(scroll, $dialog-settings)) {
-			--dialog--scroll__header-border-bottom: #{$dialog--scroll__header-border-bottom};
-			--dialog--scroll__actions-border-top: #{$dialog--scroll__actions-border-top};
-			--dialog--scroll__content-padding-bottom: #{$dialog--scroll__content-padding-bottom};
-		}
-
-		@if(in-array(full-screen, $dialog-settings)) {
+		@if (in-array(full-screen, $dialog-settings)) {
 			--dialog--full-screen__header-height: #{$dialog--full-screen__header-height};
 			--dialog--full-screen__header-background: #{$dialog--full-screen__header-background};
 			--dialog--full-screen__header-padding: #{$dialog--full-screen__header-padding};
@@ -48,6 +42,7 @@
 			--dialog--full-screen__header__color: #{$dialog--full-screen__header__color};
 			--dialog--full-screen__content-padding: #{$dialog--full-screen__content-padding};
 		}
+
 
 		$el: &;
 		border-radius: var(--dialog-border-radius);
@@ -59,14 +54,16 @@
 		overflow: hidden;
 		z-index: 3;
 		position: fixed;
-		display: inline-block;
 		opacity: 0;
 		pointer-events: none;
 		@include chain(top, left, 50%);
 		transform: translateX(-50%) translateY(-50%);
 		transition: max-height .1s $easing-standard, width .1s $easing-standard, opacity .1s $easing-standard;
+		display: grid;
+		grid-template-areas: "header" "content" "actions";
 
 		&__header {
+			grid-area: header;
 			@include chain(height, line-height, var(--dialog__header-height));
 			@extend %h6;
 			color: var(--dialog__header-color);
@@ -74,13 +71,15 @@
 		}
 
 		&__content {
-			overflow: auto;
+			grid-area: content;
+			overflow-y: auto;
 			@extend %body-1;
 			color: var(--dialog__content-color);
 			padding: var(--dialog__content-padding);
 		}
 
 		&__actions {
+			grid-area: actions;
 			height: var(--dialog__actions-height);
 			text-align: right;
 			padding: var(--dialog__actions-padding);
@@ -91,60 +90,54 @@
 		}
 
 		&__header, &__actions {
-			position: relative;
 			background: var(--dialog-background);
 		}
 
-		@if (in-array(simple, $dialog-settings)) {
-			&--simple .list {
-				&__support__image {
-					padding-left: var(--dialog--simple__list__support__image-padding-left); // TODO fix important if possible
-				}
+		&--active {
+			pointer-events: all;
+			width: var(--dialog-width);
+			opacity: 1;
+			max-height: var(--dialog-max-height);
+		}
 
-				&__content {
-					padding: var(--dialog--simple__list__content-padding);
+		@if (in-array(simple, $dialog-settings)) {
+			&--simple {
+				grid-template-rows: var(--dialog__header-height) minmax(0, 1fr) 0;
+
+				.list {
+					&__support__image {
+						padding-left: var(--dialog--simple__list__support__image-padding-left); // TODO fix important if possible
+					}
+
+					&__content {
+						padding: var(--dialog--simple__list__content-padding);
+					}
 				}
 			}
 		}
 
 		@if (in-array(alert, $dialog-settings)) {
-			&--alert &__content {
-				@include chain(height, line-height, var(--dialog--alert__content-height));
+			&--alert {
+				min-height: calc(var(--dialog--alert__content-height) + var(--dialog__actions-height));
+				grid-template-rows: 0 var(--dialog--alert__content-height) var(--dialog__actions-height);
+
+				#{$el}__content {
+					@include chain(height, line-height, var(--dialog--alert__content-height));
+				}
 			}
 		}
 
 		@if (in-array(confirm, $dialog-settings)) {
 			&--confirm {
-				#{$el}__content {
-					padding: var(--dialog--confirm__content-padding);
-				}
-			}
-		}
-
-		@if (in-array(scroll, $dialog-settings)) {
-			&--scroll {
-				#{$el}__header {
-					border-bottom: var(--dialog--scroll__header-border-bottom);
-				}
-
-				#{$el}__content {
-					padding-bottom: var(--dialog--scroll__content-padding-bottom);
-				}
-
-				#{$el}__actions {
-					border-top: var(--dialog--scroll__actions-border-top);
-				}
+				grid-template-rows: var(--dialog__header-height) minmax(0, 1fr) var(--dialog__actions-height);
 			}
 		}
 
 		@if (in-array(full-screen, $dialog-settings)) {
 			&--full-screen {
-				z-index: 2;
-				position: fixed;
-				@include chain(top, left, 0);
-				transform: unset;
-				--dialog-width: 100vw;
-				--dialog-max-height: 100vh;
+				@include chain(max-height, max-width, 100%);
+				@include chain(height, width, 100%);
+				border-radius: 0;
 
 				#{$el}__header {
 					@include chain(height, line-height, var(--dialog--full-screen__header-height));
@@ -185,11 +178,19 @@
 			}
 		}
 
-		&--active {
-			pointer-events: all;
-			width: var(--dialog-width);
-			opacity: 1;
-			max-height: var(--dialog-max-height);
+		// Should only be set when the content needs to scroll
+		&--scroll {
+			#{$el}__header {
+				border-bottom: var(--dialog--scroll__header-border-bottom);
+			}
+
+			#{$el}__content {
+				padding-bottom: var(--dialog--scroll__content-padding-bottom);
+			}
+
+			#{$el}__actions {
+				border-top: var(--dialog--scroll__actions-border-top);
+			}
 		}
 	}
 }
