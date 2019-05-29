@@ -95,7 +95,7 @@
 		}
 
 		&--no-hover:hover {
-			@extend .z1;
+			@extend %z1;
 		}
 
 		// TODO fix naming

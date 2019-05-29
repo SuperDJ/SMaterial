@@ -12,7 +12,7 @@ const OUTPUT_DIR = path.resolve(__dirname, 'docs');
 
 module.exports = {
 	entry: {
-		'material': glob.sync("./src/js/**/*.js"),
+		'material': './src/js/main.js',
 		'material-light': './src/sass/material-light.scss',
 		'material-dark': './src/sass/material-dark.scss'
 	},
