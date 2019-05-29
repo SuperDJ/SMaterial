@@ -21,7 +21,7 @@
 
 		img#{$el}__thumbnail {
 			grid-area: thumbnail;
-			@extend .shape--circle;
+			@extend %shape--circle;
 			@include chain(width, height, var(--card__thumbnail-size));
 		}
 
@@ -33,7 +33,7 @@
 
 		&__title {
 			grid-area: title;
-			@extend .h6;
+			@extend %h6;
 			color: var(--card__title-color);
 		}
 

@@ -1,28 +1,26 @@
-@if(in-array(typography, $foundation-settings)) {
-	@each $scale, $setting in $type-scale {
-		@if (in-array($scale, $typography-settings)) {
-			%#{$scale} {
-				font-family: var(#{--#{$scale}-font-family}), sans-serif;
-				line-height: rem-calc(( map-get( $setting, size ) * 1.4 ) + 0px);
-				font-size: rem-calc(map-get($setting, size) + 0px);
-				font-weight: map-get($setting, font);
-				text-transform: map-get($setting, case);
-				letter-spacing: if(map-get( $setting, spacing ) == 0, 0, rem-calc(map-get($setting, spacing) + 0px));
-				margin: 0;
+@each $scale, $setting in $type-scale {
+	%#{$scale} {
+		font-family: var(#{--#{$scale}-font-family}), sans-serif;
+		line-height: rem-calc(( map-get( $setting, size ) * 1.4 ) + 0px);
+		font-size: rem-calc(map-get($setting, size) + 0px);
+		font-weight: map-get($setting, font);
+		text-transform: map-get($setting, case);
+		letter-spacing: if(map-get( $setting, spacing ) == 0, 0, rem-calc(map-get($setting, spacing) + 0px));
+		margin: 0;
 
-				@if (map-get($setting, color)) {
-					color: map_get($setting, color);
-				}
+		@if (map-get($setting, color)) {
+			color: map_get($setting, color);
+		}
 
-				@if ($scale != body-1) {
-					.icon {
-						--icon-size: #{rem-calc(map-get($setting, size) + 0px)};
-					}
-				}
+		@if ($scale != body-1) {
+			.icon {
+				--icon-size: #{rem-calc(map-get($setting, size) + 0px)};
 			}
 		}
 	}
+}
 
+@if (in-array(typography, $foundation-settings)) {
 	@if (in-array(h1, $typography-settings)) {
 		h1, .h1 {
 			@extend %h1;

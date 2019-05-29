@@ -44,7 +44,7 @@
 @mixin thumb-styling( $background, $size ) {
 	background: $background;
 	@include chain(width, height, $size);
-	cursor: pointer;
+	@extend %cursor--pointer;
 	border-radius: 50%;
 	border: none;
 	z-index: 2;
@@ -70,7 +70,7 @@
 	width: 100%;
 	height: $height;
 	background: $background;
-	cursor: pointer;
+	@extend %cursor--pointer;
 	z-index: 0;
 }
 

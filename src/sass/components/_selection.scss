@@ -242,7 +242,7 @@
 			}
 
 			&:after, &:before {
-				@extend .shape--circle;
+				@extend %shape--circle;
 			}
 
 			&:checked {
