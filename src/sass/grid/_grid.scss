@@ -62,30 +62,40 @@
 	@media #{$xl-and-up} {
 		grid-template-columns: repeat($xl-columns, 1fr);
 	}
-
-	&--masonry {
-		grid-auto-flow: dense;
-	}
 }
 
 @for $i from 1 through $xs-columns {
 	.xs#{$i} {
-		grid-column: span $i;
+		grid-column-end: span $i;
 	}
 
 	.start-xs#{$i} {
 		order: $i;
+		grid-column-start: $i;
+	}
+
+	@if(in-array(masonry, $grid-settings)) {
+		.tall-xs#{$i} {
+			grid-row-end: span $i;
+		}
 	}
 }
 
 @media #{$sm-and-up} {
 	@for $i from 1 through $sm-columns {
 		.sm#{$i} {
-			grid-column: span $i;
+			grid-column-end: span $i;
 		}
 
 		.start-sm#{$i} {
 			order: $i;
+			grid-column-start: $i;
+		}
+
+		@if(in-array(masonry, $grid-settings)) {
+			.tall-sm#{$i} {
+				grid-row-end: span $i;
+			}
 		}
 	}
 }
@@ -93,11 +103,18 @@
 @media #{$md-and-up} {
 	@for $i from 1 through $md-columns {
 		.md#{$i} {
-			grid-column: span $i;
+			grid-column-end: span $i;
 		}
 
 		.start-md#{$i} {
 			order: $i;
+			grid-column-start: $i;
+		}
+
+		@if(in-array(masonry, $grid-settings)) {
+			.tall-md#{$i} {
+				grid-row-end: span $i;
+			}
 		}
 	}
 }
@@ -105,11 +122,18 @@
 @media #{$lg-and-up} {
 	@for $i from 1 through $lg-columns {
 		.lg#{$i} {
-			grid-column: span $i;
+			grid-column-end: span $i;
 		}
 
 		.start-lg#{$i} {
 			order: $i;
+			grid-column-start: $i;
+		}
+
+		@if(in-array(masonry, $grid-settings)) {
+			.tall-lg#{$i} {
+				grid-row-end: span $i;
+			}
 		}
 	}
 }
@@ -117,11 +141,18 @@
 @media #{$xl-and-up} {
 	@for $i from 1 through $xl-columns {
 		.xl#{$i} {
-			grid-column: span $i;
+			grid-column-end: span $i;
 		}
 
 		.start-xl#{$i} {
 			order: $i;
+			grid-column-start: $i;
+		}
+
+		@if(in-array(masonry, $grid-settings)) {
+			.tall-xl#{$i} {
+				grid-row-end: span $i;
+			}
 		}
 	}
 }
