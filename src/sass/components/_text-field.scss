@@ -247,6 +247,7 @@
 
 		textarea {
 			resize: none;
+			overflow: hidden;
 		}
 
 		@if(in-array(select, $text-field-settings)) {

@@ -9,6 +9,7 @@ export default class TextField
 		this.checkContainer();
 		this.loaded();
 		this.addEvents();
+		this.autoSize();
 	}
 
 	checkContainer()
@@ -53,5 +54,21 @@ export default class TextField
 	blur()
 	{
 		this.container.classList.remove( 'text-field--focus' );
+	}
+
+	autoSize()
+	{
+		if(this.textField.type !== 'textarea')
+		{
+			return;
+		}
+
+		let offset = this.textField.offsetHeight - this.textField.clientHeight;
+		this.textField.addEventListener('input', () =>
+		{
+			this.textField.style.height = 'auto';
+			this.textField.style.height = this.textField.scrollHeight + offset + 'px';
+			this.container.style.height = this.textField.scrollHeight + offset + 'px';
+		});
 	}
 }

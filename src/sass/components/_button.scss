@@ -153,6 +153,32 @@
 			}
 		}
 
+		@if(in-array(toggle, $button-settings)) {
+			&--toggle {
+				@include chain(width, height, rem-calc(48px));
+				padding: rem-calc(12px);
+				float: left;
+				border-right: rem-calc(1px) solid rgba($black, .12);
+				border-radius: unset;
+				background: unset;
+				min-width: unset;
+				font-size: rem-calc(20px);
+				line-height: rem-calc(24px);
+
+				.icon {
+					--icon-size: #{rem-calc(24px)};
+					padding: unset;
+					width: var(--icon-size);
+					font-size: var(--icon-size);
+					color: $black;
+				}
+
+				&:disabled .icon {
+					color: rgba($black, .38);
+				}
+			}
+		}
+
 		@if(in-array(text, $button-settings) or in-array(outlined, $button-settings)) {
 			&--text, &--outlined {
 				--ripple--hover-background: var(--button--text--outlined--hover-background);
