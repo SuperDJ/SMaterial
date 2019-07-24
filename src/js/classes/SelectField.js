@@ -78,7 +78,7 @@ export default class SelectField
 			}
 			else
 			{
-				this.selectFieldOptions.style.maxHeight = `${selectFieldOptionsHeight}px`;
+				this.selectFieldOptions.style.maxHeight = `100vh`;
 				this.selectFieldOptions.classList.add( 'active' );
 			}
 		});

@@ -318,6 +318,18 @@ $elevation-ambient-map: (
 	24: 0px 11px 15px 0px
 );
 
+$elevation-overlay: (
+	1: .05,
+	2: .07,
+	3: .08,
+	4: .09,
+	6: .11,
+	8: .12,
+	12: .14,
+	16: .15,
+	24: .16
+) !default;
+
 $surface-corner: 4px !default;
 
 /**************************************

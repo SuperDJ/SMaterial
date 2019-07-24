@@ -1,11 +1,16 @@
 //Check if value is in a array
 // TODO place in some partial file
 @function in-array( $value, $array ) {
-	@if index( $array, $value ) {
+	@if(type_of($array) == list and index($array, $value)) {
 		@return true;
-	} @else {
-		@return false;
 	}
+
+	@if(type_of($array) == map and map_has_key($array, $value))
+	{
+		@return true;
+	}
+
+	@return false;
 }
 
 $color-settings: (color, variables, "red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown", "grey", "blue-grey", "shades") !default;
