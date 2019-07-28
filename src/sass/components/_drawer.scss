@@ -161,6 +161,10 @@
 			&--modal {
 				@extend %z16;
 				border-right: 0;
+
+				@if($theme == dark) {
+					@extend %overlay16;
+				}
 			}
 		}
 

@@ -24,24 +24,24 @@
 	%z#{$depth} {
 		$shadow: $umbra-shadow + ', ' + $penumbra-shadow + ', ' + $ambient-shadow;
 		box-shadow: unquote($shadow);
-
-		@if($theme == dark and map_has_key($elevation-overlay, $depth))
-		{
-			@warn map_get($elevation-overlay, $depth);
-			&:before {
-				content: '';
-				position: absolute;
-				@include chain(width, height, 100%);
-				@include chain(top, left, 0);
-				$alpha: map_get($elevation-overlay, $depth);
-				background: rgba($white, $alpha);
-			}
-		}
 	}
 
 	%z#{$depth}--inset {
 		$shadow: 'inset ' + $umbra-shadow + ', inset ' + $penumbra-shadow + ', inset ' + $ambient-shadow;
 		box-shadow: unquote($shadow);
+	}
+
+	@if($theme == dark and in-array($depth, $elevation-overlay)) {
+		%overlay#{$depth} {
+			&:before {
+				content: '';
+				@include chain(top, left, 0);
+				@include chain(width, height, 100%);
+				position: absolute;
+				$alpha: map_get($elevation-overlay, $depth);
+				background: rgba($white, $alpha);
+			}
+		}
 	}
 
 	@if(in-array(shadows, $foundation-settings)) {

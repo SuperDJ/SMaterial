@@ -62,6 +62,10 @@
 		display: grid;
 		grid-template-areas: "header" "content" "actions";
 
+		@if($theme == dark) {
+			@extend %overlay24;
+		}
+
 		&__header {
 			grid-area: header;
 			@include chain(height, line-height, var(--dialog__header-height));

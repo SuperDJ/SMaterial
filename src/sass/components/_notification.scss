@@ -20,6 +20,10 @@
 			"content"
 			"expanded";
 
+		@if($theme == dark) {
+			@extend %overlay2;
+		}
+
 		.icon {
 			color: var(--notification-color);
 		}

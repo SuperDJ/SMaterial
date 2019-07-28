@@ -47,6 +47,10 @@
 		transition: max-width .1s $easing-standard, max-height .1s $easing-standard;
 		pointer-events: none;
 
+		@if($theme == dark) {
+			@extend %overlay8;
+		}
+
 		&__content {
 			grid-area: content;
 			line-height: var(--menu__item-height);

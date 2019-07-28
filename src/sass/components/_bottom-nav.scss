@@ -28,6 +28,10 @@
 		grid-template-columns: repeat(auto-fit, minmax(var(--bottom-nav__item-min-width), var(--bottom-nav__item-max-width)));
 		grid-template-rows: var(--bottom-nav-height);
 
+		@if($theme == dark) {
+			@extend %overlay8;
+		}
+
 		&__item {
 			padding: var(--bottom-nav__item-padding);
 			display: block;

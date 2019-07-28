@@ -50,6 +50,10 @@
 		transition: margin .1s $easing-standard;
 		@include border-top-radius(var(--border-radius));
 
+		@if($theme == dark) {
+			@extend %overlay8;
+		}
+
 		&--active {
 			transition: margin .1s $easing-standard;
 			margin: 0;

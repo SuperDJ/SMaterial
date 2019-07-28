@@ -15,8 +15,16 @@
 		transition: box-shadow $easing-standard .1s;
 		display: block;
 
+		@if($theme == dark) {
+			@extend %overlay1;
+		}
+
 		&:hover {
 			@extend %z8;
+
+			@if($theme == dark) {
+				@extend %overlay8;
+			}
 		}
 
 		img#{$el}__thumbnail {
