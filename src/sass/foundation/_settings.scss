@@ -3,20 +3,66 @@
  **************************************/
 
 $theme: light !default;
-$primary-color: if($theme == light, $blue, $blue-200) !default;
-$primary-color-variant: $blue-a700 !default;
-$secondary-color: $teal-200 !default;
-$secondary-color-variant: if($theme == light, $teal-a700, $teal-200) !default;
-$background-color: if($theme == light, $white, #121212) !default;
-$surface-color: if($theme == light, $white, #121212) !default;
-$error-color: if($theme == light, $pink-a700, #CF6679) !default;
-$font-on-primary: if($theme == light, $white, $black) !default;
-$font-on-secondary: if($theme == light, $black, $white) !default;
-$font-on-background: if($theme == light, $black, $white) !default;
-$font-on-surface: if($theme == light, $black, $white) !default;
-$font-on-error: if($theme == light, $white, $black) !default;
-$disabled-color: if($theme == light, rgba($black, .38), rgba($white, .38)) !default;
-$disabled-background: if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
+
+$dark-primary-color: $blue-200 !default;
+$light-primary-color: $blue !default;
+$primary-color: if($theme == light, $light-primary-color, $dark-primary-color) !default;
+
+$dark-primary-color-variant: $blue-a700 !default;
+$light-primary-color-variant: $dark-primary-color-variant !default;
+$primary-color-variant: if($theme == light, $light-primary-color-variant, $dark-primary-color-variant) !default;
+
+$dark-secondary-color: $teal-200 !default;
+$light-secondary-color: $dark-secondary-color !default;
+$secondary-color: if($theme == light, $light-secondary-color, $dark-secondary-color) !default;
+
+$dark-secondary-color-variant: $teal-200 !default;
+$light-secondary-color-variant: $teal-a700 !default;
+$secondary-color-variant: if($theme == light, $light-secondary-color-variant, $dark-secondary-color-variant) !default;
+
+$dark-background-color: #121212 !default;
+$light-background-color: $white !default;
+$background-color: if($theme == light, $light-background-color, $dark-background-color) !default;
+
+$dark-surface-color: #121212 !default;
+$light-surface-color: $white !default;
+$surface-color: if($theme == light, $light-surface-color, $dark-surface-color) !default;
+
+$dark-error-color: #CF6679 !default;
+$light-error-color: $pink-a700 !default;
+$error-color: if($theme == light, $light-error-color, $dark-error-color) !default;
+
+$dark-font-on-primary: $black !default;
+$light-font-on-primary: $white !default;
+$font-on-primary: if($theme == light, $light-font-on-primary, $dark-font-on-primary) !default;
+
+$dark-font-on-secondary: $white !default;
+$light-font-on-secondary: $black !default;
+$font-on-secondary: if($theme == light, $light-font-on-secondary, $dark-font-on-secondary) !default;
+
+$dark-font-on-background: $white !default;
+$light-font-on-background: $black !default;
+$font-on-background: if($theme == light, $light-font-on-background, $dark-font-on-background) !default;
+
+$dark-font-on-surface: $white !default;
+$light-font-on-surface: $black !default;
+$font-on-surface: if($theme == light, $light-font-on-surface, $dark-font-on-surface) !default;
+
+$dark-font-on-error: $black !default;
+$light-font-on-error: $white !default;
+$font-on-error: if($theme == light, $light-font-on-error, $dark-font-on-error) !default;
+
+$dark-disabled-color: rgba($white, .38) !default;
+$light-disabled-color: rgba($black, .38) !default;
+$disabled-color: if($theme == light, $light-disabled-color, $dark-disabled-color) !default;
+
+$dark-disabled-background: rgba($white, .12) !default;
+$light-disabled-background: rgba($black, .12) !default;
+$disabled-background: if($theme == light, $light-disabled-background, $dark-disabled-background) !default;
+
+$dark-scrollbar-background: rgba($white, .2) !default;
+$light-scrollbar-background: rgba($black, .2) !default;
+$scrollbar-background: if($theme == light, $dark-scrollbar-background, $light-scrollbar-background) !default;
 
 /**************************************
  * Grid
@@ -229,7 +275,6 @@ $type-scale: (
 		size: 16,
 		case: none,
 		spacing: .5,
-		color: if($theme == light, rgba($black, .87), rgba($white, .87)) // TODO use color-mod when possible
 	),
 	body-2: (
 		typeface: $body-2-font-family,
@@ -267,9 +312,18 @@ $type-scale: (
  **************************************/
 
  $icon-size: rem-calc(24px) !default;
- $icon-color: if($theme == light, rgba($black, .38), rgba($white, .38)) !default;
- $icon--active-color: if($theme == light, rgba($black, .54), rgba($white, .54)) !default;
- $icon--active--focus-color: if($theme == light, rgba($black, .87), rgba($white, .87)) !default;
+
+$dark-icon-color: rgba($white, .6) !default;
+$light-icon-color: rgba($black, .6) !default;
+$icon-color: if($theme == light, $light-icon-color, $dark-icon-color) !default;
+
+$dark-icon--active-color: rgba($white, .54) !default;
+$light-icon--active-color: rgba($black, .54) !default;
+$icon--active-color: if($theme == light, $light-icon--active-color, $light-icon--active-color) !default;
+
+$dark-icon--active--focus-color: rgba($white, .87) !default;
+$light-icon--active--focus-color: rgba($black, .87) !default;
+$icon--active--focus-color: if($theme == light, $light-icon--active--focus-color, $dark-icon--active--focus-color) !default;
 
 /**************************************
  * Shadow & elevation
@@ -333,6 +387,19 @@ $elevation-overlay: (
 $surface-corner: 4px !default;
 
 /**************************************
+ * Dividers
+ * The colors are used for other components as well
+ **************************************/
+
+$divider-height: rem-calc(1px) !default;
+
+$dark-divider-background: rgba($white, .12) !default;
+$light-divider-background: rgba($black, .12) !default;
+$divider-background: if($theme == light, $light-divider-background, $dark-divider-background) !default;
+
+$divider-margin: 0 !default;
+
+/**************************************
  * App bar
  **************************************/
 
@@ -347,8 +414,14 @@ $app-bar__actions-margin: 0 0 0 rem-calc(24px) !default;
  * Banners
  **************************************/
 
-$banner-background: var(--background-color) !default;
-$banner-color: if($theme == light, rgba($black, .87), rgba($white, .87)) !default;
+$banner-background: transparent !default;
+
+$dark-banner-color: rgba($white, .87) !default;
+$light-banner-color: rgba($black, .87) !default;
+$banner-color: if($theme == light, $light-banner-color, $dark-banner-color) !default;
+
+$dark-banner-border-bottom: $dark-divider-background !default;
+$light-banner-border-bottom: $light-divider-background !default;
 $banner-border-bottom: rem-calc(1px) solid if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
 
 $banner--single-line-height: rem-calc(54px) !default;
@@ -399,6 +472,7 @@ $bottom-nav--icon-only__item--active-padding: rem-calc(8px) rem-calc(12px) rem-c
 $bottom-sheet-width: 100% !default;
 $bottom-sheet-min-height: rem-calc(56px) !default;
 $bottom-sheet-max-height: 50% !default;
+$bottom-sheet-background: var(--surface-color);
 
 $bottom-sheet__item--hover-background: if($theme == light, rgba($black, .04), rgba($white, .04)) !default;
 $bottom-sheet__item--active-background: if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
@@ -506,7 +580,7 @@ $chip--outlined--remove-padding-right: rem-calc(6px) !default;
 
 $data-table__header-font-size: rem-calc(12px) !default;
 $data-table__header-color: if($theme == light, rgba($black, .6), rgba($white, .6)) !default;
-$data-table__header-background: $background-color !default;
+$data-table__header-background: var(--background-color) !default;
 $data-table__header-font-weight: 500 !default;
 $data-table__header--hover-color: if($theme == light, $black, $white) !default;
 
@@ -523,6 +597,7 @@ $data-table__column-padding: 0 rem-calc(16px) !default;
 /**************************************
  * Dialog
  **************************************/
+
 $dialog-border-radius: var(--border-radius) !default;
 $dialog-background: var(--background-color) !default;
 $dialog-width: rem-calc(280px) !default;
@@ -559,16 +634,9 @@ $dialog--full-screen__header__color: var(--font-on-primary) !default;
 $dialog--full-screen__content-padding: rem-calc(16px) rem-calc(8px) 0 rem-calc(16px) !default;
 
 /**************************************
- * Divers
- **************************************/
-
-$divider-height: rem-calc(1px) !default;
-$divider-background: if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
-$divider-margin: 0 !default;
-
-/**************************************
  * Drawer
  **************************************/
+
 $drawer-background: var(--background-color) !default;
 $drawer-margin-right: rem-calc(56px) !default;
 $drawer-border-right: rem-calc(1px) solid if($theme == light, rgba($black, .12), rgba($white, .12)) !default;

@@ -1,7 +1,7 @@
 html, body {
     font-size: $font-size + 0px;
 	@include chain(padding, margin, 0);
-	background: $background-color;
+	background: var(--background-color);
 }
 
 * {
@@ -50,7 +50,11 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: if($theme == light, rgba($black, .2), rgba($white, .2));
+    background: $scrollbar-background;
+
+	@media #{$dark} {
+		background: $dark-scrollbar-background;
+	}
 }
 
 ::selection {

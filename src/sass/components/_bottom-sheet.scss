@@ -3,6 +3,7 @@
 		--bottom-sheet-width: #{$bottom-sheet-width};
 		--bottom-sheet-min-height: #{$bottom-sheet-min-height};
 		--bottom-sheet-max-height: #{$bottom-sheet-max-height};
+		--bottom-sheet-background: #{$bottom-sheet-background};
 
 		--bottom-sheet__item--hover-background: #{$bottom-sheet__item--hover-background};
 		--bottom-sheet__item--active-background: #{$bottom-sheet__item--active-background};
@@ -45,7 +46,7 @@
 		margin: 0 0 -102% 0;
 		padding: 0;
 		@extend %z8;
-		background: var(--background-color);
+		background: var(--bottom-sheet-background);
 		pointer-events: none;
 		transition: margin .1s $easing-standard;
 		@include border-top-radius(var(--border-radius));

@@ -42,5 +42,11 @@
 		--icon-color: #{$icon-color};
 		--icon--active-color: #{$icon--active-color};
 		--icon--active--focus-color: #{$icon--active--focus-color};
+
+		@media #{$dark} {
+			--icon-color: #{$dark-icon-color};
+			--icon--active-color: #{$dark-icon--active-color};
+			--icon--active--focus-color: #{$dark-icon--active--focus-color};
+		}
 	}
 }

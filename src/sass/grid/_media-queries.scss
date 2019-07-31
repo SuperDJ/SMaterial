@@ -30,3 +30,5 @@ $lg-and-down: "only screen and (max-width: #{$lg-max-width})";
 // no xl as there is no max width
 
 $print: "print";
+$dark: "(prefers-color-scheme: dark)";
+$light: "(prefers-color-scheme: light)";

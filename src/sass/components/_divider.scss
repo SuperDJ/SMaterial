@@ -4,6 +4,10 @@
 		--divider-background: #{$divider-background};
 		--divider-margin: #{$divider-margin};
 
+		@media #{$dark} {
+			--divider-background: #{$dark-divider-background};
+		}
+
 		width: 100%;
 		height: var(--divider-height);
 		background: var(--divider-background);

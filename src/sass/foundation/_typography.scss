@@ -23,37 +23,37 @@
 @if (in-array(typography, $foundation-settings)) {
 	@if (in-array(h1, $typography-settings)) {
 		h1, .h1 {
-			@extend %h1;
+			@extend %h1, %text-high;
 		}
 	}
 
 	@if (in-array(h2, $typography-settings)) {
 		h2, .h2 {
-			@extend %h2;
+			@extend %h2, %text-high;
 		}
 	}
 
 	@if (in-array(h3, $typography-settings)) {
 		h3, .h3 {
-			@extend %h3;
+			@extend %h3, %text-high;
 		}
 	}
 
 	@if (in-array(h4, $typography-settings)) {
 		h4, .h4 {
-			@extend %h4;
+			@extend %h4, %text-high;
 		}
 	}
 
 	@if (in-array(h5, $typography-settings)) {
 		h5, .h5 {
-			@extend %h5;
+			@extend %h5, %text-high;
 		}
 	}
 
 	@if (in-array(h6, $typography-settings)) {
 		h6, .h6 {
-			@extend %h6;
+			@extend %h6, %text-high;
 		}
 	}
 
@@ -71,7 +71,7 @@
 
 	@if (in-array(body-1, $typography-settings)) {
 		body, .body-1 {
-			@extend %body-1;
+			@extend %body-1, %text-medium;
 		}
 	}
 
@@ -128,5 +128,29 @@
 				--#{$scale}-font-family: #{if( map-get( $setting, typeface ) == $font-family, var(--font-family), map-get($setting, typeface) )};
 			}
 		}
+	}
+}
+
+%text-high {
+	color: rgba($font-on-background, .87);
+
+	@media #{$dark} {
+		color: rgba($dark-font-on-background, .87);
+	}
+}
+
+%text-medium {
+	color: rgba($font-on-background, .6);
+
+	@media #{$dark} {
+		color: rgba($dark-font-on-background, .6);
+	}
+}
+
+%text-disabled {
+	color: rgba($font-on-background, .38);
+
+	@media #{$dark} {
+		color: rgba($dark-font-on-background, .38);
 	}
 }

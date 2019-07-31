@@ -8,8 +8,8 @@
 	--error-color: #{$error-color};
 	--font-on-primary: #{$font-on-primary};
 	--font-on-secondary: #{$font-on-secondary};
-	--font-on-background: #{$font-on-background};
-	--font-on-surface: #{$font-on-surface};
+	--font-on-background: #{rgba($font-on-background, .87)};
+	--font-on-surface: #{rgba($font-on-surface, .87)};
 	--font-on-error: #{$font-on-error};
 	--border-radius: #{rem-calc($surface-corner)};
 
@@ -34,5 +34,20 @@
 	@media #{$xl-and-up} {
 		--gutter: #{rem-calc( $xl-gutter + 0px )};
 		--margin: #{rem-calc( $xl-margin + 0px )};
+	}
+
+	@media #{$dark} {
+		--primary-color: #{$dark-primary-color};
+		--primary-color-variant: #{$dark-primary-color-variant};
+		--secondary-color: #{$dark-secondary-color};
+		--secondary-color-variant: #{$dark-secondary-color-variant};
+		--background-color: #{$dark-background-color};
+		--surface-color: #{$dark-surface-color};
+		--error-color: #{$dark-error-color};
+		--font-on-primary: #{$dark-font-on-primary};
+		--font-on-secondary: #{$dark-font-on-secondary};
+		--font-on-background: #{rgba($dark-font-on-background, .87)};
+		--font-on-surface: #{rgba($dark-font-on-surface, .87)};
+		--font-on-error: #{$dark-font-on-error};
 	}
 }
