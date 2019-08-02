@@ -41,6 +41,20 @@
 		border-bottom: var(--banner-border-bottom);
 		color: var(--banner-color);
 
+		@if($theme == light) {
+			@media #{$dark} {
+				--banner-color: #{$banner__dark-color};
+				--banner-border-bottom: #{$banner__dark-border-bottom};
+			}
+		}
+
+		@if($theme == dark) {
+			@media #{$light} {
+				--banner-color: #{$banner__light-color};
+				--banner-border-bottom: #{$banner__light-border-bottom};
+			}
+		}
+
 		@if (in-array(single, $banner-settings)) {
 			&--single-line {
 				display: grid;

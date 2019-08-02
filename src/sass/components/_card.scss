@@ -1,5 +1,7 @@
-@if(in-array(card, $component-settings)) {
+@if (in-array(card, $component-settings)) {
 	.card {
+		--card-background: #{$card-background};
+		--card-border-radius: #{$card-border-radius};
 		--card__thumbnail-size: #{$card__thumbnail-size};
 		--card__header-padding: #{$card__header-padding};
 		--card__title-color: #{$card__title-color};
@@ -8,22 +10,57 @@
 		--card__content-padding: #{$card__content-padding};
 
 		$el: &;
-		background: var(--surface-color);
+		background: var(--card-background);
 		width: 100%;
 		@extend %z1;
-		border-radius: var(--border-radius);
-		transition: box-shadow $easing-standard .1s;
+		border-radius: var(--card-border-radius);
+		transition: box-shadow $easing-standard .1s, background $easing-standard .1s;
 		display: block;
+		position: relative;
+		overflow: hidden;
 
-		@if($theme == dark) {
+		@if ($theme == dark) {
 			@extend %overlay1;
+		}
+
+		@if ($theme == light) {
+			@media #{$dark} {
+				--card__title-color: #{$card__dark__title-color};
+				--card__subtitle-color: #{$card__dark__subtitle-color};
+				--card__content-color: #{$card__dark__content-color};
+
+				// TODO fix to extend
+				&:before {
+					content: '';
+					@include chain(top, left, 0);
+					@include chain(width, height, 100%);
+					position: absolute;
+					background: rgba($white, .05);
+					transition: background $easing-standard .1s;
+				}
+			}
+		}
+
+		@if ($theme == dark) {
+			@media #{$light} {
+				--card__title-color: #{$card__light__title-color};
+				--card__subtitle-color: #{$card__light__subtitle-color};
+				--card__content-color: #{$card__light__content-color};
+			}
 		}
 
 		&:hover {
 			@extend %z8;
 
-			@if($theme == dark) {
+			@if ($theme == dark) {
 				@extend %overlay8;
+			}
+
+			// TODO fix to extend
+			@if ($theme == light) {
+				@media #{$dark} {
+					@include overlay(8);
+				}
 			}
 		}
 
@@ -107,7 +144,7 @@
 		}
 
 		// TODO fix naming
-		@if(in-array(default, $card-settings)) {
+		@if (in-array(default, $card-settings)) {
 			&--default {
 				#{$el}__header {
 					height: rem-calc(72px);
@@ -118,7 +155,7 @@
 			}
 		}
 
-		@if(in-array(simple, $card-settings)) {
+		@if (in-array(simple, $card-settings)) {
 			&--simple {
 				display: grid;
 				grid-template: "header media" "content media" "actions actions";
@@ -134,7 +171,7 @@
 			}
 		}
 
-		@if(in-array(overline, $card-settings)) {
+		@if (in-array(overline, $card-settings)) {
 			&--overline {
 				display: grid;
 				grid-template: "overline media" "header media" "content media" "actions actions";
@@ -159,7 +196,7 @@
 			}
 		}
 
-		@if(in-array(album, $card-settings)) {
+		@if (in-array(album, $card-settings)) {
 			&--album {
 				display: grid;
 				grid-template: "media header" "content content";
@@ -180,7 +217,7 @@
 			}
 		}
 
-		@if(in-array(media, $card-settings)) {
+		@if (in-array(media, $card-settings)) {
 			&--media {
 				position: relative;
 				display: flex;

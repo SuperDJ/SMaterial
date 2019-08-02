@@ -66,6 +66,24 @@
 			@extend %overlay24;
 		}
 
+		@if($theme == light) {
+			@media #{$dark} {
+				--dialog__header-color: #{$dialog__dark__header-color};
+				--dialog__content-color: #{$dialog__dark__content-color};
+				--dialog--scroll__header-border-bottom: #{$dialog__dark--scroll__header-border-bottom};
+
+				@include overlay(24);
+			}
+		}
+
+		@if($theme == dark) {
+			@media #{$light} {
+				--dialog__header-color: #{$dialog__light__header-color};
+				--dialog__content-color: #{$dialog__light__content-color};
+				--dialog--scroll__header-border-bottom: #{$dialog__light--scroll__header-border-bottom};
+			}
+		}
+
 		&__header {
 			grid-area: header;
 			@include chain(height, line-height, var(--dialog__header-height));

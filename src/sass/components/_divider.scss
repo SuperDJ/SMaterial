@@ -5,7 +5,11 @@
 		--divider-margin: #{$divider-margin};
 
 		@media #{$dark} {
-			--divider-background: #{$dark-divider-background};
+			--divider-background: #{$divider__dark-background};
+		}
+
+		@media #{$light} {
+			--divider-background: #{$divider__light-background}
 		}
 
 		width: 100%;

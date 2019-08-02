@@ -59,6 +59,28 @@
 		@include ripple();
 		white-space: nowrap;
 
+		@if($theme == light) {
+			@media #{$dark} {
+				--button--contained--disabled-color: #{$button__dark--contained--disabled-color};
+				--button--contained--disabled-background: #{$button__dark--contained--disabled-background};
+
+				--button--outlined-border: #{$button__dark--outlined-border};
+
+				--button--text--outline--disabled-color: #{$button__dark--text--outline--disabled-color};
+			}
+		}
+
+		@if($theme == dark) {
+			@media #{$light} {
+				--button--contained--disabled-color: #{$button__light--contained--disabled-color};
+				--button--contained--disabled-background: #{$button__light--contained--disabled-background};
+
+				--button--outlined-border: #{$button__light--outlined-border};
+
+				--button--text--outline--disabled-color: #{$button__light--text--outline--disabled-color};
+			}
+		}
+
 		@if(in-array(contained, $button-settings)) {
 			&--contained {
 				--ripple--hover-background: var(--button--contained--hover-background);

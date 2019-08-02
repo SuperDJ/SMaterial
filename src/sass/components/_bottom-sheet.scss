@@ -55,6 +55,29 @@
 			@extend %overlay8;
 		}
 
+		@if($theme == light) {
+			@media #{$dark} {
+				--bottom-sheet__item--hover-background: #{$bottom-sheet__dark__item--hover-background};
+				--bottom-sheet__item--active-background: #{$bottom-sheet__dark__item--active-background};
+
+				--bottom-sheet__header-color: #{$bottom-sheet__dark__header-color};
+
+				--bottom-sheet__content-color: #{$bottom-sheet__dark__content-color};
+				@include overlay(8);
+			}
+		}
+
+		@if($theme == dark) {
+			@media #{$light} {
+				--bottom-sheet__item--hover-background: #{$bottom-sheet__light__item--hover-background};
+				--bottom-sheet__item--active-background: #{$bottom-sheet__light__item--active-background};
+
+				--bottom-sheet__header-color: #{$bottom-sheet__light__header-color};
+
+				--bottom-sheet__content-color: #{$bottom-sheet__light__content-color};
+			}
+		}
+
 		&--active {
 			transition: margin .1s $easing-standard;
 			margin: 0;

@@ -4,15 +4,15 @@ $cursors: (alias, all-scroll, auto, cell, context-menu, col-resize, copy, crossh
 	%cursor--#{$cursor} {
 		cursor: #{$cursor};
 
-		@if ($cursor == pointer) {
+		@if($cursor == pointer) {
 			user-select: none;
 		}
 	}
 }
 
-@if (in-array(cursor, $helper-settings)) {
+@if(in-array(cursor, $helper-settings)) {
 	@each $cursor in $cursors {
-		@if (in-array($cursor, $cursor-settings)) {
+		@if(in-array($cursor, $cursor-settings)) {
 			.cursor--#{$cursor} {
 				@extend %cursor--#{$cursor};
 			}

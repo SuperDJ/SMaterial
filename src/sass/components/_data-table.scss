@@ -1,10 +1,14 @@
 @if(in-array(data-table, $component-settings)) {
 	.data-table {
+		--data-table-border-radius: #{$data-table-border-radius};
+		--data-table-border: #{$data-table-border};
+
 		--data-table__header-font-size: #{$data-table__header-font-size};
 		--data-table__header-color: #{$data-table__header-color};
 		--data-table__header-background: #{$data-table__header-background};
 		--data-table__header-font-weight: #{$data-table__header-font-weight};
 		--data-table__header--hover-color: #{$data-table__header--hover-color};
+		--data-table__header-height: #{$data-table__header-height};
 
 		--data-table__body-color: #{$data-table__body-color};
 		--data-table__body-font-size: #{$data-table__body-font-size};
@@ -17,7 +21,40 @@
 		--data-table__column-padding: #{$data-table__column-padding};
 
 		width: 100%;
-		border-collapse: collapse;
+		border-collapse: separate;
+		border-spacing: 0;
+		border-radius: var(--data-table-border-radius);
+		border: var(--data-table-border);
+
+		@if($theme == light) {
+			@media #{$dark} {
+				--data-table-border: #{$data-table__dark-border};
+
+				--data-table__header-color: #{$data-table__dark__header-color};
+				--data-table__header--hover-color: #{$data-table__dark__header--hover-color};
+
+				--data-table__body-color: #{$data-table__dark__body-color};
+
+
+				--data-table__row-border-bottom: #{$data-table__dark__row-border-bottom};
+				--data-table__row--hover-background: #{$data-table__dark__row--hover-background};
+			}
+		}
+
+		@if($theme == dark) {
+			@media #{$light} {
+				--data-table-border: #{$data-table__light-border};
+
+				--data-table__header-color: #{$data-table__light__header-color};
+				--data-table__header--hover-color: #{$data-table__light__header--hover-color};
+
+				--data-table__body-color: #{$data-table__light__body-color};
+
+
+				--data-table__row-border-bottom: #{$data-table__light__row-border-bottom};
+				--data-table__row--hover-background: #{$data-table__light__row--hover-background};
+			}
+		}
 
 		th, th a {
 			font-size: var(--data-table__header-font-size);
@@ -44,10 +81,14 @@
 		td {
 			color: var(--data-table__body-color);
 			font-size: var(--data-table__body-font-size);
+			@include chain(min-height, line-height, var(--data-table__row-height));
+		}
+
+		th {
+			@include chain(height, line-height, var(--data-table__header-height));
 		}
 
 		td, th {
-			@include chain(height, line-height, var(--data-table__row-height));
 			border-bottom: var(--data-table__row-border-bottom);
 			padding: var(--data-table__column-padding);
 
@@ -55,6 +96,10 @@
 				vertical-align: middle;
 				--icon-size: var(--data-table__row__icon-size);
 			}
+		}
+
+		tr:last-child td {
+			border-bottom: unset;
 		}
 
 		@if(in-array(hover, $data-table-settings)) {

@@ -31,16 +31,9 @@
 		box-shadow: unquote($shadow);
 	}
 
-	@if($theme == dark and in-array($depth, $elevation-overlay)) {
+	@if(in-array($depth, $elevation-overlay)) {
 		%overlay#{$depth} {
-			&:before {
-				content: '';
-				@include chain(top, left, 0);
-				@include chain(width, height, 100%);
-				position: absolute;
-				$alpha: map_get($elevation-overlay, $depth);
-				background: rgba($white, $alpha);
-			}
+			@include overlay($depth);
 		}
 	}
 

@@ -1,43 +1,38 @@
-@mixin responsive-ratio($x,$y, $pseudo: false)
-{
-    $padding: unquote( ( $y / $x ) * 100 + '%' );
-    @if $pseudo
-    {
-        &:before {
-            @include pseudo($pos: relative);
-            width: 100%;
-            padding-top: $padding;
-        }
-    } @else {
-        padding-top: $padding;
-    }
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+	$padding: unquote(( $y / $x ) * 100 + '%');
+	@if $pseudo {
+		&:before {
+			@include pseudo($pos: relative);
+			width: 100%;
+			padding-top: $padding;
+		}
+	} @else {
+		padding-top: $padding;
+	}
 }
 
-@mixin chain( $arguments... )
-{
-    @for $i from 1 through ( length( $arguments ) - 1 ) {
-        $property: nth( $arguments, $i );
-        #{$property}: nth( $arguments, length( $arguments ) );
-    }
+@mixin chain( $arguments... ) {
+	@for $i from 1 through (length( $arguments ) - 1) {
+		$property: nth($arguments, $i);
+		#{$property}: nth($arguments, length($arguments));
+	}
 }
 
 @mixin progress-bar-value {
-    &::-webkit-progress-value {
-        @content;
-    }
+	&::-webkit-progress-value {
+		@content;
+	}
 
-    &::-moz-progress-bar {
-        @content;
-    }
+	&::-moz-progress-bar {
+		@content;
+	}
 }
 
-@mixin border-top-radius( $arg )
-{
+@mixin border-top-radius( $arg ) {
 	@include chain(border-top-left-radius, border-top-right-radius, $arg);
 }
 
-@mixin border-bottom-radius( $arg )
-{
+@mixin border-bottom-radius( $arg ) {
 	@include chain(border-bottom-left-radius, border-bottom-right-radius, $arg);
 }
 
@@ -86,5 +81,21 @@
 	& ::-ms-track {
 		@content;
 		@include chain(background, border-color, color, transparent);
+	}
+}
+
+@mixin overlay( $depth ) {
+	@if(not in-array($depth, $elevation-overlay)) {
+		@error '#{$depth} not available';
+	}
+
+	&:before {
+		content: '';
+		@include chain(top, left, 0);
+		@include chain(width, height, 100%);
+		position: absolute;
+		$alpha: map_get($elevation-overlay, $depth);
+		background: rgba($white, $alpha);
+		transition: background $easing-standard .1s;
 	}
 }

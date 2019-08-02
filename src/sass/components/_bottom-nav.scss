@@ -32,6 +32,21 @@
 			@extend %overlay8;
 		}
 
+		@if($theme == light) {
+			@media #{$dark} {
+				--bottom-nav__item-color: #{$bottom-nav__dark__item-color};
+				--bottom-nav__item--hover-color: #{$bottom-nav__dark__item--hover-color};
+				@include overlay(8);
+			}
+		}
+
+		@if($theme == dark) {
+			@media #{$light} {
+				--bottom-nav__item-color: #{$bottom-nav__light__item-color};
+				--bottom-nav__item--hover-color: #{$bottom-nav__light__item--hover-color};
+			}
+		}
+
 		&__item {
 			padding: var(--bottom-nav__item-padding);
 			display: block;
