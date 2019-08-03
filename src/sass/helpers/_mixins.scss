@@ -39,7 +39,7 @@
 @mixin thumb-styling( $background, $size ) {
 	background: $background;
 	@include chain(width, height, $size);
-	@extend %cursor--pointer;
+	cursor: pointer; // Don't extend or the selector won't work
 	border-radius: 50%;
 	border: none;
 	z-index: 2;
@@ -65,7 +65,7 @@
 	width: 100%;
 	height: $height;
 	background: $background;
-	@extend %cursor--pointer;
+	cursor: pointer; // Don't extend or the selector won't work
 	z-index: 0;
 }
 
