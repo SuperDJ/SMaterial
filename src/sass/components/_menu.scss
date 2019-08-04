@@ -11,7 +11,6 @@
 
 		--menu__divider-margin: #{$menu__divider-margin};
 		--menu__divider-height: #{$menu__divider-height};
-		--menu__divider-background: #{$menu__divider-background};
 
 		--menu__content-font-size: #{$menu__content-font-size};
 
@@ -20,7 +19,6 @@
 		--menu__item-height: #{$menu__item-height};
 		--menu__item--hover-background: #{$menu__item--hover-background};
 		--menu__item--active-background: #{$menu__item--active-background};
-		--menu__item--disabled-color: #{$menu__item--disabled-color};
 
 		@media #{$md-up} {
 			--menu-max-width: #{$menu-md-up-max-width};
@@ -51,14 +49,14 @@
 			@extend %overlay8;
 		}
 
-		@if($theme == light) {
+		@if($theme == light and in-array(dark, $themes)) {
 			@media #{$dark} {
 				--menu-color: #{$menu__dark-color};
 				@include overlay(8);
 			}
 		}
 
-		@if($theme == dark) {
+		@if($theme == dark and in-array(light, $themes)) {
 			@media #{$light} {
 				--menu-color: #{$menu__light-color};
 			}
@@ -81,7 +79,7 @@
 		&__divider {
 			margin: var(--menu__divider-margin);
 			height: var(--menu__divider-height);
-			background: var(--menu__divider-background);
+			@extend %divider-background;
 		}
 
 		&--active {
@@ -124,10 +122,10 @@
 			}
 
 			&:disabled, &--disabled {
-				color: var(--menu__item--disabled-color);
+				@extend %disabled-color;
 
 				.icon, #{$el}__content {
-					color: var(--menu__item--disabled-color);
+					@extend %disabled-color;
 				}
 			}
 		}

@@ -1,27 +1,54 @@
-@if(in-array(divider, $component-settings)) {
+@if (in-array(divider, $component-settings)) {
 	.divider {
 		--divider-height: #{$divider-height};
-		--divider-background: #{$divider-background};
 		--divider-margin: #{$divider-margin};
-
-		@media #{$dark} {
-			--divider-background: #{$divider__dark-background};
-		}
-
-		@media #{$light} {
-			--divider-background: #{$divider__light-background}
-		}
 
 		width: 100%;
 		height: var(--divider-height);
-		background: var(--divider-background);
+		@extend %divider-background;
 		border: none 0;
 		margin: var(--divider-margin);
 
-		@if(in-array(vertical, $divider-settings)) {
+		@if (in-array(vertical, $divider-settings)) {
 			&--vertical {
 				transform: rotate(90deg);
 			}
 		}
 	}
+}
+
+:root {
+	--divider-background: #{$divider-background};
+
+	@if ($theme == light and in-array(dark, $themes)) {
+		@media #{$dark} {
+			--divider-background: #{$divider__dark-background};
+		}
+	}
+
+	@if ($theme == dark and in-array(light, $themes)) {
+		@media #{$light} {
+			--divider-background: #{$divider__light-background}
+		}
+	}
+}
+
+%divider-color {
+	color: var(--divider-background);
+}
+
+%divider-background {
+	background: var(--divider-background);
+}
+
+%divider-border {
+	border: rem-calc(1px) solid var(--divider-background);
+}
+
+%divider-top-border {
+	border-top: rem-calc(1px) solid var(--divider-background);
+}
+
+%divider-bottom-border {
+	border-bottom: rem-calc(1px) solid var(--divider-background);
 }

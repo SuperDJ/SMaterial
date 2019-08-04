@@ -16,7 +16,6 @@ import TabBar from'./classes/Tab';
 import TextField from'./classes/TextField';
 import Tooltip from'./classes/Tooltip';
 import'./trigger';
-import'./typography';
 
 const appBars = document.getElementsByClassName('app-bar');
 

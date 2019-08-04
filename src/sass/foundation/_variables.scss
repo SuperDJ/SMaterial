@@ -12,6 +12,8 @@
 	--font-on-surface: #{rgba($font-on-surface, .87)};
 	--font-on-error: #{$font-on-error};
 	--border-radius: #{rem-calc($surface-corner)};
+	--disabled-color: #{$disabled-color};
+	--disabled-background: #{$disabled-background};
 
 	--gutter: #{rem-calc( $xs-gutter + 0px )};
 	--margin: #{rem-calc( $xs-margin + 0px )};
@@ -36,18 +38,41 @@
 		--margin: #{rem-calc( $xl-margin + 0px )};
 	}
 
-	@media #{$dark} {
-		--primary-color: #{$dark-primary-color};
-		--primary-color-variant: #{$dark-primary-color-variant};
-		--secondary-color: #{$dark-secondary-color};
-		--secondary-color-variant: #{$dark-secondary-color-variant};
-		--background-color: #{$dark-background-color};
-		--surface-color: #{$dark-surface-color};
-		--error-color: #{$dark-error-color};
-		--font-on-primary: #{$dark-font-on-primary};
-		--font-on-secondary: #{$dark-font-on-secondary};
-		--font-on-background: #{rgba($dark-font-on-background, .87)};
-		--font-on-surface: #{rgba($dark-font-on-surface, .87)};
-		--font-on-error: #{$dark-font-on-error};
+	@if($theme == light) {
+		@media #{$dark} {
+			--primary-color: #{$dark-primary-color};
+			--primary-color-variant: #{$dark-primary-color-variant};
+			--secondary-color: #{$dark-secondary-color};
+			--secondary-color-variant: #{$dark-secondary-color-variant};
+			--background-color: #{$dark-background-color};
+			--surface-color: #{$dark-surface-color};
+			--error-color: #{$dark-error-color};
+			--font-on-primary: #{$dark-font-on-primary};
+			--font-on-secondary: #{$dark-font-on-secondary};
+			--font-on-background: #{rgba($dark-font-on-background, .87)};
+			--font-on-surface: #{rgba($dark-font-on-surface, .87)};
+			--font-on-error: #{$dark-font-on-error};
+			--disabled-color: #{$disabled__dark-color};
+			--disabled-background: #{$disabled__dark-background};
+		}
+	}
+
+	@if($theme == dark) {
+		@media #{$light} {
+			--primary-color: #{$light-primary-color};
+			--primary-color-variant: #{$light-primary-color-variant};
+			--secondary-color: #{$light-secondary-color};
+			--secondary-color-variant: #{$light-secondary-color-variant};
+			--background-color: #{$light-background-color};
+			--surface-color: #{$light-surface-color};
+			--error-color: #{$light-error-color};
+			--font-on-primary: #{$light-font-on-primary};
+			--font-on-secondary: #{$light-font-on-secondary};
+			--font-on-background: #{rgba($light-font-on-background, .87)};
+			--font-on-surface: #{rgba($light-font-on-surface, .87)};
+			--font-on-error: #{$light-font-on-error};
+			--disabled-color: #{$disabled__light-color};
+			--disabled-background: #{$disabled__light-background};
+		}
 	}
 }

@@ -421,10 +421,6 @@ $banner__dark-color: rgba($white, .87) !default;
 $banner__light-color: rgba($black, .87) !default;
 $banner-color: if($theme == light, $banner__light-color, $banner__dark-color) !default;
 
-$banner__dark-border-bottom: rem-calc(1px) solid $divider__dark-background !default;
-$banner__light-border-bottom: rem-calc(1px) solid $divider__light-background !default;
-$banner-border-bottom: if($theme == light, $banner__light-border-bottom, $banner__dark-border-bottom) !default;
-
 $banner--single-line-height: rem-calc(54px) !default;
 $banner--single-line__content-padding: 0 0 0 rem-calc(16px) !default;
 $banner--single-line__actions-padding: rem-calc(10px) rem-calc(8px) rem-calc(8px) rem-calc(36px) !default;
@@ -524,20 +520,12 @@ $button__icon-size: rem-calc(18px) !default;
 $button--contained-padding: 0 rem-calc(16px) !default;
 $button--contained--hover-background: rgba($white, .08) !default;
 $button--contained--active-background: rgba($white, .32) !default;
-
-$button__dark--contained--disabled-color: $disabled__dark-color !default;
-$button__light--contained--disabled-color: $disabled__light-color !default;
-$button--contained--disabled-color: if($theme == light, $button__light--contained--disabled-color, $button__dark--contained--disabled-color) !default;
-
-$button__dark--contained--disabled-background: $disabled__dark-background !default;
-$button__light--contained--disabled-background: $disabled__light-background !default;
-$button--contained--disabled-background: if($theme == light, $button__light--contained--disabled-background, $button__dark--contained--disabled-background) !default;
-
 $button--contained--icon-left-padding: 0 rem-calc(16px) 0 rem-calc(12px) !default;
 $button--contained--icon-left__icon-margin: 0 rem-calc(8px) 0 0 !default;
 $button--contained--icon-right-padding: 0 rem-calc(12px) 0 rem-calc(16px) !default;
 $button--contained--icon-right__icon-margin: 0 0 0 rem-calc(8px) !default;
 
+// TODO maybe change to divider
 $button__dark--outlined-border: rem-calc(1px) solid rgba($white, .12) !default;
 $button__light--outlined-border: rem-calc(1px) solid rgba($black, .12) !default;
 $button--outlined-border: if($theme == light, $button__light--outlined-border, $button__dark--outlined-border) !default;
@@ -557,10 +545,6 @@ $button--text--icon-right__icon-margin: 0 0 0 rem-calc(4px) !default;
 $button--text--outlined--hover-background: rgba($primary-color, .08) !default;
 $button--text--outlined--active-background: rgba($primary-color, .32) !default;
 $button--text--outlined-color: var(--primary-color) !default;
-
-$button__dark--text--outline--disabled-color: $disabled__dark-color !default;
-$button__light--text--outline--disabled-color: $disabled__light-color !default;
-$button--text--outline--disabled-color: if($theme == light, $button__light--text--outline--disabled-color, $button__dark--text--outline--disabled-color) !default;
 
 /**************************************
  * Card
@@ -609,8 +593,6 @@ $chip__dark--active-background: rgba($white, .32) !default;
 $chip__light--active-background: rgba($black, .32) !default;
 $chip--active-background: if($theme == light, $chip__light--active-background, $chip__dark--active-background) !default;
 
-$chip--disabled-color: $disabled-color !default;
-$chip--disabled-background: $disabled-background !default;
 
 $chip__thumbnail-size: rem-calc(24px) !default;
 $chip__thumbnail-color: var(--chip-color) !default;
@@ -634,8 +616,6 @@ $chip__dark--outlined--active-background: rgba($white, .16) !default;
 $chip__light--outlined--active-background: rgba($black, .16) !default;
 $chip--outlined--active-background: if($theme == light, $chip__light--outlined--active-background, $chip__dark--outlined--active-background) !default;
 
-$chip--outlined--disabled-color: $disabled-color !default;
-$chip--outlined--disabled-background: $disabled-background !default;
 $chip--outlined--thumbnail-padding-left: rem-calc(4px) !default;
 $chip--outlined--remove-padding-right: rem-calc(6px) !default;
 
@@ -787,10 +767,6 @@ $drawer__dark__scrim-background: rgba($white, .32) !default;
 $drawer__light__scrim-background: rgba($black, .32) !default;
 $drawer__scrim-background: if($theme == light, $drawer__light__scrim-background, $drawer__dark__scrim-background) !default;
 
-$drawer__dark__child__divider: $divider__dark-background;
-$drawer__light__child__divider: $divider__light-background;
-$drawer__child__divider: if($theme ==light, $divider__light-background, $divider__dark-background);
-
 /**************************************
  * Buttons: FAB
  **************************************/
@@ -811,14 +787,6 @@ $fab--active-background: if($theme == light, $fab__dark--active-background, $fab
 $fab--mini-size: rem-calc(40px) !default;
 $fab--mini-padding: rem-calc(8px) !default;
 
-$fab__dark--disabled-color: $disabled__dark-color !default;
-$fab__light--disabled-color: $disabled__light-color !default;
-$fab--disabled-color: if($theme == light, $fab__light--disabled-color, $fab__dark--disabled-color) !default;
-
-$fab__dark--disabled-background: $disabled__dark-background !default;
-$fab__light--disabled-background: $disabled__light-background !default;
-$fab--disabled-background: if($theme == light, $fab__light--disabled-background, $fab__dark--disabled-background) !default;
-
 $fab--extended-height: rem-calc(48px) !default;
 $fab--extended-border-radius: rem-calc(32px) !default;
 $fab--extended-padding: 0 rem-calc(20px) !default;
@@ -826,6 +794,58 @@ $fab--extended--icon-left-padding: 0 rem-calc(20px) 0 rem-calc(16px) !default;
 $fab--extended--icon-left__icon-margin-right: rem-calc(8px) !default;
 $fab--extended--icon-right-padding: 0 rem-calc(16px) 0 rem-calc(20px) !default;
 $fab--extended--icon-right__icon-margin-left: rem-calc(8px) !default;
+
+/**************************************
+ * List
+ **************************************/
+
+$list-padding: rem-calc(8px) 0 !default;
+
+$list__dark__content-color: rgba($white, .87) !default;
+$list__light__content-color: rgba($black, .87) !default;
+$list__content-color: if($theme == light, $list__light__content-color, $list__dark__content-color) !default;
+
+$list__content-padding-left: rem-calc(16px) !default;
+$list__content__title-color: var(--list__content-color) !default;
+
+$list__dark__content__text-color: rgba($white, .60) !default;
+$list__light__content__text-color: rgba($black, .60) !default;
+$list__content__text-color: if($theme == light, $list__light__content__text-color, $list__dark__content__text-color) !default;
+
+$list__content__overline-color: var(--list__content__text-color) !default;
+
+$list__dark-divider-border-bottom: rem-calc(1px) solid $divider__dark-background !default;
+$list__light-divider-border-bottom: rem-calc(1px) solid $divider__light-background !default;
+$list-divider-border-bottom: if($theme == light, $list__light-divider-border-bottom, $list__dark-divider-border-bottom) !default;
+
+$list--single-line-height: rem-calc(48px) !default;
+$list--single-line__content-height: var(--list--single-line-height) !default;
+$list--single-line__control-padding: rem-calc(12px) rem-calc(16px) !default;
+$list--single-line--support-height: rem-calc(56px) !default;
+$list--single-line--support__icon-padding: rem-calc(16px) !default;
+$list--single-line--support__image-padding: rem-calc(8px) 0 rem-calc(8px) rem-calc(16px) !default;
+$list--single-line--support__control-padding: rem-calc(16px) !default;
+
+$list--two-line-height: rem-calc(64px) !default;
+$list--two-line__content-padding: rem-calc(16px) 0 0 rem-calc(16px) !default;
+$list--two-line__support-height: rem-calc(72px) !default;
+$list--two-line__support__icon-padding: rem-calc(16px) !default;
+$list--two-line__support__image-padding: rem-calc(16px) 0 0 rem-calc(16px) !default;
+$list--two-line__support__image__img-size: rem-calc(40px) !default;
+$list--two-line__support__image--large-padding: rem-calc(8px) 0 !default;
+$list--two-line__support__image--large__img-width: rem-calc(100px) !default;
+$list--two-line__support__image--large__img-height: rem-calc(56px) !default;
+$list--two-line__support__control-padding: rem-calc(24px) rem-calc(16px) 0 rem-calc(16px) !default;
+
+$list--three-line-height: rem-calc(88px) !default;
+$list--three-line__content-padding: rem-calc(16px) 0 0 rem-calc(16px) !default;
+$list--three-line__support__icon-padding: rem-calc(16px) !default;
+$list--three-line__support__image-padding: rem-calc(16px) 0 0 rem-calc(16px) !default;
+$list--three-line__support__image__img-size: rem-calc(40px) !default;
+$list--three-line__support__image--large-padding: rem-calc(16px) rem-calc(4px) rem-calc(16px) 0 !default;
+$list--three-line__support__image--large__img-width: rem-calc(100px) !default;
+$list--three-line__support__image--large__img-height: rem-calc(56px) !default;
+$list--three-line__support__control-padding: rem-calc(16px) rem-calc(16px) 0 rem-calc(16px) !default;
 
 /**************************************
  * Menu
@@ -846,7 +866,6 @@ $menu-padding: rem-calc(8px) 0 !default;
 
 $menu__divider-margin: rem-calc(8px) 0 !default;
 $menu__divider-height: $divider-height !default;
-$menu__divider-background: $divider-background !default;
 
 $menu__content-font-size: rem-calc(14px) !default;
 
@@ -855,7 +874,6 @@ $menu__icon-size: rem-calc(24px) !default;
 $menu__item-height: rem-calc(48px) !default;
 $menu__item--hover-background: rgba($primary-color, .04) !default;
 $menu__item--active-background: rgba($primary-color, .12) !default;
-$menu__item--disabled-color: $disabled-color !default;
 
 $menu-md-up-max-width: rem-calc(320px) !default;
 $menu-md-up__icon-margin: rem-calc(12px) rem-calc(-4px) rem-calc(12px) rem-calc(16px) !default;
@@ -866,14 +884,27 @@ $menu-md-up__content-margin: 0 rem-calc(24px) !default;
  **************************************/
 $checkbox-size: rem-calc(20px) !default;
 $checkbox-stroke: rem-calc(2px) !default;
-$checkbox-border: var(--checkbox-stroke) solid if($theme == light, rgba($black, .54), rgba($white, .54)) !default;
+
+$checkbox__dark-border: var(--checkbox-stroke) solid rgba($white, .54) !default;
+$checkbox__light-border: var(--checkbox-stroke) solid rgba($black, .54) !default;
+$checkbox-border: if($theme == light, $checkbox__light-border, $checkbox__dark-border) !default;
+
 $checkbox-border-radius: var(--border-radius) !default;
 
-$checkbox--disabled-color: $disabled-color !default;
+$checkbox__dark--disabled-color: $disabled__dark-color !default;
+$checkbox__light--disabled-color: $disabled__light-color !default;
+$checkbox--disabled-color: if($theme == light, $checkbox__light--disabled-color, $checkbox__dark--disabled-color) !default;
 
 $checkbox__radial-size: rem-calc(16px) !default;
-$checkbox__radial--hover-background: if($theme == light, rgba($black, .04), rgba($white, .04)) !default;
-$checkbox__radial--active-background: if($theme == light, rgba($black, .16), rgba($white, .16)) !default;
+
+$checkbox__dark__radial--hover-background: rgba($white, .04) !default;
+$checkbox__light__radial--hover-background: rgba($black, .04) !default;
+$checkbox__radial--hover-background: if($theme == light, $checkbox__light__radial--hover-background, $checkbox__dark__radial--hover-background) !default;
+
+$checkbox__dark__radial--active-background: rgba($white, .16) !default;
+$checkbox__light__radial--active-background: rgba($black, .16) !default;
+$checkbox__radial--active-background: if($theme == light, $checkbox__light__radial--active-background, $checkbox__dark__radial--active-background) !default;
+
 $checkbox__radial--checked--hover: rgba($primary-color, .04) !default;
 $checkbox__radial--checked--active: rgba($primary-color, .16) !default;
 
@@ -882,8 +913,14 @@ $radio__radial-size: var(--checkbox__radial-size) !default;
 $radio-stroke: rem-calc(2px) !default;
 $radio--checked-color: var(--primary-color) !default;
 
-$radio__radial--hover-background: if($theme == light, rgba($black, .04), rgba($white, .04)) !default;
-$radio__radial--active-background: if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
+$radio__dark__radial--hover-background: rgba($white, .04) !default;
+$radio__light__radial--hover-background: rgba($black, .04) !default;
+$radio__radial--hover-background: if($theme == light, $radio__light__radial--hover-background, $radio__dark__radial--hover-background) !default;
+
+$radio__dark__radial--active-background: rgba($white, .12) !default;
+$radio__light__radial--active-background: rgba($black, .12) !default;
+$radio__radial--active-background: if($theme == light, $radio__light__radial--active-background, $radio__dark__radial--active-background) !default;
+
 $radio__radial--checked--hover-background: rgba($primary-color, .04) !default;
 $radio__radial--checked--active-background: rgba($primary-color, .12) !default;
 $radio--checked--disabled-color: $disabled-color !default;
@@ -900,12 +937,22 @@ $switch__track-height: rem-calc(16px) !default;
 $switch__track--checked-background: rgba($primary-color, .54) !default;
 
 $switch--disabled-background: $disabled-background !default;
-$switch--disabled__after-background: if($theme == light, lighten($black, 96%), rgba($white, .04)) !default;
+
+$switch__dark--disabled__after-background: rgba($white, .04) !default;
+$switch__light--disabled__after-background: lighten($black, 96%) !default;
+$switch--disabled__after-background: if($theme == light, $switch__light--disabled__after-background, $switch__dark--disabled__after-background) !default;
+
 $switch--checked--disabled-background: rgba(rgba($primary-color, .54), .38) !default;
 $switch--checked--disabled__knob-background: lighten($primary-color, 38%) !default;
 
-$switch__radial--hover-background: if($theme == light, rgba($black, .04), rgba($white, .04)) !default;
-$switch__radial--active-background: if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
+$switch__dark__radial--hover-background: rgba($white, .04) !default;
+$switch__light__radial--hover-background: rgba($black, .04) !default;
+$switch__radial--hover-background: if($theme == light, $switch__light__radial--hover-background, $switch__dark__radial--hover-background) !default;
+
+$switch__dark__radial--active-background: rgba($white, .12) !default;
+$switch__light__radial--active-background: rgba($black, .12) !default;
+$switch__radial--active-background: if($theme == light, $switch__light__radial--active-background, $switch__dark__radial--active-background) !default;
+
 $switch__radial--checked--hover-background: rgba($primary-color, .04) !default;
 $switch__radial--checked--active-background: rgba($primary-color, .12) !default;
 
@@ -915,7 +962,11 @@ $switch__radial--checked--active-background: rgba($primary-color, .12) !default;
 
 $snackbar-width: rem-calc(344px) !default;
 $snackbar-min-height: rem-calc(48px) !default;
-$snackbar-background: if($theme == light, rgba($black, .87), rgba($white, .87)) !default;
+
+$snackbar__dark-background: rgba($white, .87) !default;
+$snackbar__light-background: rgba($black, .87) !default;
+$snackbar-background: if($theme == light, $snackbar__light-background, $snackbar__dark-background) !default;
+
 $snackbar-border-radius: var(--border-radius) !default;
 
 $snackbar__content-color: rgba($white, .87) !default;
@@ -937,11 +988,18 @@ $text-field-height: var(--text-field__input-height) !default;
 $text-field--active-color: $primary-color !default;
 $text-field--invalid-color: var(--error-color) !default;
 
-$text-field__label-font-size: rem-calc( map-get( map-get( $type-scale, body-1 ), size ) + 0px ) !default;
-$text-field__label-color: if($theme == light, rgba($black, .6), rgba($white, .6)) !default;
+$text-field__label-font-size: rem-calc(map-get( map-get( $type-scale, body-1 ), size ) + 0px) !default;
+
+$text-field__dark__label-color: rgba($white, .6) !default;
+$text-field__light__label-color: rgba($black, .6) !default;
+$text-field__label-color: if($theme == light, $text-field__light__label-color, $text-field__dark__label-color) !default;
 
 $text-field__input-height: rem-calc(56px) !default;
-$text-field__input-color: if($theme == light, rgba($black, .87), rgba($white, .87)) !default;
+
+$text-field__dark__input-color: rgba($white, .87) !default;
+$text-field__light__input-color: rgba($black, .87) !default;
+$text-field__input-color: if($theme == light, $text-field__light__input-color, $text-field__dark__input-color) !default;
+
 $text-field__input--focus-caret-color: var(--text-field--active-color) !default;
 $text-field__input--focus__label-color: var(--text-field--active-color) !default;
 $text-field__input--focus__label-font-size: rem-calc(12px) !default;
@@ -952,26 +1010,44 @@ $text-field__helper-text-height: rem-calc(16px) !default;
 $text-field--filled__input-padding-top: rem-calc(20px) !default;
 $text-field--filled__input-padding-sides: rem-calc(12px) !default;
 $text-field--filled__input-padding: var(--text-field--filled__input-padding-top) var(--text-field--filled__input-padding-sides) 0 var(--text-field--filled__input-padding-sides) !default;
-$text-field--filled__input-background: if($theme == light, rgba($black, .1), rgba($white, .1)) !default;
-$text-field--filled__input--border-bottom: rem-calc(1px) solid if($theme == light, rgba($black, .38), rgba($white, .38)) !default;
-$text-field--filled__input--focus-border-bottom: rem-calc(2px) solid if($theme == light, rgba($black, .38), rgba($white, .38)) !default;
+
+$text-field__dark--filled__input-background: rgba($white, .1) !default;
+$text-field__light--filled__input-background: rgba($black, .1) !default;
+$text-field--filled__input-background: if($theme == light, $text-field__light--filled__input-background, $text-field__dark--filled__input-background) !default;
+
+$text-field__dark--filled__input--border-bottom: rem-calc(1px) solid rgba($white, .38) !default;
+$text-field__light--filled__input--border-bottom: rem-calc(1px) solid rgba($black, .38) !default;
+$text-field--filled__input--border-bottom: if($theme == light, $text-field__light--filled__input--border-bottom, $text-field__dark--filled__input--border-bottom) !default;
+
+$text-field__dark--filled__input--focus-border-bottom: rem-calc(2px) solid rgba($white, .38) !default;
+$text-field__light--filled__input--focus-border-bottom: rem-calc(2px) solid rgba($black, .38) !default;
+$text-field--filled__input--focus-border-bottom: if($theme == light, $text-field__light--filled__input--focus-border-bottom, $text-field__dark--filled__input--focus-border-bottom) !default;
+
 $text-field--filled__input--active-border-bottom: rem-calc(2px) solid var(--text-field--active-color) !default;
 $text-field--filled__input--focus__label-top: calc(#{rem-calc(20px)} - var(--text-field__input--focus__label-font-size)) !default; // 20px for baseline, 12px for font-size
-$text-field--filled__input--active-background: if($theme == light, rgba($black, .16), rgba($white, .16)) !default;
+
+$text-field__dark--filled__input--active-background: rgba($white, .16) !default;
+$text-field__light--filled__input--active-background: rgba($black, .16) !default;
+$text-field--filled__input--active-background: if($theme == light, $text-field__light--filled__input--active-background, $text-field__dark--filled__input--active-background) !default;
+
 $text-field--filled__input--invalid-border-bottom: rem-calc(2px) solid var(--text-field--invalid-color) !default;
-$text-field--filled__input--disabled-background: $disabled-background !default;
-$text-field--filled__input--disabled__label-color: $disabled-color !default;
 $text-field--filled__label-left: var(--text-field--filled__input-padding-sides) !default;
 
 $text-field--outlined__input-padding-top: rem-calc(16px) !default;
 $text-field--outlined__input-padding-sides: rem-calc(12px) !default;
-$text-field--outlined__input-border: rem-calc(1px) solid if($theme == light, rgba($black, .12), rgba($white, .12)) !default;
+
+$text-field__dark--outlined__input-border: rem-calc(1px) solid rgba($white, .12) !default;
+$text-field__light--outlined__input-border: rem-calc(1px) solid rgba($black, .12) !default;
+$text-field--outlined__input-border: if($theme == light, $text-field__light--outlined__input-border, $text-field__dark--outlined__input-border) !default;
+
 $text-field--outlined__input-padding: var(--text-field--outlined__input-padding-top) var(--text-field--outlined__input-padding-sides) !default;
 $text-field--outlined__input--focus-border: rem-calc(2px) solid var(--text-field--active-color) !default;
-$text-field--outlined__input--focus__label-top: calc( -1 * ( var(--text-field__label-font-size) / 2 ) ) !default;
-$text-field--outlined__input--active-border: rem-calc(2px) solid if($theme == light, $black, $white) !default;
-$text-field--outlined__input--disabled-border: rem-calc(1px) solid $disabled-color !default;
-$text-field--outlined__input--disabled__label-color: $disabled-color !default;
+$text-field--outlined__input--focus__label-top: calc(-1 * (var(--text-field__label-font-size) / 2)) !default;
+
+$text-field__dark--outlined__input--active-border: rem-calc(2px) solid $white !default;
+$text-field__light--outlined__input--active-border: rem-calc(2px) solid $black !default;
+$text-field--outlined__input--active-border: if($theme == light, $text-field__light--outlined__input--active-border, $text-field__dark--outlined__input--active-border) !default;
+
 $text-field--outlined__input--invalid-border: rem-calc(2px) solid var(--text-field--invalid-color) !default;
 
 /**************************************

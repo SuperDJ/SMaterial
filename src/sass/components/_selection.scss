@@ -12,6 +12,17 @@
 		-webkit-appearance: none;
 		@include chain(padding, margin, 0);
 
+		@if($theme == light and in-array(dark, $themes)) {
+			@media #{$dark} {
+				--checkbox-border: #{$checkbox__dark-border};
+			}
+		}
+		@if($theme == dark and in-array(light, $themes)) {
+			@media #{$light} {
+				--checkbox-border: #{$checkbox__light-border};
+			}
+		}
+
 		&:disabled:before {
 			content: unset;
 		}
@@ -46,8 +57,22 @@
 			border: var(--checkbox-border);
 			border-radius: var(--checkbox-border-radius);
 
+			@if($theme == light and in-array(dark, $themes)) {
+				@media #{$dark} {
+					--checkbox__radial--hover-background: #{$checkbox__dark__radial--hover-background};
+					--checkbox__radial--active-background: #{$checkbox__dark__radial--active-background};
+				}
+			}
+
+			@if($theme == dark and in-array(light, $themes)) {
+				@media #{$light} {
+					--checkbox__radial--hover-background: #{$checkbox__light__radial--hover-background};
+					--checkbox__radial--active-background: #{$checkbox__light__radial--active-background};
+				}
+			}
+
 			&:disabled {
-				border-color: var(--checkbox--disabled-color);
+				@extend %disabled-border-color;
 			}
 
 			// Radial
@@ -99,7 +124,7 @@
 				}
 
 				&:disabled {
-					@include chain(border-color, background, var(--checkbox--disabled-color));
+					@extend %disabled-border-color, %disabled-background;
 				}
 			}
 		}
@@ -116,9 +141,6 @@
 			--radio__radial--active-background: #{$radio__radial--active-background};
 			--radio__radial--checked--hover-background: #{$radio__radial--checked--hover-background};
 			--radio__radial--checked--active-background: #{$radio__radial--checked--active-background};
-			--radio--checked--disabled-color: #{$radio--checked--disabled-color};
-
-			--radio--disabled-color: #{$radio--disabled-color};
 
 			@include chain(width, height, var(--radio-size));
 			border: var(--checkbox-border);
@@ -126,7 +148,7 @@
 			transition: border-color .1s $easing-standard;
 
 			&:disabled {
-				border-color: var(--radio--disabled-color);
+				@extend %disabled-border-color;
 			}
 
 			&:after {
@@ -170,10 +192,10 @@
 				}
 
 				&:disabled {
-					border-color: var(--radio--checked--disabled-color);
+					@extend %disabled-border-color;
 
 					&:after {
-						background: var(--radio--checked--disabled-color);
+						@extend %disabled-background;
 					}
 				}
 			}

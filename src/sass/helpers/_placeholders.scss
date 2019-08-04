@@ -1,0 +1,14 @@
+/**************************************
+ * Disabled
+ **************************************/
+%disabled-color {
+	color: var(--disabled-color);
+}
+
+%disabled-background {
+	background: var(--disabled-background);
+}
+
+%disabled-border-color {
+	border-color: var(--disabled-background);
+}

@@ -55,7 +55,7 @@
 			@extend %overlay8;
 		}
 
-		@if($theme == light) {
+		@if($theme == light and in-array(dark, $themes)) {
 			@media #{$dark} {
 				--bottom-sheet__item--hover-background: #{$bottom-sheet__dark__item--hover-background};
 				--bottom-sheet__item--active-background: #{$bottom-sheet__dark__item--active-background};
@@ -67,7 +67,7 @@
 			}
 		}
 
-		@if($theme == dark) {
+		@if($theme == dark and in-array(light, $themes)) {
 			@media #{$light} {
 				--bottom-sheet__item--hover-background: #{$bottom-sheet__light__item--hover-background};
 				--bottom-sheet__item--active-background: #{$bottom-sheet__light__item--active-background};

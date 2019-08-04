@@ -6,8 +6,6 @@
 		--chip-color: #{$chip-color};
 		--chip--hover-background: #{$chip--hover-background};
 		--chip--active-background: #{$chip--active-background};
-		--chip--disabled-color: #{$chip--disabled-color};
-		--chip--disabled-background: #{$chip--disabled-background};
 
 		--chip__thumbnail-size: #{$chip__thumbnail-size};
 		--chip__thumbnail-color: #{$chip__thumbnail-color};
@@ -22,12 +20,10 @@
 		--chip--outlined-border: #{$chip--outlined-border};
 		--chip--outlined--hover-background: #{$chip--outlined--hover-background};
 		--chip--outlined--active-background: #{$chip--outlined--active-background};
-		--chip--outlined--disabled-color: #{$chip--outlined--disabled-color};
-		--chip--outlined--disabled-background: #{$chip--outlined--disabled-background};
 		--chip--outlined--thumbnail-padding-left: #{$chip--outlined--thumbnail-padding-left};
 		--chip--outlined--remove-padding-right: #{$chip--outlined--remove-padding-right};
 
-		@if($theme == light) {
+		@if($theme == light and in-array(dark, $themes)) {
 			@media #{$dark} {
 				--chip-background: #{$chip__dark-background};
 				--chip-color: #{$chip__dark-color};
@@ -39,7 +35,7 @@
 			}
 		}
 
-		@if($theme == dark) {
+		@if($theme == dark and in-array(light, $themes)) {
 			@media #{$light} {
 				--chip-background: #{$chip__light-background};
 				--chip-color: #{$chip__light-color};
@@ -69,8 +65,7 @@
 		--ripple--active-background: #{rgba($black, .16)};
 
 		&:disabled {
-			color: var(--chip--disabled-color);
-			background: var(--chip--disabled-background);
+			@extend %disabled-color, %disabled-background;
 		}
 
 		@if(in-array(thumbnail, $chip-settings)) {
@@ -112,8 +107,7 @@
 				}
 
 				&:disabled {
-					color: var(--chip--outlined--disabled-color);
-					background: var(--chip--outlined--disabled-background);
+					@extend %disabled-color, %disabled-background;
 				}
 
 				@if(in-array(thumbnail, $chip-settings)) {

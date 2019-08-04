@@ -28,7 +28,6 @@
 		--drawer__header__profile-email-color: #{$drawer__header__profile-email-color};
 
 		--drawer__scrim-background: #{$drawer__scrim-background};
-		--drawer__child__divider: #{$drawer__child__divider};
 
 		$el: &;
 		width: var(--drawer-width);
@@ -43,7 +42,7 @@
 		transition: margin-left .3s $easing-accelerate;
 		border-right: var(--drawer-border-right);
 
-		@if($theme == light) {
+		@if($theme == light and in-array(dark, $themes)) {
 			@media #{$dark} {
 				--drawer-border-right: #{$drawer__dark-border-right};
 				--drawer__item--hover-background: #{$drawer__dark__item--hover-background};
@@ -51,11 +50,10 @@
 				--drawer__item__content-color: #{$drawer__dark__item__content-color};
 				--drawer__header__profile-name-color: #{$drawer__dark__header__profile-name-color};
 				--drawer__header__profile-email-color: #{$drawer__dark__header__profile-email-color};
-				--drawer__child__divider: #{$drawer__dark__child__divider};
 			}
 		}
 
-		@if($theme == dark) {
+		@if($theme == dark and in-array(light, $themes)) {
 			@media #{$light} {
 				--drawer-border-right: #{$drawer__light-border-right};
 				--drawer__item--hover-background: #{$drawer__light__item--hover-background};
@@ -63,7 +61,6 @@
 				--drawer__item__content-color: #{$drawer__light__item__content-color};
 				--drawer__header__profile-name-color: #{$drawer__light__header__profile-name-color};
 				--drawer__header__profile-email-color: #{$drawer__light__header__profile-email-color};
-				--drawer__child__divider: #{$drawer__light__child__divider};
 			}
 		}
 
@@ -173,7 +170,7 @@
 				&.active {
 					margin: rem-calc(8px) 0 rem-calc(8px) rem-calc(8px);
 					padding: rem-calc(8px) 0;
-					@include chain(border-top, border-bottom, rem-calc(1px) solid var(--drawer__child__divider));
+					@extend %divider-bottom-border, %divider-top-border;
 				}
 
 				#{$el}__item {

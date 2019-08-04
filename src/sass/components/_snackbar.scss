@@ -24,6 +24,19 @@
 		min-height: var(--snackbar-min-height);
 		@extend %z6;
 
+		@if($theme == light and in-array(dark, $themes)) {
+			@media #{$dark} {
+				--snackbar-background: #{$snackbar__dark-background};
+				@include overlay(6);
+			}
+		}
+
+		@if($theme == dark and in-array(light, $themes)) {
+			@media #{$light} {
+				--snackbar-background: #{$snackbar__light-background};
+			}
+		}
+
 		&--single-line, &--two-line {
 			display: grid;
 			grid-template-columns: 1fr auto;

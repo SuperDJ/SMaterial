@@ -10,8 +10,6 @@
 			--button--contained-padding: #{$button--contained-padding};
 			--button--contained--hover-background: #{$button--contained--hover-background};
 			--button--contained--active-background: #{$button--contained--active-background};
-			--button--contained--disabled-color: #{$button--contained--disabled-color};
-			--button--contained--disabled-background: #{$button--contained--disabled-background};
 			--button--contained--icon-left-padding: #{$button--contained--icon-left-padding};
 			--button--contained--icon-left__icon-margin: #{$button--contained--icon-left__icon-margin};
 			--button--contained--icon-right-padding: #{$button--contained--icon-right-padding};
@@ -39,7 +37,6 @@
 			--button--text--outlined--hover-background: #{$button--text--outlined--hover-background};
 			--button--text--outlined--active-background: #{$button--text--outlined--active-background};
 			--button--text--outlined-color: #{$button--text--outlined-color};
-			--button--text--outline--disabled-color: #{$button--text--outline--disabled-color};
 		}
 
 		$el: &;
@@ -59,25 +56,16 @@
 		@include ripple();
 		white-space: nowrap;
 
-		@if($theme == light) {
+		@if($theme == light and in-array(dark, $themes)) {
 			@media #{$dark} {
-				--button--contained--disabled-color: #{$button__dark--contained--disabled-color};
-				--button--contained--disabled-background: #{$button__dark--contained--disabled-background};
-
 				--button--outlined-border: #{$button__dark--outlined-border};
-
-				--button--text--outline--disabled-color: #{$button__dark--text--outline--disabled-color};
 			}
 		}
 
-		@if($theme == dark) {
+		@if($theme == dark and in-array(light, $themes)) {
 			@media #{$light} {
-				--button--contained--disabled-color: #{$button__light--contained--disabled-color};
-				--button--contained--disabled-background: #{$button__light--contained--disabled-background};
 
 				--button--outlined-border: #{$button__light--outlined-border};
-
-				--button--text--outline--disabled-color: #{$button__light--text--outline--disabled-color};
 			}
 		}
 
@@ -97,8 +85,7 @@
 				}
 
 				&:disabled, &--disabled {
-					color: var(--button--contained--disabled-color);
-					background: var(--button--contained--disabled-background);
+					@extend %disabled-color, %disabled-background;
 					box-shadow: unset;
 
 					&:hover {
@@ -213,11 +200,11 @@
 				}
 
 				&:disabled, &--disabled {
-					color: var(--button--text--outline--disabled-color);
+					@extend %disabled-color;
 					background: unset;
 
 					> * {
-						color: var(--button--text--outline--disabled-color);
+						@extend %disabled-color;
 					}
 				}
 			}

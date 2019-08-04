@@ -32,7 +32,7 @@
 			@extend %overlay8;
 		}
 
-		@if($theme == light) {
+		@if($theme == light and in-array(dark, $themes)) {
 			@media #{$dark} {
 				--bottom-nav__item-color: #{$bottom-nav__dark__item-color};
 				--bottom-nav__item--hover-color: #{$bottom-nav__dark__item--hover-color};
@@ -40,7 +40,7 @@
 			}
 		}
 
-		@if($theme == dark) {
+		@if($theme == dark and in-array(light, $themes)) {
 			@media #{$light} {
 				--bottom-nav__item-color: #{$bottom-nav__light__item-color};
 				--bottom-nav__item--hover-color: #{$bottom-nav__light__item--hover-color};

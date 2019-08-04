@@ -23,25 +23,16 @@
 			@extend %overlay1;
 		}
 
-		@if ($theme == light) {
+		@if ($theme == light and in-array(dark, $themes)) {
 			@media #{$dark} {
 				--card__title-color: #{$card__dark__title-color};
 				--card__subtitle-color: #{$card__dark__subtitle-color};
 				--card__content-color: #{$card__dark__content-color};
-
-				// TODO fix to extend
-				&:before {
-					content: '';
-					@include chain(top, left, 0);
-					@include chain(width, height, 100%);
-					position: absolute;
-					background: rgba($white, .05);
-					transition: background $easing-standard .1s;
-				}
+				@include overlay(1);
 			}
 		}
 
-		@if ($theme == dark) {
+		@if ($theme == dark and in-array(dark, $themes)) {
 			@media #{$light} {
 				--card__title-color: #{$card__light__title-color};
 				--card__subtitle-color: #{$card__light__subtitle-color};
@@ -57,7 +48,7 @@
 			}
 
 			// TODO fix to extend
-			@if ($theme == light) {
+			@if ($theme == light and in-array(dark, $themes)) {
 				@media #{$dark} {
 					@include overlay(8);
 				}

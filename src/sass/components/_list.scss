@@ -1,47 +1,48 @@
+// TODO turn last values into variables
 @if(in-array(list, $component-settings)) {
 	.list {
-		--list-padding: #{rem-calc(8px) 0};
-		--list__content-color: #{rgba($black, .87)};
-		--list__content-padding-left: #{rem-calc(16px)};
-		--list__content__title-color: #{var(--list__content-color)};
-		--list__content__text-color: #{rgba($black, .60)};
-		--list__content__overline-color: #{var(--list__content__text-color)};
+		--list-padding: #{$list-padding};
+		--list__content-color: #{$list__content-color};
+		--list__content-padding-left: #{$list__content-padding-left};
+		--list__content__title-color: #{$list__content__title-color};
+		--list__content__text-color: #{$list__content__text-color};
+		--list__content__overline-color: #{$list__content__overline-color};
 
-		--list-divider-border-bottom: #{rem-calc(1px) solid rgba($black, .12)};
+		--list-divider-border-bottom: #{$list-divider-border-bottom};
 
 		@if (in-array(single, $list-settings)) {
-			--list--single-line-height: #{rem-calc(48px)};
-			--list--single-line__content-height: #{var(--list--single-line-height)};
-			--list--single-line__control-padding: #{rem-calc(12px) rem-calc(16px)};
-			--list--single-line--support-height: #{rem-calc(56px)};
-			--list--single-line--support__icon-padding: #{rem-calc(16px)};
-			--list--single-line--support__image-padding: #{rem-calc(8px) 0 rem-calc(8px) rem-calc(16px)};
-			--list--single-line--support__control-padding: #{rem-calc(16px)};
+			--list--single-line-height: #{$list--single-line-height};
+			--list--single-line__content-height: #{$list--single-line__content-height};
+			--list--single-line__control-padding: #{$list--single-line__control-padding};
+			--list--single-line--support-height: #{$list--single-line--support-height};
+			--list--single-line--support__icon-padding: #{$list--single-line--support__icon-padding};
+			--list--single-line--support__image-padding: #{$list--single-line--support__image-padding};
+			--list--single-line--support__control-padding: #{$list--single-line--support__control-padding};
 		}
 
 		@if (in-array(two, $list-settings)) {
-			--list--two-line-height: #{rem-calc(64px)};
-			--list--two-line__content-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
-			--list--two-line__support-height: #{rem-calc(72px)};
-			--list--two-line__support__icon-padding: #{rem-calc(16px)};
-			--list--two-line__support__image-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
-			--list--two-line__support__image__img-size: #{rem-calc(40px)};
-			--list--two-line__support__image--large-padding: #{rem-calc(8px) 0};
-			--list--two-line__support__image--large__img-width: #{rem-calc(100px)};
-			--list--two-line__support__image--large__img-height: #{rem-calc(56px)};
-			--list--two-line__support__control-padding: #{rem-calc(24px) rem-calc(16px) 0 rem-calc(16px)};
+			--list--two-line-height: #{$list--two-line-height};
+			--list--two-line__content-padding: #{$list--two-line__content-padding};
+			--list--two-line__support-height: #{$list--two-line__support-height};
+			--list--two-line__support__icon-padding: #{$list--two-line__support__icon-padding};
+			--list--two-line__support__image-padding: #{$list--two-line__support__image-padding};
+			--list--two-line__support__image__img-size: #{$list--two-line__support__image__img-size};
+			--list--two-line__support__image--large-padding: #{$list--two-line__support__image--large-padding};
+			--list--two-line__support__image--large__img-width: #{$list--two-line__support__image--large__img-width};
+			--list--two-line__support__image--large__img-height: #{$list--two-line__support__image--large__img-height};
+			--list--two-line__support__control-padding: #{$list--two-line__support__control-padding};
 		}
 
 		@if (in-array(three, $list-settings)) {
-			--list--three-line-height: #{rem-calc(88px)};
-			--list--three-line__content-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
-			--list--three-line__support__icon-padding: #{rem-calc(16px)};
-			--list--three-line__support__image-padding: #{rem-calc(16px) 0 0 rem-calc(16px)};
-			--list--three-line__support__image__img-size: #{rem-calc(40px)};
-			--list--three-line__support__image--large-padding: #{rem-calc(16px) rem-calc(4px) rem-calc(16px) 0};
-			--list--three-line__support__image--large__img-width: #{rem-calc(100px)};
-			--list--three-line__support__image--large__img-height: #{rem-calc(56px)};
-			--list--three-line__support__control-padding: #{rem-calc(16px) rem-calc(16px) 0 rem-calc(16px)};
+			--list--three-line-height: #{$list--three-line-height};
+			--list--three-line__content-padding: #{$list--three-line__content-padding};
+			--list--three-line__support__icon-padding: #{$list--three-line__support__icon-padding};
+			--list--three-line__support__image-padding: #{$list--three-line__support__image-padding};
+			--list--three-line__support__image__img-size: #{$list--three-line__support__image__img-size};
+			--list--three-line__support__image--large-padding: #{$list--three-line__support__image--large-padding};
+			--list--three-line__support__image--large__img-width: #{$list--three-line__support__image--large__img-width};
+			--list--three-line__support__image--large__img-height: #{$list--three-line__support__image--large__img-height};
+			--list--three-line__support__control-padding: #{$list--three-line__support__control-padding};
 		}
 
 		$el: &;
@@ -49,6 +50,24 @@
 		width: 100%;
 		padding: var(--list-padding);
 		margin: 0;
+
+		@if($theme == light and in-array(dark, $themes)) {
+			@media #{$dark} {
+				--list__content-color: #{$list__dark__content-color};
+				--list__content__text-color: #{$list__dark__content__text-color};
+
+				--list-divider-border-bottom: #{$list__dark-divider-border-bottom};
+			}
+		}
+
+		@if($theme == dark and in-array(light, $themes)) {
+			@media #{$light} {
+				--list__content-color: #{$list__light__content-color};
+				--list__content__text-color: #{$list__light__content__text-color};
+
+				--list-divider-border-bottom: #{$list__light-divider-border-bottom};
+			}
+		}
 
 		@if (in-array(single, $list-settings)) {
 			&--single-line {
