@@ -99,3 +99,35 @@
 		transition: background $easing-standard .1s;
 	}
 }
+
+@mixin dark-theme( $class ) {
+	@if($theme == light and in-array(dark, $media-themes)) {
+		.#{$class} {
+			@media #{$dark} {
+				@content;
+			}
+		}
+	}
+
+	@if($theme == light and in-array(dark, $class-themes)) {
+		.#{$class}--dark, .dark.#{$class}, .dark .#{$class} {
+			@content;
+		}
+	}
+}
+
+@mixin light-theme( $class ) {
+	@if($theme == dark and in-array(light, $media-themes)) {
+		.#{$class} {
+			@media #{$light} {
+				@content;
+			}
+		}
+	}
+
+	@if($theme == dark and in-array(light, $class-themes)) {
+		.#{$class}--light, .light.#{$class}, .light .#{$class} {
+			@content;
+		}
+	}
+}

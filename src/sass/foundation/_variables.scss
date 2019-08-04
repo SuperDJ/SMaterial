@@ -38,7 +38,7 @@
 		--margin: #{rem-calc( $xl-margin + 0px )};
 	}
 
-	@if($theme == light) {
+	@if($theme == light and in-array(dark, $media-themes)) {
 		@media #{$dark} {
 			--primary-color: #{$dark-primary-color};
 			--primary-color-variant: #{$dark-primary-color-variant};
@@ -57,7 +57,7 @@
 		}
 	}
 
-	@if($theme == dark) {
+	@if($theme == dark and in-array(light, $media-themes)) {
 		@media #{$light} {
 			--primary-color: #{$light-primary-color};
 			--primary-color-variant: #{$light-primary-color-variant};

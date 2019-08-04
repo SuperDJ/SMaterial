@@ -13,7 +13,8 @@
 	@return false;
 }
 
-$themes: (dark, light) !default;
+$media-themes: (dark, light) !default;
+$class-themes: (dark, light) !default;
 $color-settings: (color, variables, "red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown", "grey", "blue-grey", "shades") !default;
 
 $component-settings: (app-bar, badge, banner, bottom-nav, bottom-sheet, button, card, chip, data-table, dialog, divider, drawer, fab, list, menu, notification, progress, selection, slider, snackbar, tab, text-field, tooltip) !default;

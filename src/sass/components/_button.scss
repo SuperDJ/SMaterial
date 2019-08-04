@@ -1,4 +1,4 @@
-@if(in-array(button, $component-settings)) {
+@if (in-array(button, $component-settings)) {
 	.button {
 		--button-height: #{$button-height};
 		--button-min-width: #{$button-min-width};
@@ -6,7 +6,7 @@
 
 		--button__icon-size: #{$button__icon-size};
 
-		@if(in-array(contained, $button-settings)) {
+		@if (in-array(contained, $button-settings)) {
 			--button--contained-padding: #{$button--contained-padding};
 			--button--contained--hover-background: #{$button--contained--hover-background};
 			--button--contained--active-background: #{$button--contained--active-background};
@@ -16,7 +16,7 @@
 			--button--contained--icon-right__icon-margin: #{$button--contained--icon-right__icon-margin};
 		}
 
-		@if(in-array(outlined, $button-settings)) {
+		@if (in-array(outlined, $button-settings)) {
 			--button--outlined-border: #{$button--outlined-border};
 			--button--outlined-padding: #{$button--outlined-padding};
 			--button--outlined--icon-left-padding: #{$button--outlined--icon-left-padding};
@@ -25,7 +25,7 @@
 			--button--outlined--icon-right__icon-margin: #{$button--outlined--icon-right__icon-margin};
 		}
 
-		@if(in-array(text, $button-settings)) {
+		@if (in-array(text, $button-settings)) {
 			--button--text-padding: #{$button--text-padding};
 			--button--text--icon-left-padding: #{$button--text--icon-left-padding};
 			--button--text--icon-left__icon-margin: #{$button--text--icon-left__icon-margin};
@@ -33,7 +33,7 @@
 			--button--text--icon-right__icon-margin: #{$button--text--icon-right__icon-margin};
 		}
 
-		@if(in-array(text, $button-settings) or in-array(outlined, $button-settings)) {
+		@if (in-array(text, $button-settings) or in-array(outlined, $button-settings)) {
 			--button--text--outlined--hover-background: #{$button--text--outlined--hover-background};
 			--button--text--outlined--active-background: #{$button--text--outlined--active-background};
 			--button--text--outlined-color: #{$button--text--outlined-color};
@@ -56,20 +56,7 @@
 		@include ripple();
 		white-space: nowrap;
 
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--button--outlined-border: #{$button__dark--outlined-border};
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-
-				--button--outlined-border: #{$button__light--outlined-border};
-			}
-		}
-
-		@if(in-array(contained, $button-settings)) {
+		@if (in-array(contained, $button-settings)) {
 			&--contained {
 				--ripple--hover-background: var(--button--contained--hover-background);
 				--ripple--active-background: var(--button--contained--active-background);
@@ -115,7 +102,7 @@
 			}
 		}
 
-		@if(in-array(outlined, $button-settings)) {
+		@if (in-array(outlined, $button-settings)) {
 			&--outlined {
 				border: var(--button--outlined-border);
 				padding: var(--button--outlined-padding);
@@ -139,7 +126,7 @@
 			}
 		}
 
-		@if(in-array(text, $button-settings)) {
+		@if (in-array(text, $button-settings)) {
 			&--text {
 				padding: var(--button--text-padding);
 				background: transparent;
@@ -162,7 +149,7 @@
 			}
 		}
 
-		@if(in-array(toggle, $button-settings)) {
+		@if (in-array(toggle, $button-settings)) {
 			&--toggle {
 				@include chain(width, height, rem-calc(48px));
 				padding: rem-calc(12px);
@@ -188,7 +175,7 @@
 			}
 		}
 
-		@if(in-array(text, $button-settings) or in-array(outlined, $button-settings)) {
+		@if (in-array(text, $button-settings) or in-array(outlined, $button-settings)) {
 			&--text, &--outlined {
 				--ripple--hover-background: var(--button--text--outlined--hover-background);
 				--ripple--active-background: var(--button--text--outlined--active-background);
@@ -210,7 +197,7 @@
 			}
 		}
 
-		@if(in-array(fluid, $button-settings)) {
+		@if (in-array(fluid, $button-settings)) {
 			&--fluid {
 				width: 100%;
 			}
@@ -221,5 +208,13 @@
 			vertical-align: top;
 			padding: calc((var(--button-height) - var(--button__icon-size)) / 2) 0;
 		}
+	}
+
+	@include dark-theme(button) {
+		--button--outlined-border: #{$button__dark--outlined-border};
+	}
+
+	@include light-theme(button) {
+		--button--outlined-border: #{$button__light--outlined-border};
 	}
 }

@@ -20,13 +20,13 @@
 :root {
 	--divider-background: #{$divider-background};
 
-	@if ($theme == light and in-array(dark, $themes)) {
+	@if ($theme == light and in-array(dark, $media-themes)) {
 		@media #{$dark} {
 			--divider-background: #{$divider__dark-background};
 		}
 	}
 
-	@if ($theme == dark and in-array(light, $themes)) {
+	@if ($theme == dark and in-array(light, $media-themes)) {
 		@media #{$light} {
 			--divider-background: #{$divider__light-background}
 		}

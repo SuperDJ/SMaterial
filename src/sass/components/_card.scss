@@ -23,23 +23,6 @@
 			@extend %overlay1;
 		}
 
-		@if ($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--card__title-color: #{$card__dark__title-color};
-				--card__subtitle-color: #{$card__dark__subtitle-color};
-				--card__content-color: #{$card__dark__content-color};
-				@include overlay(1);
-			}
-		}
-
-		@if ($theme == dark and in-array(dark, $themes)) {
-			@media #{$light} {
-				--card__title-color: #{$card__light__title-color};
-				--card__subtitle-color: #{$card__light__subtitle-color};
-				--card__content-color: #{$card__light__content-color};
-			}
-		}
-
 		&:hover {
 			@extend %z8;
 
@@ -48,7 +31,7 @@
 			}
 
 			// TODO fix to extend
-			@if ($theme == light and in-array(dark, $themes)) {
+			@if ($theme == light and in-array(dark, $media-themes)) {
 				@media #{$dark} {
 					@include overlay(8);
 				}
@@ -229,5 +212,18 @@
 				}
 			}
 		}
+	}
+
+	@include dark-theme(card) {
+		--card__title-color: #{$card__dark__title-color};
+		--card__subtitle-color: #{$card__dark__subtitle-color};
+		--card__content-color: #{$card__dark__content-color};
+		@include overlay(1);
+	}
+
+	@include light-theme(card) {
+		--card__title-color: #{$card__light__title-color};
+		--card__subtitle-color: #{$card__light__subtitle-color};
+		--card__content-color: #{$card__light__content-color};
 	}
 }

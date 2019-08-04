@@ -1,4 +1,4 @@
-@if(in-array(data-table, $component-settings)) {
+@if (in-array(data-table, $component-settings)) {
 	.data-table {
 		--data-table-border-radius: #{$data-table-border-radius};
 		--data-table-border: #{$data-table-border};
@@ -25,36 +25,6 @@
 		border-spacing: 0;
 		border-radius: var(--data-table-border-radius);
 		border: var(--data-table-border);
-
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--data-table-border: #{$data-table__dark-border};
-
-				--data-table__header-color: #{$data-table__dark__header-color};
-				--data-table__header--hover-color: #{$data-table__dark__header--hover-color};
-
-				--data-table__body-color: #{$data-table__dark__body-color};
-
-
-				--data-table__row-border-bottom: #{$data-table__dark__row-border-bottom};
-				--data-table__row--hover-background: #{$data-table__dark__row--hover-background};
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-				--data-table-border: #{$data-table__light-border};
-
-				--data-table__header-color: #{$data-table__light__header-color};
-				--data-table__header--hover-color: #{$data-table__light__header--hover-color};
-
-				--data-table__body-color: #{$data-table__light__body-color};
-
-
-				--data-table__row-border-bottom: #{$data-table__light__row-border-bottom};
-				--data-table__row--hover-background: #{$data-table__light__row--hover-background};
-			}
-		}
 
 		th, th a {
 			font-size: var(--data-table__header-font-size);
@@ -102,7 +72,7 @@
 			border-bottom: unset;
 		}
 
-		@if(in-array(hover, $data-table-settings)) {
+		@if (in-array(hover, $data-table-settings)) {
 			&--hover {
 				tbody tr:hover {
 					transition: background .1s $easing-standard;
@@ -111,7 +81,7 @@
 			}
 		}
 
-		@if(in-array(numeric, $data-table-settings)) {
+		@if (in-array(numeric, $data-table-settings)) {
 			&--numeric {
 				text-align: right !important; // TODO Fix important
 			}
@@ -122,5 +92,29 @@
 				overflow-x: auto;
 			}
 		}
+	}
+
+	@include dark-theme(data-table) {
+		--data-table-border: #{$data-table__dark-border};
+
+		--data-table__header-color: #{$data-table__dark__header-color};
+		--data-table__header--hover-color: #{$data-table__dark__header--hover-color};
+
+		--data-table__body-color: #{$data-table__dark__body-color};
+
+		--data-table__row-border-bottom: #{$data-table__dark__row-border-bottom};
+		--data-table__row--hover-background: #{$data-table__dark__row--hover-background};
+	}
+
+	@include light-theme(data-table) {
+		--data-table-border: #{$data-table__light-border};
+
+		--data-table__header-color: #{$data-table__light__header-color};
+		--data-table__header--hover-color: #{$data-table__light__header--hover-color};
+
+		--data-table__body-color: #{$data-table__light__body-color};
+
+		--data-table__row-border-bottom: #{$data-table__light__row-border-bottom};
+		--data-table__row--hover-background: #{$data-table__light__row--hover-background};
 	}
 }

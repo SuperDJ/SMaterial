@@ -1,5 +1,5 @@
 // TODO fix naming variables
-@if(in-array(selection, $component-settings)) {
+@if (in-array(selection, $component-settings)) {
 	.checkbox, .radio, .switch {
 		--checkbox-size: #{$checkbox-size};
 		--checkbox-stroke: #{$checkbox-stroke};
@@ -12,12 +12,12 @@
 		-webkit-appearance: none;
 		@include chain(padding, margin, 0);
 
-		@if($theme == light and in-array(dark, $themes)) {
+		@if ($theme == light and in-array(dark, $media-themes)) {
 			@media #{$dark} {
 				--checkbox-border: #{$checkbox__dark-border};
 			}
 		}
-		@if($theme == dark and in-array(light, $themes)) {
+		@if ($theme == dark and in-array(light, $media-themes)) {
 			@media #{$light} {
 				--checkbox-border: #{$checkbox__light-border};
 			}
@@ -41,7 +41,7 @@
 		}
 	}
 
-	@if(in-array(checkbox, $selection-settings)) {
+	@if (in-array(checkbox, $selection-settings)) {
 		.checkbox {
 			--checkbox-border-radius: #{$checkbox-border-radius};
 
@@ -56,20 +56,6 @@
 			-webkit-appearance: none;
 			border: var(--checkbox-border);
 			border-radius: var(--checkbox-border-radius);
-
-			@if($theme == light and in-array(dark, $themes)) {
-				@media #{$dark} {
-					--checkbox__radial--hover-background: #{$checkbox__dark__radial--hover-background};
-					--checkbox__radial--active-background: #{$checkbox__dark__radial--active-background};
-				}
-			}
-
-			@if($theme == dark and in-array(light, $themes)) {
-				@media #{$light} {
-					--checkbox__radial--hover-background: #{$checkbox__light__radial--hover-background};
-					--checkbox__radial--active-background: #{$checkbox__light__radial--active-background};
-				}
-			}
 
 			&:disabled {
 				@extend %disabled-border-color;
@@ -128,9 +114,19 @@
 				}
 			}
 		}
+
+		@include dark-theme(checkbox) {
+			--checkbox__radial--hover-background: #{$checkbox__dark__radial--hover-background};
+			--checkbox__radial--active-background: #{$checkbox__dark__radial--active-background};
+		}
+
+		@include light-theme(checkbox) {
+			--checkbox__radial--hover-background: #{$checkbox__light__radial--hover-background};
+			--checkbox__radial--active-background: #{$checkbox__light__radial--active-background};
+		}
 	}
 
-	@if(in-array(radio, $selection-settings)) {
+	@if (in-array(radio, $selection-settings)) {
 		.radio {
 			--radio-size: #{$radio-size};
 			--radio__radial-size: #{$radio__radial-size};
@@ -202,7 +198,7 @@
 		}
 	}
 
-	@if(in-array(switch, $selection-settings)) {
+	@if (in-array(switch, $selection-settings)) {
 		.switch {
 			--switch__radial-size: #{$switch__radial-size};
 

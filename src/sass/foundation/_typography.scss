@@ -134,23 +134,29 @@
 %text-high {
 	color: rgba($font-on-background, .87);
 
-	@media #{$dark} {
-		color: rgba($dark-font-on-background, .87);
+	@if($theme == light and in-array(dark, $media-themes)) {
+		@media #{$dark} {
+			color: rgba($dark-font-on-background, .87);
+		}
 	}
 }
 
 %text-medium {
 	color: rgba($font-on-background, .6);
 
-	@media #{$dark} {
-		color: rgba($dark-font-on-background, .6);
+	@if($theme == light and in-array(dark, $media-themes)) {
+		@media #{$dark} {
+			color: rgba($dark-font-on-background, .6);
+		}
 	}
 }
 
 %text-disabled {
 	color: rgba($font-on-background, .38);
 
-	@media #{$dark} {
-		color: rgba($dark-font-on-background, .38);
+	@if($theme == light and in-array(dark, $media-themes)) {
+		@media #{$dark} {
+			color: rgba($dark-font-on-background, .38);
+		}
 	}
 }

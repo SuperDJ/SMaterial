@@ -1,4 +1,4 @@
-@if(in-array(text-field, $component-settings)) {
+@if (in-array(text-field, $component-settings)) {
 	.text-field {
 		--text-field-height: #{$text-field-height};
 
@@ -14,12 +14,12 @@
 		--text-field__input--focus__label-color: #{$text-field__input--focus__label-color};
 		--text-field__input--focus__label-font-size: #{$text-field__input--focus__label-font-size};
 
-		@if(in-array(helper, $text-field-settings)) {
+		@if (in-array(helper, $text-field-settings)) {
 			--text-field__helper-text-padding: #{$text-field__helper-text-padding};
 			--text-field__helper-text-height: #{$text-field__helper-text-height};
 		}
 
-		@if(in-array(filled, $text-field-settings)) {
+		@if (in-array(filled, $text-field-settings)) {
 			--text-field--filled__input-padding-top: #{$text-field--filled__input-padding-top};
 			--text-field--filled__input-padding-sides: #{$text-field--filled__input-padding-sides};
 			--text-field--filled__input-padding: #{$text-field--filled__input-padding};
@@ -33,7 +33,7 @@
 			--text-field--filled__label-left: #{$text-field--filled__label-left};
 		}
 
-		@if(in-array(outlined, $text-field-settings)) {
+		@if (in-array(outlined, $text-field-settings)) {
 			--text-field--outlined__input-padding-top: #{$text-field--outlined__input-padding-top};
 			--text-field--outlined__input-padding-sides: #{$text-field--outlined__input-padding-sides};
 			--text-field--outlined__input-border: #{$text-field--outlined__input-border};
@@ -52,37 +52,7 @@
 		display: grid;
 		grid-template-columns: 1fr auto;
 
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--text-field__label-color: #{$text-field__dark__label-color};
-				--text-field__input-color: #{$text-field__dark__input-color};
-
-				--text-field--filled__input-background: #{$text-field__dark--filled__input-background};
-				--text-field--filled__input--border-bottom: #{$text-field__dark--filled__input--border-bottom};
-				--text-field--filled__input--focus-border-bottom: #{$text-field__dark--filled__input--focus-border-bottom};
-				--text-field--filled__input--active-background: #{$text-field__dark--filled__input--active-background};
-
-				--text-field--outlined__input-border: #{$text-field__dark--outlined__input-border};
-				--text-field--outlined__input--active-border: #{$text-field__dark--outlined__input--active-border};
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-				--text-field__label-color: #{$text-field__light__label-color};
-				--text-field__input-color: #{$text-field__light__input-color};
-
-				--text-field--filled__input-background: #{$text-field__light--filled__input-background};
-				--text-field--filled__input--border-bottom: #{$text-field__light--filled__input--border-bottom};
-				--text-field--filled__input--focus-border-bottom: #{$text-field__light--filled__input--focus-border-bottom};
-				--text-field--filled__input--active-background: #{$text-field__light--filled__input--active-background};
-
-				--text-field--outlined__input-border: #{$text-field__light--outlined__input-border};
-				--text-field--outlined__input--active-border: #{$text-field__light--outlined__input--active-border};
-			}
-		}
-
-		@if(in-array(filled, $text-field-settings)) {
+		@if (in-array(filled, $text-field-settings)) {
 			&--filled {
 				#{$el}__input {
 					padding: var(--text-field--filled__input-padding);
@@ -135,7 +105,7 @@
 			}
 		}
 
-		@if(in-array(outlined, $text-field-settings)) {
+		@if (in-array(outlined, $text-field-settings)) {
 			&--outlined {
 				#{$el}__input {
 					background: transparent;
@@ -243,7 +213,7 @@
 			}
 		}
 
-		@if(in-array(helper, $text-field-settings)) {
+		@if (in-array(helper, $text-field-settings)) {
 			&__helper-text {
 				display: block;
 				width: 100%;
@@ -276,7 +246,7 @@
 			overflow: hidden;
 		}
 
-		@if(in-array(select, $text-field-settings)) {
+		@if (in-array(select, $text-field-settings)) {
 			&--select {
 				select, input {
 					display: none;
@@ -335,33 +305,67 @@
 			line-height: var(--text-field-height);
 		}
 	}
+
+	@include dark-theme(text-field) {
+		--text-field__label-color: #{$text-field__dark__label-color};
+		--text-field__input-color: #{$text-field__dark__input-color};
+
+		@if (in-array(filled, $text-field-settings)) {
+			--text-field--filled__input-background: #{$text-field__dark--filled__input-background};
+			--text-field--filled__input--border-bottom: #{$text-field__dark--filled__input--border-bottom};
+			--text-field--filled__input--focus-border-bottom: #{$text-field__dark--filled__input--focus-border-bottom};
+			--text-field--filled__input--active-background: #{$text-field__dark--filled__input--active-background};
+		}
+
+		@if (in-array(outlined, $text-field-settings)) {
+			--text-field--outlined__input-border: #{$text-field__dark--outlined__input-border};
+			--text-field--outlined__input--active-border: #{$text-field__dark--outlined__input--active-border};
+		}
+	}
+
+	@include light-theme(text-field) {
+		--text-field__label-color: #{$text-field__light__label-color};
+		--text-field__input-color: #{$text-field__light__input-color};
+
+		@if (in-array(filled, $text-field-settings)) {
+			--text-field--filled__input-background: #{$text-field__light--filled__input-background};
+			--text-field--filled__input--border-bottom: #{$text-field__light--filled__input--border-bottom};
+			--text-field--filled__input--focus-border-bottom: #{$text-field__light--filled__input--focus-border-bottom};
+			--text-field--filled__input--active-background: #{$text-field__light--filled__input--active-background};
+		}
+
+		@if (in-array(outlined, $text-field-settings)) {
+			--text-field--outlined__input-border: #{$text-field__light--outlined__input-border};
+			--text-field--outlined__input--active-border: #{$text-field__light--outlined__input--active-border};
+		}
+	}
 }
 
 input[type="date"] {
-    &:after {
-        content: "\25BC";
-        color: #555;
-        padding: 0 rem-calc(5px);
-        margin-top: rem-calc(-5px);
-    }
+	&:after {
+		content: "\25BC";
+		color: #555;
+		padding: 0 rem-calc(5px);
+		margin-top: rem-calc(-5px);
+	}
 
-    // Make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker
-    &::-webkit-calendar-picker-indicator {
-        position: absolute;
-        @include chain(top, right, bottom, left, 0);
-        @include chain(width, height, auto);
-        @include chain(color, background, transparent);
-    }
+	// Make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker
+	&::-webkit-calendar-picker-indicator {
+		position: absolute;
+		@include chain(top, right, bottom, left, 0);
+		@include chain(width, height, auto);
+		@include chain(color, background, transparent);
+	}
 
-    // Adjust increase/decrease button
-    &::-webkit-inner-spin-button, &::-webkit-clear-button {
-        z-index: 1;
-    }
+	// Adjust increase/decrease button
+	&::-webkit-inner-spin-button, &::-webkit-clear-button {
+		z-index: 1;
+	}
 }
 
 // Remove the default icon from search
 input[type="search"] {
-    &::-webkit-search-cancel-button {
-        display: none;
-    }
+	&::-webkit-search-cancel-button {
+		display: none;
+	}
 }

@@ -40,20 +40,6 @@
 		--ripple--active-background: var(--fab--active-background);
 		--icon-color: var(--font-on-primary);
 
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--fab--hover-background: #{$fab__dark--hover-background};
-				--fab--active-background: #{$fab__dark--active-background};
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-				--fab--hover-background: #{$fab__light--hover-background};
-				--fab--active-background: #{$fab__light--active-background};
-			}
-		}
-
 		.icon {
 			--icon-size: var(--fab__icon-size);
 		}
@@ -97,5 +83,15 @@
 				@extend %disabled-color;
 			}
 		}
+	}
+
+	@include dark-theme(fab) {
+			--fab--hover-background: #{$fab__dark--hover-background};
+			--fab--active-background: #{$fab__dark--active-background};
+	}
+
+	@include light-theme(fab) {
+			--fab--hover-background: #{$fab__light--hover-background};
+			--fab--active-background: #{$fab__light--active-background};
 	}
 }

@@ -55,29 +55,6 @@
 			@extend %overlay8;
 		}
 
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--bottom-sheet__item--hover-background: #{$bottom-sheet__dark__item--hover-background};
-				--bottom-sheet__item--active-background: #{$bottom-sheet__dark__item--active-background};
-
-				--bottom-sheet__header-color: #{$bottom-sheet__dark__header-color};
-
-				--bottom-sheet__content-color: #{$bottom-sheet__dark__content-color};
-				@include overlay(8);
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-				--bottom-sheet__item--hover-background: #{$bottom-sheet__light__item--hover-background};
-				--bottom-sheet__item--active-background: #{$bottom-sheet__light__item--active-background};
-
-				--bottom-sheet__header-color: #{$bottom-sheet__light__header-color};
-
-				--bottom-sheet__content-color: #{$bottom-sheet__light__content-color};
-			}
-		}
-
 		&--active {
 			transition: margin .1s $easing-standard;
 			margin: 0;
@@ -169,5 +146,24 @@
 		&__content, &__header {
 			@extend %body-1;
 		}
+	}
+
+	@include dark-theme(bottom-sheet) {
+			--bottom-sheet__item--hover-background: #{$bottom-sheet__dark__item--hover-background};
+			--bottom-sheet__item--active-background: #{$bottom-sheet__dark__item--active-background};
+
+			--bottom-sheet__header-color: #{$bottom-sheet__dark__header-color};
+
+			--bottom-sheet__content-color: #{$bottom-sheet__dark__content-color};
+			@include overlay(8);
+	}
+
+	@include light-theme(bottom-sheet) {
+			--bottom-sheet__item--hover-background: #{$bottom-sheet__light__item--hover-background};
+			--bottom-sheet__item--active-background: #{$bottom-sheet__light__item--active-background};
+
+			--bottom-sheet__header-color: #{$bottom-sheet__light__header-color};
+
+			--bottom-sheet__content-color: #{$bottom-sheet__light__content-color};
 	}
 }

@@ -39,20 +39,6 @@
 		@extend %body-2, %divider-bottom-border;
 		color: var(--banner-color);
 
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--banner-color: #{$banner__dark-color};
-				//--banner-border-bottom: #{$banner__dark-border-bottom};
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-				--banner-color: #{$banner__light-color};
-				//--banner-border-bottom: #{$banner__light-border-bottom};
-			}
-		}
-
 		@if (in-array(single, $banner-settings)) {
 			&--single-line {
 				display: grid;
@@ -139,5 +125,13 @@
 		&__actions > * {
 			margin: var(--banner__actions-margin);
 		}
+	}
+
+	@include dark-theme(banner) {
+		--banner-color: #{$banner__dark-color};
+	}
+
+	@include light-theme(banner) {
+		--banner-color: #{$banner__light-color};
 	}
 }

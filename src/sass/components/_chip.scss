@@ -1,4 +1,4 @@
-@if(in-array(chip, $component-settings)) {
+@if (in-array(chip, $component-settings)) {
 	.chip {
 		--chip-height: #{$chip-height};
 		--chip-padding: #{$chip-padding};
@@ -23,30 +23,6 @@
 		--chip--outlined--thumbnail-padding-left: #{$chip--outlined--thumbnail-padding-left};
 		--chip--outlined--remove-padding-right: #{$chip--outlined--remove-padding-right};
 
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--chip-background: #{$chip__dark-background};
-				--chip-color: #{$chip__dark-color};
-				--chip--hover-background: #{$chip__dark--hover-background};
-				--chip--active-background: #{$chip__dark--active-background};
-				--chip--outlined-border: #{$chip__dark--outlined-border};
-				--chip--outlined--hover-background: #{$chip__dark--outlined--hover-background};
-				--chip--outlined--active-background: #{$chip__dark--outlined--active-background};
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-				--chip-background: #{$chip__light-background};
-				--chip-color: #{$chip__light-color};
-				--chip--hover-background: #{$chip__light--hover-background};
-				--chip--active-background: #{$chip__light--active-background};
-				--chip--outlined-border: #{$chip__light--outlined-border};
-				--chip--outlined--hover-background: #{$chip__light--outlined--hover-background};
-				--chip--outlined--active-background: #{$chip__light--outlined--active-background};
-			}
-		}
-
 		$el: &;
 		height: var(--chip-height);
 		padding: var(--chip-padding);
@@ -68,7 +44,7 @@
 			@extend %disabled-color, %disabled-background;
 		}
 
-		@if(in-array(thumbnail, $chip-settings)) {
+		@if (in-array(thumbnail, $chip-settings)) {
 			&__thumbnail {
 				@include chain(width, height, font-size, var(--chip__thumbnail-size));
 				margin: var(--chip__thumbnail-margin);
@@ -81,7 +57,7 @@
 			}
 		}
 
-		@if(in-array(remove, $chip-settings)) {
+		@if (in-array(remove, $chip-settings)) {
 			&__remove {
 				@include chain(width, height, font-size, var(--chip__remove-size));
 				margin: var(--chip__remove-margin);
@@ -93,7 +69,7 @@
 			padding-right: var(--chip--remove-padding-right);
 		}
 
-		@if(in-array(outlined, $chip-settings)) {
+		@if (in-array(outlined, $chip-settings)) {
 			&--outlined {
 				border: var(--chip--outlined-border);
 				background: transparent;
@@ -110,18 +86,38 @@
 					@extend %disabled-color, %disabled-background;
 				}
 
-				@if(in-array(thumbnail, $chip-settings)) {
+				@if (in-array(thumbnail, $chip-settings)) {
 					&#{$el}--thumbnail {
 						padding-left: var(--chip--outlined--thumbnail-padding-left);
 					}
 				}
 
-				@if(in-array(remove, $chip-settings)) {
+				@if (in-array(remove, $chip-settings)) {
 					&#{$el}--remove {
 						padding-right: var(--chip--outlined--remove-padding-right);
 					}
 				}
 			}
 		}
+	}
+
+	@include dark-theme(chip) {
+		--chip-background: #{$chip__dark-background};
+		--chip-color: #{$chip__dark-color};
+		--chip--hover-background: #{$chip__dark--hover-background};
+		--chip--active-background: #{$chip__dark--active-background};
+		--chip--outlined-border: #{$chip__dark--outlined-border};
+		--chip--outlined--hover-background: #{$chip__dark--outlined--hover-background};
+		--chip--outlined--active-background: #{$chip__dark--outlined--active-background};
+	}
+
+	@include light-theme(chip) {
+		--chip-background: #{$chip__light-background};
+		--chip-color: #{$chip__light-color};
+		--chip--hover-background: #{$chip__light--hover-background};
+		--chip--active-background: #{$chip__light--active-background};
+		--chip--outlined-border: #{$chip__light--outlined-border};
+		--chip--outlined--hover-background: #{$chip__light--outlined--hover-background};
+		--chip--outlined--active-background: #{$chip__light--outlined--active-background};
 	}
 }

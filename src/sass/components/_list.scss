@@ -1,5 +1,5 @@
 // TODO turn last values into variables
-@if(in-array(list, $component-settings)) {
+@if (in-array(list, $component-settings)) {
 	.list {
 		--list-padding: #{$list-padding};
 		--list__content-color: #{$list__content-color};
@@ -50,24 +50,6 @@
 		width: 100%;
 		padding: var(--list-padding);
 		margin: 0;
-
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--list__content-color: #{$list__dark__content-color};
-				--list__content__text-color: #{$list__dark__content__text-color};
-
-				--list-divider-border-bottom: #{$list__dark-divider-border-bottom};
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-				--list__content-color: #{$list__light__content-color};
-				--list__content__text-color: #{$list__light__content__text-color};
-
-				--list-divider-border-bottom: #{$list__light-divider-border-bottom};
-			}
-		}
 
 		@if (in-array(single, $list-settings)) {
 			&--single-line {
@@ -262,5 +244,19 @@
 		&--divider {
 			border-bottom: var(--list-divider-border-bottom);
 		}
+	}
+
+	@include dark-theme(list) {
+		--list__content-color: #{$list__dark__content-color};
+		--list__content__text-color: #{$list__dark__content__text-color};
+
+		--list-divider-border-bottom: #{$list__dark-divider-border-bottom};
+	}
+
+	@include light-theme(list) {
+		--list__content-color: #{$list__light__content-color};
+		--list__content__text-color: #{$list__light__content__text-color};
+
+		--list-divider-border-bottom: #{$list__light-divider-border-bottom};
 	}
 }

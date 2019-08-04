@@ -1,4 +1,4 @@
-@if(in-array(snackbar, $component-settings)) {
+@if (in-array(snackbar, $component-settings)) {
 	.snackbar {
 		--snackbar-width: #{$snackbar-width};
 		--snackbar-min-height: #{$snackbar-min-height};
@@ -10,7 +10,7 @@
 
 		--snackbar__actions-padding: #{$snackbar__actions-padding};
 
-		@if(in-array(two, $snackbar-settings)) {
+		@if (in-array(two, $snackbar-settings)) {
 			--snackbar--two-line-min-height: #{$snackbar--two-line-min-height};
 			--snackbar--two-line__actions-padding: #{$snackbar--two-line__actions-padding};
 			--snackbar--two-line--long-action__content-padding: #{$snackbar--two-line--long-action__content-padding};
@@ -23,19 +23,6 @@
 		width: var(--snackbar-width);
 		min-height: var(--snackbar-min-height);
 		@extend %z6;
-
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--snackbar-background: #{$snackbar__dark-background};
-				@include overlay(6);
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-				--snackbar-background: #{$snackbar__light-background};
-			}
-		}
 
 		&--single-line, &--two-line {
 			display: grid;
@@ -50,7 +37,7 @@
 			}
 		}
 
-		@if(in-array(two, $snackbar-settings)) {
+		@if (in-array(two, $snackbar-settings)) {
 			&--two-line {
 				min-height: var(--snackbar--two-line-min-height);
 
@@ -86,5 +73,14 @@
 		&__actions {
 			padding: var(--snackbar__actions-padding);
 		}
+	}
+
+	@include dark-theme(snackbar) {
+		--snackbar-background: #{$snackbar__dark-background};
+		@include overlay(6);
+	}
+
+	@include light-theme(snackbar) {
+		--snackbar-background: #{$snackbar__light-background};
 	}
 }

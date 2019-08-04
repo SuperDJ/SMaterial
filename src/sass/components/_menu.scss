@@ -1,4 +1,4 @@
-@if(in-array(menu, $component-settings)) {
+@if (in-array(menu, $component-settings)) {
 	.menu {
 		--menu-min-width: #{$menu-min-width};
 		--menu-max-width: #{$menu-max-width};
@@ -45,21 +45,8 @@
 		transition: max-width .1s $easing-standard, max-height .1s $easing-standard;
 		pointer-events: none;
 
-		@if($theme == dark) {
+		@if ($theme == dark) {
 			@extend %overlay8;
-		}
-
-		@if($theme == light and in-array(dark, $themes)) {
-			@media #{$dark} {
-				--menu-color: #{$menu__dark-color};
-				@include overlay(8);
-			}
-		}
-
-		@if($theme == dark and in-array(light, $themes)) {
-			@media #{$light} {
-				--menu-color: #{$menu__light-color};
-			}
 		}
 
 		&__content {
@@ -129,5 +116,14 @@
 				}
 			}
 		}
+	}
+
+	@include dark-theme(menu) {
+		--menu-color: #{$menu__dark-color};
+		@include overlay(8);
+	}
+
+	@include light-theme(menu) {
+		--menu-color: #{$menu__light-color};
 	}
 }
