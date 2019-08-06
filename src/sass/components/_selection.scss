@@ -17,6 +17,7 @@
 				--checkbox-border: #{$checkbox__dark-border};
 			}
 		}
+
 		@if ($theme == dark and in-array(light, $media-themes)) {
 			@media #{$light} {
 				--checkbox-border: #{$checkbox__light-border};

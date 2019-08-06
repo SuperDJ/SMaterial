@@ -566,7 +566,7 @@ $card__subtitle-color: if($theme == light, $card__light__subtitle-color, $card__
 
 $card__dark__content-color: rgba($white, .6) !default;
 $card__light__content-color: rgba($black, .6) !default;
-$card__content-color: if($theme == light, $card__dark__content-color, $card__light__content-color) !default;
+$card__content-color: if($theme == light, $card__light__content-color, $card__dark__content-color) !default;
 
 $card__content-padding: rem-calc(16px) rem-calc(16px) rem-calc(8px) rem-calc(16px) !default;
 
