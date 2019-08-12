@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Tooltips | Material Design</title>
+        <title>Pickers | Material Design</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
         <link rel="icon" type="image/png" href="../images/favicon-32x32.png" sizes="32x32">
@@ -22,7 +22,7 @@
             <i class="material-icons icon" data-trigger="drawer">menu</i>
 
             <div class="app-bar__title">
-                Tooltips
+                Pickers
             </div>
 
             <div class="app-bar__actions">
@@ -49,136 +49,36 @@
 
         <main class="container">
             <article class="row">
-                <h1 class="xs12">Tooltips</h1>
+                <h1 class="xs12">Pickers</h1>
 
                 <section class="xs12 sm6">
                     <p>
-                        The tooltip can be used to give extra information about something.
-                        The tooltip can be used around many other objects.
-                    </p>
-                </section>
-            </article>
 
-            <article class="row">
-                <h2 class="xs12" id="filled">Tooltip</h2>
-
-                <section class="xs12 sm6">
-                    <p>
-                        For a tooltip to work you need to wrap an element in a class <code class="language-css">.tooltip</code>.
-                        After the wrapped element you need to use the class <code class="language-css">.tooltip__content</code> which will contain the content of the tooltip.
-                        On the tooltip content you can also specify the position of the tooltip.
-                        You can do this with the following classes: <code class="language-css">.tooltip--top</code>, <code class="language-css">.tooltip--right</code>, <code class="language-css">.tooltip--bottom</code>,<code class="language-css">.tooltip--left</code>.
                     </p>
                 </section>
 
-                <section class="xs12 sm6">
-                    <div class="tooltip">
-                        <button class="button button--contained">Left</button>
-                        <span class="tooltip__content tooltip--left">Tooltip</span>
+                <div class="xs12 sm6">
+                    <div class="picker">
+                        <div class="picker__header">
+                            <div class="picker__title">Select date</div>
+                            <div class="picker__selected-date">9-8-2019</div>
+                            <div class="picker__switch"><i class="material-icons icon">edit</i></div>
+                        </div>
+
+                        <div class="picker__calendar-header">
+                            <div class="picker__year">Augustus 2019 <i class="material-icons icon">arrow_drop_down</i></div>
+                            <div class="picker__prev-month"><i class="material-icons icon">chevron_left</i></div>
+                            <div class="picker__next-month"><i class="material-icons icon">chevron_right</i></div>
+                        </div>
+
+                        <div class="picker__calendar">
+                        </div>
+
+                        <div class="picker__actions">
+                            <button class="button button--text">Cancel</button>
+                            <button class="button button--text">Oke</button>
+                        </div>
                     </div>
-
-                    <div class="tooltip">
-                        <button class="button button--contained">Top</button>
-                        <span class="tooltip__content tooltip--top">Tooltip</span>
-                    </div>
-
-                    <div class="tooltip">
-                        <button class="button button--contained">Right</button>
-                        <span class="tooltip__content tooltip--right">Tooltip</span>
-                    </div>
-
-                    <div class="tooltip">
-                        <button class="button button--contained">Bottom</button>
-                        <span class="tooltip__content tooltip--bottom">Tooltip</span>
-                    </div>
-
-<pre class="language-html">
-    <code>
-&lt;div class="tooltip">
-    &lt;button class="button button--contained">Left&lt;/button>
-    &lt;span class="tooltip__content tooltip--left">Tooltip&lt;/span>
-&lt;/div>
-
-&lt;div class="tooltip">
-    &lt;button class="button button--contained">Top&lt;/button>
-    &lt;span class="tooltip__content tooltip--top">Tooltip&lt;/span>
-&lt;/div>
-
-&lt;div class="tooltip">
-    &lt;button class="button button--contained">Right&lt;/button>
-    &lt;span class="tooltip__content tooltip--right">Tooltip&lt;/span>
-&lt;/div>
-
-&lt;div class="tooltip">
-    &lt;button class="button button--contained">Bottom&lt;/button>
-    &lt;span class="tooltip__content tooltip--bottom">Tooltip&lt;/span>
-&lt;/div>
-    </code>
-</pre>
-                </section>
-            </article>
-
-            <article class="row">
-                <h3>Settings</h3>
-
-                <div class="xs12">
-                    <table class="data-table data-table--responsive">
-                        <thead>
-                        <tr>
-                            <th>Scss</th>
-                            <th>CSS</th>
-                            <th>Result</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr>
-                            <td>$tooltip-height</td>
-                            <td>--tooltip-height</td>
-                            <td>Change tooltip height</td>
-                        </tr>
-                        <tr>
-                            <td>$tooltip-padding</td>
-                            <td>--tooltip-padding</td>
-                            <td>Change tooltip padding</td>
-                        </tr>
-                        <tr>
-                            <td>$tooltip-font-size</td>
-                            <td>--tooltip-font-size</td>
-                            <td>Change tooltip font size</td>
-                        </tr>
-                        <tr>
-                            <td>$tooltip-distance</td>
-                            <td>--tooltip-distance</td>
-                            <td>Change tooltip distance</td>
-                        </tr>
-                        <tr>
-                            <td>$tooltip-color</td>
-                            <td>--tooltip-color</td>
-                            <td>Change tooltip </td>
-                        </tr>
-                        <tr>
-                            <td>$tooltip-background-color</td>
-                            <td>--tooltip-background-color</td>
-                            <td>Change tooltip </td>
-                        </tr>
-                        <tr>
-                            <td>$tooltip-md-up-height</td>
-                            <td>--tooltip-md-up-height</td>
-                            <td>Change tooltip </td>
-                        </tr>
-                        <tr>
-                            <td>$tooltip-md-up-padding</td>
-                            <td>--tooltip-md-up-padding</td>
-                            <td>Change tooltip </td>
-                        </tr>
-                        <tr>
-                            <td>$tooltip-md-up-font-size</td>
-                            <td>--tooltip-md-up-font-size</td>
-                            <td>Change tooltip </td>
-                        </tr>
-                        </tbody>
-                    </table>
                 </div>
             </article>
         </main>
@@ -202,7 +102,7 @@
                     <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
 
                     <ul class="drawer__item__children">
-                        <li><a href="./app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="./app-bar.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">App bar</span></a></li>
                         <li><a href="./banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
                         <li><a href="./bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
                         <li><a href="./bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
@@ -217,14 +117,14 @@
                         <li><a href="./menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
                         <li><a href="./navigation-drawer.html" class="drawer__item"><span class="drawer__item__content">Navigation drawer</span></a></li>"
                         <li><a href="./notification.html" class="drawer__item"><span class="drawer__item__content">Notification</span></a></li>
-                        <li><a href="./picker.html" class="drawer__item"><span class="drawer__item__content">Picker</span></a></li>
+                        <li><a href="./picker.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">Picker</span></a></li>
                         <li><a href="./progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
                         <li><a href="./selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
                         <li><a href="./sliders.html" class="drawer__item"><span class="drawer__item__content">Sliders</span></a></li>
                         <li><a href="./snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
                         <li><a href="./tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
                         <li><a href="./text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
-                        <li><a href="./tooltips.html" class="drawer__item drawer__item--active"><span class="drawer__item__content">Tooltip</span></a></li>
+                        <li><a href="./tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
                     </ul>
                 </li>
                 <li>

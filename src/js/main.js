@@ -8,6 +8,7 @@ import Dialog from'./classes/Dialog';
 import Divider from'./classes/Divider';
 import Drawer from'./classes/Drawer';
 import Menu from'./classes/Menu';
+import Picker from'js/classes/Picker';
 import Progress from'./classes/Progress';
 import SelectField from'./classes/SelectField';
 import{ Switch, Checkbox, Radio } from'./classes/Selection';
@@ -85,6 +86,17 @@ const menus = document.getElementsByClassName( 'menu' );
 for( let menu of menus )
 {
 	new Menu( menu );
+}
+
+const pickers = document.getElementsByClassName('picker');
+const pickerOptions = {
+	days: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Tur', 'Fri', 'Sat', ],
+	months: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', ],
+};
+
+for( let picker of pickers )
+{
+	new Picker( picker, pickerOptions );
 }
 
 const progressBars = document.getElementsByClassName( 'progress' );

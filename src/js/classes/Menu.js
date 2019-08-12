@@ -13,20 +13,22 @@ export default class Menu
 		{
 			mutations.forEach( ( mutation ) =>
 			{
-				if( mutation.attributeName === 'class' )
+				if( mutation.attributeName !== 'class')
 				{
-					let attributeValue = document.getElementById( mutation.target.id ).getAttribute( mutation.attributeName );
+					return;
+				}
 
-					if( attributeValue.indexOf('active') > -1 )
-					{
-						this.menu.style.maxWidth = `100vw`;
-						this.menu.style.maxHeight = `100vh`;
-					}
-					else
-					{
-						this.menu.style.maxWidth = 0;
-						this.menu.style.maxHeight = 0;
-					}
+				let attributeValue = document.getElementById( mutation.target.id ).getAttribute( mutation.attributeName );
+
+				if( attributeValue.indexOf('active') > -1 )
+				{
+					this.menu.style.maxWidth = `100vw`;
+					this.menu.style.maxHeight = `100vh`;
+				}
+				else
+				{
+					this.menu.style.maxWidth = 0;
+					this.menu.style.maxHeight = 0;
 				}
 			});
 		});

@@ -1,12 +1,10 @@
 const
 	autoprefixer = require('autoprefixer'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
-	glob = require('glob'),
 	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
 	path = require('path'),
 	postCssPresetEnv = require('postcss-preset-env'),
-	postCssScss = require('postcss-scss'),
-	SassLintPlugin = require('sass-lint-webpack');
+	postCssScss = require('postcss-scss');
 
 const OUTPUT_DIR = path.resolve(__dirname, 'docs');
 

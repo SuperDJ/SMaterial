@@ -1,0 +1,104 @@
+@if(in-array(picker, $component-settings)) {
+	.picker {
+		border-radius: var(--border-radius);
+		@extend %z24;
+		background-color: var(--surface-color);
+		overflow: hidden;
+		position: relative;
+		width: rem-calc(328px);
+
+		&__header {
+			background: var(--primary-color);
+			color: var(--font-on-primary);
+			--icon-color: var(--font-on-primary);
+			padding: 0 rem-calc(24px);
+			display: grid;
+			grid-template-areas: "title title""selected switch";
+			grid-template-columns: 1fr rem-calc(24);
+			grid-template-rows: rem-calc(32px) rem-calc(72px);
+			height: rem-calc(120px);
+		}
+
+		&__title {
+			grid-area: title;
+			@extend %overline;
+			line-height: rem-calc(48px);
+		}
+
+		&__selected-date {
+			grid-area: selected;
+			@extend %h6;
+		}
+
+		&__switch {
+			grid-area: switch;
+			@extend %cursor--pointer;
+		}
+
+		&__selected-date, &__switch {
+			line-height: rem-calc(72px);
+		}
+
+		&__calendar-header {
+			display: grid;
+			grid-template-columns: 1fr rem-calc(24px) rem-calc(24px);
+			grid-column-gap: rem-calc(24px);
+			padding: rem-calc(16px) rem-calc(24px);
+			height: rem-calc((24 + (2 * 16)) + 0px);
+
+			@if ($theme == dark) {
+				@extend %overlay24;
+			}
+
+			@if ($theme == light) {
+				@media #{$dark} {
+					@include overlay(24);
+				}
+			}
+
+			> * {
+				@extend %cursor--pointer;
+			}
+		}
+
+		&__year {
+
+			.icon {
+				margin-left: rem-calc(4px);
+			}
+		}
+
+		&__calendar {
+			padding: 0 rem-calc(12px);
+		}
+
+		td, th {
+			@include chain(width, height, rem-calc(40px));
+			padding: rem-calc(2px);
+			text-align: center;
+		}
+
+		&--current-date {
+			border: rem-calc(1px) solid var(--divider-background);
+		}
+
+		&--current-date, &--selected-date {
+			@extend %shape--circle;
+			@include chain(width, height, line-height, rem-calc(36px));
+		}
+
+		&--selected-date {
+			background-color: var(--primary-color);
+			color: var(--font-on-primary);
+		}
+
+		&__actions {
+			padding: rem-calc(8px);
+			text-align: right;
+
+			> * {
+				margin-left: rem-calc(8px);
+			}
+		}
+	}
+}

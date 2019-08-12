@@ -97,6 +97,8 @@
 		$alpha: map_get($elevation-overlay, $depth);
 		background: rgba($white, $alpha);
 		transition: background $easing-standard .1s;
+		pointer-events: none;
+		// TODO fix height to equal to that of the parent
 	}
 }
 

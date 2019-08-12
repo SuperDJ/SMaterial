@@ -23,6 +23,7 @@
 				@extend %h6;
 				margin: var(--app-bar__title-margin);
 				line-height: initial;
+				color: var(--app-bar-font-color);
 			}
 		}
 

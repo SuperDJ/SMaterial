@@ -39,7 +39,6 @@ export default class Dialog
 
 	checkId()
 	{
-
 		if( !this.dialog.getAttribute( 'id' ) )
 		{
 			console.error( `The following dialog doesn't have an ID to trigger it`, this.dialog );
