@@ -162,13 +162,17 @@
 				@extend %z16;
 				border-right: 0;
 
-				@if ($theme == dark) {
-					@extend %overlay16;
-				}
+				/*
+				TODO somehow add a overlay
+				> ul {
+					@if ($theme == dark) {
+						@extend %overlay16;
+					}
 
-				@media #{$dark} {
-					@include overlay(16);
-				}
+					@media #{$dark} {
+						@include overlay(16);
+					}
+				}*/
 			}
 		}
 
@@ -277,23 +281,33 @@
 	}
 
 	@include dark-theme(drawer) {
-		--drawer-border-right: #{$drawer__dark-border-right};
-		--drawer__item--hover-background: #{$drawer__dark__item--hover-background};
-		--drawer__item--click-background: #{$drawer__dark__item--click-background};
-		--drawer__item__content-color: #{$drawer__dark__item__content-color};
-		--drawer__header__profile-name-color: #{$drawer__dark__header__profile-name-color};
-		--drawer__header__profile-email-color: #{$drawer__dark__header__profile-email-color};
+		--drawer-background: #{$drawer--dark-background};
+		--drawer-border-right: #{$drawer--dark-border-right};
 
-		@extend %overlay24;
+		--drawer__item--hover-background: #{$drawer--dark__item--hover-background};
+		--drawer__item--click-background: #{$drawer--dark__item--click-background};
+		--drawer__item__content-color: #{$drawer--dark__item__content-color};
+		--drawer__header__profile-name-color: #{$drawer--dark__header__profile-name-color};
+		--drawer__header__profile-email-color: #{$drawer--dark__header__profile-email-color};
+
+		--divider-background: #{$divider--dark-background};
+
+		--scrollbar-background: #{$dark-scrollbar-background};
 	}
 
 	@include light-theme(drawer) {
-		--drawer-border-right: #{$drawer__light-border-right};
-		--drawer__item--hover-background: #{$drawer__light__item--hover-background};
-		--drawer__item--click-background: #{$drawer__light__item--click-background};
-		--drawer__item__content-color: #{$drawer__light__item__content-color};
-		--drawer__header__profile-name-color: #{$drawer__light__header__profile-name-color};
-		--drawer__header__profile-email-color: #{$drawer__light__header__profile-email-color};
+		--drawer-background: #{$drawer--light-background};
+		--drawer-border-right: #{$drawer--light-border-right};
+
+		--drawer__item--hover-background: #{$drawer--light__item--hover-background};
+		--drawer__item--click-background: #{$drawer--light__item--click-background};
+		--drawer__item__content-color: #{$drawer--light__item__content-color};
+		--drawer__header__profile-name-color: #{$drawer--light__header__profile-name-color};
+		--drawer__header__profile-email-color: #{$drawer--light__header__profile-email-color};
+
+		--divider-background: #{$divider--light-background};
+
+		--scrollbar-background: #{$dark-scrollbar-background}
 	}
 
 	:root {

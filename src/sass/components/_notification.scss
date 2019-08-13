@@ -1,12 +1,12 @@
 @if(in-array(notification, $component-settings)) {
 	.notification {
-		--notification-color: #{rgba($black, .87)};
-		--notification-border-radius: #{var(--border-radius)};
-		--notification-background: #{var(--background-color)};
-		--notification-padding: #{rem-calc(16px)};
+		--notification-color: #{$notification-color};
+		--notification-border-radius: #{$notification-border-radius};
+		--notification-background: #{$notification-background};
+		--notification-padding: #{$notification-padding};
 
-		--notification__header__icon-size: #{rem-calc(16px)};
-		--notification__header-padding: #{0 0 rem-calc(16px) 0};
+		--notification__header__icon-size: #{$notification__header__icon-size};
+		--notification__header-padding: #{$notification__header-padding};
 
 		$el: &;
 		border-radius: var(--notification-border-radius);
@@ -155,5 +155,15 @@
 				}
 			}
 		}
+	}
+
+	@include dark-theme(notification) {
+		--notification-color: #{$notification--dark-color};
+		--notification-background: #{$notification--dark-background};
+	}
+
+	@include light-theme(notification) {
+		--notification-color: #{$notification--light-color};
+		--notification-background: #{$notification--light-background};
 	}
 }

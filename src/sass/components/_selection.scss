@@ -14,13 +14,13 @@
 
 		@if ($theme == light and in-array(dark, $media-themes)) {
 			@media #{$dark} {
-				--checkbox-border: #{$checkbox__dark-border};
+				--checkbox-border: #{$checkbox--dark-border};
 			}
 		}
 
 		@if ($theme == dark and in-array(light, $media-themes)) {
 			@media #{$light} {
-				--checkbox-border: #{$checkbox__light-border};
+				--checkbox-border: #{$checkbox--light-border};
 			}
 		}
 
@@ -117,13 +117,13 @@
 		}
 
 		@include dark-theme(checkbox) {
-			--checkbox__radial--hover-background: #{$checkbox__dark__radial--hover-background};
-			--checkbox__radial--active-background: #{$checkbox__dark__radial--active-background};
+			--checkbox__radial--hover-background: #{$checkbox--dark__radial--hover-background};
+			--checkbox__radial--active-background: #{$checkbox--dark__radial--active-background};
 		}
 
 		@include light-theme(checkbox) {
-			--checkbox__radial--hover-background: #{$checkbox__light__radial--hover-background};
-			--checkbox__radial--active-background: #{$checkbox__light__radial--active-background};
+			--checkbox__radial--hover-background: #{$checkbox--light__radial--hover-background};
+			--checkbox__radial--active-background: #{$checkbox--light__radial--active-background};
 		}
 	}
 

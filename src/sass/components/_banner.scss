@@ -128,10 +128,16 @@
 	}
 
 	@include dark-theme(banner) {
-		--banner-color: #{$banner__dark-color};
+		--banner-background: #{$banner--dark-background};
+		--banner-color: #{$banner--dark-color};
+
+		--divider-background: #{$divider--dark-background};
 	}
 
 	@include light-theme(banner) {
-		--banner-color: #{$banner__light-color};
+		--banner-background: #{$banner--light-background};
+		--banner-color: #{$banner--light-color};
+
+		--divider-background: #{$divider--light-background};
 	}
 }

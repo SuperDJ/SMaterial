@@ -76,11 +76,11 @@
 	}
 
 	@include dark-theme(snackbar) {
-		--snackbar-background: #{$snackbar__dark-background};
+		--snackbar-background: #{$snackbar--dark-background};
 		@include overlay(6);
 	}
 
 	@include light-theme(snackbar) {
-		--snackbar-background: #{$snackbar__light-background};
+		--snackbar-background: #{$snackbar--light-background};
 	}
 }

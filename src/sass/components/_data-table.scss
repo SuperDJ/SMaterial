@@ -2,6 +2,7 @@
 	.data-table {
 		--data-table-border-radius: #{$data-table-border-radius};
 		--data-table-border: #{$data-table-border};
+		--data-table-background: #{$data-table-background};
 
 		--data-table__header-font-size: #{$data-table__header-font-size};
 		--data-table__header-color: #{$data-table__header-color};
@@ -25,6 +26,7 @@
 		border-spacing: 0;
 		border-radius: var(--data-table-border-radius);
 		border: var(--data-table-border);
+		background: var(--data-table-background);
 
 		th, th a {
 			font-size: var(--data-table__header-font-size);
@@ -95,26 +97,30 @@
 	}
 
 	@include dark-theme(data-table) {
-		--data-table-border: #{$data-table__dark-border};
+		--data-table-border: #{$data-table--dark-border};
+		--data-table-background: #{$data-table--dark-background};
 
-		--data-table__header-color: #{$data-table__dark__header-color};
-		--data-table__header--hover-color: #{$data-table__dark__header--hover-color};
+		--data-table__header-color: #{$data-table--dark__header-color};
+		--data-table__header--hover-color: #{$data-table--dark__header--hover-color};
+		--data-table__header-background: #{$data-table--dark__header-background};
 
-		--data-table__body-color: #{$data-table__dark__body-color};
+		--data-table__body-color: #{$data-table--dark__body-color};
 
-		--data-table__row-border-bottom: #{$data-table__dark__row-border-bottom};
-		--data-table__row--hover-background: #{$data-table__dark__row--hover-background};
+		--data-table__row-border-bottom: #{$data-table--dark__row-border-bottom};
+		--data-table__row--hover-background: #{$data-table--dark__row--hover-background};
 	}
 
 	@include light-theme(data-table) {
-		--data-table-border: #{$data-table__light-border};
+		--data-table-border: #{$data-table--light-border};
+		--data-table-background: #{$data-table--light-background};
 
-		--data-table__header-color: #{$data-table__light__header-color};
-		--data-table__header--hover-color: #{$data-table__light__header--hover-color};
+		--data-table__header-color: #{$data-table--light__header-color};
+		--data-table__header--hover-color: #{$data-table--light__header--hover-color};
+		--data-table__header-background: #{$data-table--light__header-background};
 
-		--data-table__body-color: #{$data-table__light__body-color};
+		--data-table__body-color: #{$data-table--light__body-color};
 
-		--data-table__row-border-bottom: #{$data-table__light__row-border-bottom};
-		--data-table__row--hover-background: #{$data-table__light__row--hover-background};
+		--data-table__row-border-bottom: #{$data-table--light__row-border-bottom};
+		--data-table__row--hover-background: #{$data-table--light__row--hover-background};
 	}
 }

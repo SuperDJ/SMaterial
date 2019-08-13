@@ -79,7 +79,7 @@ module.exports = {
 	},
 	devtool: process.env.NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
 	resolve: {
-		extensions: ['.js', '.css', '.styl', '.scss', '.sass', '.ts', '.tsx'],
+		extensions: ['.js', '.css', '.scss', '.ts', '.tsx'],
 		alias: {
 			'js': path.resolve(__dirname, './src/js'),
 			'css': path.resolve(__dirname, './src/css')
@@ -89,7 +89,7 @@ module.exports = {
 		new MiniCSSExtractPlugin({
 			filename: 'dist/css/[name].css',
 		}),
-		new CleanWebpackPlugin(['./dist/', './docs/dist']),
+		new CleanWebpackPlugin(['./docs/dist']),
 		//new SassLintPlugin()
 	]
 };

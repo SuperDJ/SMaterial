@@ -52,8 +52,8 @@
 			--font-on-background: #{rgba($dark-font-on-background, .87)};
 			--font-on-surface: #{rgba($dark-font-on-surface, .87)};
 			--font-on-error: #{$dark-font-on-error};
-			--disabled-color: #{$disabled__dark-color};
-			--disabled-background: #{$disabled__dark-background};
+			--disabled-color: #{$disabled--dark-color};
+			--disabled-background: #{$disabled--dark-background};
 		}
 	}
 
@@ -71,8 +71,8 @@
 			--font-on-background: #{rgba($light-font-on-background, .87)};
 			--font-on-surface: #{rgba($light-font-on-surface, .87)};
 			--font-on-error: #{$light-font-on-error};
-			--disabled-color: #{$disabled__light-color};
-			--disabled-background: #{$disabled__light-background};
+			--disabled-color: #{$disabled--light-color};
+			--disabled-background: #{$disabled--light-background};
 		}
 	}
 }

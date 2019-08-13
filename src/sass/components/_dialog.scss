@@ -199,16 +199,24 @@
 	}
 
 	@include dark-theme(dialog) {
-		--dialog__header-color: #{$dialog__dark__header-color};
-		--dialog__content-color: #{$dialog__dark__content-color};
-		--dialog--scroll__header-border-bottom: #{$dialog__dark--scroll__header-border-bottom};
+		--dialog-background: #{$dialog--dark-background};
+
+		--dialog__header-color: #{$dialog--dark__header-color};
+
+		--dialog__content-color: #{$dialog--dark__content-color};
+
+		--dialog--scroll__header-border-bottom: #{$dialog--dark--scroll__header-border-bottom};
 
 		@include overlay(24);
 	}
 
 	@include light-theme(dialog) {
-		--dialog__header-color: #{$dialog__light__header-color};
-		--dialog__content-color: #{$dialog__light__content-color};
-		--dialog--scroll__header-border-bottom: #{$dialog__light--scroll__header-border-bottom};
+		--dialog-background: #{$dialog--light-background};
+
+		--dialog__header-color: #{$dialog--light__header-color};
+
+		--dialog__content-color: #{$dialog--light__content-color};
+
+		--dialog--scroll__header-border-bottom: #{$dialog--light--scroll__header-border-bottom};
 	}
 }

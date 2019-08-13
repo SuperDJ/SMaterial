@@ -211,10 +211,10 @@
 	}
 
 	@include dark-theme(button) {
-		--button--outlined-border: #{$button__dark--outlined-border};
+		--button--outlined-border: #{$button--dark--outlined-border};
 	}
 
 	@include light-theme(button) {
-		--button--outlined-border: #{$button__light--outlined-border};
+		--button--outlined-border: #{$button--light--outlined-border};
 	}
 }

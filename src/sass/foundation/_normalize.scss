@@ -10,8 +10,8 @@ html, body {
     border: none;
 
     &:disabled, &[class*="disabled"] {
-        cursor: not-allowed !important; // TODO remove important when possible
-		pointer-events: none !important;
+        cursor: not-allowed; // TODO remove important when possible
+		pointer-events: none;
     }
 }
 
@@ -50,11 +50,24 @@ img {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $scrollbar-background;
+    background: var(--scrollbar-background);
 
-	@media #{$dark} {
-		background: $dark-scrollbar-background;
+	@if($theme == light and in-array(dark, $media-themes)) {
+		@media #{$dark} {
+			--scrollbar-background: #{$dark-scrollbar-background};
+		}
 	}
+
+	@if($theme == dark and in-array(light, $media-themes)) {
+		@media #{$light} {
+			--scrollbar-background: #{$light-scrollbar-background};
+		}
+	}
+}
+
+:root {
+
+	--scrollbar-background: #{$scrollbar-background};
 }
 
 ::selection {

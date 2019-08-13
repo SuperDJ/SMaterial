@@ -2,17 +2,20 @@
 	.menu {
 		--menu-min-width: #{$menu-min-width};
 		--menu-max-width: #{$menu-max-width};
-		--menu__icon-margin: #{$menu__icon-margin};
-		--menu__content-margin: #{$menu__content-margin};
 		--menu-color: #{$menu-color};
 		--menu-left: #{$menu-left};
 		--menu-right: #{$menu-right};
 		--menu-padding: #{$menu-padding};
+		--menu-background: #{$menu-background};
+		--menu-border-radius: #{$menu-background};
+
+		--menu__icon-margin: #{$menu__icon-margin};
 
 		--menu__divider-margin: #{$menu__divider-margin};
 		--menu__divider-height: #{$menu__divider-height};
 
 		--menu__content-font-size: #{$menu__content-font-size};
+		--menu__content-margin: #{$menu__content-margin};
 
 		--menu__icon-size: #{$menu__icon-size};
 
@@ -33,7 +36,7 @@
 		max-width: var(--menu-max-width);
 		padding: var(--menu-padding);
 		border-radius: var(--border-radius);
-		background: var(--background-color);
+		background: var(--menu-background);
 		@extend %z8;
 		user-select: none;
 		opacity: 0;
@@ -119,11 +122,13 @@
 	}
 
 	@include dark-theme(menu) {
-		--menu-color: #{$menu__dark-color};
+		--menu-background: #{$menu--dark-background};
+		--menu-color: #{$menu--dark-color};
 		@include overlay(8);
 	}
 
 	@include light-theme(menu) {
-		--menu-color: #{$menu__light-color};
+		--menu-background: #{$menu--light-background};
+		--menu-color: #{$menu--light-color};
 	}
 }

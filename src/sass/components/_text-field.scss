@@ -307,36 +307,36 @@
 	}
 
 	@include dark-theme(text-field) {
-		--text-field__label-color: #{$text-field__dark__label-color};
-		--text-field__input-color: #{$text-field__dark__input-color};
+		--text-field__label-color: #{$text-field--dark__label-color};
+		--text-field__input-color: #{$text-field--dark__input-color};
 
 		@if (in-array(filled, $text-field-settings)) {
-			--text-field--filled__input-background: #{$text-field__dark--filled__input-background};
-			--text-field--filled__input--border-bottom: #{$text-field__dark--filled__input--border-bottom};
-			--text-field--filled__input--focus-border-bottom: #{$text-field__dark--filled__input--focus-border-bottom};
-			--text-field--filled__input--active-background: #{$text-field__dark--filled__input--active-background};
+			--text-field--filled__input-background: #{$text-field--dark--filled__input-background};
+			--text-field--filled__input--border-bottom: #{$text-field--dark--filled__input--border-bottom};
+			--text-field--filled__input--focus-border-bottom: #{$text-field--dark--filled__input--focus-border-bottom};
+			--text-field--filled__input--active-background: #{$text-field--dark--filled__input--active-background};
 		}
 
 		@if (in-array(outlined, $text-field-settings)) {
-			--text-field--outlined__input-border: #{$text-field__dark--outlined__input-border};
-			--text-field--outlined__input--active-border: #{$text-field__dark--outlined__input--active-border};
+			--text-field--outlined__input-border: #{$text-field--dark--outlined__input-border};
+			--text-field--outlined__input--active-border: #{$text-field--dark--outlined__input--active-border};
 		}
 	}
 
 	@include light-theme(text-field) {
-		--text-field__label-color: #{$text-field__light__label-color};
-		--text-field__input-color: #{$text-field__light__input-color};
+		--text-field__label-color: #{$text-field--light__label-color};
+		--text-field__input-color: #{$text-field--light__input-color};
 
 		@if (in-array(filled, $text-field-settings)) {
-			--text-field--filled__input-background: #{$text-field__light--filled__input-background};
-			--text-field--filled__input--border-bottom: #{$text-field__light--filled__input--border-bottom};
-			--text-field--filled__input--focus-border-bottom: #{$text-field__light--filled__input--focus-border-bottom};
-			--text-field--filled__input--active-background: #{$text-field__light--filled__input--active-background};
+			--text-field--filled__input-background: #{$text-field--light--filled__input-background};
+			--text-field--filled__input--border-bottom: #{$text-field--light--filled__input--border-bottom};
+			--text-field--filled__input--focus-border-bottom: #{$text-field--light--filled__input--focus-border-bottom};
+			--text-field--filled__input--active-background: #{$text-field--light--filled__input--active-background};
 		}
 
 		@if (in-array(outlined, $text-field-settings)) {
-			--text-field--outlined__input-border: #{$text-field__light--outlined__input-border};
-			--text-field--outlined__input--active-border: #{$text-field__light--outlined__input--active-border};
+			--text-field--outlined__input-border: #{$text-field--light--outlined__input-border};
+			--text-field--outlined__input--active-border: #{$text-field--light--outlined__input--active-border};
 		}
 	}
 }

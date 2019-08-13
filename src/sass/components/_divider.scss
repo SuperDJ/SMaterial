@@ -22,13 +22,13 @@
 
 	@if ($theme == light and in-array(dark, $media-themes)) {
 		@media #{$dark} {
-			--divider-background: #{$divider__dark-background};
+			--divider-background: #{$divider--dark-background};
 		}
 	}
 
 	@if ($theme == dark and in-array(light, $media-themes)) {
 		@media #{$light} {
-			--divider-background: #{$divider__light-background}
+			--divider-background: #{$divider--light-background}
 		}
 	}
 }

@@ -8,7 +8,7 @@ import Dialog from'./classes/Dialog';
 import Divider from'./classes/Divider';
 import Drawer from'./classes/Drawer';
 import Menu from'./classes/Menu';
-import Picker from'js/classes/Picker';
+import Picker from'./classes/Picker';
 import Progress from'./classes/Progress';
 import SelectField from'./classes/SelectField';
 import{ Switch, Checkbox, Radio } from'./classes/Selection';

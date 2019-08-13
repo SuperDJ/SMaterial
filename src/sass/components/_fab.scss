@@ -86,12 +86,12 @@
 	}
 
 	@include dark-theme(fab) {
-			--fab--hover-background: #{$fab__dark--hover-background};
-			--fab--active-background: #{$fab__dark--active-background};
+			--fab--hover-background: #{$fab--dark--hover-background};
+			--fab--active-background: #{$fab--dark--active-background};
 	}
 
 	@include light-theme(fab) {
-			--fab--hover-background: #{$fab__light--hover-background};
-			--fab--active-background: #{$fab__light--active-background};
+			--fab--hover-background: #{$fab--light--hover-background};
+			--fab--active-background: #{$fab--light--active-background};
 	}
 }

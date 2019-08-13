@@ -1,4 +1,4 @@
-@if(in-array(bottom-sheet, $component-settings)) {
+@if (in-array(bottom-sheet, $component-settings)) {
 	.bottom-sheet {
 		--bottom-sheet-width: #{$bottom-sheet-width};
 		--bottom-sheet-min-height: #{$bottom-sheet-min-height};
@@ -14,14 +14,14 @@
 
 		--bottom-sheet__content-color: #{$bottom-sheet__content-color};
 
-		@if(in-array(list, $bottom-sheet-settings)) {
+		@if (in-array(list, $bottom-sheet-settings)) {
 			--bottom-sheet--list__item-height: #{$bottom-sheet--list__item-height};
 			--bottom-sheet--list__icon-margin: #{$bottom-sheet--list__icon-margin};
 			--bottom-sheet--list__content-size: #{$bottom-sheet--list__content-size};
 			--bottom-sheet--list__content-margin: #{$bottom-sheet--list__content-margin};
 		}
 
-		@if(in-array(grid, $bottom-sheet-settings)) {
+		@if (in-array(grid, $bottom-sheet-settings)) {
 			--bottom-sheet--grid-padding: #{$bottom-sheet--grid-padding};
 			--bottom-sheet--grid__icon-size: #{$bottom-sheet--grid__icon-size};
 			--bottom-sheet--grid__content-padding: #{$bottom-sheet--grid__content-padding};
@@ -51,7 +51,7 @@
 		transition: margin .1s $easing-standard;
 		@include border-top-radius(var(--border-radius));
 
-		@if($theme == dark) {
+		@if ($theme == dark) {
 			@extend %overlay8;
 		}
 
@@ -61,7 +61,7 @@
 			pointer-events: all;
 		}
 
-		@if(in-array(list, $bottom-sheet-settings)) {
+		@if (in-array(list, $bottom-sheet-settings)) {
 			&--list {
 				#{$el}__item {
 					height: var(--bottom-sheet--list__item-height);
@@ -82,7 +82,7 @@
 			}
 		}
 
-		@if(in-array(grid, $bottom-sheet-settings)) {
+		@if (in-array(grid, $bottom-sheet-settings)) {
 			&--grid {
 				display: grid;
 				padding: var(--bottom-sheet--grid-padding);
@@ -149,21 +149,25 @@
 	}
 
 	@include dark-theme(bottom-sheet) {
-			--bottom-sheet__item--hover-background: #{$bottom-sheet__dark__item--hover-background};
-			--bottom-sheet__item--active-background: #{$bottom-sheet__dark__item--active-background};
+		--bottom-sheet-background: #{$bottom-sheet--dark-background};
 
-			--bottom-sheet__header-color: #{$bottom-sheet__dark__header-color};
+		--bottom-sheet__item--hover-background: #{$bottom-sheet--dark__item--hover-background};
+		--bottom-sheet__item--active-background: #{$bottom-sheet--dark__item--active-background};
 
-			--bottom-sheet__content-color: #{$bottom-sheet__dark__content-color};
-			@include overlay(8);
+		--bottom-sheet__header-color: #{$bottom-sheet--dark__header-color};
+
+		--bottom-sheet__content-color: #{$bottom-sheet--dark__content-color};
+		@include overlay(8);
 	}
 
 	@include light-theme(bottom-sheet) {
-			--bottom-sheet__item--hover-background: #{$bottom-sheet__light__item--hover-background};
-			--bottom-sheet__item--active-background: #{$bottom-sheet__light__item--active-background};
+		--bottom-sheet-background: #{$bottom-sheet--light-background};
 
-			--bottom-sheet__header-color: #{$bottom-sheet__light__header-color};
+		--bottom-sheet__item--hover-background: #{$bottom-sheet--light__item--hover-background};
+		--bottom-sheet__item--active-background: #{$bottom-sheet--light__item--active-background};
 
-			--bottom-sheet__content-color: #{$bottom-sheet__light__content-color};
+		--bottom-sheet__header-color: #{$bottom-sheet--light__header-color};
+
+		--bottom-sheet__content-color: #{$bottom-sheet--light__content-color};
 	}
 }

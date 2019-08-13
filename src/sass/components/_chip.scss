@@ -102,22 +102,22 @@
 	}
 
 	@include dark-theme(chip) {
-		--chip-background: #{$chip__dark-background};
-		--chip-color: #{$chip__dark-color};
-		--chip--hover-background: #{$chip__dark--hover-background};
-		--chip--active-background: #{$chip__dark--active-background};
-		--chip--outlined-border: #{$chip__dark--outlined-border};
-		--chip--outlined--hover-background: #{$chip__dark--outlined--hover-background};
-		--chip--outlined--active-background: #{$chip__dark--outlined--active-background};
+		--chip-background: #{$chip--dark-background};
+		--chip-color: #{$chip--dark-color};
+		--chip--hover-background: #{$chip--dark--hover-background};
+		--chip--active-background: #{$chip--dark--active-background};
+		--chip--outlined-border: #{$chip--dark--outlined-border};
+		--chip--outlined--hover-background: #{$chip--dark--outlined--hover-background};
+		--chip--outlined--active-background: #{$chip--dark--outlined--active-background};
 	}
 
 	@include light-theme(chip) {
-		--chip-background: #{$chip__light-background};
-		--chip-color: #{$chip__light-color};
-		--chip--hover-background: #{$chip__light--hover-background};
-		--chip--active-background: #{$chip__light--active-background};
-		--chip--outlined-border: #{$chip__light--outlined-border};
-		--chip--outlined--hover-background: #{$chip__light--outlined--hover-background};
-		--chip--outlined--active-background: #{$chip__light--outlined--active-background};
+		--chip-background: #{$chip--light-background};
+		--chip-color: #{$chip--light-color};
+		--chip--hover-background: #{$chip--light--hover-background};
+		--chip--active-background: #{$chip--light--active-background};
+		--chip--outlined-border: #{$chip--light--outlined-border};
+		--chip--outlined--hover-background: #{$chip--light--outlined--hover-background};
+		--chip--outlined--active-background: #{$chip--light--outlined--active-background};
 	}
 }

@@ -2,10 +2,15 @@
 	.card {
 		--card-background: #{$card-background};
 		--card-border-radius: #{$card-border-radius};
+
 		--card__thumbnail-size: #{$card__thumbnail-size};
+
 		--card__header-padding: #{$card__header-padding};
+
 		--card__title-color: #{$card__title-color};
+
 		--card__subtitle-color: #{$card__subtitle-color};
+
 		--card__content-color: #{$card__content-color};
 		--card__content-padding: #{$card__content-padding};
 
@@ -215,15 +220,24 @@
 	}
 
 	@include dark-theme(card) {
-		--card__title-color: #{$card__dark__title-color};
-		--card__subtitle-color: #{$card__dark__subtitle-color};
-		--card__content-color: #{$card__dark__content-color};
+		--card-background: #{$card--dark-background};
+
+		--card__title-color: #{$card--dark__title-color};
+
+		--card__subtitle-color: #{$card--dark__subtitle-color};
+
+		--card__content-color: #{$card--dark__content-color};
+
 		@include overlay(1);
 	}
 
 	@include light-theme(card) {
-		--card__title-color: #{$card__light__title-color};
-		--card__subtitle-color: #{$card__light__subtitle-color};
-		--card__content-color: #{$card__light__content-color};
+		--card-background: #{$card--light-background};
+
+		--card__title-color: #{$card--light__title-color};
+
+		--card__subtitle-color: #{$card--light__subtitle-color};
+
+		--card__content-color: #{$card--light__content-color};
 	}
 }
