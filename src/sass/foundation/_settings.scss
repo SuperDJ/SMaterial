@@ -879,7 +879,7 @@ $list--three-line__support__control-padding: rem-calc(16px) rem-calc(16px) 0 rem
 
 $menu--dark-background: $dark-surface-color !default;
 $menu--light-background: $light-surface-color !default;
-$menu-background: var(surface-color) !default;
+$menu-background: var(--surface-color) !default;
 
 $menu-min-width: rem-calc(112px) !default;
 $menu-max-width: rem-calc(280px) !default;
