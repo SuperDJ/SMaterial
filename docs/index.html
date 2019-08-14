@@ -2,16 +2,19 @@
 <html lang="en">
     <head>
         <title>Material | Material Design</title>
-        <meta name="google-site-verification" content="googlef8a0d5705f3e17df">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-        <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32">
-        <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16">
+        <base href="./">
+        <link rel="apple-touch-icon" sizes="180x180" href="./images/icon-180.png">
+        <link rel="icon" type="image/png" href="./images/icon-32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="./images/icon-16.png" sizes="16x16">
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="./dist/css/material-light.css">
         <link rel="stylesheet" href="./src/prism.css">
+        <link rel="manifest" href="./manifest.json">
+
+        <meta name="google-site-verification" content="googlef8a0d5705f3e17df">
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
@@ -23,144 +26,142 @@
     </head>
 
     <body>
-        <div class="app-wrap">
-            <header class="app-bar app-bar--fixed app-bar--dark">
-                <i class="material-icons icon" data-trigger="drawer">menu</i>
+        <header class="app-bar app-bar--fixed app-bar--dark">
+            <i class="material-icons icon" data-trigger="drawer">menu</i>
 
-                <div class="app-bar__title">
-                    Material
-                </div>
+            <div class="app-bar__title">
+                Material
+            </div>
 
-                <div class="app-bar__actions">
-                    <i class="material-icons icon" data-trigger="profile">person</i>
+            <div class="app-bar__actions">
+                <i class="material-icons icon" data-trigger="profile">person</i>
 
-                    <div class="menu" id="profile">
-                        <a href="#" class="menu__item">
-                            <span class="menu__content">Login</span>
-                        </a>
+                <div class="menu" id="profile">
+                    <a href="#" class="menu__item">
+                        <span class="menu__content">Login</span>
+                    </a>
 
-                        <a href="#" class="menu__item">
-                            <span class="menu__content">Register</span>
-                        </a>
-                    </div>
-
-                    <a href="//github.com/SuperDJ/material" target="_blank">
-                        <div class="tooltip">
-                            <i class="material-icons icon">code</i>
-                            <span class="tooltip__content tooltip--bottom">Github</span>
-                        </div>
+                    <a href="#" class="menu__item">
+                        <span class="menu__content">Register</span>
                     </a>
                 </div>
-            </header>
 
-            <main class="container">
-                <article class="row text--center">
-                    <section class="xs12 sm4">
-                        <div class="row">
-                            <div class="xs12">
-                                <i class="material-icons icon icon--48 text--primary">code</i>
-                            </div>
+                <a href="//github.com/SuperDJ/material" target="_blank">
+                    <div class="tooltip">
+                        <i class="material-icons icon">code</i>
+                        <span class="tooltip__content tooltip--bottom">Github</span>
+                    </div>
+                </a>
+            </div>
+        </header>
 
-                            <div class="xs12">
-                                Material is made to be easy for development.
-                                All classes follow the BEM naming convention.
-                                This naming convention has also continued into the naming for both scss and CSS variables.
-                                For <a href="./getting-started.html">starting</a> with Material you only need to load 2 files.
-                            </div>
+        <main class="container">
+            <article class="row text--center">
+                <section class="xs12 sm4">
+                    <div class="row">
+                        <div class="xs12">
+                            <i class="material-icons icon icon--48 text--primary">code</i>
                         </div>
-                    </section>
 
-                    <section class="xs12 sm4">
-                        <div class="row">
-                            <div class="xs12">
-                                <i class="material-icons icon icon--48 text--primary">accessibility</i>
-                            </div>
-
-                            <div class="xs12">
-                                Since Material follows the guide lines of <a href="//material.io/design/" target="_blank" >Google's Material Design</a> it is easy to get recognized by your users.
-                            </div>
+                        <div class="xs12">
+                            Material is made to be easy for development.
+                            All classes follow the BEM naming convention.
+                            This naming convention has also continued into the naming for both scss and CSS variables.
+                            For <a href="./getting-started.html">starting</a> with Material you only need to load 2 files.
                         </div>
-                    </section>
+                    </div>
+                </section>
 
-                    <section class="xs12 sm4">
-                        <div class="row">
-                            <div class="xs12">
-                                <i class="material-icons icon icon--48 text--primary">group</i>
-                            </div>
-
-                            <div class="xs12">
-                                Do you like Material but do you feel that it can be improved?
-                                Please let us know by leaving an issue or add a pull request <a href="//github.com/SuperDJ/material" target="_blank">here</a>.
-                            </div>
+                <section class="xs12 sm4">
+                    <div class="row">
+                        <div class="xs12">
+                            <i class="material-icons icon icon--48 text--primary">accessibility</i>
                         </div>
-                    </section>
-                </article>
-            </main>
 
-            <nav class="drawer drawer--modal" id="drawer">
-                <ul>
-                    <li><a href="./" class="drawer__item drawer__item--active"><span class="drawer__item__content">Home</span></a></li>
-                    <li><a href="./getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
-                    <li>
-                        <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
+                        <div class="xs12">
+                            Since Material follows the guide lines of <a href="//material.io/design/" target="_blank" >Google's Material Design</a> it is easy to get recognized by your users.
+                        </div>
+                    </div>
+                </section>
 
-                        <ul class="drawer__item__children">
-                            <li><a href="./layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
-                            <li><a href="./layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
-                        </ul>
-                    </li>
-                    <li><a href="./color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
-                    <li><a href="./typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
-                    <li><a href="./iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
-                    <li>
-                        <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
+                <section class="xs12 sm4">
+                    <div class="row">
+                        <div class="xs12">
+                            <i class="material-icons icon icon--48 text--primary">group</i>
+                        </div>
 
-                        <ul class="drawer__item__children">
-                            <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
-                            <li><a href="./components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
-                            <li><a href="./components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
-                            <li><a href="./components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
-                            <li><a href="./components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
-                            <li><a href="./components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
-                            <li><a href="./components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
-                            <li><a href="./components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
-                            <li><a href="./components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
-                            <li><a href="./components/dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
-                            <li><a href="./components/dividers.html" class="drawer__item"><span class="drawer__item__content">Dividers</span></a></li>
-                            <li><a href="./components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
-                            <li><a href="./components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
-                            <li><a href="./components/navigation-drawer.html" class="drawer__item"><span class="drawer__item__content">Navigation drawer</span></a></li>
-                            <li><a href="./components/notification.html" class="drawer__item"><span class="drawer__item__content">Notification</span></a></li>
-                            <li><a href="./components/picker.html" class="drawer__item"><span class="drawer__item__content">Picker</span></a></li>
-                            <li><a href="./components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
-                            <li><a href="./components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
-                            <li><a href="./components/sliders.html" class="drawer__item"><span class="drawer__item__content">Sliders</span></a></li>
-                            <li><a href="./components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
-                            <li><a href="./components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
-                            <li><a href="./components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
-                            <li><a href="./components/tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
+                        <div class="xs12">
+                            Do you like Material but do you feel that it can be improved?
+                            Please let us know by leaving an issue or add a pull request <a href="//github.com/SuperDJ/material" target="_blank">here</a>.
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </main>
 
-                        <ul class="drawer__item__children">
-                            <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+        <nav class="drawer drawer--modal" id="drawer">
+            <ul>
+                <li><a href="./" class="drawer__item drawer__item--active"><span class="drawer__item__content">Home</span></a></li>
+                <li><a href="./getting-started.html" class="drawer__item"><span class="drawer__item__content">Getting started</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Layout</span></div>
 
-            <script src="./dist/js/material.js"></script>
-            <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19820377-7"></script>
-            <script>
-				window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
+                    <ul class="drawer__item__children">
+                        <li><a href="./layout/grid.html" class="drawer__item"><span class="drawer__item__content">Grid</span></a></li>
+                        <li><a href="./layout/shadow.html" class="drawer__item"><span class="drawer__item__content">Shadows</span></a></li>
+                    </ul>
+                </li>
+                <li><a href="./color.html" class="drawer__item"><span class="drawer__item__content">Color</span></a></li>
+                <li><a href="./typography.html" class="drawer__item"><span class="drawer__item__content">Typography</span></a></li>
+                <li><a href="./iconography.html" class="drawer__item"><span class="drawer__item__content">Iconography</span></a></li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Components</span></div>
 
-				gtag('config', 'UA-19820377-7');
-            </script>
-        </div>
+                    <ul class="drawer__item__children">
+                        <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                        <li><a href="./components/banners.html" class="drawer__item"><span class="drawer__item__content">Banners</span></a></li>
+                        <li><a href="./components/bottom-navigation.html" class="drawer__item"><span class="drawer__item__content">Bottom navigation</span></a></li>
+                        <li><a href="./components/bottom-sheet.html" class="drawer__item"><span class="drawer__item__content">Bottom sheet</span></a></li>
+                        <li><a href="./components/buttons.html" class="drawer__item"><span class="drawer__item__content">Buttons</span></a></li>
+                        <li><a href="./components/buttons-fab.html" class="drawer__item"><span class="drawer__item__content">Buttons: fab</span></a></li>
+                        <li><a href="./components/cards.html" class="drawer__item"><span class="drawer__item__content">Cards</span></a></li>
+                        <li><a href="./components/chips.html" class="drawer__item"><span class="drawer__item__content">Chips</span></a></li>
+                        <li><a href="./components/data-table.html" class="drawer__item"><span class="drawer__item__content">Data table</span></a></li>
+                        <li><a href="./components/dialogs.html" class="drawer__item"><span class="drawer__item__content">Dialogs</span></a></li>
+                        <li><a href="./components/dividers.html" class="drawer__item"><span class="drawer__item__content">Dividers</span></a></li>
+                        <li><a href="./components/list.html" class="drawer__item"><span class="drawer__item__content">List</span></a></li>
+                        <li><a href="./components/menus.html" class="drawer__item"><span class="drawer__item__content">Menus</span></a></li>
+                        <li><a href="./components/navigation-drawer.html" class="drawer__item"><span class="drawer__item__content">Navigation drawer</span></a></li>
+                        <li><a href="./components/notification.html" class="drawer__item"><span class="drawer__item__content">Notification</span></a></li>
+                        <li><a href="./components/picker.html" class="drawer__item"><span class="drawer__item__content">Picker</span></a></li>
+                        <li><a href="./components/progress-indicators.html" class="drawer__item"><span class="drawer__item__content">Progress indicators</span></a></li>
+                        <li><a href="./components/selection-controls.html" class="drawer__item"><span class="drawer__item__content">Selection controls</span></a></li>
+                        <li><a href="./components/sliders.html" class="drawer__item"><span class="drawer__item__content">Sliders</span></a></li>
+                        <li><a href="./components/snackbars.html" class="drawer__item"><span class="drawer__item__content">Snackbars</span></a></li>
+                        <li><a href="./components/tabs.html" class="drawer__item"><span class="drawer__item__content">Tabs</span></a></li>
+                        <li><a href="./components/text-fields.html" class="drawer__item"><span class="drawer__item__content">Text fields</span></a></li>
+                        <li><a href="./components/tooltips.html" class="drawer__item"><span class="drawer__item__content">Tooltip</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="drawer__item drawer__item__parent"><span class="drawer__item__content">Helpers</span></div>
+
+                    <ul class="drawer__item__children">
+                        <li><a href="./components/app-bar.html" class="drawer__item"><span class="drawer__item__content">App bar</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <script src="./dist/js/material.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-19820377-7"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-19820377-7');
+        </script>
     </body>
 </html>
