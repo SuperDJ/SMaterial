@@ -30,7 +30,7 @@ export default class Drawer
 				else
 				{
 					//Child.style.display = 'block';
-					child.style.maxHeight = `100vh`;
+					child.style.maxHeight = `100%`;
 					child.classList.add( 'active' );
 				}
 			});

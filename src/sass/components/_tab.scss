@@ -80,9 +80,9 @@
 			}
 		}
 
-		@if(in-array(scrollable, $tab-settings)) {
+		@if(in-array(scroll, $tab-settings)) {
 			&--scrollable {
-				overflow: auto;
+				overflow-x: auto;
 
 				#{$el}__tab {
 					&:first-child {

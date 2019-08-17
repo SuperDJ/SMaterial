@@ -14,8 +14,8 @@
         <link rel="icon" type="image/png" href="./images/icon-32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="./images/icon-16.png" sizes="16x16">
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=fallback" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=fallback" rel="stylesheet">
         <link rel="stylesheet" href="./dist/css/material-light.css">
         <link rel="stylesheet" href="./src/prism.css">
         <link rel="manifest" href="./manifest.json">
@@ -52,7 +52,7 @@
                     </a>
                 </div>
 
-                <a href="//github.com/SuperDJ/material" target="_blank">
+                <a href="//github.com/SuperDJ/material" target="_blank" rel="noreferrer">
                     <div class="tooltip">
                         <i class="material-icons icon">code</i>
                         <span class="tooltip__content tooltip--bottom">Github</span>
@@ -103,10 +103,68 @@
                     </script>
                 </p>
 
-<pre class="language-css xs12 s12 md6">
+<pre class="language-css xs12 md6">
     <code>
 $theme: light;
 $theme: dark;
+    </code>
+</pre>
+
+                <p class="xs12 md6">
+                    There is also the possibility to use a
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme" target="_blank" rel="noreferrer">light and dark media query</a> and classes.
+                    The media queries will respond to what the user has defined as their preferred color scheme.
+                    Do note that not all browsers support these media queries.
+                    The media queries are used the same way that grid media queries are used.
+                    Or you can use a mixin that will add additional classes to make it even easier.
+                    However for now the mixins only work with a class.
+                </p>
+
+<pre class="language-css xs12 md6">
+    <code>
+@media #{$dark} {
+    // Styling for dark goes here
+}
+
+@media #{$light} {
+    // Styling for dark goes here
+}
+
+@include dark-theme(text-field) {
+    // Styling for dark .text-field
+}
+
+@include light-theme(text-field) {
+    // Styling for light .text-field
+}
+    </code>
+</pre>
+
+                <p class="xs12 md6">
+                    Since these media queries and mixins are used by default in the styling of components it's possible to turn them off as well.
+                    This will safe a lot of additional classes and media queries and thus loading time.
+                    To turn off the classes or media queries that you don't need simply comment them out.
+                </p>
+
+<pre class="language-css xs12 md6">
+    <code>
+$media-themes: (dark, light); // Removes media queries
+$class-themes: (dark, light); // Removes classes
+    </code>
+</pre>
+                <p class="xs12 md6">
+                    The additional classes that are added can be used like this.
+                </p>
+
+<pre class="language-html xs12 md6">
+    <code>
+&lt;div class="card card--dark">
+    &lt;!-- Elements inside are not affected -->
+&lt;/div>
+
+&lt;div class="card dark">
+    &lt;!-- Elements inside are affected and will also be dark -->
+&lt;/div>
     </code>
 </pre>
             </section>

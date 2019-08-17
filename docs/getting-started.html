@@ -14,8 +14,8 @@
         <link rel="icon" type="image/png" href="./images/icon-32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="./images/icon-16.png" sizes="16x16">
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=fallback" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=fallback" rel="stylesheet">
         <link rel="stylesheet" href="./dist/css/material-light.css">
         <link rel="stylesheet" href="./src/prism.css">
         <link rel="manifest" href="./manifest.json">
@@ -47,7 +47,7 @@
                         </a>
                     </div>
 
-                    <a href="//github.com/SuperDJ/material" target="_blank">
+                    <a href="//github.com/SuperDJ/material" target="_blank" rel="noreferrer">
                         <div class="tooltip">
                             <i class="material-icons icon">code</i>
                             <span class="tooltip__content tooltip--bottom">Github</span>
@@ -73,7 +73,7 @@
                     <section class="xs12 sm6">
                         <p>
                             First of all you need to download the CSS and JS files required.
-                            You can find the required CSS and JS files in <a href="https://github.com/SuperDJ/material/tree/master/docs/dist" target="_blank">here</a>.
+                            You can find the required CSS and JS files in <a href="https://github.com/SuperDJ/material/tree/master/docs/dist" target="_blank"  rel="noreferrer">here</a>.
                             Or you can use them like the following:
                             <code class="language-html">
                                 &lt;link rel="stylesheet" href="//superdj.github.io/material/dist/css/material-light.css">
@@ -100,7 +100,7 @@
                         <p>
                             If you would like to use the Roboto font all you need to do is add the following line in the <code class="language-html">&lt;head></code>:
                             <code class="language-html">
-                                &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+                                &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=fallback" rel="stylesheet">
                             </code>.
                             This line should come before the loading of the material stylesheet.
                         </p>
@@ -109,7 +109,7 @@
                             It is also possible to use the Material Design icon font.
                             For that all you need to do is add the following line in the <code class="language-html">&lt;head></code>:
                             <code class="language-html">
-                                &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                                &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=fallback" rel="stylesheet">
                             </code>.
                             This line should also come before the material stylesheet.
                         </p>
@@ -123,8 +123,8 @@
     &lt;head>
         &lt;title>Index&lt;/title>
 
-        &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-        &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        &lt;link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=fallback" rel="stylesheet">
+        &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=fallback" rel="stylesheet">
         &lt;link rel="stylesheet" href="./material-light.css">
 
         &lt;meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
@@ -147,7 +147,7 @@
                     <section class="xs12 sm6">
                         <p>
                             If you want to use SASS you can start in two ways.
-                            You can just download/ clone the project from <a href="//github.com/SuperDJ/material" target="_blank">GitHub</a>.
+                            You can just download/ clone the project from <a href="//github.com/SuperDJ/material" target="_blank" rel="noreferrer">GitHub</a>.
                             Or you use the NPM package by using: <code class="language-html">npm i -D smaterial</code>.
                         </p>
 
