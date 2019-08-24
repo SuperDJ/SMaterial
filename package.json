@@ -1,6 +1,6 @@
 {
 	"name": "smaterial",
-	"version": "2019.8.14",
+	"version": "2019.8.24",
 	"description": "A CSS framework based on Material Design",
 	"repository": {
 		"type": "git",
@@ -51,12 +51,12 @@
 		"postcss-scss": "^2.0.0",
 		"sass-lint": "^1.13.1",
 		"sass-lint-webpack": "^1.0.2",
-		"sass-loader": "^7.2.0",
+		"sass-loader": "^7.3.1",
 		"style-loader": "^0.23.1",
 		"sw-precache-webpack-plugin": "^0.11.5",
 		"uglifyjs-webpack-plugin": "^2.2.0",
 		"webpack": "^4.39.2",
-		"webpack-cli": "^3.3.6",
+		"webpack-cli": "^3.3.7",
 		"webpack-dev-server": "^3.8.0",
 		"webpack-merge": "^4.2.1",
 		"webpack-serve": "^2.0.3"
