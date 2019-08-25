@@ -1,54 +1,62 @@
 // Convert unit to rem
 @function rem-calc( $sp, $default: $font-size ) {
-	@if( type_of( $sp ) != null AND str_index( #{$sp}, px ) != null )
-	{
-		@return $sp / ( $default + 0px ) * 1rem;
-	} @else if( type_of( $sp ) != null AND str_index( #{$sp}, px ) == null )
-	{
-		@return ( $sp + 0px ) / ( $default + 0px ) * 1rem;
-	} @else {
-		@warn 'Wrong argument parsed to rem-calc';
+	@if(not is-number( $sp ) ) {
+	        @warn "Wrong unit type passed to rem-calc";
 	}
+
+	@if(is-absolute-length($sp)) {
+		@return $sp / ( $default + 0px ) * 1rem;
+	}
+
+	@if(unit($sp) == '') {
+		@return ( $sp + 0px ) / ( $default + 0px ) * 1rem;
+	}
+
+	@warn "rem-calc param can only be a px based value or number";
 }
 
 // Convert unit to em
 @function em-calc( $sp, $default: $font-size ) {
-	@if( type_of( $sp ) != null AND str_index( #{$sp}, px ) != null )
-	{
-		@return $sp / ( $default + 0px ) * 1em;
-	} @else if( type_of( $sp ) != null AND str_index( #{$sp}, px ) == null )
-	{
-		@return ( $sp + 0px ) / ( $default + 0px ) * 1em;
-	} @else {
-		@warn 'Wrong argument parsed to em-calc';
+	@if(not is-number( $sp ) ) {
+		@warn "Wrong unit type passed to em-calc";
 	}
+
+	@if(is-absolute-length($sp)) {
+		@return $sp / ( $default + 0px ) * 1em;
+	}
+
+	@if(unit($sp) == '') {
+		@return ( $sp + 0px ) / ( $default + 0px ) * 1em;
+	}
+
+	@warn "em-calc param can only be a px based value or number";
 }
 
 // Explode a string
 @function explode($string, $delimiter) {
 	$result: ();
 	@if $delimiter == "" {
-		@for $i from 1 through str-length( $string ) {
-			$result: append( $result, str-slice( $string, $i, $i ) );
+		@for $i from 1 through str-length($string) {
+			$result: append($result, str-slice($string, $i, $i));
 		}
 		@return $result;
 	}
 
 	$exploding: true;
 	@while $exploding {
-		$d-index: str-index( $string, $delimiter );
+		$d-index: str-index($string, $delimiter);
 		@if $d-index {
 			@if $d-index > 1 {
-				$result: append( $result, str-slice( $string, 1, $d-index - 1 ) );
-				$string: str-slice( $string, $d-index + str-length( $delimiter ) );
+				$result: append($result, str-slice($string, 1, $d-index - 1));
+				$string: str-slice($string, $d-index + str-length( $delimiter ));
 			} @else if $d-index == 1 {
-				$string: str-slice( $string, 1, $d-index + str-length( $delimiter ) );
+				$string: str-slice($string, 1, $d-index + str-length( $delimiter ));
 			} @else {
-				$result: append( $result, $string );
+				$result: append($result, $string);
 				$exploding: false;
 			}
 		} @else {
-			$result: append( $result, $string );
+			$result: append($result, $string);
 			$exploding: false;
 		}
 	}
@@ -60,19 +68,19 @@
 	@if type-of( $value ) == 'number' {
 		@return $value;
 	} @else if type-of( $value ) != 'string' {
-		$_: log( 'Value for `to-number` should be a number or a string.' );
+		$_: log('Value for `to-number` should be a number or a string.');
 	}
 
 	$result: 0;
 	$digits: 0;
 	$minus: str-slice( $value, 1, 1 ) == '-';
-	$numbers: ( '0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9 );
+	$numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
 
-	@for $i from if( $minus, 2, 1 ) through str-length( $value ) {
-		$character: str-slice( $value, $i, $i) ;
+	@for $i from if($minus, 2, 1) through str-length($value) {
+		$character: str-slice($value, $i, $i) ;
 
 		@if not ( index( map-keys( $numbers ), $character ) or $character == '.') {
-			@return to-length( if( $minus, -$result, $result ), str-slice( $value, $i ) )
+			@return to-length(if($minus, -$result, $result), str-slice($value, $i))
 		}
 
 		@if $character == '.' {
@@ -85,12 +93,11 @@
 		}
 	}
 
-	@return if( $minus, -$result, $result );
+	@return if($minus, -$result, $result);
 }
 
-@function line-height( $type, $type-scale )
-{
-	@return rem-calc( map-get( map-get( $type-scale, $type ), size ) * 1.4 );
+@function line-height( $type, $type-scale ) {
+	@return rem-calc(map-get( map-get( $type-scale, $type ), size ) * 1.4);
 }
 
 // Find a specific color
@@ -119,4 +126,54 @@
 	}
 
 	@return false;
+}
+
+
+@function is-number( $value )
+{
+	@return type-of( $value ) == 'number';
+}
+
+@function is-time($value) {
+	@return is-number($value) and index('ms' 's', unit($value)) != null;
+}
+
+@function is-duration($value) {
+	@return is-time($value);
+}
+
+@function is-angle($value) {
+	@return is-number($value) and index('deg' 'rad' 'grad' 'turn', unit($value)) != null;
+}
+
+@function is-frequency($value) {
+	@return is-number($value) and index('Hz' 'kHz', unit($value)) != null;
+}
+
+@function is-integer($value) {
+	@return is-number($value) and round($value) == $value;
+}
+
+@function is-relative-length($value) {
+	@return is-number($value) and index('em' 'ex' 'ch' 'rem' 'vw' 'vh' 'vmin' 'vmax', unit($value)) != null;
+}
+
+@function is-absolute-length($value) {
+	@return is-number($value) and index('cm' 'mm' 'in' 'px' 'pt' 'pc', unit($value)) != null;
+}
+
+@function is-percentage($value) {
+	@return is-number($value) and unit($value) == '%';
+}
+
+@function is-length($value) {
+	@return is-relative-length($value) or is-absolute-length($value);
+}
+
+@function is-resolution($value) {
+	@return is-number($value) and index('dpi' 'dpcm' 'dppx', unit($value)) != null;
+}
+
+@function is-position($value) {
+	@return is-length($value) or is-percentage($value) or index('top' 'right' 'bottom' 'left' 'center', $value) != null;
 }

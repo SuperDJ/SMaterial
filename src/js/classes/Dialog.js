@@ -25,7 +25,7 @@ export default class Dialog
 	{
 		let content = this.dialog.querySelector( '.dialog__content' );
 		let vertical = content.scrollHeight > content.offsetHeight;
-		console.log( vertical, content.scrollHeight, content.offsetHeight );
+		//Console.log( vertical, content.scrollHeight, content.offsetHeight );
 
 		if( vertical )
 		{
@@ -41,7 +41,7 @@ export default class Dialog
 	{
 		if( !this.dialog.getAttribute( 'id' ) )
 		{
-			console.error( `The following dialog doesn't have an ID to trigger it`, this.dialog );
+			console.warn( `The following dialog doesn't have an ID to trigger it`, this.dialog );
 		}
 	}
 }

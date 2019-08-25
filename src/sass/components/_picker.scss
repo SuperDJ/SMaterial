@@ -14,7 +14,7 @@
 			padding: 0 rem-calc(24px);
 			display: grid;
 			grid-template-areas: "title title""selected switch";
-			grid-template-columns: 1fr rem-calc(24);
+			grid-template-columns: 1fr rem-calc(24px);
 			grid-template-rows: rem-calc(32px) rem-calc(72px);
 			height: rem-calc(120px);
 		}

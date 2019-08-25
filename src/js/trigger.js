@@ -8,7 +8,7 @@ triggers.forEach( trigger =>
 
 	if( !element )
 	{
-		console.error('Trigger element not found');
+		console.warn(`Trigger element "${trigger.dataset.trigger}" not found`);
 	}
 
 	// Remember size
