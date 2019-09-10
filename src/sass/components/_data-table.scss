@@ -41,6 +41,10 @@
 			}
 		}
 
+		th a {
+			display: block;
+		}
+
 		@media #{$lg-and-up} {
 			th {
 				position: sticky;

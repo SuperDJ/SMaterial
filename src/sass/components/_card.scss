@@ -99,7 +99,16 @@
 		}
 
 		&--outlined {
-			border: rem-calc(1px) solid rgba($black, .12);
+			border: rem-calc(1px) solid var(--divider-background);
+			@extend %z0;
+
+			&#{$el}--no-hover:hover {
+				@extend %z0;
+
+				@media #{$dark} {
+					@include overlay(1);
+				}
+			}
 		}
 
 		&--top {
@@ -119,7 +128,7 @@
 		}
 
 		&--no-hover:hover {
-			@extend %z1;
+			@extend %z1, %overlay0;
 		}
 
 		// TODO fix naming

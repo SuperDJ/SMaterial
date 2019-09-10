@@ -50,6 +50,16 @@
 	}
 }
 
+%z0 {
+	box-shadow: unset;
+}
+
+%overlay0 {
+	&:before {
+		content: unset;
+	}
+}
+
 @if(in-array(shadows, $foundation-settings)) {
 	.z0 {
 		box-shadow: none !important;

@@ -246,17 +246,9 @@
 			overflow: hidden;
 		}
 
-		@if (in-array(select, $text-field-settings)) {
-			&--select {
-				select, input {
-					display: none;
-				}
-
-				/*> label {
-					left: var(--text-field--filled__input-padding-sides);
-					@extend .text-field__label;
-				}*/
-
+		@if(in-array(select, $text-field-settings) or in-array(autocomplete, $text-field-settings))
+		{
+			&--select, &--autocomplete {
 				#{$el}__options {
 					position: absolute;
 					width: 100%;
@@ -299,10 +291,30 @@
 			}
 		}
 
+		@if (in-array(select, $text-field-settings)) {
+			&--select {
+				select, input {
+					display: none;
+				}
+
+				/*> label {
+					left: var(--text-field--filled__input-padding-sides);
+					@extend .text-field__label;
+				}*/
+			}
+		}
+
 		.icon {
 			grid-column: 2;
 			margin: 0 rem-calc(12px);
 			line-height: var(--text-field-height);
+		}
+	}
+
+	@if(in-array(autocomplete, $text-field-settings))
+	{
+		datalist {
+			display: none;
 		}
 	}
 

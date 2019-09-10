@@ -1,6 +1,6 @@
 {
 	"name": "smaterial",
-	"version": "2019.8.25",
+	"version": "2019.9.10",
 	"description": "A CSS framework based on Material Design",
 	"repository": {
 		"type": "git",
@@ -30,13 +30,13 @@
 		"src/"
 	],
 	"devDependencies": {
-		"@babel/core": "^7.5.5",
-		"@babel/preset-env": "^7.5.5",
+		"@babel/core": "^7.6.0",
+		"@babel/preset-env": "^7.6.0",
 		"autoprefixer": "^9.6.1",
 		"babel-loader": "^8.0.6",
 		"babel-plugin-dynamic-import-node": "^2.3.0",
 		"clean-webpack-plugin": "^1.0.1",
-		"cross-env": "^5.2.0",
+		"cross-env": "^5.2.1",
 		"css-loader": "^2.1.1",
 		"eslint": "^5.16.0",
 		"eslint-loader": "^2.2.1",
@@ -55,10 +55,10 @@
 		"style-loader": "^0.23.1",
 		"sw-precache-webpack-plugin": "^0.11.5",
 		"uglifyjs-webpack-plugin": "^2.2.0",
-		"webpack": "^4.39.2",
-		"webpack-cli": "^3.3.7",
+		"webpack": "^4.39.3",
+		"webpack-cli": "^3.3.8",
 		"webpack-dev-server": "^3.8.0",
-		"webpack-merge": "^4.2.1",
+		"webpack-merge": "^4.2.2",
 		"webpack-serve": "^2.0.3"
 	},
 	"browserslist": [
