@@ -1,19 +1,19 @@
-$i: 0;
-$amount: 4;
-$max: 24;
+$properties: (margin, padding);
+$directions: (top, left, bottom, right);
+$sizes: (4, 8, 12, 16, 20, 24);
 
-@while $i <= $max {
-	@if(in-array(padding, $helper-settings)) {
-		.padding--#{$i} {
-			padding: rem-calc($i+0px) !important;
+@each $size in $sizes {
+	@each $property in $properties {
+		.#{$property}--#{$size} {
+			#{$property}: rem-calc($size);
 		}
 	}
 
-	@if(in-array(margin, $helper-settings)) {
-		.margin--#{$i} {
-			margin: rem-calc($i+0px) !important;
+	@each $direction in $directions {
+		@each $property in $properties {
+			.#{$property}--#{$direction}-#{$size} {
+				#{$property}-#{$direction}: rem-calc($size);
+			}
 		}
 	}
-
-	$i: $i + $amount;
 }

@@ -92,7 +92,7 @@
 					}
 				}
 
-				input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"] input[type="week"], select {
+				input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], select {
 					+ #{$el}__label {
 						top: var(--text-field--filled__input--focus__label-top);
 						font-size: var(--text-field__input--focus__label-font-size);
@@ -140,7 +140,7 @@
 					}*/
 				}
 
-				input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"] input[type="week"], select {
+				input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"], select {
 					+ #{$el}__label {
 						top: var(--text-field--outlined__input--focus__label-top);
 						font-size: var(--text-field__input--focus__label-font-size)
