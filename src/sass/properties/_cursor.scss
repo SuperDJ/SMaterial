@@ -10,7 +10,7 @@ $cursors: (alias, all-scroll, auto, cell, context-menu, col-resize, copy, crossh
 	}
 }
 
-@if(in-array(cursor, $helper-settings)) {
+@if(in-array(cursor, $property-settings)) {
 	@each $cursor in $cursors {
 		@if(in-array($cursor, $cursor-settings)) {
 			.cursor--#{$cursor} {

@@ -146,17 +146,23 @@
                             </div>
                         </div>
 
-                        <datalist id="browsers">
-                            <option value="Internet Explorer">
-                            <option value="Firefox">
-                            <option value="Chrome">
-                            <option value="Opera">
-                            <option value="Safari">
-                        </datalist>
-
                         <div class="xs12">
-                            <div class="text-field text-field--filled">
-                                <input type="text" name="filled-auto" id="filled-auto" class="text-field__input" list="browsers">
+                            <div class="text-field text-field--filled text-field--autocomplete">
+                                <input
+                                    type="text"
+                                    name="filled-auto"
+                                    id="filled-auto"
+                                    class="text-field__input"
+                                    data-items="{
+                                        {value: 1, label: 'Internet Exploded', 'image': 'https://vignette.wikia.nocookie.net/logopedia/images/9/9d/Internet_Explorer_10.svg/revision/latest/scale-to-width-down/200?cb=20180306060537'},
+                                        {value: 2, label: 'Edge', image: 'https://vignette.wikia.nocookie.net/logopedia/images/6/63/Microsoft_Edge.svg/revision/latest/scale-to-width-down/200?cb=20180507220415'},
+                                        {value: 3, label: 'Firefox', image: 'https://vignette.wikia.nocookie.net/logopedia/images/6/67/Firefox_Logo%2C_2017.svg/revision/latest/scale-to-width-down/200?cb=20171224161815'},
+                                        {value: 4, label: 'Chrome', image: 'https://vignette.wikia.nocookie.net/logopedia/images/c/ca/Google_Chrome_for_Android_Icon_2016.svg/revision/latest/scale-to-width-down/200?cb=20160305053723'}
+                                    }"
+                                >
+                                <div class="text-field__options">
+
+                                </div>
                                 <label class="text-field__label" for="filled-auto">Autocomplete</label>
                             </div>
                         </div>

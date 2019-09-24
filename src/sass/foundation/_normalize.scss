@@ -73,3 +73,8 @@ img {
 ::selection {
 	background: rgba($primary-color, .12);
 }
+
+@media #{$print} {
+	color-adjust: exact;
+	print-color-adjust: exact;
+}

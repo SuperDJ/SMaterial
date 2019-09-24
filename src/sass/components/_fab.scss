@@ -35,6 +35,7 @@
 		user-select: none;
 		position: relative;
 		display: inline-block;
+		vertical-align: middle;
 		@include ripple();
 		--ripple--hover-background: var(--fab--hover-background);
 		--ripple--active-background: var(--fab--active-background);

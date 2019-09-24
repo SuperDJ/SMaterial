@@ -1,0 +1,19 @@
+$properties: (inline, block, contents, flex, grid, inline-block, inline-flex, inline-grid, inline-table, list-item, run-in, table, table-caption, table-column-group, table-header-group, table-footer-group, table-row-group, table-cell, table-column, table-row, none, initial);
+
+// Make class
+@if(in-array(display, $property-settings)) {
+	@each $property in $properties {
+		@if(in-array($property, $display-settings)) {
+			.display--#{$property} {
+				display: $property;
+			}
+		}
+	}
+}
+
+// Make extend
+@each $property in $properties {
+	%display--#{$property} {
+		display: $property;
+	}
+}

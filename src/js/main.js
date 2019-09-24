@@ -3,7 +3,6 @@ import Autocomplete from'./classes/Autocomplete';
 import Badge from'./classes/Badge';
 import Banner from'./classes/Banner';
 import Button from'./classes/Button';
-import DataList from'./classes/Datalist';
 import DataTable from'./classes/DataTable';
 import Dialog from'./classes/Dialog';
 import Divider from'./classes/Divider';
@@ -53,16 +52,6 @@ const buttons = document.getElementsByClassName( 'button' );
 for( let button of buttons )
 {
 	new Button( button );
-}
-
-const dataLists = document.getElementsByClassName('text-field__input');
-
-for( let dataList of dataLists)
-{
-	if( dataList.hasAttribute( 'list' ) )
-	{
-		new DataList( dataList );
-	}
 }
 
 const dataTables = document.getElementsByClassName( 'data-table' );

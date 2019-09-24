@@ -1,4 +1,4 @@
-@if(in-array(flex, $helper-settings)) {
+@if(in-array(flex, $property-settings)) {
 	.flex {
 		display: flex;
 

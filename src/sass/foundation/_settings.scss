@@ -1114,3 +1114,9 @@ $tooltip-background-color: rgba($grey-700, .6) !default;
 $tooltip-md-up-height: rem-calc(24px) !default;
 $tooltip-md-up-padding: 0 rem-calc(8px) !default;
 $tooltip-md-up-font-size: rem-calc(10px) !default;
+
+/**************************************
+ * Margin/ padding
+ **************************************/
+
+$margin-padding-sizes: (0, 4, 8, 12, 16, 20, 24);
