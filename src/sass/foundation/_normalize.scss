@@ -2,6 +2,8 @@ html, body {
     font-size: $font-size + 0px;
 	@include chain(padding, margin, 0);
 	background: var(--background-color);
+    color-adjust: exact;
+    print-color-adjust: exact;
 }
 
 * {
@@ -72,9 +74,4 @@ img {
 
 ::selection {
 	background: rgba($primary-color, .12);
-}
-
-@media #{$print} {
-	color-adjust: exact;
-	print-color-adjust: exact;
 }
