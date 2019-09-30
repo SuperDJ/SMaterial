@@ -1,0 +1,19 @@
+$properties: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit);
+
+// Make class
+@if(in-array(white-space, $property-settings)) {
+	@each $property in $properties {
+		@if(in-array($property, $position-settings)) {
+			.white-space--#{$property} {
+				white-space: $property;
+			}
+		}
+	}
+}
+
+// Make extend
+@each $property in $properties {
+	%white-space--#{$property} {
+		white-space: $property;
+	}
+}

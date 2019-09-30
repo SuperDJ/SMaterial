@@ -38,7 +38,7 @@ img {
 }
 
 ::-webkit-scrollbar-button, ::-webkit-scrollbar-corner, ::-webkit-resizer {
-    display: none;
+    @extend %display--none;
 }
 
 ::-webkit-scrollbar {
@@ -68,7 +68,6 @@ img {
 }
 
 :root {
-
 	--scrollbar-background: #{$scrollbar-background};
 }
 

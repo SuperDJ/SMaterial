@@ -38,7 +38,7 @@
 }
 
 .row {
-	display: grid;
+	@extend %display--grid;
 	grid-template-columns: repeat($xs-columns, 1fr);
 	grid-gap: var(--gutter);
 	padding: calc(var(--gutter) / 2) var(--margin);
@@ -47,20 +47,28 @@
 		padding: 0 var(--margin) calc(var(--gutter) / 2) var(--margin);
 	}
 
-	@media #{$sm-and-up} {
-		grid-template-columns: repeat($sm-columns, 1fr);
+	@if($sm-columns != $xs-columns) {
+		@media #{$sm-and-up} {
+			grid-template-columns: repeat($sm-columns, 1fr);
+		}
 	}
 
-	@media #{$md-and-up} {
-		grid-template-columns: repeat($md-columns, 1fr);
+	@if($md-columns != $xs-columns) {
+		@media #{$md-and-up} {
+			grid-template-columns: repeat($md-columns, 1fr);
+		}
 	}
 
-	@media #{$lg-and-up} {
-		grid-template-columns: repeat($lg-columns, 1fr);
+	@if($lg-columns != $xs-columns) {
+		@media #{$lg-and-up} {
+			grid-template-columns: repeat($lg-columns, 1fr);
+		}
 	}
 
-	@media #{$xl-and-up} {
-		grid-template-columns: repeat($xl-columns, 1fr);
+	@if($xl-columns != $xs-columns) {
+		@media #{$xl-and-up} {
+			grid-template-columns: repeat($xl-columns, 1fr);
+		}
 	}
 }
 

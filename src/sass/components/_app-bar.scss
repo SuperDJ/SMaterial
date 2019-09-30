@@ -13,7 +13,7 @@
 		padding: var(--app-bar-padding);
 		width: 100%;
 		@extend %z4;
-		display: grid;
+		@extend %display--grid;
 		grid-template-columns: rem-calc(24px) 1fr auto 1fr;
 		margin-bottom: calc(var(--app-bar-height) * -1);
 
@@ -31,7 +31,7 @@
 			&__actions {
 				grid-column-start: 4;
 				justify-content: flex-end;
-				display: flex;
+				@extend %display--flex;
 
 				> * {
 					margin: var(--app-bar__actions-margin);
@@ -41,7 +41,7 @@
 
 		@if(in-array(fixed, $app-bar-settings)) {
 			&--fixed {
-				position: fixed;
+				@extend %position--fixed;
 				top: 0;
 				left: 0;
 				z-index: 2;

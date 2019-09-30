@@ -25,7 +25,7 @@
 		@extend %z6;
 
 		&--single-line, &--two-line {
-			display: grid;
+			@extend %display--grid;
 			grid-template-columns: 1fr auto;
 
 			#{$el}__content {

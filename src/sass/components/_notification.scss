@@ -14,7 +14,7 @@
 		@extend %z2;
 		padding: var(--notification-padding);
 		color: var(--notification-color);
-		display: inline-grid;
+		@extend %display--inline-grid;
 		grid-template-areas:
 			"header"
 			"content"
@@ -33,7 +33,7 @@
 			padding: var(--notification__header-padding);
 			line-height: rem-calc(16px);
 			font-size: rem-calc(12px);
-			display: grid;
+			@extend %display--grid;
 			grid-template-areas: "icon content date expand";
 			grid-template-columns: var(--notification__header__icon-size) auto auto var(--notification__header__icon-size);
 			grid-column-gap: rem-calc(8px);
@@ -58,7 +58,7 @@
 
 		&__content {
 			grid-area: content;
-			display: grid;
+			@extend %display--grid;
 
 			&__title {
 				grid-area: title;

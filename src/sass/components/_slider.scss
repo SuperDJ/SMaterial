@@ -13,14 +13,14 @@
 		--slider__label-size: #{rem-calc(32px)};
 
 		$el: &;
-		position: relative;
+		@extend %position--relative;
 		height: var(--slider__thumb-size);
 
 		&__input {
 			-webkit-appearance: none;
 			width: 100%;
 			background: transparent;
-			position: absolute;
+			@extend %position--absolute;
 			@include chain(top, left, 0);
 
 			$margin: calc(((var(--slider__thumb-size) - var(--slider__track-height)) / 2) * -1) 0 0 0;
@@ -33,7 +33,7 @@
 			}
 
 			&::-ms-tooltip {
-				display: none;
+				@extend %display--none;
 			}
 
 			&:disabled {
@@ -53,12 +53,12 @@
 			}
 
 			#{$el}__label {
-				display: none;
+				@extend %display--none;
 			}
 		}
 
 		&__track-before {
-			position: absolute;
+			@extend %position--absolute;
 			@include chain(height, top, left, var(--slider__track-height));
 			background: var(--slider__thumb-background);
 			width: 50%;
@@ -72,7 +72,7 @@
 			border-radius: 50%;
 			text-align: center;
 			@include chain(width, height, line-height, var(--slider__label-size));
-			position: absolute;
+			@extend %position--absolute;
 			top: calc((var(--slider__label-size) + var(--slider__thumb-size)) * -1);
 			font-size: rem-calc(12px);
 			user-select: none;

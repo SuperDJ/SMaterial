@@ -20,8 +20,8 @@
 		@extend %z1;
 		border-radius: var(--card-border-radius);
 		transition: box-shadow $easing-standard .1s, background $easing-standard .1s;
-		display: block;
-		position: relative;
+		@extend %display--block;
+		@extend %position--relative;
 		overflow: hidden;
 
 		@if ($theme == dark) {
@@ -71,7 +71,7 @@
 
 			img {
 				width: 100%;
-				display: inherit;
+				@extend %display--inherit;
 			}
 		}
 
@@ -136,7 +136,7 @@
 			&--default {
 				#{$el}__header {
 					height: rem-calc(72px);
-					display: grid;
+					@extend %display--grid;
 					grid-template: "thumbnail title" "thumbnail subtitle";
 					grid-template-columns: calc(var(--card__header-padding) + var(--card__thumbnail-size)) 1fr;
 				}
@@ -145,7 +145,7 @@
 
 		@if (in-array(simple, $card-settings)) {
 			&--simple {
-				display: grid;
+				@extend %display--grid;
 				grid-template: "header media" "content media" "actions actions";
 				grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
 
@@ -161,7 +161,7 @@
 
 		@if (in-array(overline, $card-settings)) {
 			&--overline {
-				display: grid;
+				@extend %display--grid;
 				grid-template: "overline media" "header media" "content media" "actions actions";
 				grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
 
@@ -186,7 +186,7 @@
 
 		@if (in-array(album, $card-settings)) {
 			&--album {
-				display: grid;
+				@extend %display--grid;
 				grid-template: "media header" "content content";
 				grid-template-columns: rem-calc(80px) 1fr;
 
@@ -207,17 +207,17 @@
 
 		@if (in-array(media, $card-settings)) {
 			&--media {
-				position: relative;
-				display: flex;
+				@extend %position--relative;
+				@extend %display--flex;
 
 				img {
-					display: inherit;
+					@extend %display--inherit;
 					width: 100%;
 					border-radius: var(--border-radius);
 				}
 
 				#{$el}__container {
-					position: absolute;
+					@extend %position--absolute;
 					background: rgba($white, .32);
 
 					&--bottom {

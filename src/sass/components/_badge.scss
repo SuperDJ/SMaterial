@@ -8,10 +8,10 @@
 		--badge-horizontal-center: calc(var(--badge-width) / 2);
 		--badge__content-center: calc(var(--badge__content-size) / 2);
 
-		position: relative;
+		@extend %position--relative;
 
 		&__content {
-			position: absolute;
+			@extend %position--absolute;
 			color: var(--badge-color);
 			font-size: var(--badge-font-size);
 			background: var(--badge-background);

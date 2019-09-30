@@ -48,18 +48,22 @@ $grid-settings: (fluid, masonry) !default;
 
 $helper-settings: (aspect-ratio) !default;
 
-$property-settings: (/*mp, display, flex, cursor*/) !default;
-$mp-settings: (margin, padding) !default;
-$display-settings: (inline, block, contents, flex, grid, inline-block, inline-flex, inline-grid, inline-table, list-item, run-in, table, table-caption, table-column-group, table-header-group, table-footer-group, table-row-group,table-cell, table-column, table-row, none, initial) !default;
+$property-settings: (/*cursor, display, flex, float, mp, position, white-space*/) !default;
 $cursor-settings: (alias, all-scroll, auto, cell, context-menu, col-resize, copy, crosshair, default, e-resize, ew-resize, grab, grabbing, help, move, n-resize, ne-resize, nesw-resize, ns-resize, nw-resize, nwse-resize, no-drop, none, not-allowed, pointer, progress, row-resize, s-resize, se-resize, sw-resize, text, wait, zoom-in, zoom-out) !default;
+$display-settings: (inline, block, contents, flex, grid, inline-block, inline-flex, inline-grid, inline-table, list-item, run-in, table, table-caption, table-column-group, table-header-group, table-footer-group, table-row-group,table-cell, table-column, table-row, none, initial, inherit) !default;
+$float-settings: (left, right, none, inline-start, inline-end, inherit, initial, unset) !default;
+$mp-settings: (margin, padding) !default;
+$margin-padding-sizes: (0, 4, 8, 12, 16, 20, 24);
+$position-settings: (static, relative, absolute, sticky, fixed) !default;
+$white-space-settings: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit) !default;
 
 @import 'colors/index';
+
+@import 'properties/index';
 
 @import 'helpers/index';
 
 @import 'foundation/settings';
-
-@import 'properties/index';
 
 @import 'grid/index';
 

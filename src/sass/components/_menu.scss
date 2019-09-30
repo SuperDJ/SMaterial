@@ -41,7 +41,7 @@
 		user-select: none;
 		opacity: 0;
 		overflow: auto;
-		position: absolute;
+		@extend %position--absolute;
 		left: var(--menu-left);
 		right: var(--menu-right);
 		z-index: 1;
@@ -95,7 +95,7 @@
 		}
 
 		&__item {
-			display: grid;
+			@extend %display--grid;
 			grid-template-areas: "icon content indicator";
 			grid-template-columns: auto 1fr auto;
 			height: var(--menu__item-height);

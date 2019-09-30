@@ -4,7 +4,7 @@
 		@extend %z24;
 		background-color: var(--surface-color);
 		overflow: hidden;
-		position: relative;
+		@extend %position--relative;
 		width: rem-calc(328px);
 
 		&__header {
@@ -12,7 +12,7 @@
 			color: var(--font-on-primary);
 			--icon-color: var(--font-on-primary);
 			padding: 0 rem-calc(24px);
-			display: grid;
+			@extend %display--grid;
 			grid-template-areas: "title title""selected switch";
 			grid-template-columns: 1fr rem-calc(24px);
 			grid-template-rows: rem-calc(32px) rem-calc(72px);
@@ -40,7 +40,7 @@
 		}
 
 		&__calendar-header {
-			display: grid;
+			@extend %display--grid;
 			grid-template-columns: 1fr rem-calc(24px) rem-calc(24px);
 			grid-column-gap: rem-calc(24px);
 			padding: rem-calc(16px) rem-calc(24px);

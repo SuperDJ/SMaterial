@@ -7,7 +7,7 @@
 		--checkbox-border: #{$checkbox-border};
 
 		@extend %cursor--pointer;
-		position: relative;
+		@extend %position--relative;
 		vertical-align: text-bottom;
 		-webkit-appearance: none;
 		@include chain(padding, margin, 0);
@@ -30,7 +30,7 @@
 
 		&:after, &:before {
 			content: '';
-			position: absolute;
+			@extend %position--absolute;
 		}
 
 		&:before {

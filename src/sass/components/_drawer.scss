@@ -31,7 +31,7 @@
 
 		$el: &;
 		width: var(--drawer-width);
-		position: fixed;
+		@extend %position--fixed;
 		margin-left: -102%;
 		margin-right: var(--drawer-margin-right); // Make sure there is some room left on the right side of the screen
 		background: var(--drawer-background);
@@ -50,7 +50,7 @@
 		&__item {
 			min-height: var(--drawer__item-min-height);
 			width: var(--drawer__item-width);
-			display: grid;
+			@extend %display--grid;
 			grid-template-areas: "icon content arrow";
 			grid-template-columns: auto 1fr auto;
 			margin: var(--drawer__item-margin);
@@ -205,7 +205,7 @@
 				background: var(--drawer__header-background);
 				height: var(--drawer__header-height);
 				margin: rem-calc(-8px) 0 rem-calc(8px) 0;
-				position: relative;
+				@extend %position--relative;
 
 				&__background {
 					width: 100%;
@@ -240,7 +240,7 @@
 				}
 
 				&__background, &__profile-image, &__profile-name, &__profile-email, &__profile-icon {
-					position: absolute;
+					@extend %position--absolute;
 					user-select: none;
 				}
 
@@ -264,7 +264,7 @@
 			}
 
 			.menu {
-				position: absolute;
+				@extend %position--absolute;
 				top: 95%;
 				right: rem-calc(4px);
 

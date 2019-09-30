@@ -46,11 +46,11 @@
 
 		@if(in-array(indeterminate, $progress-settings)) {
 			&:indeterminate, &--indeterminate {
-				position: relative;
+				@extend %position--relative;
 				overflow: hidden;
 
 				#{$el}__bar {
-					position: absolute;
+					@extend %position--absolute;
 					width: rem-calc(122px);
 					transition: unset;
 					animation: indeterminate 2s infinite;
@@ -72,12 +72,12 @@
 		@if(in-array(circle, $progress-settings)) {
 			&--circle {
 				background: none;
-				position: relative;
+				@extend %position--relative;
 				@include chain(width, height, var(--progress--circle-size));
 
 				&__loader {
 					transform-origin: center center;
-					position: absolute;
+					@extend %position--absolute;
 					height: 100%;
 					width: 100%;
 					@include chain(width, height, 100%);

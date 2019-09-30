@@ -14,11 +14,11 @@
 		}
 
 		$el: &;
-		position: relative;
-		display: inline-block;
+		@extend %position--relative;
+		@extend %display--inline-block;
 
 		&__content {
-			position: absolute;
+			@extend %position--absolute;
 			top: calc(50% - (var(--tooltip-height) / 2));
 			left: calc(50% - (var(--tooltip-width) / 2));
 			padding: var(--tooltip-padding);

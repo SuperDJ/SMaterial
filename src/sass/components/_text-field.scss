@@ -47,9 +47,9 @@
 		$el: &;
 		min-height: var(--text-field-height);
 		width: 100%;
-		position: relative;
+		@extend %position--relative;
 		margin: rem-calc(8px) 0;
-		display: grid;
+		@extend %display--grid;
 		grid-template-columns: 1fr auto;
 
 		@if (in-array(filled, $text-field-settings)) {
@@ -184,7 +184,7 @@
 			pointer-events: none;
 			color: var(--text-field__label-color);
 			@extend %body-1;
-			position: absolute;
+			@extend %position--absolute;
 			transition: top .1s $easing-standard, color .1s $easing-standard;
 			top: calc((var(--text-field__input-height) / 2) - (var(--text-field__label-font-size) / 2));
 		}
@@ -193,7 +193,7 @@
 			color: var(--text-field__input-color);
 			@extend %body-1;
 			width: 100%;
-			position: absolute;
+			@extend %position--absolute;
 			@include chain(left, top, 0);
 			min-height: var(--text-field__input-height);
 			grid-column: 1;
@@ -215,13 +215,13 @@
 
 		@if (in-array(helper, $text-field-settings)) {
 			&__helper-text {
-				display: block;
+				@extend %display--block;
 				width: 100%;
 				color: rgba($black, .6);
 				@extend %caption;
 				@include chain(height, line-height, var(--text-field__helper-text-height));
 				padding: var(--text-field__helper-text-padding);
-				position: absolute;
+				@extend %position--absolute;
 				bottom: 0;
 			}
 
@@ -250,7 +250,7 @@
 		{
 			&--select, &--autocomplete {
 				#{$el}__options {
-					position: absolute;
+					@extend %position--absolute;
 					width: 100%;
 					background: var(--background-color);
 					border-radius: var(--border-radius);
@@ -275,7 +275,7 @@
 					width: 100%;
 					padding: 0 rem-calc(16px);
 					@include chain(height, line-height, rem-calc(48px));
-					display: block;
+					@extend %display--block;
 					background: transparent;
 					@extend %cursor--pointer;
 
@@ -294,7 +294,7 @@
 		@if (in-array(select, $text-field-settings)) {
 			&--select {
 				select, input {
-					display: none;
+					@extend %display--none;
 				}
 
 				/*> label {
@@ -314,7 +314,7 @@
 	@if(in-array(autocomplete, $text-field-settings))
 	{
 		datalist {
-			display: none;
+			@extend %display--none;
 		}
 	}
 
@@ -363,7 +363,7 @@ input[type="date"] {
 
 	// Make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker
 	&::-webkit-calendar-picker-indicator {
-		position: absolute;
+		@extend %position--absolute;
 		@include chain(top, right, bottom, left, 0);
 		@include chain(width, height, auto);
 		@include chain(color, background, transparent);
@@ -378,6 +378,6 @@ input[type="date"] {
 // Remove the default icon from search
 input[type="search"] {
 	&::-webkit-search-cancel-button {
-		display: none;
+		@extend %display--none;
 	}
 }

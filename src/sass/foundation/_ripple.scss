@@ -1,12 +1,12 @@
 @mixin ripple() {
-    position: relative;
+    @extend %position--relative;
     overflow: hidden;
 
     &:after {
         content: '';
         @include chain(width, height, 100%);
         @include chain(top, left, 0);
-        position: absolute;
+        @extend %position--absolute;
         background: transparent;
         transition: background .1s $easing-standard;
     }

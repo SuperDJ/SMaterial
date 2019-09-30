@@ -9,23 +9,23 @@
 		--tabs__tab--active-background: #{rgba($white, .32)};
 
 		$el: &;
-		display: grid;
+		@extend %display--grid;
 		grid-auto-columns: max-content;
 		background: var(--tabs-background);
 		width: 100%;
 		grid-auto-flow: column;
 
 		&__content, .icon {
-			display: block;
+			@extend %display--block;
 			width: 100%;
 			color: rgba($white, .60);
 		}
 
 		&__tab {
-			display: block;
+			@extend %display--block;
 			text-align: center;
 			transition: border-bottom .1s $easing-standard;
-			position: relative;
+			@extend %position--relative;
 			min-width: var(--tabs__tab-min-width);
 			max-width: var(--tabs__tab-max-width);
 			@include ripple();

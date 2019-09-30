@@ -48,10 +48,10 @@
 		@extend %cursor--pointer;
 		border: none;
 		border-radius: var(--button-border-radius);
-		position: relative;
+		@extend %position--relative;
 		overflow: hidden;
 		user-select: none;
-		display: inline-block;
+		@extend %display--inline-block;
 		vertical-align: middle;
 		@include ripple();
 		white-space: nowrap;
@@ -71,13 +71,9 @@
 					color: var(--font-on-primary);
 				}
 
-				&:disabled, &--disabled {
+				&:disabled, &:disabled:hover, &--disabled, &--disabled:hover {
 					@extend %disabled-color, %disabled-background;
 					box-shadow: unset;
-
-					&:hover {
-						box-shadow: unset;
-					}
 
 					> * {
 						color: var(--disabled-color);
@@ -153,7 +149,7 @@
 			&--toggle {
 				@include chain(width, height, rem-calc(48px));
 				padding: rem-calc(12px);
-				float: left;
+				@extend %float--left;
 				border-right: rem-calc(1px) solid rgba($black, .12);
 				border-radius: unset;
 				background: unset;

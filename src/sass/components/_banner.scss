@@ -41,7 +41,7 @@
 
 		@if (in-array(single, $banner-settings)) {
 			&--single-line {
-				display: grid;
+				@extend %display--grid;
 				grid-template-columns: 1fr auto;
 
 				#{$el}__content {
@@ -93,7 +93,7 @@
 		@if (in-array(image, $banner-settings)) {
 			&--image-multi-line {
 				height: var(--banner--image-multi-line-height);
-				display: grid;
+				@extend %display--grid;
 				grid-template-columns: calc(var(--banner--image-multi-line__img-size) + #{rem-calc(16px)}) 1fr;
 
 				#{$el}__image {

@@ -1,0 +1,19 @@
+$properties: (static, relative, absolute, sticky, fixed);
+
+// Make class
+@if(in-array(position, $property-settings)) {
+	@each $property in $properties {
+		@if(in-array($property, $position-settings)) {
+			.position--#{$property} {
+				position: $property;
+			}
+		}
+	}
+}
+
+// Make extend
+@each $property in $properties {
+	%position--#{$property} {
+		position: $property;
+	}
+}

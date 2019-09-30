@@ -39,8 +39,8 @@
 		min-height: var(--bottom-sheet-min-height);
 		max-height: var(--bottom-sheet-max-height);
 		list-style-type: none;
-		position: fixed;
-		display: inline-block;
+		@extend %position--fixed;
+		@extend %display--inline-block;
 		z-index: 2;
 		@include chain(left, bottom, 0);
 		margin: 0 0 -102% 0;
@@ -66,7 +66,7 @@
 				#{$el}__item {
 					height: var(--bottom-sheet--list__item-height);
 					grid-template-columns: auto 1fr;
-					display: grid;
+					@extend %display--grid;
 				}
 
 				.icon {
@@ -84,7 +84,7 @@
 
 		@if (in-array(grid, $bottom-sheet-settings)) {
 			&--grid {
-				display: grid;
+				@extend %display--grid;
 				padding: var(--bottom-sheet--grid-padding);
 				grid-template-columns: repeat(3, 1fr);
 
@@ -109,7 +109,7 @@
 
 			&:before {
 				content: '';
-				position: absolute;
+				@extend %position--absolute;
 				top: 0;
 				width: 100%;
 				height: 100%;
@@ -118,7 +118,7 @@
 		}
 
 		&__item {
-			display: block;
+			@extend %display--block;
 			@extend %cursor--pointer;
 			background: transparent;
 			transition: background .1s $easing-standard;

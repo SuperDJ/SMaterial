@@ -21,9 +21,9 @@
 		z-index: 1;
 		bottom: 0;
 		left: 0;
-		position: fixed;
+		@extend %position--fixed;
 		@extend %z8;
-		display: grid;
+		@extend %display--grid;
 		justify-content: space-evenly;
 		grid-template-columns: repeat(auto-fit, minmax(var(--bottom-nav__item-min-width), var(--bottom-nav__item-max-width)));
 		grid-template-rows: var(--bottom-nav-height);
@@ -34,7 +34,7 @@
 
 		&__item {
 			padding: var(--bottom-nav__item-padding);
-			display: block;
+			@extend %display--block;
 			text-align: center;
 
 			.icon {
@@ -71,14 +71,14 @@
 			}
 
 			#{$el}__item__text {
-				display: none;
+				@extend %display--none;
 			}
 
 			#{$el}__item--active {
 				padding: var(--bottom-nav--icon-only__item--active-padding);
 
 				#{$el}__item__text {
-					display: block;
+					@extend %display--block;
 				}
 			}
 		}

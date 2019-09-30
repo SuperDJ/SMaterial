@@ -30,7 +30,7 @@
 		background: var(--chip-background);
 		@extend %body-2;
 		line-height: var(--chip-height);
-		display: inline-flex;
+		@extend %display--inline-flex;
 		align-items: center;
 		color: var(--chip-color);
 		@extend %cursor--pointer;

@@ -42,7 +42,7 @@
 		}
 
 		th a {
-			display: block;
+			@extend %display--block;
 		}
 
 		@media #{$lg-and-up} {

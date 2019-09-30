@@ -229,7 +229,7 @@
 
 			&__title, &__text, .overline {
 				width: 100%;
-				display: block;
+				@extend %display--block;
 			}
 		}
 
@@ -238,7 +238,7 @@
 		}
 
 		&--single-line, &--two-line, &--three-line {
-			display: grid;
+			@extend %display--grid;
 			grid-template-areas: "support content control";
 			grid-template-columns: auto 1fr auto;
 		}

@@ -1,5 +1,6 @@
 const
 	autoprefixer = require('autoprefixer'),
+	postCssColorHexAlpha = require('postcss-color-hex-alpha'),
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
 	path = require('path'),
@@ -52,12 +53,11 @@ module.exports = {
 							syntax: postCssScss,
 							plugins: () => [
 								autoprefixer,
+								postCssColorHexAlpha({
+									preserve: true
+								}),
 								postCssPresetEnv({
 									stage: 0,
-									features: {
-										'color-mod-function': true,
-										'alpha-hex-colors': true
-									}
 								}),
 							],
 						},
