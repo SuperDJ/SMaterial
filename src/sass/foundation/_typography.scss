@@ -1,6 +1,8 @@
 @each $scale, $setting in $type-scale {
 	%#{$scale} {
-		font-family: var(#{--#{$scale}-font-family}), sans-serif;
+		@if($scale == body-1 or map-get( map-get($type-scale, body-1), typeface) != map-get($setting, typeface)) {
+			font-family: var(#{--#{$scale}-font-family}), sans-serif;
+		}
 		line-height: rem-calc(( map-get( $setting, size ) * 1.4 ) + 0px);
 		font-size: rem-calc(map-get($setting, size) + 0px);
 		font-weight: map-get($setting, font);

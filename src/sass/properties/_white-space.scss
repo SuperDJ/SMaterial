@@ -5,7 +5,7 @@ $properties: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit);
 	@each $property in $properties {
 		@if(in-array($property, $position-settings)) {
 			.white-space--#{$property} {
-				white-space: $property;
+				white-space: $property !important;
 			}
 		}
 	}

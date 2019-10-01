@@ -5,7 +5,7 @@ $properties: (left, right, none, inline-start, inline-end, inherit, initial, uns
 	@each $property in $properties {
 		@if(in-array($property, $float-settings)) {
 			.float--#{$property} {
-				float: $property;
+				float: $property !important;
 			}
 		}
 	}

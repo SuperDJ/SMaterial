@@ -5,7 +5,7 @@ $properties: (inline, block, contents, flex, grid, inline-block, inline-flex, in
 	@each $property in $properties {
 		@if(in-array($property, $display-settings)) {
 			.display--#{$property} {
-				display: $property;
+				display: $property !important;
 			}
 		}
 	}

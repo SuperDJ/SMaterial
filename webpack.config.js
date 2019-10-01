@@ -4,8 +4,7 @@ const
 	CleanWebpackPlugin = require('clean-webpack-plugin'),
 	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
 	path = require('path'),
-	postCssPresetEnv = require('postcss-preset-env'),
-	postCssScss = require('postcss-scss');
+	postCssPresetEnv = require('postcss-preset-env');
 
 const OUTPUT_DIR = path.resolve(__dirname, 'docs');
 
@@ -50,7 +49,6 @@ module.exports = {
 						loader: 'postcss-loader',
 						options: {
 							sourceMap: true,
-							syntax: postCssScss,
 							plugins: () => [
 								autoprefixer,
 								postCssColorHexAlpha({
