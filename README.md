@@ -27,7 +27,7 @@ In order to use the source files for sass you case use one of the following:
 	@import '~smaterial/src/sass/material-dark'
 	@import '~smaterial/src/sass/index'
 	
-If `index` and `material-light` are basically the same. However `material-dark` will result in a dark theme.
+Both `index` and `material-light` are basically the same. However `material-dark` will result in a dark theme.
 The dark theme can also be achieved by importing `index` and override the variable `$theme: dark`
 
 and for js:

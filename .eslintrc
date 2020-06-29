@@ -4,7 +4,7 @@
 		"sourceType": "module"
 	},
 	"rules": {
-		"extends": "eslint:recommended",
+		"extends": 0,
 		"curly": "error",
 		"eqeqeq": "error",
 		"no-alert": "error",

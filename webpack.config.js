@@ -1,7 +1,6 @@
 const
 	autoprefixer = require('autoprefixer'),
-	postCssColorHexAlpha = require('postcss-color-hex-alpha'),
-	CleanWebpackPlugin = require('clean-webpack-plugin'),
+	{ CleanWebpackPlugin } = require('clean-webpack-plugin'),
 	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
 	path = require('path'),
 	postCssPresetEnv = require('postcss-preset-env');
@@ -51,9 +50,6 @@ module.exports = {
 							sourceMap: true,
 							plugins: () => [
 								autoprefixer,
-								postCssColorHexAlpha({
-									preserve: true
-								}),
 								postCssPresetEnv({
 									stage: 0,
 								}),
@@ -75,7 +71,7 @@ module.exports = {
 		contentBase: OUTPUT_DIR,
 		watchContentBase: true,
 	},
-	devtool: process.env.NODE_ENV === 'development' ? 'cheap-module-eval-source-map' : 'source-map',
+	devtool: process.env.NODE_ENV === 'development' ? 'cheap-source-map' : 'source-map',
 	resolve: {
 		extensions: ['.js', '.css', '.scss', '.ts', '.tsx'],
 		alias: {
@@ -87,7 +83,9 @@ module.exports = {
 		new MiniCSSExtractPlugin({
 			filename: 'dist/css/[name].css',
 		}),
-		new CleanWebpackPlugin(['./docs/dist']),
+		new CleanWebpackPlugin({
+			cleanOnceBeforeBuildPatterns: ['dist/']
+		}),
 		//new SassLintPlugin()
 	]
 };
