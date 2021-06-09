@@ -1,3 +1,4 @@
+@use "sass:math";
 // Convert unit to rem
 @function rem-calc( $sp, $default: $font-size ) {
 	@if(not is-number( $sp ) ) {
@@ -5,11 +6,11 @@
 	}
 
 	@if(is-absolute-length($sp)) {
-		@return $sp / ( $default + 0px ) * 1rem;
+		@return math.div( $sp, ( $default + 0px ) ) * 1rem;
 	}
 
 	@if(unit($sp) == '') {
-		@return ( $sp + 0px ) / ( $default + 0px ) * 1rem;
+		@return math.div( ( $sp + 0px ), ( $default + 0px ) ) * 1rem;
 	}
 
 	@warn "rem-calc param can only be a px based value or number";
@@ -22,11 +23,11 @@
 	}
 
 	@if(is-absolute-length($sp)) {
-		@return $sp / ( $default + 0px ) * 1em;
+		@return math.div( $sp, ( $default + 0px ) ) * 1em;
 	}
 
 	@if(unit($sp) == '') {
-		@return ( $sp + 0px ) / ( $default + 0px ) * 1em;
+		@return math.div( ( $sp + 0px ), ( $default + 0px ) ) * 1em;
 	}
 
 	@warn "em-calc param can only be a px based value or number";

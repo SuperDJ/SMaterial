@@ -3,11 +3,25 @@ const
 	{ CleanWebpackPlugin } = require('clean-webpack-plugin'),
 	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
 	path = require('path'),
-	postCssPresetEnv = require('postcss-preset-env');
+	TerserPlugin = require("terser-webpack-plugin");
 
 const OUTPUT_DIR = path.resolve(__dirname, 'docs');
 
-module.exports = {
+module.exports = {    optimization: {
+		minimize: true,
+		minimizer: [
+			new TerserPlugin({
+				test: /\.js(\?.*)?$/i,
+				parallel: 2,
+				terserOptions: {
+					format: {
+						comments: false,
+					},
+				},
+				extractComments: false,
+			}),
+		],
+	},
 	entry: {
 		'material': './src/js/main.js',
 		'material-light': './src/sass/material-light.scss',
@@ -38,38 +52,29 @@ module.exports = {
 				use: [
 					{
 						loader: MiniCSSExtractPlugin.loader,
-						options: {
-							sourceMap: true,
-							minimize: process.env.NODE_ENV === 'production',
-						}
 					},
 					'css-loader',
 					{
 						loader: 'postcss-loader',
 						options: {
 							sourceMap: true,
-							plugins: () => [
-								autoprefixer,
-								postCssPresetEnv({
-									stage: 0,
-								}),
-							],
+							postcssOptions: {
+								plugins: {
+									autoprefixer: {}
+								},
+							}
 						},
 					},
 					{
 						loader: 'sass-loader',
 						options: {
+							implementation: require("sass"),
 							sourceMap: true
 						}
 					}
 				]
 			}
 		]
-	},
-	devServer: {
-		overlay: true,
-		contentBase: OUTPUT_DIR,
-		watchContentBase: true,
 	},
 	devtool: process.env.NODE_ENV === 'development' ? 'cheap-source-map' : 'source-map',
 	resolve: {
@@ -85,7 +90,6 @@ module.exports = {
 		}),
 		new CleanWebpackPlugin({
 			cleanOnceBeforeBuildPatterns: ['dist/']
-		}),
-		//new SassLintPlugin()
+		})
 	]
 };
