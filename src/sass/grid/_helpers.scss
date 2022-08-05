@@ -1,4 +1,6 @@
-@media #{$xs-only} {
+@use './media-queries';
+
+@media #{media-queries.$xs-only} {
 	.xs-only-show {
 		display: block;
 	}
@@ -20,7 +22,7 @@
 	}
 }
 
-@media #{$sm-only} {
+@media #{media-queries.$sm-only} {
 	.sm-only-show {
 		display: block;
 	}
@@ -42,7 +44,7 @@
 	}
 }
 
-@media #{$md-only} {
+@media #{media-queries.$md-only} {
 	.md-only-show {
 		display: block;
 	}
@@ -64,7 +66,7 @@
 	}
 }
 
-@media #{$lg-only} {
+@media #{media-queries.$lg-only} {
 	.lg-only-show {
 		display: block;
 	}
@@ -86,7 +88,7 @@
 	}
 }
 
-@media #{$xl-only} {
+@media #{media-queries.$xl-only} {
 	.xl-only-show {
 		display: block;
 	}
@@ -107,7 +109,7 @@
 	}
 }
 
-@media #{$xs-up} {
+@media #{media-queries.$xs-up} {
 	.xs-up-show {
 		display: block;
 	}
@@ -128,7 +130,7 @@
 		text-align: center !important;
 	}
 }
-@media #{$sm-up} {
+@media #{media-queries.$sm-up} {
 	.sm-up-show {
 		display: block;
 	}
@@ -150,7 +152,7 @@
 	}
 }
 
-@media #{$md-up} {
+@media #{media-queries.$md-up} {
 	.md-up-show {
 		display: block;
 	}
@@ -172,7 +174,7 @@
 	}
 }
 
-@media #{$lg-up} {
+@media #{media-queries.$lg-up} {
 	.lg-up-show {
 		display: block;
 	}
@@ -206,7 +208,7 @@
 	text-align: center !important;
 }
 
-@media #{$sm-and-up} {
+@media #{media-queries.$sm-and-up} {
 	.sm-and-up-show {
 		display: block;
 	}
@@ -228,7 +230,7 @@
 	}
 }
 
-@media #{$md-and-up} {
+@media #{media-queries.$md-and-up} {
 	.md-and-up-show {
 		display: block;
 	}
@@ -250,7 +252,7 @@
 	}
 }
 
-@media #{$lg-and-up} {
+@media #{media-queries.$lg-and-up} {
 	.lg-and-up-show {
 		display: block;
 	}
@@ -272,7 +274,7 @@
 	}
 }
 
-@media #{$xl-and-up} {
+@media #{media-queries.$xl-and-up} {
 	.xl-and-up-show {
 		display: block;
 	}
@@ -294,7 +296,7 @@
 	}
 }
 
-@media #{$sm-down} {
+@media #{media-queries.$sm-down} {
 	.sm-down-show {
 		display: block;
 	}
@@ -315,7 +317,7 @@
 	}
 }
 
-@media #{$md-down} {
+@media #{media-queries.$md-down} {
 	.md-down-show {
 		display: block;
 	}
@@ -337,7 +339,7 @@
 	}
 }
 
-@media #{$lg-down} {
+@media #{media-queries.$lg-down} {
 	.lg-down-show {
 		display: block;
 	}
@@ -359,7 +361,7 @@
 	}
 }
 
-@media #{$xl-down} {
+@media #{media-queries.$xl-down} {
 	.xl-down-show {
 		display: block;
 	}
@@ -381,7 +383,7 @@
 	}
 }
 
-@media #{$xs-and-down} {
+@media #{media-queries.$xs-and-down} {
 	.xs-and-down-show {
 		display: block;
 	}
@@ -403,7 +405,7 @@
 	}
 }
 
-@media #{$sm-and-down} {
+@media #{media-queries.$sm-and-down} {
 	.sm-and-down-show {
 		display: block;
 	}
@@ -425,7 +427,7 @@
 	}
 }
 
-@media #{$md-and-down} {
+@media #{media-queries.$md-and-down} {
 	.md-and-down-show {
 		display: block;
 	}
@@ -447,7 +449,7 @@
 	}
 }
 
-@media #{$lg-and-down} {
+@media #{media-queries.$lg-and-down} {
 	.lg-and-down-show {
 		display: block;
 	}

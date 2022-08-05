@@ -1,14 +1,17 @@
+@use './../index';
+@use './../helpers/mixins';
+
 @mixin ripple() {
     @extend %position--relative;
     overflow: hidden;
 
     &:after {
         content: '';
-        @include chain(width, height, 100%);
-        @include chain(top, left, 0);
+        @include mixins.chain(width, height, 100%);
+        @include mixins.chain(top, left, 0);
         @extend %position--absolute;
         background: transparent;
-        transition: background .1s $easing-standard;
+        transition: background .1s index.$easing-standard;
     }
 
     &:hover:after {
@@ -29,8 +32,8 @@
 }
 
 :root {
-    --ripple--hover-background: #{rgba($white, .08)};
+    --ripple--hover-background: #{rgba(index.$white, .08)};
     //--ripple--focus-background: #{rgba($white, .24)};
-    --ripple--active-background: #{rgba($white, .32)};
+    --ripple--active-background: #{rgba(index.$white, .32)};
    // --ripple--disabled-background: #{rgba($white, .38)};
 }

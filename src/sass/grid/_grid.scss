@@ -1,3 +1,8 @@
+@use './../index';
+@use './../foundation/settings';
+@use './media-queries';
+@use './../properties/display';
+
 .container {
 	--container--large-width: 80%;
 
@@ -6,30 +11,30 @@
 	width: 100%;
 	padding: var(--margin) 0;
 
-	@media #{$sm-up} {
+	@media #{media-queries.$sm-up} {
 		width: var(--container--large-width);
 		margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc((100% - var(--container--large-width)) / 2);
 	}
 
-	@if(in-array(fluid, $grid-settings)) {
+	@if(index.in-array(fluid, index.$grid-settings)) {
 		&--fluid {
 			width: 100%;
 			margin: var(--app-bar-height) 0 0 0;
 		}
 	}
 
-	@if(in-array(fixed, $drawer-settings)) {
+	@if(index.in-array(fixed, index.$drawer-settings)) {
 		&-drawer--fixed {
-			@media #{$sm-up} {
+			@media #{media-queries.$sm-up} {
 				margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc(calc((100% - var(--container--large-width)) / 2) + var(--drawer-width));
 				width: calc(var(--container--large-width) - var(--drawer-width));
 			}
 		}
 	}
 
-	@if(in-array(fluid, $grid-settings) and in-array(fixed, $drawer-settings)) {
+	@if(index.in-array(fluid, index.$grid-settings) and index.in-array(fixed, index.$drawer-settings)) {
 		&--fluid#{$el}-drawer--fixed {
-			@media #{$sm-up} {
+			@media #{media-queries.$sm-up} {
 				width: calc(100% - var(--drawer-width));
 				margin: var(--app-bar-height) 0 0 var(--drawer-width);
 			}
@@ -39,7 +44,7 @@
 
 .row {
 	@extend %display--grid;
-	grid-template-columns: repeat($xs-columns, 1fr);
+	grid-template-columns: repeat(settings.$xs-columns, 1fr);
 	grid-gap: var(--gutter);
 	padding: calc(var(--gutter) / 2) var(--margin);
 
@@ -47,32 +52,32 @@
 		padding: 0 var(--margin) calc(var(--gutter) / 2) var(--margin);
 	}
 
-	@if($sm-columns != $xs-columns) {
-		@media #{$sm-and-up} {
-			grid-template-columns: repeat($sm-columns, 1fr);
+	@if(settings.$sm-columns != settings.$xs-columns) {
+		@media #{media-queries.$sm-and-up} {
+			grid-template-columns: repeat(settings.$sm-columns, 1fr);
 		}
 	}
 
-	@if($md-columns != $xs-columns) {
-		@media #{$md-and-up} {
-			grid-template-columns: repeat($md-columns, 1fr);
+	@if(settings.$md-columns != settings.$xs-columns) {
+		@media #{media-queries.$md-and-up} {
+			grid-template-columns: repeat(settings.$md-columns, 1fr);
 		}
 	}
 
-	@if($lg-columns != $xs-columns) {
-		@media #{$lg-and-up} {
-			grid-template-columns: repeat($lg-columns, 1fr);
+	@if(settings.$lg-columns != settings.$xs-columns) {
+		@media #{media-queries.$lg-and-up} {
+			grid-template-columns: repeat(settings.$lg-columns, 1fr);
 		}
 	}
 
-	@if($xl-columns != $xs-columns) {
-		@media #{$xl-and-up} {
-			grid-template-columns: repeat($xl-columns, 1fr);
+	@if(settings.$xl-columns != settings.$xs-columns) {
+		@media #{media-queries.$xl-and-up} {
+			grid-template-columns: repeat(settings.$xl-columns, 1fr);
 		}
 	}
 }
 
-@for $i from 1 through $xs-columns {
+@for $i from 1 through settings.$xs-columns {
 	.xs#{$i} {
 		grid-column-end: span $i;
 	}
@@ -82,15 +87,15 @@
 		grid-column-start: $i;
 	}
 
-	@if(in-array(masonry, $grid-settings)) {
+	@if(index.in-array(masonry, index.$grid-settings)) {
 		.tall-xs#{$i} {
 			grid-row-end: span $i;
 		}
 	}
 }
 
-@media #{$sm-and-up} {
-	@for $i from 1 through $sm-columns {
+@media #{media-queries.$sm-and-up} {
+	@for $i from 1 through settings.$sm-columns {
 		.sm#{$i} {
 			grid-column-end: span $i;
 		}
@@ -100,7 +105,7 @@
 			grid-column-start: $i;
 		}
 
-		@if(in-array(masonry, $grid-settings)) {
+		@if(index.in-array(masonry, index.$grid-settings)) {
 			.tall-sm#{$i} {
 				grid-row-end: span $i;
 			}
@@ -108,8 +113,8 @@
 	}
 }
 
-@media #{$md-and-up} {
-	@for $i from 1 through $md-columns {
+@media #{media-queries.$md-and-up} {
+	@for $i from 1 through settings.$md-columns {
 		.md#{$i} {
 			grid-column-end: span $i;
 		}
@@ -119,7 +124,7 @@
 			grid-column-start: $i;
 		}
 
-		@if(in-array(masonry, $grid-settings)) {
+		@if(index.in-array(masonry, index.$grid-settings)) {
 			.tall-md#{$i} {
 				grid-row-end: span $i;
 			}
@@ -127,8 +132,8 @@
 	}
 }
 
-@media #{$lg-and-up} {
-	@for $i from 1 through $lg-columns {
+@media #{media-queries.$lg-and-up} {
+	@for $i from 1 through settings.$lg-columns {
 		.lg#{$i} {
 			grid-column-end: span $i;
 		}
@@ -138,7 +143,7 @@
 			grid-column-start: $i;
 		}
 
-		@if(in-array(masonry, $grid-settings)) {
+		@if(index.in-array(masonry, index.$grid-settings)) {
 			.tall-lg#{$i} {
 				grid-row-end: span $i;
 			}
@@ -146,8 +151,8 @@
 	}
 }
 
-@media #{$xl-and-up} {
-	@for $i from 1 through $xl-columns {
+@media #{media-queries.$xl-and-up} {
+	@for $i from 1 through settings.$xl-columns {
 		.xl#{$i} {
 			grid-column-end: span $i;
 		}
@@ -157,7 +162,7 @@
 			grid-column-start: $i;
 		}
 
-		@if(in-array(masonry, $grid-settings)) {
+		@if(index.in-array(masonry, index.$grid-settings)) {
 			.tall-xl#{$i} {
 				grid-row-end: span $i;
 			}

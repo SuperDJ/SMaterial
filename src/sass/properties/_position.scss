@@ -1,9 +1,11 @@
+@use './../index';
+
 $properties: (static, relative, absolute, sticky, fixed);
 
 // Make class
-@if(in-array(position, $property-settings)) {
+@if(index.in-array(position, index.$property-settings)) {
 	@each $property in $properties {
-		@if(in-array($property, $position-settings)) {
+		@if(index.in-array($property, index.$position-settings)) {
 			.position--#{$property} {
 				position: $property !important;
 			}

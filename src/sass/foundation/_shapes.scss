@@ -1,48 +1,51 @@
-@if(in-array(shapes, $foundation-settings)) {
+@use './../index';
+@use './../helpers/functions';
+
+@if(index.in-array(shapes, index.$foundation-settings)) {
 	.shape {
-		@if (in-array(square, $shape-settings)) {
+		@if (index.in-array(square, index.$shape-settings)) {
 			&--square {
-				border-radius: rem-calc($surface-corner);
+				border-radius: functions.rem-calc(index.$surface-corner);
 			}
 		}
 
-		@if (in-array(circle, $shape-settings)) {
+		@if (index.in-array(circle, index.$shape-settings)) {
 			&--circle {
 				border-radius: 50%;
 			}
 		}
 
-		@if (in-array(diamond, $shape-settings)) {
+		@if (index.in-array(diamond, index.$shape-settings)) {
 			&--diamond {
 				clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 			}
 		}
 
-		@if (in-array(triangle, $shape-settings)) {
+		@if (index.in-array(triangle, index.$shape-settings)) {
 			&--triangle {
 				clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 			}
 		}
 
-		@if (in-array(hexagon, $shape-settings)) {
+		@if (index.in-array(hexagon, index.$shape-settings)) {
 			&--hexagon {
 				clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 			}
 		}
 
-		@if (in-array(heptagon, $shape-settings)) {
+		@if (index.in-array(heptagon, index.$shape-settings)) {
 			&--heptagon {
 				clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
 			}
 		}
 
-		@if (in-array(octagon, $shape-settings)) {
+		@if (index.in-array(octagon, index.$shape-settings)) {
 			&--octagon {
 				clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 			}
 		}
 
-		@if (in-array(bevel, $shape-settings)) {
+		@if (index.in-array(bevel, index.$shape-settings)) {
 			&--bevel {
 				clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
 			}

@@ -1,6 +1,10 @@
+@use './../helpers/mixins';
+@use './../index';
+@use './../properties/display';
+
 html, body {
-    font-size: $font-size + 0px;
-	@include chain(padding, margin, 0);
+    font-size: index.$font-size + 0px;
+	@include mixins.chain(padding, margin, 0);
 	background: var(--background-color);
     color-adjust: exact;
     print-color-adjust: exact;
@@ -20,7 +24,7 @@ html, body {
 a {
     text-decoration: none;
     color: var(--primary-color);
-    transition: color .1s $easing-standard;
+    transition: color .1s index.$easing-standard;
 
     &:hover {
         color: var(--secondary-color);
@@ -38,39 +42,39 @@ img {
 }
 
 ::-webkit-scrollbar-button, ::-webkit-scrollbar-corner, ::-webkit-resizer {
-    @extend %display--none;
+    @extend display.%display--none;
 }
 
 ::-webkit-scrollbar {
-    width: rem-calc(3px);
-    height: rem-calc(3px);
+    width: index.rem-calc(3px);
+    height: index.rem-calc(3px);
 
-    @media #{$sm-up} {
-        width: rem-calc(10px);
-        height: rem-calc(10px);
+    @media #{index.$sm-up} {
+        width: index.rem-calc(10px);
+        height: index.rem-calc(10px);
     }
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-background);
 
-	@if($theme == light and in-array(dark, $media-themes)) {
-		@media #{$dark} {
-			--scrollbar-background: #{$dark-scrollbar-background};
+	@if(index.$theme == light and index.in-array(dark, index.$media-themes)) {
+		@media #{index.$dark} {
+			--scrollbar-background: #{index.$dark-scrollbar-background};
 		}
 	}
 
-	@if($theme == dark and in-array(light, $media-themes)) {
-		@media #{$light} {
-			--scrollbar-background: #{$light-scrollbar-background};
+	@if(index.$theme == dark and index.in-array(light, index.$media-themes)) {
+		@media #{index.$light} {
+			--scrollbar-background: #{index.$light-scrollbar-background};
 		}
 	}
 }
 
 :root {
-	--scrollbar-background: #{$scrollbar-background};
+	--scrollbar-background: #{index.$scrollbar-background};
 }
 
 ::selection {
-	background: rgba($primary-color, .12);
+	background: rgba(index.$primary-color, .12);
 }

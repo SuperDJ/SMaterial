@@ -1,43 +1,47 @@
-@if (in-array(card, $component-settings)) {
+@use './../index';
+@use './../helpers/functions';
+@use './../helpers/mixins';
+
+@if (index.in-array(card, index.$component-settings)) {
 	.card {
-		--card-background: #{$card-background};
-		--card-border-radius: #{$card-border-radius};
+		--card-background: #{index.$card-background};
+		--card-border-radius: #{index.$card-border-radius};
 
-		--card__thumbnail-size: #{$card__thumbnail-size};
+		--card__thumbnail-size: #{index.$card__thumbnail-size};
 
-		--card__header-padding: #{$card__header-padding};
+		--card__header-padding: #{index.$card__header-padding};
 
-		--card__title-color: #{$card__title-color};
+		--card__title-color: #{index.$card__title-color};
 
-		--card__subtitle-color: #{$card__subtitle-color};
+		--card__subtitle-color: #{index.$card__subtitle-color};
 
-		--card__content-color: #{$card__content-color};
-		--card__content-padding: #{$card__content-padding};
+		--card__content-color: #{index.$card__content-color};
+		--card__content-padding: #{index.$card__content-padding};
 
 		$el: &;
 		background: var(--card-background);
 		width: 100%;
 		@extend %z1;
 		border-radius: var(--card-border-radius);
-		transition: box-shadow $easing-standard .1s, background $easing-standard .1s;
+		transition: box-shadow index.$easing-standard .1s, background index.$easing-standard .1s;
 		@extend %display--block;
 		@extend %position--relative;
 		overflow: hidden;
 
-		@if ($theme == dark) {
+		@if (index.$theme == dark) {
 			@extend %overlay1;
 		}
 
 		&:hover {
 			@extend %z8;
 
-			@if ($theme == dark) {
+			@if (index.$theme == dark) {
 				@extend %overlay8;
 			}
 
 			// TODO fix to extend
-			@if ($theme == light and in-array(dark, $media-themes)) {
-				@media #{$dark} {
+			@if (index.$theme == light and index.in-array(dark, index.$media-themes)) {
+				@media #{index.$dark} {
 					@include overlay(8);
 				}
 			}
@@ -46,13 +50,13 @@
 		img#{$el}__thumbnail {
 			grid-area: thumbnail;
 			@extend %shape--circle;
-			@include chain(width, height, var(--card__thumbnail-size));
+			@include mixins.chain(width, height, var(--card__thumbnail-size));
 		}
 
 		&__header {
 			grid-area: header;
 			padding: var(--card__header-padding);
-			@include border-top-radius(var(--border-radius));
+			@include mixins.border-top-radius(var(--border-radius));
 		}
 
 		&__title {
@@ -87,10 +91,10 @@
 
 		&__actions {
 			grid-area: actions;
-			padding: 0 rem-calc(8px) rem-calc(8px) rem-calc(8px);
+			padding: 0 functions.rem-calc(8px) functions.rem-calc(8px) functions.rem-calc(8px);
 
 			> * {
-				margin-right: rem-calc(8px);
+				margin-right: functions.rem-calc(8px);
 			}
 		}
 
@@ -99,32 +103,32 @@
 		}
 
 		&--outlined {
-			border: rem-calc(1px) solid var(--divider-background);
+			border: functions.rem-calc(1px) solid var(--divider-background);
 			@extend %z0;
 
 			&#{$el}--no-hover:hover {
 				@extend %z0;
 
-				@media #{$dark} {
+				@media #{index.$dark} {
 					@include overlay(1);
 				}
 			}
 		}
 
 		&--top {
-			@include chain(border-top-left-radius, border-top-right-radius, var(--border-radius));
+			@include mixins.chain(border-top-left-radius, border-top-right-radius, var(--border-radius));
 		}
 
 		&--bottom {
-			@include chain(border-bottom-left-radius, border-bottom-right-radius, var(--border-radius));
+			@include mixins.chain(border-bottom-left-radius, border-bottom-right-radius, var(--border-radius));
 		}
 
 		&--left {
-			@include chain(border-bottom-left-radius, border-top-left-radius, var(--border-radius));
+			@include mixins.chain(border-bottom-left-radius, border-top-left-radius, var(--border-radius));
 		}
 
 		&--right {
-			@include chain(border-bottom-right-radius, border-top-right-radius, var(--border-radius));
+			@include mixins.chain(border-bottom-right-radius, border-top-right-radius, var(--border-radius));
 		}
 
 		&--no-hover:hover {
@@ -132,10 +136,10 @@
 		}
 
 		// TODO fix naming
-		@if (in-array(default, $card-settings)) {
+		@if (index.in-array(default, index.$card-settings)) {
 			&--default {
 				#{$el}__header {
-					height: rem-calc(72px);
+					height: functions.rem-calc(72px);
 					@extend %display--grid;
 					grid-template: "thumbnail title" "thumbnail subtitle";
 					grid-template-columns: calc(var(--card__header-padding) + var(--card__thumbnail-size)) 1fr;
@@ -143,69 +147,69 @@
 			}
 		}
 
-		@if (in-array(simple, $card-settings)) {
+		@if (index.in-array(simple, index.$card-settings)) {
 			&--simple {
 				@extend %display--grid;
 				grid-template: "header media" "content media" "actions actions";
-				grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
+				grid-template-columns: 1fr (functions.rem-calc(80px) + (2 * functions.rem-calc(16px)));
 
 				#{$el}__media {
-					padding: rem-calc(16px);
+					padding: functions.rem-calc(16px);
 
 					img {
-						@include chain(width, height, rem-calc(80px));
+						@include mixins.chain(width, height, functions.rem-calc(80px));
 					}
 				}
 			}
 		}
 
-		@if (in-array(overline, $card-settings)) {
+		@if (index.in-array(overline, index.$card-settings)) {
 			&--overline {
 				@extend %display--grid;
 				grid-template: "overline media" "header media" "content media" "actions actions";
-				grid-template-columns: 1fr (rem-calc(80px) + (2 * rem-calc(16px)));
+				grid-template-columns: 1fr (functions.rem-calc(80px) + (2 * functions.rem-calc(16px)));
 
 				.overline {
 					grid-area: overline;
-					padding: rem-calc(16px) rem-calc(16px) 0 rem-calc(16px);
+					padding: functions.rem-calc(16px) functions.rem-calc(16px) 0 functions.rem-calc(16px);
 				}
 
 				#{$el}__header {
-					padding: rem-calc(8px) rem-calc(16px) 0 rem-calc(16px);
+					padding: functions.rem-calc(8px) functions.rem-calc(16px) 0 functions.rem-calc(16px);
 				}
 
 				#{$el}__media {
-					padding: rem-calc(16px);
+					padding: functions.rem-calc(16px);
 
 					img {
-						@include chain(width, height, rem-calc(80px));
+						@include mixins.chain(width, height, functions.rem-calc(80px));
 					}
 				}
 			}
 		}
 
-		@if (in-array(album, $card-settings)) {
+		@if (index.in-array(album, index.$card-settings)) {
 			&--album {
 				@extend %display--grid;
 				grid-template: "media header" "content content";
-				grid-template-columns: rem-calc(80px) 1fr;
+				grid-template-columns: functions.rem-calc(80px) 1fr;
 
 				#{$el}__media img {
-					@include chain(width, height, rem-calc(80px));
+					@include mixins.chain(width, height, functions.rem-calc(80px));
 					border-top-left-radius: var(--border-radius);
 				}
 
 				#{$el}__content {
-					border: rem-calc(1px) solid rgba($black, .12);
+					border: functions.rem-calc(1px) solid rgba(index.$black, .12);
 				}
 
 				#{$el}__header {
-					height: rem-calc(80px);
+					height: functions.rem-calc(80px);
 				}
 			}
 		}
 
-		@if (in-array(media, $card-settings)) {
+		@if (index.in-array(media, index.$card-settings)) {
 			&--media {
 				@extend %position--relative;
 				@extend %display--flex;
@@ -218,7 +222,7 @@
 
 				#{$el}__container {
 					@extend %position--absolute;
-					background: rgba($white, .32);
+					background: rgba(index.$white, .32);
 
 					&--bottom {
 						align-self: flex-end;
@@ -228,25 +232,25 @@
 		}
 	}
 
-	@include dark-theme(card) {
-		--card-background: #{$card--dark-background};
+	@include mixins.dark-theme(card) {
+		--card-background: #{index.$card--dark-background};
 
-		--card__title-color: #{$card--dark__title-color};
+		--card__title-color: #{index.$card--dark__title-color};
 
-		--card__subtitle-color: #{$card--dark__subtitle-color};
+		--card__subtitle-color: #{index.$card--dark__subtitle-color};
 
-		--card__content-color: #{$card--dark__content-color};
+		--card__content-color: #{index.$card--dark__content-color};
 
-		@include overlay(1);
+		@include mixins.overlay(1);
 	}
 
-	@include light-theme(card) {
-		--card-background: #{$card--light-background};
+	@include mixins.light-theme(card) {
+		--card-background: #{index.$card--light-background};
 
-		--card__title-color: #{$card--light__title-color};
+		--card__title-color: #{index.$card--light__title-color};
 
-		--card__subtitle-color: #{$card--light__subtitle-color};
+		--card__subtitle-color: #{index.$card--light__subtitle-color};
 
-		--card__content-color: #{$card--light__content-color};
+		--card__content-color: #{index.$card--light__content-color};
 	}
 }

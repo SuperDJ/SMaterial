@@ -1,4 +1,6 @@
-@if(in-array(flex, $property-settings)) {
+@use './../index';
+
+@if(index.in-array(flex, index.$property-settings)) {
 	.flex {
 		display: flex;
 

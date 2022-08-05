@@ -1,7 +1,10 @@
-@if(in-array(variables, $color-settings) and in-array(colors, $color-settings)) {
+@use './../index';
+@use './colors';
+
+@if(index.in-array(variables, index.$color-settings) and index.in-array(colors, index.$color-settings)) {
 	:root {
-		@each $color-name, $color-swatch in $colors {
-			@if(in-array($color-name, $color-settings)) {
+		@each $color-name, $color-swatch in colors.$colors {
+			@if(index.in-array($color-name, index.$color-settings)) {
 				@each $color-type, $color-value in $color-swatch {
 					// Since base and 500 color are equal merge them together
 					@if ($color-type == 'base') {

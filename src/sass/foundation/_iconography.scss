@@ -1,8 +1,12 @@
-@if(in-array(icons, $foundation-settings)) {
+@use './../index';
+@use './../helpers/functions';
+@use './../helpers/mixins';
+
+@if(index.in-array(icons, index.$foundation-settings)) {
 	.icon {
 		color: var(--icon-color);
 		vertical-align: middle;
-		@include chain(width, height, font-size, var(--icon-size));
+		@include mixins.chain(width, height, font-size, var(--icon-size));
 
 		&:active {
 			color: var(--icon--active-color);
@@ -12,47 +16,47 @@
 			color: var(--icon--active--focus-color);
 		}
 
-		@if (in-array(18, $icon-settings)) {
+		@if (index.in-array(18, index.$icon-settings)) {
 			&--18 {
-				--icon-size: #{rem-calc(18px)};
+				--icon-size: #{functions.rem-calc(18px)};
 			}
 		}
 
-		@if (in-array(24, $icon-settings)) {
+		@if (index.in-array(24, index.$icon-settings)) {
 			&--24 {
-				--icon-size: #{rem-calc(24px)};
+				--icon-size: #{functions.rem-calc(24px)};
 			}
 		}
 
-		@if (in-array(36, $icon-settings)) {
+		@if (index.in-array(36, index.$icon-settings)) {
 			&--36 {
-				--icon-size: #{rem-calc(36px)};
+				--icon-size: #{functions.rem-calc(36px)};
 			}
 		}
 
-		@if (in-array(48, $icon-settings)) {
+		@if (index.in-array(48, index.$icon-settings)) {
 			&--48 {
-				--icon-size: #{rem-calc(48px)};
+				--icon-size: #{functions.rem-calc(48px)};
 			}
 		}
 	}
 
 	:root {
-		--icon-size: #{$icon-size};
-		--icon-color: #{$icon-color};
-		--icon--active-color: #{$icon--active-color};
-		--icon--active--focus-color: #{$icon--active--focus-color};
+		--icon-size: #{index.$icon-size};
+		--icon-color: #{index.$icon-color};
+		--icon--active-color: #{index.$icon--active-color};
+		--icon--active--focus-color: #{index.$icon--active--focus-color};
 	}
 
-	@include dark-theme(icon) {
-		--icon-color: #{$dark-icon-color};
-		--icon--active-color: #{$dark-icon--active-color};
-		--icon--active--focus-color: #{$dark-icon--active--focus-color};
+	@include mixins.dark-theme(icon) {
+		--icon-color: #{index.$dark-icon-color};
+		--icon--active-color: #{index.$dark-icon--active-color};
+		--icon--active--focus-color: #{index.$dark-icon--active--focus-color};
 	}
 
-	@include light-theme(icon) {
-		--icon-color: #{$light-icon-color};
-		--icon--active-color: #{$light-icon--active-color};
-		--icon--active--focus-color: #{$light-icon--active--focus-color};
+	@include mixins.light-theme(icon) {
+		--icon-color: #{index.$light-icon-color};
+		--icon--active-color: #{index.$light-icon--active-color};
+		--icon--active--focus-color: #{index.$light-icon--active--focus-color};
 	}
 }
