@@ -45,3 +45,6 @@ How you can do this is shown below, the full list of classes can be found in `sr
 For SASS you can simply edit defined arrays which specify the used components.
 For example copy and paste the following variable into your own sass file: `$icon-settings: (18, 24, 36, 48);`.
 If you then delete `18` the class `.icon--18` will not be included in the outputted CSS file.
+
+# Created using
+PHPStorm

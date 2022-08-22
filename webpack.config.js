@@ -1,5 +1,6 @@
 const
 	autoprefixer = require('autoprefixer'),
+	ESLintPlugin = require('eslint-webpack-plugin'),
 	{ CleanWebpackPlugin } = require('clean-webpack-plugin'),
 	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
 	path = require('path'),
@@ -38,12 +39,6 @@ module.exports = {    optimization: {
 				exclude: ['/node_modules/', '/dist/', '/src/css', '/docs'],
 				use: [
 					'babel-loader',
-					{
-						loader: 'eslint-loader',
-						options: {
-							fix: true
-						}
-					}
 				],
 			},
 			{
@@ -90,6 +85,7 @@ module.exports = {    optimization: {
 		}),
 		new CleanWebpackPlugin({
 			cleanOnceBeforeBuildPatterns: ['dist/']
-		})
+		}),
+		new ESLintPlugin()
 	]
 };
