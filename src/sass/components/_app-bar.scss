@@ -4,7 +4,7 @@
 @use './../properties/display';
 @use './../grid/media-queries';
 
-@if(index.in-array(app-bar, index.$component-settings)) {
+@if(functions.in-array(app-bar, index.$component-settings)) {
 	.app-bar {
 		$el: &;
 		--app-bar-background: #{settings.$app-bar-background};
@@ -23,7 +23,7 @@
 		grid-template-columns: functions.rem-calc(24px) 1fr auto 1fr;
 		margin-bottom: calc(var(--app-bar-height) * -1);
 
-		@if(index.in-array(title, index.$app-bar-settings)) {
+		@if(functions.in-array(title, index.$app-bar-settings)) {
 			&__title {
 				grid-column-start: 2;
 				@extend %h6;
@@ -33,7 +33,7 @@
 			}
 		}
 
-		@if(index.in-array(actions, index.$app-bar-settings)) {
+		@if(functions.in-array(actions, index.$app-bar-settings)) {
 			&__actions {
 				grid-column-start: 4;
 				justify-content: flex-end;
@@ -45,7 +45,7 @@
 			}
 		}
 
-		@if(index.in-array(fixed, index.$app-bar-settings)) {
+		@if(functions.in-array(fixed, index.$app-bar-settings)) {
 			&--fixed {
 				@extend %position--fixed;
 				top: 0;
@@ -60,7 +60,7 @@
 			--icon-size: #{functions.rem-calc(24px)};
 		}
 
-		@if(index.in-array(fixed, index.$drawer-settings)) {
+		@if(functions.in-array(fixed, index.$drawer-settings)) {
 			&--drawer-fixed {
 				@media #{media-queries.$sm-up} {
 					#{$el}__title {

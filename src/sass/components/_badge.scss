@@ -4,7 +4,7 @@
 @use './../properties/position';
 @use './../helpers/mixins';
 
-@if(index.in-array(badge, index.$component-settings)) {
+@if(functions.in-array(badge, index.$component-settings)) {
 	.badge {
 		--badge-font-size: #{functions.rem-calc(10px)};
 		--badge-color: #{colors.$white};

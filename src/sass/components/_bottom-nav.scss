@@ -2,7 +2,7 @@
 @use './../helpers/mixins';
 @use './../foundation/settings';
 
-@if (index.in-array(bottom-nav, index.$component-settings)) {
+@if (functions.in-array(bottom-nav, index.$component-settings)) {
 	.bottom-nav {
 		--bottom-nav-background: #{settings.$bottom-nav-background};
 		--bottom-nav-height: #{settings.$bottom-nav-height};

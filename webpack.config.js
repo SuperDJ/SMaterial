@@ -3,7 +3,7 @@ const
 	{ CleanWebpackPlugin } = require('clean-webpack-plugin'),
 	MiniCSSExtractPlugin = require('mini-css-extract-plugin'),
 	path = require('path'),
-	TerserPlugin = require("terser-webpack-plugin");
+	TerserPlugin = require('terser-webpack-plugin');
 
 const OUTPUT_DIR = path.resolve(__dirname, 'docs');
 
@@ -68,7 +68,7 @@ module.exports = {    optimization: {
 					{
 						loader: 'sass-loader',
 						options: {
-							implementation: require("sass"),
+							implementation: require('sass'),
 							sourceMap: true
 						}
 					}

@@ -1,5 +1,6 @@
 @use './../index';
 @use './../helpers/mixins';
+@use './../colors/colors';
 
 @mixin ripple() {
     @extend %position--relative;
@@ -32,8 +33,8 @@
 }
 
 :root {
-    --ripple--hover-background: #{rgba(index.$white, .08)};
+    --ripple--hover-background: #{rgba(colors.$white, .08)};
     //--ripple--focus-background: #{rgba($white, .24)};
-    --ripple--active-background: #{rgba(index.$white, .32)};
+    --ripple--active-background: #{rgba(colors.$white, .32)};
    // --ripple--disabled-background: #{rgba($white, .38)};
 }

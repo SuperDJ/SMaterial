@@ -1,9 +1,11 @@
-@use './../helpers/mixins';
 @use './../index';
+@use './../helpers/mixins';
+@use './../helpers/functions';
 @use './../properties/display';
+@use './../foundation/settings';
 
 html, body {
-    font-size: index.$font-size + 0px;
+    font-size: settings.$font-size + 0px;
 	@include mixins.chain(padding, margin, 0);
 	background: var(--background-color);
     color-adjust: exact;
@@ -16,7 +18,7 @@ html, body {
     border: none;
 
     &:disabled, &[class*="disabled"] {
-        cursor: not-allowed; // TODO remove important when possible
+        cursor: not-allowed;
 		pointer-events: none;
     }
 }
@@ -24,7 +26,7 @@ html, body {
 a {
     text-decoration: none;
     color: var(--primary-color);
-    transition: color .1s index.$easing-standard;
+    transition: color .1s settings.$easing-standard;
 
     &:hover {
         color: var(--secondary-color);
@@ -46,35 +48,35 @@ img {
 }
 
 ::-webkit-scrollbar {
-    width: index.rem-calc(3px);
-    height: index.rem-calc(3px);
+    width: functions.rem-calc(3px);
+    height: functions.rem-calc(3px);
 
     @media #{index.$sm-up} {
-        width: index.rem-calc(10px);
-        height: index.rem-calc(10px);
+        width: functions.rem-calc(10px);
+        height: functions.rem-calc(10px);
     }
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-background);
 
-	@if(index.$theme == light and index.in-array(dark, index.$media-themes)) {
-		@media #{index.$dark} {
+	@if(settings.$theme == light and functions.in-array(dark, index.$media-themes)) {
+		@media #{settings.$dark} {
 			--scrollbar-background: #{index.$dark-scrollbar-background};
 		}
 	}
 
-	@if(index.$theme == dark and index.in-array(light, index.$media-themes)) {
-		@media #{index.$light} {
-			--scrollbar-background: #{index.$light-scrollbar-background};
+	@if(settings.$theme == dark and functions.in-array(light, index.$media-themes)) {
+		@media #{settings.$light} {
+			--scrollbar-background: #{settings.$light-scrollbar-background};
 		}
 	}
 }
 
 :root {
-	--scrollbar-background: #{index.$scrollbar-background};
+	--scrollbar-background: #{settings.$scrollbar-background};
 }
 
 ::selection {
-	background: rgba(index.$primary-color, .12);
+	background: rgba(settings.$primary-color, .12);
 }

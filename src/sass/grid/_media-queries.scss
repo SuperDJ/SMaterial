@@ -1,4 +1,3 @@
-@use './../index';
 @use './../foundation/settings';
 
 $xs-only: "only screen and (max-width: #{settings.$xs-max-width})";

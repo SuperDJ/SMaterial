@@ -1,2 +1,22 @@
+@forward 'index';
+@forward 'colors/index';
+
+@forward 'properties/index';
+
+@forward 'helpers/index';
+
+@forward 'foundation/settings';
+
+@forward 'grid/index';
+
+@forward 'foundation/normalize';
+@forward 'foundation/typography';
+@forward 'foundation/shapes';
+@forward 'foundation/shadows';
+@forward 'foundation/variables';
+@forward 'foundation/ripple';
+@forward 'foundation/iconography';
+
+@forward 'components/index';
+
 $theme: dark;
-@use 'index';

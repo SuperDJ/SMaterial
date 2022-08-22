@@ -41,7 +41,7 @@
 		--margin: #{functions.rem-calc( index.$xl-margin + 0px )};
 	}
 
-	@if(index.$theme == light and index.in-array(dark, index.$media-themes)) {
+	@if(index.$theme == light and functions.in-array(dark, index.$media-themes)) {
 		@media #{index.$dark} {
 			--primary-color: #{index.$dark-primary-color};
 			--primary-color-variant: #{index.$dark-primary-color-variant};
@@ -60,7 +60,7 @@
 		}
 	}
 
-	@if(index.$theme == dark and index.in-array(light, index.$media-themes)) {
+	@if(index.$theme == dark and functions.in-array(light, index.$media-themes)) {
 		@media #{index.$light} {
 			--primary-color: #{index.$light-primary-color};
 			--primary-color-variant: #{index.$light-primary-color-variant};

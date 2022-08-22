@@ -2,7 +2,7 @@
 @use './../helpers/mixins';
 @use './../colors/colors';
 
-@if (index.in-array(bottom-sheet, index.$component-settings)) {
+@if (functions.in-array(bottom-sheet, index.$component-settings)) {
 	.bottom-sheet {
 		--bottom-sheet-width: #{index.$bottom-sheet-width};
 		--bottom-sheet-min-height: #{index.$bottom-sheet-min-height};
@@ -18,14 +18,14 @@
 
 		--bottom-sheet__content-color: #{index.$bottom-sheet__content-color};
 
-		@if (index.in-array(list, index.$bottom-sheet-settings)) {
+		@if (functions.in-array(list, index.$bottom-sheet-settings)) {
 			--bottom-sheet--list__item-height: #{index.$bottom-sheet--list__item-height};
 			--bottom-sheet--list__icon-margin: #{index.$bottom-sheet--list__icon-margin};
 			--bottom-sheet--list__content-size: #{index.$bottom-sheet--list__content-size};
 			--bottom-sheet--list__content-margin: #{index.$bottom-sheet--list__content-margin};
 		}
 
-		@if (index.in-array(grid, index.$bottom-sheet-settings)) {
+		@if (functions.in-array(grid, index.$bottom-sheet-settings)) {
 			--bottom-sheet--grid-padding: #{index.$bottom-sheet--grid-padding};
 			--bottom-sheet--grid__icon-size: #{index.$bottom-sheet--grid__icon-size};
 			--bottom-sheet--grid__content-padding: #{index.$bottom-sheet--grid__content-padding};
@@ -65,7 +65,7 @@
 			pointer-events: all;
 		}
 
-		@if (index.in-array(list, index.$bottom-sheet-settings)) {
+		@if (functions.in-array(list, index.$bottom-sheet-settings)) {
 			&--list {
 				#{$el}__item {
 					height: var(--bottom-sheet--list__item-height);
@@ -86,7 +86,7 @@
 			}
 		}
 
-		@if (index.in-array(grid, index.$bottom-sheet-settings)) {
+		@if (functions.in-array(grid, index.$bottom-sheet-settings)) {
 			&--grid {
 				@extend %display--grid;
 				padding: var(--bottom-sheet--grid-padding);

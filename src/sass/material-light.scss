@@ -1,2 +1,21 @@
+@use 'colors/index';
+
+@use 'properties/index';
+
+@use 'helpers/index';
+
+@use 'foundation/settings';
+
+@use 'grid/index';
+
+@use 'foundation/normalize';
+@use 'foundation/typography';
+@use 'foundation/shapes';
+@use 'foundation/shadows';
+@use 'foundation/variables';
+@use 'foundation/ripple';
+@use 'foundation/iconography';
+
+@use 'components/index';
+
 $theme: light;
-@use 'index';

@@ -1,9 +1,10 @@
 @use './../index';
 @use './../helpers/functions';
+@use './../foundation/settings';
 
-@each $scale, $setting in index.$type-scale {
+@each $scale, $setting in settings.$type-scale {
 	%#{$scale} {
-		@if($scale == body-1 or map-get( map-get(index$type-scale, body-1), typeface) != map-get($setting, typeface)) {
+		@if($scale == body-1 or map-get( map-get(settings.$type-scale, body-1), typeface) != map-get($setting, typeface)) {
 			font-family: var(#{--#{$scale}-font-family}), sans-serif;
 		}
 		line-height: functions.rem-calc(( map-get( $setting, size ) * 1.4 ) + 0px);
@@ -25,80 +26,80 @@
 	}
 }
 
-@if (index.in-array(typography, index.$foundation-settings)) {
-	@if (index.in-array(h1, index.$typography-settings)) {
+@if (functions.in-array(typography, index.$foundation-settings)) {
+	@if (functions.in-array(h1, index.$typography-settings)) {
 		h1, .h1 {
 			@extend %h1, %text-high;
 		}
 	}
 
-	@if (index.in-array(h2, index.$typography-settings)) {
+	@if (functions.in-array(h2, index.$typography-settings)) {
 		h2, .h2 {
 			@extend %h2, %text-high;
 		}
 	}
 
-	@if (index.in-array(h3, index.$typography-settings)) {
+	@if (functions.in-array(h3, index.$typography-settings)) {
 		h3, .h3 {
 			@extend %h3, %text-high;
 		}
 	}
 
-	@if (index.in-array(h4, index.$typography-settings)) {
+	@if (functions.in-array(h4, index.$typography-settings)) {
 		h4, .h4 {
 			@extend %h4, %text-high;
 		}
 	}
 
-	@if (index.in-array(h5, index.$typography-settings)) {
+	@if (functions.in-array(h5, index.$typography-settings)) {
 		h5, .h5 {
 			@extend %h5, %text-high;
 		}
 	}
 
-	@if (index.in-array(h6, index.$typography-settings)) {
+	@if (functions.in-array(h6, index.$typography-settings)) {
 		h6, .h6 {
 			@extend %h6, %text-high;
 		}
 	}
 
-	@if (index.in-array(subtitle-1, index.$typography-settings)) {
+	@if (functions.in-array(subtitle-1, index.$typography-settings)) {
 		.subtitle-1 {
 			@extend %subtitle-1;
 		}
 	}
 
-	@if (index.in-array(subtitle-2, index.$typography-settings)) {
+	@if (functions.in-array(subtitle-2, index.$typography-settings)) {
 		.subtitle-2 {
 			@extend %subtitle-2;
 		}
 	}
 
-	@if (index.in-array(body-1, index.$typography-settings)) {
+	@if (functions.in-array(body-1, index.$typography-settings)) {
 		body, .body-1 {
 			@extend %body-1, %text-medium;
 		}
 	}
 
-	@if (index.in-array(body-2, index.$typography-settings)) {
+	@if (functions.in-array(body-2, index.$typography-settings)) {
 		.body-2 {
 			@extend %body-2;
 		}
 	}
 
-	@if (index.in-array(caption, index.$typography-settings)) {
+	@if (functions.in-array(caption, index.$typography-settings)) {
 		.caption {
 			@extend %caption;
 		}
 	}
 
-	@if (index.in-array(overline, index.$typography-settings)) {
+	@if (functions.in-array(overline, index.$typography-settings)) {
 		.overline {
 			@extend %overline;
 		}
 	}
 
-	@if (index.in-array(body-1, index.$typography-settings)) {
+	@if (functions.in-array(body-1, index.$typography-settings)) {
 		p {
 			@extend %body-1;
 			margin: 0 0 calc(#{map-get( map-get(index.$type-scale, body-1), size ) + 0px } * .75) 0;
@@ -106,19 +107,19 @@
 	}
 
 	.text {
-		@if (index.in-array(left, index.$typography-settings)) {
+		@if (functions.in-array(left, index.$typography-settings)) {
 			&--left {
 				text-align: left !important;
 			}
 		}
 
-		@if (index.in-array(center, index.$typography-settings)) {
+		@if (functions.in-array(center, index.$typography-settings)) {
 			&--center {
 				text-align: center !important;
 			}
 		}
 
-		@if (index.in-array(right, index.$typography-settings)) {
+		@if (functions.in-array(right, index.$typography-settings)) {
 			&--right {
 				text-align: right !important;
 			}
@@ -126,41 +127,41 @@
 	}
 
 	:root {
-		--font-family: #{index.$font-family};
+		--font-family: #{settings.$font-family};
 
-		@each $scale, $setting in index.$type-scale {
-			@if (index.in-array($scale, index.$typography-settings)) {
-				--#{$scale}-font-family: #{if( map-get( $setting, typeface ) == index.$font-family, var(--font-family), map-get($setting, typeface) )};
+		@each $scale, $setting in settings.$type-scale {
+			@if (functions.in-array($scale, index.$typography-settings)) {
+				--#{$scale}-font-family: #{if( map-get( $setting, typeface ) == settings.$font-family, var(--font-family), map-get($setting, typeface) )};
 			}
 		}
 	}
 }
 
 %text-high {
-	color: rgba(index.$font-on-background, .87);
+	color: rgba(settings.$font-on-background, .87);
 
-	@if(index.$theme == light and index.in-array(dark, index.$media-themes)) {
-		@media #{index.$dark} {
-			color: rgba(index.$dark-font-on-background, .87);
+	@if(index.$theme == light and functions.in-array(dark, index.$media-themes)) {
+		@media #{settings.$dark} {
+			color: rgba(settings.$dark-font-on-background, .87);
 		}
 	}
 }
 
 %text-medium {
-	color: rgba(index.$font-on-background, .6);
+	color: rgba(settings.$font-on-background, .6);
 
-	@if(index.$theme == light and index.in-array(dark, index.$media-themes)) {
+	@if(settings.$theme == light and functions.in-array(dark, index.$media-themes)) {
 		@media #{index.$dark} {
-			color: rgba(index.$dark-font-on-background, .6);
+			color: rgba(settings.$dark-font-on-background, .6);
 		}
 	}
 }
 
 %text-disabled {
-	color: rgba(index.$font-on-background, .38);
+	color: rgba(settings.$font-on-background, .38);
 
-	@if(index.$theme == light and index.in-array(dark, index.$media-themes)) {
-		@media #{index.$dark} {
+	@if(settings.$theme == light and functions.in-array(dark, index.$media-themes)) {
+		@media #{settings.$dark} {
 			color: rgba(index.$dark-font-on-background, .38);
 		}
 	}

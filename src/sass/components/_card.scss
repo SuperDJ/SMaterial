@@ -2,7 +2,7 @@
 @use './../helpers/functions';
 @use './../helpers/mixins';
 
-@if (index.in-array(card, index.$component-settings)) {
+@if (functions.in-array(card, index.$component-settings)) {
 	.card {
 		--card-background: #{index.$card-background};
 		--card-border-radius: #{index.$card-border-radius};
@@ -40,7 +40,7 @@
 			}
 
 			// TODO fix to extend
-			@if (index.$theme == light and index.in-array(dark, index.$media-themes)) {
+			@if (index.$theme == light and functions.in-array(dark, index.$media-themes)) {
 				@media #{index.$dark} {
 					@include overlay(8);
 				}
@@ -136,7 +136,7 @@
 		}
 
 		// TODO fix naming
-		@if (index.in-array(default, index.$card-settings)) {
+		@if (functions.in-array(default, index.$card-settings)) {
 			&--default {
 				#{$el}__header {
 					height: functions.rem-calc(72px);
@@ -147,7 +147,7 @@
 			}
 		}
 
-		@if (index.in-array(simple, index.$card-settings)) {
+		@if (functions.in-array(simple, index.$card-settings)) {
 			&--simple {
 				@extend %display--grid;
 				grid-template: "header media" "content media" "actions actions";
@@ -163,7 +163,7 @@
 			}
 		}
 
-		@if (index.in-array(overline, index.$card-settings)) {
+		@if (functions.in-array(overline, index.$card-settings)) {
 			&--overline {
 				@extend %display--grid;
 				grid-template: "overline media" "header media" "content media" "actions actions";
@@ -188,7 +188,7 @@
 			}
 		}
 
-		@if (index.in-array(album, index.$card-settings)) {
+		@if (functions.in-array(album, index.$card-settings)) {
 			&--album {
 				@extend %display--grid;
 				grid-template: "media header" "content content";
@@ -209,7 +209,7 @@
 			}
 		}
 
-		@if (index.in-array(media, index.$card-settings)) {
+		@if (functions.in-array(media, index.$card-settings)) {
 			&--media {
 				@extend %position--relative;
 				@extend %display--flex;

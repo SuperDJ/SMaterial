@@ -1,6 +1,7 @@
 @use './../index';
+@use './../helpers/functions';
 
-@if(index.in-array(flex, index.$property-settings)) {
+@if(functions.in-array(flex, index.$property-settings)) {
 	.flex {
 		display: flex;
 

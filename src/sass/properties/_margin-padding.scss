@@ -5,10 +5,10 @@ $properties: (margin, padding);
 $directions: (top, left, bottom, right);
 
 // Make classes
-@if(index.in-array(mp, index.$property-settings)) {
+@if(functions.in-array(mp, index.$property-settings)) {
 	@each $size in index.$margin-padding-sizes {
 		@each $property in $properties {
-			@if(index.in-array($property, index.$mp-settings)) {
+			@if(functions.in-array($property, index.$mp-settings)) {
 				.#{$property}--#{$size} {
 					#{$property}: functions.rem-calc($size);
 				}
@@ -17,7 +17,7 @@ $directions: (top, left, bottom, right);
 
 		@each $direction in $directions {
 			@each $property in $properties {
-				@if(index.in-array($property, index.$mp-settings)) {
+				@if(functions.in-array($property, index.$mp-settings)) {
 					.#{$property}--#{$direction}-#{$size} {
 						#{$property}-#{$direction}: functions.rem-calc($size);
 					}

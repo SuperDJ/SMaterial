@@ -1,17 +1,4 @@
 //Check if value is in a array
-// TODO place in some partial file
-@function in-array( $value, $array ) {
-	@if(type_of($array) == list and index($array, $value)) {
-		@return true;
-	}
-
-	@if(type_of($array) == map and map_has_key($array, $value))
-	{
-		@return true;
-	}
-
-	@return false;
-}
 
 $media-themes: (dark, light) !default;
 $class-themes: (dark, light) !default;
@@ -56,23 +43,3 @@ $mp-settings: (margin, padding) !default;
 $margin-padding-sizes: (0, 4, 8, 12, 16, 20, 24);
 $position-settings: (static, relative, absolute, sticky, fixed) !default;
 $white-space-settings: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit) !default;
-
-@use'colors/index';
-
-@use'properties/index';
-
-@use'helpers/index';
-
-@use'foundation/settings';
-
-@use'grid/index';
-
-@use'foundation/normalize';
-@use'foundation/typography';
-@use'foundation/shapes';
-@use'foundation/shadows';
-@use'foundation/variables';
-@use'foundation/ripple';
-@use'foundation/iconography';
-
-@use'components/index';

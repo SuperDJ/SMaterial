@@ -2,6 +2,7 @@
 @use './../foundation/settings';
 @use './media-queries';
 @use './../properties/display';
+@use './../helpers/functions';
 
 .container {
 	--container--large-width: 80%;
@@ -16,14 +17,14 @@
 		margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc((100% - var(--container--large-width)) / 2);
 	}
 
-	@if(index.in-array(fluid, index.$grid-settings)) {
+	@if(functions.in-array(fluid, index.$grid-settings)) {
 		&--fluid {
 			width: 100%;
 			margin: var(--app-bar-height) 0 0 0;
 		}
 	}
 
-	@if(index.in-array(fixed, index.$drawer-settings)) {
+	@if(functions.in-array(fixed, index.$drawer-settings)) {
 		&-drawer--fixed {
 			@media #{media-queries.$sm-up} {
 				margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc(calc((100% - var(--container--large-width)) / 2) + var(--drawer-width));
@@ -32,7 +33,7 @@
 		}
 	}
 
-	@if(index.in-array(fluid, index.$grid-settings) and index.in-array(fixed, index.$drawer-settings)) {
+	@if(functions.in-array(fluid, index.$grid-settings) and functions.in-array(fixed, index.$drawer-settings)) {
 		&--fluid#{$el}-drawer--fixed {
 			@media #{media-queries.$sm-up} {
 				width: calc(100% - var(--drawer-width));
@@ -87,7 +88,7 @@
 		grid-column-start: $i;
 	}
 
-	@if(index.in-array(masonry, index.$grid-settings)) {
+	@if(functions.in-array(masonry, index.$grid-settings)) {
 		.tall-xs#{$i} {
 			grid-row-end: span $i;
 		}
@@ -105,7 +106,7 @@
 			grid-column-start: $i;
 		}
 
-		@if(index.in-array(masonry, index.$grid-settings)) {
+		@if(functions.in-array(masonry, index.$grid-settings)) {
 			.tall-sm#{$i} {
 				grid-row-end: span $i;
 			}
@@ -124,7 +125,7 @@
 			grid-column-start: $i;
 		}
 
-		@if(index.in-array(masonry, index.$grid-settings)) {
+		@if(functions.in-array(masonry, index.$grid-settings)) {
 			.tall-md#{$i} {
 				grid-row-end: span $i;
 			}
@@ -143,7 +144,7 @@
 			grid-column-start: $i;
 		}
 
-		@if(index.in-array(masonry, index.$grid-settings)) {
+		@if(functions.in-array(masonry, index.$grid-settings)) {
 			.tall-lg#{$i} {
 				grid-row-end: span $i;
 			}
@@ -162,7 +163,7 @@
 			grid-column-start: $i;
 		}
 
-		@if(index.in-array(masonry, index.$grid-settings)) {
+		@if(functions.in-array(masonry, index.$grid-settings)) {
 			.tall-xl#{$i} {
 				grid-row-end: span $i;
 			}

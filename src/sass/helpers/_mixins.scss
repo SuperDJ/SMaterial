@@ -1,5 +1,6 @@
 @use './../index';
 @use './../foundation/settings';
+@use './../colors/colors';
 @use './functions';
 
 @mixin responsive-ratio($x,$y, $pseudo: false) {
@@ -89,7 +90,7 @@
 }
 
 @mixin overlay( $depth ) {
-	@if(not index.in-array($depth, settings.$elevation-overlay)) {
+	@if(not functions.in-array($depth, settings.$elevation-overlay)) {
 		@error '#{$depth} not available';
 	}
 
@@ -99,7 +100,7 @@
 		@include chain(width, height, 100%);
 		position: absolute;
 		$alpha: map_get(settings.$elevation-overlay, $depth);
-		background: rgba(settings.$white, $alpha);
+		background: rgba(colors.$white, $alpha);
 		transition: background settings.$easing-standard .1s;
 		pointer-events: none;
 		// TODO fix height to equal to that of the parent
@@ -107,15 +108,15 @@
 }
 
 @mixin dark-theme( $class ) {
-	@if(settings.$theme == light and index.in-array(dark, index.$media-themes)) {
+	@if(settings.$theme == light and functions.in-array(dark, index.$media-themes)) {
 		.#{$class} {
-			@media #{index.$dark} {
+			@media #{settings.$dark} {
 				@content;
 			}
 		}
 	}
 
-	@if(settings.$theme == light and index.in-array(dark, index.$class-themes)) {
+	@if(settings.$theme == light and functions.in-array(dark, index.$class-themes)) {
 		.#{$class}--dark, .dark.#{$class}, .dark .#{$class} {
 			@content;
 		}
@@ -123,15 +124,15 @@
 }
 
 @mixin light-theme( $class ) {
-	@if(settings.$theme == dark and index.in-array(light, index.$media-themes)) {
+	@if(settings.$theme == dark and functions.in-array(light, index.$media-themes)) {
 		.#{$class} {
-			@media #{index.$light} {
+			@media #{settings.$light} {
 				@content;
 			}
 		}
 	}
 
-	@if(index.$theme == dark and index.in-array(light, index.$class-themes)) {
+	@if(settings.$theme == dark and functions.in-array(light, index.$class-themes)) {
 		.#{$class}--light, .light.#{$class}, .light .#{$class} {
 			@content;
 		}

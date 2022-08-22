@@ -4,26 +4,26 @@
 @use './../foundation/settings';
 @use './../grid/media-queries';
 
-@if(index.in-array(banner, index.$component-settings)) {
+@if(functions.in-array(banner, index.$component-settings)) {
 	.banner {
 		--banner-background: #{settings.$banner-background};
 		--banner-color: #{settings.$banner-color};
 
 		--banner__actions-margin: #{settings.$banner__actions-margin};
 
-		@if (index.in-array(single, index.$banner-settings)) {
+		@if (functions.in-array(single, index.$banner-settings)) {
 			--banner--single-line-height: #{settings.$banner--single-line-height};
 			--banner--single-line__content-padding: #{settings.$banner--single-line__content-padding};
 			--banner--single-line__actions-padding: #{settings.$banner--single-line__actions-padding};
 		}
 
-		@if (index.in-array(mutli, index.$banner-settings)) {
+		@if (functions.in-array(mutli, index.$banner-settings)) {
 			--banner--multi-line-height: #{settings.$banner--multi-line-height};
 			--banner--multi-line__content-padding: #{settings.$banner--multi-line__content-padding};
 			--banner--multi-line__actions-padding: #{settings.$banner--multi-line__actions-padding};
 		}
 
-		@if (index.in-array(image, index.$banner-settings)) {
+		@if (functions.in-array(image, index.$banner-settings)) {
 			--banner--image-multi-line-height: #{settings.$banner--image-multi-line-height};
 			--banner--image-multi-line__img-size: #{settings.$banner--image-multi-line__img-size};
 			--banner--image-multi-line__image-padding: #{settings.$banner--image-multi-line__image-padding};
@@ -45,7 +45,7 @@
 		@extend %body-2, %divider-bottom-border;
 		color: var(--banner-color);
 
-		@if (index.in-array(single, index.$banner-settings)) {
+		@if (functions.in-array(single, index.$banner-settings)) {
 			&--single-line {
 				@extend %display--grid;
 				grid-template-columns: 1fr auto;
@@ -65,7 +65,7 @@
 			}
 		}
 
-		@if (index.in-array(multi, index.$banner-settings)) {
+		@if (functions.in-array(multi, index.$banner-settings)) {
 			&--multi-line {
 				height: var(--banner--multi-line-height);
 
@@ -96,7 +96,7 @@
 			}
 		}
 
-		@if (index.in-array(image, index.$banner-settings)) {
+		@if (functions.in-array(image, index.$banner-settings)) {
 			&--image-multi-line {
 				height: var(--banner--image-multi-line-height);
 				@extend %display--grid;
