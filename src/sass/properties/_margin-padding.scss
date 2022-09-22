@@ -1,22 +1,25 @@
+@use '../helpers/functions';
+@use '../index';
+
 $properties: (margin, padding);
 $directions: (top, left, bottom, right);
 
 // Make classes
-@if(in-array(mp, $property-settings)) {
-	@each $size in $margin-padding-sizes {
+@if(functions.in-array(mp, index.$property-settings)) {
+	@each $size in index.$margin-padding-sizes {
 		@each $property in $properties {
-			@if(in-array($property, $mp-settings)) {
+			@if(functions.in-array($property, index.$mp-settings)) {
 				.#{$property}--#{$size} {
-					#{$property}: rem-calc($size);
+					#{$property}: functions.rem-calc($size);
 				}
 			}
 		}
 
 		@each $direction in $directions {
 			@each $property in $properties {
-				@if(in-array($property, $mp-settings)) {
+				@if(functions.in-array($property, index.$mp-settings)) {
 					.#{$property}--#{$direction}-#{$size} {
-						#{$property}-#{$direction}: rem-calc($size);
+						#{$property}-#{$direction}: functions.rem-calc($size);
 					}
 				}
 			}
@@ -25,17 +28,17 @@ $directions: (top, left, bottom, right);
 }
 
 // Make extends
-@each $size in $margin-padding-sizes {
+@each $size in index.$margin-padding-sizes {
 	@each $property in $properties {
 		%#{$property}--#{$size} {
-			 #{$property}: rem-calc($size);
+			 #{$property}: functions.rem-calc($size);
 		}
 	}
 
 	@each $direction in $directions {
 		@each $property in $properties {
 			%#{$property}--#{$direction}-#{$size} {
-				 #{$property}-#{$direction}: rem-calc($size);
+				 #{$property}-#{$direction}: functions.rem-calc($size);
 			 }
 		}
 	}

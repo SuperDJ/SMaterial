@@ -1,19 +1,24 @@
-@if (in-array(bottom-nav, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+@use '../foundation/settings';
+
+@if (functions.in-array(bottom-nav, index.$component-settings)) {
 	.bottom-nav {
-		--bottom-nav-background: #{$bottom-nav-background};
-		--bottom-nav-height: #{$bottom-nav-height};
+		--bottom-nav-background: #{settings.$bottom-nav-background};
+		--bottom-nav-height: #{settings.$bottom-nav-height};
 
-		--bottom-nav__icon-size: #{$bottom-nav__icon-size};
+		--bottom-nav__icon-size: #{settings.$bottom-nav__icon-size};
 
-		--bottom-nav__item-min-width: #{$bottom-nav__item-min-width};
-		--bottom-nav__item-max-width: #{$bottom-nav__item-max-width};
-		--bottom-nav__item-padding: #{$bottom-nav__item-padding};
-		--bottom-nav__item__text-font-size: #{$bottom-nav__item__text-font-size};
-		--bottom-nav__item-color: #{$bottom-nav__item-color};
-		--bottom-nav__item--hover-color: #{$bottom-nav__item--hover-color};
+		--bottom-nav__item-min-width: #{settings.$bottom-nav__item-min-width};
+		--bottom-nav__item-max-width: #{settings.$bottom-nav__item-max-width};
+		--bottom-nav__item-padding: #{settings.$bottom-nav__item-padding};
+		--bottom-nav__item__text-font-size: #{settings.$bottom-nav__item__text-font-size};
+		--bottom-nav__item-color: #{settings.$bottom-nav__item-color};
+		--bottom-nav__item--hover-color: #{settings.$bottom-nav__item--hover-color};
 
-		--bottom-nav--icon-only__item-padding: #{$bottom-nav--icon-only__item-padding};
-		--bottom-nav--icon-only__item--active-padding: #{$bottom-nav--icon-only__item--active-padding};
+		--bottom-nav--icon-only__item-padding: #{settings.$bottom-nav--icon-only__item-padding};
+		--bottom-nav--icon-only__item--active-padding: #{settings.$bottom-nav--icon-only__item--active-padding};
 
 		$el: &;
 		width: 100%;
@@ -28,7 +33,7 @@
 		grid-template-columns: repeat(auto-fit, minmax(var(--bottom-nav__item-min-width), var(--bottom-nav__item-max-width)));
 		grid-template-rows: var(--bottom-nav-height);
 
-		@if ($theme == dark) {
+		@if(settings.$theme == dark) {
 			@extend %overlay8;
 		}
 
@@ -53,7 +58,7 @@
 			.icon, &__text {
 				color: var(--bottom-nav__item-color);
 				--primary-color: var(--bottom-nav__item-color);
-				transition: color .1s $easing-standard;
+				transition: color .1s settings.$easing-standard;
 			}
 
 			&:hover, &#{$el}__item--active {
@@ -84,14 +89,14 @@
 		}
 	}
 
-	@include dark-theme(bottom-nav) {
-		--bottom-nav__item-color: #{$bottom-nav--dark__item-color};
-		--bottom-nav__item--hover-color: #{$bottom-nav--dark__item--hover-color};
-		@include overlay(8);
+	@include mixins.dark-theme(bottom-nav) {
+		--bottom-nav__item-color: #{settings.$bottom-nav--dark__item-color};
+		--bottom-nav__item--hover-color: #{settings.$bottom-nav--dark__item--hover-color};
+		@include mixins.overlay(8);
 	}
 
-	@include light-theme(bottom-nav) {
-		--bottom-nav__item-color: #{$bottom-nav--light__item-color};
-		--bottom-nav__item--hover-color: #{$bottom-nav--light__item--hover-color};
+	@include mixins.light-theme(bottom-nav) {
+		--bottom-nav__item-color: #{settings.$bottom-nav--light__item-color};
+		--bottom-nav__item--hover-color: #{settings.$bottom-nav--light__item--hover-color};
 	}
 }

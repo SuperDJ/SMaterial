@@ -1,13 +1,19 @@
-@if(in-array(progress, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+
+@if(functions.in-array(progress, index.$component-settings)) {
 	//TODO add <progress> tag styling
 	.progress {
-		--progress-background: #{rgba($primary-color, .6)};
-		--progress-height: #{rem-calc(4px)};
+		--progress-background: #{rgba(settings.$primary-color, .6)};
+		--progress-height: #{functions.rem-calc(4px)};
 
 		--progress__bar-background: #{var(--primary-color)};
 
-		@if(in-array(cirlce, $progress-settings)) {
-			--progress--circle-size: #{rem-calc(100px)};
+		@if(functions.in-array(cirlce, index.$progress-settings)) {
+			--progress--circle-size: #{functions.rem-calc(100px)};
 			--progress--circle--indeterminate-color1: #{var(--primary-color)};
 			--progress--circle--indeterminate-color2: #{var(--primary-color)};
 			--progress--circle--indeterminate-color3: #{var(--primary-color)};
@@ -24,11 +30,11 @@
 			background: var(--progress-background);
 		}
 
-		@include progress-bar-value() {
+		@include mixins.progress-bar-value() {
 			background: var(--progress__bar-background);
 		}
 
-		@if(in-array(determinate, $progress-settings) or in-array(indeterminate, $progress-settings)) {
+		@if(functions.in-array(determinate, index.$progress-settings) or functions.in-array(indeterminate, index.$progress-settings)) {
 			&--determinate, &--indeterminate {
 				#{$el}__bar {
 					height: 100%;
@@ -37,21 +43,21 @@
 			}
 		}
 
-		@if(in-array(determinate, $progress-settings)) {
+		@if(functions.in-array(determinate, index.$progress-settings)) {
 			&--determinate #{$el}__bar {
 				width: var(--progress__bar--progress);
-				transition: width .1s $easing-accelerate;
+				transition: width .1s settings.$easing-accelerate;
 			}
 		}
 
-		@if(in-array(indeterminate, $progress-settings)) {
+		@if(functions.in-array(indeterminate, index.$progress-settings)) {
 			&:indeterminate, &--indeterminate {
 				@extend %position--relative;
 				overflow: hidden;
 
 				#{$el}__bar {
 					@extend %position--absolute;
-					width: rem-calc(122px);
+					width: functions.rem-calc(122px);
 					transition: unset;
 					animation: indeterminate 2s infinite;
 				}
@@ -69,19 +75,19 @@
 			}
 		}
 
-		@if(in-array(circle, $progress-settings)) {
+		@if(functions.in-array(circle, index.$progress-settings)) {
 			&--circle {
 				background: none;
 				@extend %position--relative;
-				@include chain(width, height, var(--progress--circle-size));
+				@include mixins.chain(width, height, var(--progress--circle-size));
 
 				&__loader {
 					transform-origin: center center;
 					@extend %position--absolute;
 					height: 100%;
 					width: 100%;
-					@include chain(width, height, 100%);
-					@include chain(top, left, 0);
+					@include mixins.chain(width, height, 100%);
+					@include mixins.chain(top, left, 0);
 					margin: auto;
 				}
 

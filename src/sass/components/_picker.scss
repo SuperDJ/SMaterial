@@ -1,28 +1,34 @@
-@if(in-array(picker, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+
+@if(functions.in-array(picker, index.$component-settings)) {
 	.picker {
 		border-radius: var(--border-radius);
 		@extend %z24;
 		background-color: var(--surface-color);
 		overflow: hidden;
 		@extend %position--relative;
-		width: rem-calc(328px);
+		width: functions.rem-calc(328px);
 
 		&__header {
 			background: var(--primary-color);
 			color: var(--font-on-primary);
 			--icon-color: var(--font-on-primary);
-			padding: 0 rem-calc(24px);
+			padding: 0 functions.rem-calc(24px);
 			@extend %display--grid;
 			grid-template-areas: "title title""selected switch";
-			grid-template-columns: 1fr rem-calc(24px);
-			grid-template-rows: rem-calc(32px) rem-calc(72px);
-			height: rem-calc(120px);
+			grid-template-columns: 1fr functions.rem-calc(24px);
+			grid-template-rows: functions.rem-calc(32px) functions.rem-calc(72px);
+			height: functions.rem-calc(120px);
 		}
 
 		&__title {
 			grid-area: title;
 			@extend %overline;
-			line-height: rem-calc(48px);
+			line-height: functions.rem-calc(48px);
 		}
 
 		&__selected-date {
@@ -36,23 +42,23 @@
 		}
 
 		&__selected-date, &__switch {
-			line-height: rem-calc(72px);
+			line-height: functions.rem-calc(72px);
 		}
 
 		&__calendar-header {
 			@extend %display--grid;
-			grid-template-columns: 1fr rem-calc(24px) rem-calc(24px);
-			grid-column-gap: rem-calc(24px);
-			padding: rem-calc(16px) rem-calc(24px);
-			height: rem-calc((24 + (2 * 16)) + 0px);
+			grid-template-columns: 1fr functions.rem-calc(24px) functions.rem-calc(24px);
+			grid-column-gap: functions.rem-calc(24px);
+			padding: functions.rem-calc(16px) functions.rem-calc(24px);
+			height: functions.rem-calc((24 + (2 * 16)) + 0px);
 
-			@if ($theme == dark) {
+			@if (settings.$theme == dark) {
 				@extend %overlay24;
 			}
 
-			@if ($theme == light) {
-				@media #{$dark} {
-					@include overlay(24);
+			@if (settings.$theme == light) {
+				@media #{media-queries.$dark} {
+					@include mixins.overlay(24);
 				}
 			}
 
@@ -64,27 +70,27 @@
 		&__year {
 
 			.icon {
-				margin-left: rem-calc(4px);
+				margin-left: functions.rem-calc(4px);
 			}
 		}
 
 		&__calendar {
-			padding: 0 rem-calc(12px);
+			padding: 0 functions.rem-calc(12px);
 		}
 
 		td, th {
-			@include chain(width, height, rem-calc(40px));
-			padding: rem-calc(2px);
+			@include mixins.chain(width, height, functions.rem-calc(40px));
+			padding: functions.rem-calc(2px);
 			text-align: center;
 		}
 
 		&--current-date {
-			border: rem-calc(1px) solid var(--divider-background);
+			border: functions.rem-calc(1px) solid var(--divider-background);
 		}
 
 		&--current-date, &--selected-date {
 			@extend %shape--circle;
-			@include chain(width, height, line-height, rem-calc(36px));
+			@include mixins.chain(width, height, line-height, functions.rem-calc(36px));
 		}
 
 		&--selected-date {
@@ -93,11 +99,11 @@
 		}
 
 		&__actions {
-			padding: rem-calc(8px);
+			padding: functions.rem-calc(8px);
 			text-align: right;
 
 			> * {
-				margin-left: rem-calc(8px);
+				margin-left: functions.rem-calc(8px);
 			}
 		}
 	}

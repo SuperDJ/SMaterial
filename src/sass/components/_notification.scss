@@ -1,12 +1,18 @@
-@if(in-array(notification, $component-settings)) {
-	.notification {
-		--notification-color: #{$notification-color};
-		--notification-border-radius: #{$notification-border-radius};
-		--notification-background: #{$notification-background};
-		--notification-padding: #{$notification-padding};
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+@use '../foundation/settings';
+@use '../grid/media-queries';
 
-		--notification__header__icon-size: #{$notification__header__icon-size};
-		--notification__header-padding: #{$notification__header-padding};
+@if(functions.in-array(notification, index.$component-settings)) {
+	.notification {
+		--notification-color: #{settings.$notification-color};
+		--notification-border-radius: #{settings.$notification-border-radius};
+		--notification-background: #{settings.$notification-background};
+		--notification-padding: #{settings.$notification-padding};
+
+		--notification__header__icon-size: #{settings.$notification__header__icon-size};
+		--notification__header-padding: #{settings.$notification__header-padding};
 
 		$el: &;
 		border-radius: var(--notification-border-radius);
@@ -20,7 +26,7 @@
 			"content"
 			"expanded";
 
-		@if($theme == dark) {
+		@if(settings.$theme == dark) {
 			@extend %overlay2;
 		}
 
@@ -31,12 +37,12 @@
 		&__header {
 			grid-area: header;
 			padding: var(--notification__header-padding);
-			line-height: rem-calc(16px);
-			font-size: rem-calc(12px);
+			line-height: functions.rem-calc(16px);
+			font-size: functions.rem-calc(12px);
 			@extend %display--grid;
 			grid-template-areas: "icon content date expand";
 			grid-template-columns: var(--notification__header__icon-size) auto auto var(--notification__header__icon-size);
-			grid-column-gap: rem-calc(8px);
+			grid-column-gap: functions.rem-calc(8px);
 
 			.icon {
 				grid-area: icon;
@@ -73,7 +79,7 @@
 				grid-area: image;
 
 				img {
-					@include chain(width, height, rem-calc(40px));
+					@include mixins.chain(width, height, functions.rem-calc(40px));
 				}
 			}
 		}
@@ -82,24 +88,24 @@
 			grid-area: expanded;
 			opacity: 0;
 			max-height: 0;
-			transition: max-height .3s $easing-accelerate, opacity .3s $easing-accelerate;
+			transition: max-height .3s settings.$easing-accelerate, opacity .3s settings.$easing-accelerate;
 
 			&__actions {
-				margin-left: rem-calc(-8px);
+				margin-left: functions.rem-calc(-8px);
 
 				> * {
-					margin-right: rem-calc(8px);
+					margin-right: functions.rem-calc(8px);
 				}
 			}
 
 			&--active {
 				opacity: 1;
 				max-height: 100vh;
-				transition: max-height .3s $easing-decelerate, opacity .3s $easing-decelerate;
+				transition: max-height .3s settings.$easing-decelerate, opacity .3s settings.$easing-decelerate;
 			}
 		}
 
-		@if(in-array(standard, $notification-settings)) {
+		@if(functions.in-array(standard, index.$notification-settings)) {
 			&--standard {
 				#{$el}__content {
 					grid-template-areas: "title""text";
@@ -107,19 +113,19 @@
 			}
 		}
 
-		@if(in-array(big-text, $notification-settings)) {
+		@if(functions.in-array(big-text, index.$notification-settings)) {
 			&--big-text {
 				#{$el}__content {
-					grid-template-columns: 1fr rem-calc(40px);
+					grid-template-columns: 1fr functions.rem-calc(40px);
 					grid-template-areas: "title image" "text image";
 				}
 			}
 		}
 
-		@if(in-array(big-picture, $notification-settings)) {
+		@if(functions.in-array(big-picture, index.$notification-settings)) {
 			&--big-picture {
 				#{$el}__content {
-					grid-template-columns: 1fr rem-calc(40px);
+					grid-template-columns: 1fr functions.rem-calc(40px);
 					grid-template-areas: "title image" "text image";
 				}
 
@@ -129,7 +135,7 @@
 			}
 		}
 
-		@if(in-array(progress, $notification-settings)) {
+		@if(functions.in-array(progress, index.$notification-settings)) {
 			&--progress {
 				#{$el}__content {
 					grid-template-areas: "title text" "image image";
@@ -138,32 +144,32 @@
 			}
 		}
 
-		@if(in-array(messaging, $notification-settings)) {
+		@if(functions.in-array(messaging, index.$notification-settings)) {
 			&--messaging {
 				#{$el}__content {
 					grid-template-areas: "image title icon" "image text icon";
-					grid-template-columns: rem-calc(40px) auto auto;
+					grid-template-columns: functions.rem-calc(40px) auto auto;
 
 					.icon {
 						grid-area: icon;
-						--icon-size: #{rem-calc(30px)};
+						--icon-size: #{functions.rem-calc(30px)};
 					}
 
 					&__title, &__text {
-						padding: 0 rem-calc(16px);
+						padding: 0 functions.rem-calc(16px);
 					}
 				}
 			}
 		}
 	}
 
-	@include dark-theme(notification) {
-		--notification-color: #{$notification--dark-color};
-		--notification-background: #{$notification--dark-background};
+	@include mixins.dark-theme(notification) {
+		--notification-color: #{settings.$notification--dark-color};
+		--notification-background: #{settings.$notification--dark-background};
 	}
 
-	@include light-theme(notification) {
-		--notification-color: #{$notification--light-color};
-		--notification-background: #{$notification--light-background};
+	@include mixins.light-theme(notification) {
+		--notification-color: #{settings.$notification--light-color};
+		--notification-background: #{settings.$notification--light-background};
 	}
 }

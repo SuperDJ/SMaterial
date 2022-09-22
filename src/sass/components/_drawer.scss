@@ -1,33 +1,40 @@
-@if (in-array(drawer, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+@use '../colors/colors';
+
+@if (functions.in-array(drawer, index.$component-settings)) {
 	.drawer {
-		--drawer-background: #{$drawer-background};
-		--drawer-margin-right: #{$drawer-margin-right};
-		--drawer-border-right: #{$drawer-border-right};
+		--drawer-background: #{index.$drawer-background};
+		--drawer-margin-right: #{index.$drawer-margin-right};
+		--drawer-border-right: #{index.$drawer-border-right};
 
-		--drawer__icon-size: #{$drawer__icon-size};
+		--drawer__icon-size: #{index.$drawer__icon-size};
 
-		--drawer__item-margin: #{$drawer__item-margin};
-		--drawer__item-min-height: #{$drawer__item-min-height};
-		--drawer__item-width: #{$drawer__item-width};
-		--drawer__item--hover-background: #{$drawer__item--hover-background};
-		--drawer__item--click-background: #{$drawer__item--click-background};
-		--drawer__item--active-background: #{$drawer__item--active-background};
-		--drawer__item--active-color: #{$drawer__item--active-color};
-		--drawer__item--active--hover-color: #{$drawer__item--active--hover-color};
-		--drawer__item--active--active-color: #{$drawer__item--active--active-color};
-		--drawer__item__icon-margin: #{$drawer__item__icon-margin};
-		--drawer__item__arrow-margin: #{$drawer__item__arrow-margin};
-		--drawer__item__children-height: #{$drawer__item__children-height};
-		--drawer__item__content-color: #{$drawer__item__content-color};
-		--drawer__item__content-margin: #{$drawer__item__content-margin};
-		--drawer__item__content-height: #{$drawer__item__content-height};
+		--drawer__item-margin: #{index.$drawer__item-margin};
+		--drawer__item-min-height: #{index.$drawer__item-min-height};
+		--drawer__item-width: #{index.$drawer__item-width};
+		--drawer__item--hover-background: #{index.$drawer__item--hover-background};
+		--drawer__item--click-background: #{index.$drawer__item--click-background};
+		--drawer__item--active-background: #{index.$drawer__item--active-background};
+		--drawer__item--active-color: #{index.$drawer__item--active-color};
+		--drawer__item--active--hover-color: #{index.$drawer__item--active--hover-color};
+		--drawer__item--active--active-color: #{index.$drawer__item--active--active-color};
+		--drawer__item__icon-margin: #{index.$drawer__item__icon-margin};
+		--drawer__item__arrow-margin: #{index.$drawer__item__arrow-margin};
+		--drawer__item__children-height: #{index.$drawer__item__children-height};
+		--drawer__item__content-color: #{index.$drawer__item__content-color};
+		--drawer__item__content-margin: #{index.$drawer__item__content-margin};
+		--drawer__item__content-height: #{index.$drawer__item__content-height};
 
-		--drawer__header-height: #{$drawer__header-height};
-		--drawer__header__profile-image-size: #{$drawer__header__profile-image-size};
-		--drawer__header__profile-name-color: #{$drawer__header__profile-name-color};
-		--drawer__header__profile-email-color: #{$drawer__header__profile-email-color};
+		--drawer__header-height: #{index.$drawer__header-height};
+		--drawer__header__profile-image-size: #{index.$drawer__header__profile-image-size};
+		--drawer__header__profile-name-color: #{index.$drawer__header__profile-name-color};
+		--drawer__header__profile-email-color: #{index.$drawer__header__profile-email-color};
 
-		--drawer__scrim-background: #{$drawer__scrim-background};
+		--drawer__scrim-background: #{index.$drawer__scrim-background};
 
 		$el: &;
 		width: var(--drawer-width);
@@ -39,12 +46,12 @@
 		height: 100vh;
 		overflow-x: hidden;
 		overflow-y: auto;
-		transition: margin-left .3s $easing-accelerate;
+		transition: margin-left .3s index.$easing-accelerate;
 		border-right: var(--drawer-border-right);
 
 		&--active {
 			margin-left: 0;
-			transition: margin-left .3s $easing-decelerate;
+			transition: margin-left .3s index.$easing-decelerate;
 		}
 
 		&__item {
@@ -55,7 +62,7 @@
 			grid-template-columns: auto 1fr auto;
 			margin: var(--drawer__item-margin);
 			border-radius: var(--border-radius);
-			transition: background .1s $easing-standard, color .1s $easing-standard;
+			transition: background .1s index.$easing-standard, color .1s index.$easing-standard;
 			@extend %cursor--pointer;
 
 			.icon {
@@ -81,7 +88,7 @@
 			}
 
 			.icon, &__content, .arrow {
-				@include chain(height, line-height, var(--drawer__item__content-height));
+				@include mixins.chain(height, line-height, var(--drawer__item__content-height));
 			}
 
 			&:hover {
@@ -115,13 +122,13 @@
 			}
 
 			&__children {
-				transition: max-height .1s $easing-decelerate;
+				transition: max-height .1s index.$easing-decelerate;
 				opacity: 0;
 				pointer-events: none;
 				overflow: hidden;
 
 				&.active {
-					transition: max-height .1s $easing-decelerate;
+					transition: max-height .1s index.$easing-decelerate;
 					opacity: 1;
 					pointer-events: all;
 				}
@@ -138,7 +145,7 @@
 
 		ul {
 			list-style-type: none;
-			padding: rem-calc(8px) 0;
+			padding: functions.rem-calc(8px) 0;
 			margin: 0;
 			width: 100%;
 
@@ -146,18 +153,18 @@
 				padding: 0;
 
 				&.active {
-					margin: rem-calc(8px) 0 rem-calc(8px) rem-calc(8px);
-					padding: rem-calc(8px) 0;
+					margin: functions.rem-calc(8px) 0 functions.rem-calc(8px) functions.rem-calc(8px);
+					padding: functions.rem-calc(8px) 0;
 					@extend %divider-bottom-border, %divider-top-border;
 				}
 
 				#{$el}__item {
-					width: calc(100% - #{rem-calc(8px) * 3});
+					width: calc(100% - #{functions.rem-calc(8px) * 3});
 				}
 			}
 		}
 
-		@if (in-array(modal, $drawer-settings)) {
+		@if (functions.in-array(modal, index.$drawer-settings)) {
 			&--modal {
 				@extend %z16;
 				border-right: 0;
@@ -169,42 +176,42 @@
 						@extend %overlay16;
 					}
 
-					@media #{$dark} {
+					@media #{media-queries.$dark} {
 						@include overlay(16);
 					}
 				}*/
 			}
 		}
 
-		@if (in-array(modal, $drawer-settings) or in-array(full-height, $drawer-settings) or in-array(fixed, $drawer-settings)) {
+		@if (functions.in-array(modal, index.$drawer-settings) or functions.in-array(full-height, index.$drawer-settings) or functions.in-array(fixed, index.$drawer-settings)) {
 			&--modal, &--full-height, &--fixed {
-				@include chain(top, left, bottom, 0);
+				@include mixins.chain(top, left, bottom, 0);
 			}
 		}
 
-		@if (in-array(clipped, $drawer-settings)) {
+		@if (functions.in-array(clipped, index.$drawer-settings)) {
 			&--clipped {
-				@include chain(left, bottom, 0);
+				@include mixins.chain(left, bottom, 0);
 				top: var(--app-bar-height);
 				box-shadow: none;
 			}
 		}
 
-		@if (in-array(fixed, $drawer-settings)) {
+		@if (functions.in-array(fixed, index.$drawer-settings)) {
 			&--fixed {
-				@media #{$sm-up} {
+				@media #{media-queries.$sm-up} {
 					margin-left: 0;
 					box-shadow: none;
 				}
 			}
 		}
 
-		@if (in-array(header, $drawer-settings)) {
+		@if (functions.in-array(header, index.$drawer-settings)) {
 			&__header {
 				$header: &;
 				background: var(--drawer__header-background);
 				height: var(--drawer__header-height);
-				margin: rem-calc(-8px) 0 rem-calc(8px) 0;
+				margin: functions.rem-calc(-8px) 0 functions.rem-calc(8px) 0;
 				@extend %position--relative;
 
 				&__background {
@@ -213,8 +220,8 @@
 				}
 
 				&__profile-image {
-					@include chain(width, height, var(--drawer__header__profile-image-size));
-					top: rem-calc(16px);
+					@include mixins.chain(width, height, var(--drawer__header__profile-image-size));
+					top: functions.rem-calc(16px);
 					border-radius: 50%;
 				}
 
@@ -227,16 +234,16 @@
 				&__profile-email {
 					color: var(--drawer__header__profile-email-color);
 					@extend %body-2;
-					top: calc(var(--app-bar-height) + #{rem-calc( map-get( map-get($type-scale, body-2), size ) * 1.4 + 0px)} + #{rem-calc(8px)}); // TODO fix line-height
+					top: calc(var(--app-bar-height) + #{functions.rem-calc( map-get( map-get(settings.$type-scale, body-2), size ) * 1.4 + 0px)} + #{functions.rem-calc(8px)}); // TODO fix line-height
 				}
 
 				&__profile-image, &__profile-name, &__profile-email {
-					left: rem-calc(16px);
+					left: functions.rem-calc(16px);
 				}
 
 				&__profile-icon {
-					right: rem-calc(16px);
-					top: calc(var(--app-bar-height) + #{rem-calc( map-get( map-get($type-scale, body-2), size ) * 1.4 + 0px)} + #{rem-calc(8px)}); // TODO fix line-height
+					right: functions.rem-calc(16px);
+					top: calc(var(--app-bar-height) + #{functions.rem-calc( map-get( map-get(settings.$type-scale, body-2), size ) * 1.4 + 0px)} + #{functions.rem-calc(8px)}); // TODO fix line-height
 				}
 
 				&__background, &__profile-image, &__profile-name, &__profile-email, &__profile-icon {
@@ -248,25 +255,25 @@
 					height: var(--app-bar-height);
 
 					#{$header}__profile-image {
-						top: rem-calc(8px);
+						top: functions.rem-calc(8px);
 					}
 
 					#{$header}__profile-name {
 						@extend %body-1;
-						top: rem-calc(16px);
-						left: calc(var(--drawer__header__profile-image-size) + (#{rem-calc(16px)} * 2));
+						top: functions.rem-calc(16px);
+						left: calc(var(--drawer__header__profile-image-size) + (#{functions.rem-calc(16px)} * 2));
 					}
 				}
 
 				&--divider {
-					border-bottom: rem-calc(1px) solid rgba($black, .12);
+					border-bottom: functions.rem-calc(1px) solid rgba(colors.$black, .12);
 				}
 			}
 
 			.menu {
 				@extend %position--absolute;
 				top: 95%;
-				right: rem-calc(4px);
+				right: functions.rem-calc(4px);
 
 				ul {
 					padding: 0;
@@ -276,41 +283,41 @@
 		}
 
 		.divider {
-			margin: rem-calc(8px) 0;
+			margin: functions.rem-calc(8px) 0;
 		}
 	}
 
-	@include dark-theme(drawer) {
-		--drawer-background: #{$drawer--dark-background};
-		--drawer-border-right: #{$drawer--dark-border-right};
+	@include mixins.dark-theme(drawer) {
+		--drawer-background: #{index.$drawer--dark-background};
+		--drawer-border-right: #{index.$drawer--dark-border-right};
 
-		--drawer__item--hover-background: #{$drawer--dark__item--hover-background};
-		--drawer__item--click-background: #{$drawer--dark__item--click-background};
-		--drawer__item__content-color: #{$drawer--dark__item__content-color};
-		--drawer__header__profile-name-color: #{$drawer--dark__header__profile-name-color};
-		--drawer__header__profile-email-color: #{$drawer--dark__header__profile-email-color};
+		--drawer__item--hover-background: #{index.$drawer--dark__item--hover-background};
+		--drawer__item--click-background: #{index.$drawer--dark__item--click-background};
+		--drawer__item__content-color: #{index.$drawer--dark__item__content-color};
+		--drawer__header__profile-name-color: #{index.$drawer--dark__header__profile-name-color};
+		--drawer__header__profile-email-color: #{index.$drawer--dark__header__profile-email-color};
 
-		--divider-background: #{$divider--dark-background};
+		--divider-background: #{index.$divider--dark-background};
 
-		--scrollbar-background: #{$dark-scrollbar-background};
+		--scrollbar-background: #{index.$dark-scrollbar-background};
 	}
 
-	@include light-theme(drawer) {
-		--drawer-background: #{$drawer--light-background};
-		--drawer-border-right: #{$drawer--light-border-right};
+	@include mixins.light-theme(drawer) {
+		--drawer-background: #{index.$drawer--light-background};
+		--drawer-border-right: #{index.$drawer--light-border-right};
 
-		--drawer__item--hover-background: #{$drawer--light__item--hover-background};
-		--drawer__item--click-background: #{$drawer--light__item--click-background};
-		--drawer__item__content-color: #{$drawer--light__item__content-color};
-		--drawer__header__profile-name-color: #{$drawer--light__header__profile-name-color};
-		--drawer__header__profile-email-color: #{$drawer--light__header__profile-email-color};
+		--drawer__item--hover-background: #{index.$drawer--light__item--hover-background};
+		--drawer__item--click-background: #{index.$drawer--light__item--click-background};
+		--drawer__item__content-color: #{index.$drawer--light__item__content-color};
+		--drawer__header__profile-name-color: #{index.$drawer--light__header__profile-name-color};
+		--drawer__header__profile-email-color: #{index.$drawer--light__header__profile-email-color};
 
-		--divider-background: #{$divider--light-background};
+		--divider-background: #{index.$divider--light-background};
 
-		--scrollbar-background: #{$dark-scrollbar-background}
+		--scrollbar-background: #{index.$dark-scrollbar-background}
 	}
 
 	:root {
-		--drawer-width: #{rem-calc(256px)};
+		--drawer-width: #{functions.rem-calc(256px)};
 	}
 }

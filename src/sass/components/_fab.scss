@@ -1,30 +1,37 @@
-@if(in-array(fab, $component-settings)) {
-	.fab {
-		--fab-size: #{$fab-size};
-		--fab-padding: #{$fab-padding};
-		--fab-background: #{$fab-background};
-		--fab__icon-size: #{$fab__icon-size};
-		--fab--hover-background: #{$fab--hover-background};
-		--fab--active-background: #{$fab--active-background};
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+@use '../foundation/ripple';
 
-		@if(in-array(mini, $fab-settings)) {
-			--fab--mini-size: #{$fab--mini-size};
-			--fab--mini-padding: #{$fab--mini-padding};
+@if(functions.in-array(fab, index.$component-settings)) {
+	.fab {
+		--fab-size: #{settings.$fab-size};
+		--fab-padding: #{settings.$fab-padding};
+		--fab-background: #{settings.$fab-background};
+		--fab__icon-size: #{settings.$fab__icon-size};
+		--fab--hover-background: #{settings.$fab--hover-background};
+		--fab--active-background: #{settings.$fab--active-background};
+
+		@if(functions.in-array(mini, index.$fab-settings)) {
+			--fab--mini-size: #{settings.$fab--mini-size};
+			--fab--mini-padding: #{settings.$fab--mini-padding};
 		}
 
-		@if(in-array(extended, $fab-settings)) {
-			--fab--extended-height: #{$fab--extended-height};
-			--fab--extended-border-radius: #{$fab--extended-border-radius};
-			--fab--extended-padding: #{$fab--extended-padding};
-			--fab--extended--icon-left-padding: #{$fab--extended--icon-left-padding};
-			--fab--extended--icon-left__icon-margin-right: #{$fab--extended--icon-left__icon-margin-right};
-			--fab--extended--icon-right-padding: #{$fab--extended--icon-right-padding};
-			--fab--extended--icon-right__icon-margin-left: #{$fab--extended--icon-right__icon-margin-left};
+		@if(functions.in-array(extended, index.$fab-settings)) {
+			--fab--extended-height: #{settings.$fab--extended-height};
+			--fab--extended-border-radius: #{settings.$fab--extended-border-radius};
+			--fab--extended-padding: #{settings.$fab--extended-padding};
+			--fab--extended--icon-left-padding: #{settings.$fab--extended--icon-left-padding};
+			--fab--extended--icon-left__icon-margin-right: #{settings.$fab--extended--icon-left__icon-margin-right};
+			--fab--extended--icon-right-padding: #{settings.$fab--extended--icon-right-padding};
+			--fab--extended--icon-right__icon-margin-left: #{settings.$fab--extended--icon-right__icon-margin-left};
 		}
 
 		$el: &;
 		@extend %button;
-		@include chain(width, height, var(--fab-size));
+		@include mixins.chain(width, height, var(--fab-size));
 		padding: var(--fab-padding);
 		border-radius: 50%;
 		background: var(--fab-background);
@@ -36,7 +43,7 @@
 		@extend %position--relative;
 		@extend %display--inline-block;
 		vertical-align: middle;
-		@include ripple();
+		@include ripple.ripple();
 		--ripple--hover-background: var(--fab--hover-background);
 		--ripple--active-background: var(--fab--active-background);
 		--icon-color: var(--font-on-primary);
@@ -45,14 +52,14 @@
 			--icon-size: var(--fab__icon-size);
 		}
 
-		@if (in-array(mini, $fab-settings)) {
+		@if (functions.in-array(mini, index.$fab-settings)) {
 			&--mini {
-				@include chain(width, height, var(--fab--mini-size));
+				@include mixins.chain(width, height, var(--fab--mini-size));
 				padding: var(--fab--mini-padding);
 			}
 		}
 
-		@if (in-array(extended, $fab-settings)) {
+		@if (functions.in-array(extended, index.$fab-settings)) {
 			&--extended {
 				width: auto;
 				height: var(--fab--extended-height);
@@ -86,13 +93,13 @@
 		}
 	}
 
-	@include dark-theme(fab) {
-			--fab--hover-background: #{$fab--dark--hover-background};
-			--fab--active-background: #{$fab--dark--active-background};
+	@include mixins.dark-theme(fab) {
+			--fab--hover-background: #{settings.$fab--dark--hover-background};
+			--fab--active-background: #{settings.$fab--dark--active-background};
 	}
 
-	@include light-theme(fab) {
-			--fab--hover-background: #{$fab--light--hover-background};
-			--fab--active-background: #{$fab--light--active-background};
+	@include mixins.light-theme(fab) {
+			--fab--hover-background: #{settings.$fab--light--hover-background};
+			--fab--active-background: #{settings.$fab--light--active-background};
 	}
 }

@@ -1,16 +1,22 @@
-@if(in-array(tooltip, $component-settings)) {
-	.tooltip {
-		--tooltip-height: #{$tooltip-height};
-		--tooltip-padding: #{$tooltip-padding};
-		--tooltip-font-size: #{$tooltip-font-size};
-		--tooltip-distance: #{$tooltip-distance};
-		--tooltip-color: #{$tooltip-color};
-		--tooltip-background-color: #{$tooltip-background-color};
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+@use '../foundation/settings';
+@use '../grid/media-queries';
 
-		@media #{$md-up} {
-			--tooltip-height: #{$tooltip-md-up-height};
-			--tooltip-padding: #{$tooltip-md-up-padding};
-			--tooltip-font-size: #{$tooltip-md-up-font-size};
+@if(functions.in-array(tooltip, index.$component-settings)) {
+	.tooltip {
+		--tooltip-height: #{settings.$tooltip-height};
+		--tooltip-padding: #{settings.$tooltip-padding};
+		--tooltip-font-size: #{settings.$tooltip-font-size};
+		--tooltip-distance: #{settings.$tooltip-distance};
+		--tooltip-color: #{settings.$tooltip-color};
+		--tooltip-background-color: #{settings.$tooltip-background-color};
+
+		@media #{media-queries.$md-up} {
+			--tooltip-height: #{settings.$tooltip-md-up-height};
+			--tooltip-padding: #{settings.$tooltip-md-up-padding};
+			--tooltip-font-size: #{settings.$tooltip-md-up-font-size};
 		}
 
 		$el: &;
@@ -22,12 +28,12 @@
 			top: calc(50% - (var(--tooltip-height) / 2));
 			left: calc(50% - (var(--tooltip-width) / 2));
 			padding: var(--tooltip-padding);
-			@include chain(height, line-height, var(--tooltip-height));
+			@include mixins.chain(height, line-height, var(--tooltip-height));
 			border-radius: var(--border-radius);
 			background: var(--tooltip-background-color);
 			font-size: var(--tooltip-font-size);
 			color: var(--tooltip-color);
-			transition: all 150ms $easing-decelerate;
+			transition: all 150ms settings.$easing-decelerate;
 			z-index: 1;
 			opacity: 0;
 		}
@@ -35,7 +41,7 @@
 		&:hover {
 			#{$el}__content {
 				opacity: 1;
-				transition: all 75ms $easing-decelerate;
+				transition: all 75ms settings.$easing-decelerate;
 			}
 
 			#{$el}--left {

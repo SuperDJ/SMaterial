@@ -1,64 +1,70 @@
-@if (in-array(text-field, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+@use '../foundation/settings';
+@use '../colors/colors';
+
+@if (functions.in-array(text-field, index.$component-settings)) {
 	.text-field {
-		--text-field-height: #{$text-field-height};
+		--text-field-height: #{settings.$text-field-height};
 
-		--text-field--active-color: #{$text-field--active-color};
-		--text-field--invalid-color: #{$text-field--invalid-color};
+		--text-field--active-color: #{settings.$text-field--active-color};
+		--text-field--invalid-color: #{settings.$text-field--invalid-color};
 
-		--text-field__label-font-size: #{$text-field__label-font-size};
-		--text-field__label-color: #{$text-field__label-color};
+		--text-field__label-font-size: #{settings.$text-field__label-font-size};
+		--text-field__label-color: #{settings.$text-field__label-color};
 
-		--text-field__input-height: #{$text-field__input-height};
-		--text-field__input-color: #{$text-field__input-color};
-		--text-field__input--focus-caret-color: #{$text-field__input--focus-caret-color};
-		--text-field__input--focus__label-color: #{$text-field__input--focus__label-color};
-		--text-field__input--focus__label-font-size: #{$text-field__input--focus__label-font-size};
+		--text-field__input-height: #{settings.$text-field__input-height};
+		--text-field__input-color: #{settings.$text-field__input-color};
+		--text-field__input--focus-caret-color: #{settings.$text-field__input--focus-caret-color};
+		--text-field__input--focus__label-color: #{settings.$text-field__input--focus__label-color};
+		--text-field__input--focus__label-font-size: #{settings.$text-field__input--focus__label-font-size};
 
-		@if (in-array(helper, $text-field-settings)) {
-			--text-field__helper-text-padding: #{$text-field__helper-text-padding};
-			--text-field__helper-text-height: #{$text-field__helper-text-height};
+		@if (functions.in-array(helper, index.$text-field-settings)) {
+			--text-field__helper-text-padding: #{settings.$text-field__helper-text-padding};
+			--text-field__helper-text-height: #{settings.$text-field__helper-text-height};
 		}
 
-		@if (in-array(filled, $text-field-settings)) {
-			--text-field--filled__input-padding-top: #{$text-field--filled__input-padding-top};
-			--text-field--filled__input-padding-sides: #{$text-field--filled__input-padding-sides};
-			--text-field--filled__input-padding: #{$text-field--filled__input-padding};
-			--text-field--filled__input-background: #{$text-field--filled__input-background};
-			--text-field--filled__input--border-bottom: #{$text-field--filled__input--border-bottom};
-			--text-field--filled__input--focus-border-bottom: #{$text-field--filled__input--focus-border-bottom};
-			--text-field--filled__input--active-border-bottom: #{$text-field--filled__input--active-border-bottom};
-			--text-field--filled__input--focus__label-top: #{$text-field--filled__input--focus__label-top};
-			--text-field--filled__input--active-background: #{$text-field--filled__input--active-background};
-			--text-field--filled__input--invalid-border-bottom: #{$text-field--filled__input--invalid-border-bottom};
-			--text-field--filled__label-left: #{$text-field--filled__label-left};
+		@if (functions.in-array(filled, index.$text-field-settings)) {
+			--text-field--filled__input-padding-top: #{settings.$text-field--filled__input-padding-top};
+			--text-field--filled__input-padding-sides: #{settings.$text-field--filled__input-padding-sides};
+			--text-field--filled__input-padding: #{settings.$text-field--filled__input-padding};
+			--text-field--filled__input-background: #{settings.$text-field--filled__input-background};
+			--text-field--filled__input--border-bottom: #{settings.$text-field--filled__input--border-bottom};
+			--text-field--filled__input--focus-border-bottom: #{settings.$text-field--filled__input--focus-border-bottom};
+			--text-field--filled__input--active-border-bottom: #{settings.$text-field--filled__input--active-border-bottom};
+			--text-field--filled__input--focus__label-top: #{settings.$text-field--filled__input--focus__label-top};
+			--text-field--filled__input--active-background: #{settings.$text-field--filled__input--active-background};
+			--text-field--filled__input--invalid-border-bottom: #{settings.$text-field--filled__input--invalid-border-bottom};
+			--text-field--filled__label-left: #{settings.$text-field--filled__label-left};
 		}
 
-		@if (in-array(outlined, $text-field-settings)) {
-			--text-field--outlined__input-padding-top: #{$text-field--outlined__input-padding-top};
-			--text-field--outlined__input-padding-sides: #{$text-field--outlined__input-padding-sides};
-			--text-field--outlined__input-border: #{$text-field--outlined__input-border};
-			--text-field--outlined__input-padding: #{$text-field--outlined__input-padding};
-			--text-field--outlined__input--focus-border: #{$text-field--outlined__input--focus-border};
-			--text-field--outlined__input--focus__label-top: #{$text-field--outlined__input--focus__label-top};
-			--text-field--outlined__input--active-border: #{$text-field--outlined__input--active-border};
-			--text-field--outlined__input--invalid-border: #{$text-field--outlined__input--invalid-border};
+		@if (functions.in-array(outlined, index.$text-field-settings)) {
+			--text-field--outlined__input-padding-top: #{settings.$text-field--outlined__input-padding-top};
+			--text-field--outlined__input-padding-sides: #{settings.$text-field--outlined__input-padding-sides};
+			--text-field--outlined__input-border: #{settings.$text-field--outlined__input-border};
+			--text-field--outlined__input-padding: #{settings.$text-field--outlined__input-padding};
+			--text-field--outlined__input--focus-border: #{settings.$text-field--outlined__input--focus-border};
+			--text-field--outlined__input--focus__label-top: #{settings.$text-field--outlined__input--focus__label-top};
+			--text-field--outlined__input--active-border: #{settings.$text-field--outlined__input--active-border};
+			--text-field--outlined__input--invalid-border: #{settings.$text-field--outlined__input--invalid-border};
 		}
 
 		$el: &;
 		min-height: var(--text-field-height);
 		width: 100%;
 		@extend %position--relative;
-		margin: rem-calc(8px) 0;
+		margin: functions.rem-calc(8px) 0;
 		@extend %display--grid;
 		grid-template-columns: 1fr auto;
 
-		@if (in-array(filled, $text-field-settings)) {
+		@if (functions.in-array(filled, index.$text-field-settings)) {
 			&--filled {
 				#{$el}__input {
 					padding: var(--text-field--filled__input-padding);
 					background: var(--text-field--filled__input-background);
-					@include border-top-radius(var(--border-radius));
-					transition: border-bottom .1s $easing-standard, background .1s $easing-standard;
+					@include mixins.border-top-radius(var(--border-radius));
+					transition: border-bottom .1s settings.$easing-standard, background .1s settings.$easing-standard;
 					border-bottom: var(--text-field--filled__input--border-bottom);
 
 					&:hover {
@@ -105,14 +111,14 @@
 			}
 		}
 
-		@if (in-array(outlined, $text-field-settings)) {
+		@if (functions.in-array(outlined, index.$text-field-settings)) {
 			&--outlined {
 				#{$el}__input {
 					background: transparent;
 					border: var(--text-field--outlined__input-border);
 					border-radius: var(--border-radius);
 					padding: var(--text-field--outlined__input-padding);
-					transition: border .1s $easing-standard;
+					transition: border .1s settings.$easing-standard;
 
 					&:focus {
 						border: var(--text-field--outlined__input--focus-border);
@@ -149,8 +155,8 @@
 
 				#{$el}__label {
 					background: var(--background-color);
-					padding: 0 rem-calc(4px);
-					left: rem-calc(8px);
+					padding: 0 functions.rem-calc(4px);
+					left: functions.rem-calc(8px);
 				}
 			}
 		}
@@ -185,7 +191,7 @@
 			color: var(--text-field__label-color);
 			@extend %body-1;
 			@extend %position--absolute;
-			transition: top .1s $easing-standard, color .1s $easing-standard;
+			transition: top .1s settings.$easing-standard, color .1s settings.$easing-standard;
 			top: calc((var(--text-field__input-height) / 2) - (var(--text-field__label-font-size) / 2));
 		}
 
@@ -194,7 +200,7 @@
 			@extend %body-1;
 			width: 100%;
 			@extend %position--absolute;
-			@include chain(left, top, 0);
+			@include mixins.chain(left, top, 0);
 			min-height: var(--text-field__input-height);
 			grid-column: 1;
 
@@ -213,13 +219,13 @@
 			}
 		}
 
-		@if (in-array(helper, $text-field-settings)) {
+		@if (functions.in-array(helper, index.$text-field-settings)) {
 			&__helper-text {
 				@extend %display--block;
 				width: 100%;
-				color: rgba($black, .6);
+				color: rgba(colors.$black, .6);
 				@extend %caption;
-				@include chain(height, line-height, var(--text-field__helper-text-height));
+				@include mixins.chain(height, line-height, var(--text-field__helper-text-height));
 				padding: var(--text-field__helper-text-padding);
 				@extend %position--absolute;
 				bottom: 0;
@@ -246,7 +252,7 @@
 			overflow: hidden;
 		}
 
-		@if(in-array(select, $text-field-settings) or in-array(autocomplete, $text-field-settings))
+		@if(functions.in-array(select, index.$text-field-settings) or functions.in-array(autocomplete, index.$text-field-settings))
 		{
 			&--select, &--autocomplete {
 				#{$el}__options {
@@ -255,17 +261,17 @@
 					background: var(--background-color);
 					border-radius: var(--border-radius);
 					@extend %z8;
-					padding: rem-calc(8px) 0;
+					padding: functions.rem-calc(8px) 0;
 					z-index: 2;
 					overflow: auto;
 					top: var(--text-field__input-height);
 					max-height: var(--text-field__options-height);
 					opacity: 0;
-					transition: max-height .1s $easing-standard;
+					transition: max-height .1s settings.$easing-standard;
 					pointer-events: none;
 
 					&.active {
-						transition: max-height .1s $easing-standard, opacity .1s $easing-standard;
+						transition: max-height .1s settings.$easing-standard, opacity .1s settings.$easing-standard;
 						pointer-events: all;
 						opacity: 1;
 					}
@@ -273,25 +279,25 @@
 
 				#{$el}__option label {
 					width: 100%;
-					padding: 0 rem-calc(16px);
-					@include chain(height, line-height, rem-calc(48px));
+					padding: 0 functions.rem-calc(16px);
+					@include mixins.chain(height, line-height, functions.rem-calc(48px));
 					@extend %display--block;
 					background: transparent;
 					@extend %cursor--pointer;
 
 					&:hover {
-						background: rgba($black, .16);
+						background: rgba(colors.$black, .16);
 					}
 				}
 
 				// Checkbox/ radiobutton
 				input:checked + label {
-					background: rgba($primary-color, .16);
+					background: rgba(settings.$primary-color, .16);
 				}
 			}
 		}
 
-		@if (in-array(select, $text-field-settings)) {
+		@if (functions.in-array(select, index.$text-field-settings)) {
 			&--select {
 				select, input {
 					@extend %display--none;
@@ -306,49 +312,49 @@
 
 		.icon {
 			grid-column: 2;
-			margin: 0 rem-calc(12px);
+			margin: 0 functions.rem-calc(12px);
 			line-height: var(--text-field-height);
 		}
 	}
 
-	@if(in-array(autocomplete, $text-field-settings))
+	@if(functions.in-array(autocomplete, index.$text-field-settings))
 	{
 		datalist {
 			@extend %display--none;
 		}
 	}
 
-	@include dark-theme(text-field) {
-		--text-field__label-color: #{$text-field--dark__label-color};
-		--text-field__input-color: #{$text-field--dark__input-color};
+	@include mixins.dark-theme(text-field) {
+		--text-field__label-color: #{settings.$text-field--dark__label-color};
+		--text-field__input-color: #{settings.$text-field--dark__input-color};
 
-		@if (in-array(filled, $text-field-settings)) {
-			--text-field--filled__input-background: #{$text-field--dark--filled__input-background};
-			--text-field--filled__input--border-bottom: #{$text-field--dark--filled__input--border-bottom};
-			--text-field--filled__input--focus-border-bottom: #{$text-field--dark--filled__input--focus-border-bottom};
-			--text-field--filled__input--active-background: #{$text-field--dark--filled__input--active-background};
+		@if (functions.in-array(filled, index.$text-field-settings)) {
+			--text-field--filled__input-background: #{settings.$text-field--dark--filled__input-background};
+			--text-field--filled__input--border-bottom: #{settings.$text-field--dark--filled__input--border-bottom};
+			--text-field--filled__input--focus-border-bottom: #{settings.$text-field--dark--filled__input--focus-border-bottom};
+			--text-field--filled__input--active-background: #{settings.$text-field--dark--filled__input--active-background};
 		}
 
-		@if (in-array(outlined, $text-field-settings)) {
-			--text-field--outlined__input-border: #{$text-field--dark--outlined__input-border};
-			--text-field--outlined__input--active-border: #{$text-field--dark--outlined__input--active-border};
+		@if (functions.in-array(outlined, index.$text-field-settings)) {
+			--text-field--outlined__input-border: #{settings.$text-field--dark--outlined__input-border};
+			--text-field--outlined__input--active-border: #{settings.$text-field--dark--outlined__input--active-border};
 		}
 	}
 
-	@include light-theme(text-field) {
-		--text-field__label-color: #{$text-field--light__label-color};
-		--text-field__input-color: #{$text-field--light__input-color};
+	@include mixins.light-theme(text-field) {
+		--text-field__label-color: #{settings.$text-field--light__label-color};
+		--text-field__input-color: #{settings.$text-field--light__input-color};
 
-		@if (in-array(filled, $text-field-settings)) {
-			--text-field--filled__input-background: #{$text-field--light--filled__input-background};
-			--text-field--filled__input--border-bottom: #{$text-field--light--filled__input--border-bottom};
-			--text-field--filled__input--focus-border-bottom: #{$text-field--light--filled__input--focus-border-bottom};
-			--text-field--filled__input--active-background: #{$text-field--light--filled__input--active-background};
+		@if (functions.in-array(filled, index.$text-field-settings)) {
+			--text-field--filled__input-background: #{settings.$text-field--light--filled__input-background};
+			--text-field--filled__input--border-bottom: #{settings.$text-field--light--filled__input--border-bottom};
+			--text-field--filled__input--focus-border-bottom: #{settings.$text-field--light--filled__input--focus-border-bottom};
+			--text-field--filled__input--active-background: #{settings.$text-field--light--filled__input--active-background};
 		}
 
-		@if (in-array(outlined, $text-field-settings)) {
-			--text-field--outlined__input-border: #{$text-field--light--outlined__input-border};
-			--text-field--outlined__input--active-border: #{$text-field--light--outlined__input--active-border};
+		@if (functions.in-array(outlined, index.$text-field-settings)) {
+			--text-field--outlined__input-border: #{settings.$text-field--light--outlined__input-border};
+			--text-field--outlined__input--active-border: #{settings.$text-field--light--outlined__input--active-border};
 		}
 	}
 }
@@ -357,16 +363,16 @@ input[type="date"] {
 	&:after {
 		content: "\25BC";
 		color: #555;
-		padding: 0 rem-calc(5px);
-		margin-top: rem-calc(-5px);
+		padding: 0 functions.rem-calc(5px);
+		margin-top: functions.rem-calc(-5px);
 	}
 
 	// Make the native arrow invisible and stretch it over the whole field so you can click anywhere in the input field to trigger the native datepicker
 	&::-webkit-calendar-picker-indicator {
 		@extend %position--absolute;
-		@include chain(top, right, bottom, left, 0);
-		@include chain(width, height, auto);
-		@include chain(color, background, transparent);
+		@include mixins.chain(top, right, bottom, left, 0);
+		@include mixins.chain(width, height, auto);
+		@include mixins.chain(color, background, transparent);
 	}
 
 	// Adjust increase/decrease button

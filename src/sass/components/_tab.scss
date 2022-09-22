@@ -1,12 +1,17 @@
-@if(in-array(tab, $component-settings)) {
+@use '../helpers/functions';
+@use '../index';
+@use '../foundation/settings';
+@use '../colors/colors';
+
+@if(functions.in-array(tab, index.$component-settings)) {
 	.tabs {
 		--tabs-background: var(--primary-color);
 
-		--tabs__tab-min-width: #{rem-calc(90px)};
-		--tabs__tab-max-width: #{rem-calc(360px)};
-		--tabs__tab-color: #{$white};
-		--tabs__tab--hover-background: #{rgba($white, .08)};
-		--tabs__tab--active-background: #{rgba($white, .32)};
+		--tabs__tab-min-width: #{functions.rem-calc(90px)};
+		--tabs__tab-max-width: #{functions.rem-calc(360px)};
+		--tabs__tab-color: #{colors.$white};
+		--tabs__tab--hover-background: #{rgba(colors.$white, .08)};
+		--tabs__tab--active-background: #{rgba(colors.$white, .32)};
 
 		$el: &;
 		@extend %display--grid;
@@ -18,13 +23,13 @@
 		&__content, .icon {
 			@extend %display--block;
 			width: 100%;
-			color: rgba($white, .60);
+			color: rgba(colors.$white, .60);
 		}
 
 		&__tab {
 			@extend %display--block;
 			text-align: center;
-			transition: border-bottom .1s $easing-standard;
+			transition: border-bottom .1s settings.$easing-standard;
 			@extend %position--relative;
 			min-width: var(--tabs__tab-min-width);
 			max-width: var(--tabs__tab-max-width);
@@ -33,10 +38,10 @@
 			--ripple--active-background: var(--tabs__tab--active-background);
 
 			&--active {
-				border-bottom: rem-calc(2px) solid $white;
+				border-bottom: functions.rem-calc(2px) solid colors.$white;
 
 				#{$el}__content, .icon {
-					color: $white;
+					color: colors.$white;
 				}
 			}
 		}
@@ -45,48 +50,48 @@
 			@extend %button;
 		}
 
-		@if(in-array(text, $tab-settings)) {
+		@if(functions.in-array(text, index.$tab-settings)) {
 			&--text-only #{$el}__content {
-				line-height: rem-calc(48px);
-				padding: 0 rem-calc(16px);
+				line-height: functions.rem-calc(48px);
+				padding: 0 functions.rem-calc(16px);
 			}
 		}
 
-		@if(in-array(icon, $tab-settings)) {
+		@if(functions.in-array(icon, index.$tab-settings)) {
 			&--icon-only #{$el}__icon {
-				padding: rem-calc(12px) rem-calc(16px) rem-calc(12px) rem-calc(16px);
+				padding: functions.rem-calc(12px) functions.rem-calc(16px) functions.rem-calc(12px) functions.rem-calc(16px);
 			}
 		}
 
-		@if(in-array(icon-text, $tab-settings)) {
+		@if(functions.in-array(icon-text, index.$tab-settings)) {
 			&--icon-text {
 				#{$el}__tab {
-					min-height: rem-calc(72px);
+					min-height: functions.rem-calc(72px);
 				}
 
 				#{$el}__icon {
-					padding: rem-calc(12px) rem-calc(16px) rem-calc(8px) rem-calc(16px);
+					padding: functions.rem-calc(12px) functions.rem-calc(16px) functions.rem-calc(8px) functions.rem-calc(16px);
 				}
 
 				#{$el}__content {
-					padding: 0 rem-calc(16px) rem-calc(8px) rem-calc(16px);
+					padding: 0 functions.rem-calc(16px) functions.rem-calc(8px) functions.rem-calc(16px);
 				}
 			}
 		}
 
-		@if(in-array(text, $tab-settings) or in-array(icon, $tab-settings)) {
+		@if(functions.in-array(text, index.$tab-settings) or functions.in-array(icon, index.$tab-settings)) {
 			&--text-only, &--icon-only {
-				min-height: rem-calc(48px);
+				min-height: functions.rem-calc(48px);
 			}
 		}
 
-		@if(in-array(scroll, $tab-settings)) {
+		@if(functions.in-array(scroll, index.$tab-settings)) {
 			&--scrollable {
 				overflow-x: auto;
 
 				#{$el}__tab {
 					&:first-child {
-						margin-left: rem-calc(52px);
+						margin-left: functions.rem-calc(52px);
 					}
 				}
 			}

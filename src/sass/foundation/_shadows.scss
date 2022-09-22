@@ -1,25 +1,30 @@
-@each $depth, $setting in $elevation-umbra-map {
-	$umbra: map_get($elevation-umbra-map, $depth);
-	$penumbra: map_get($elevation-penumbra-map, $depth);
-	$ambient: map_get($elevation-ambient-map, $depth);
+@use './settings';
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+
+@each $depth, $setting in settings.$elevation-umbra-map {
+	$umbra: map-get(settings.$elevation-umbra-map, $depth);
+	$penumbra: map-get(settings.$elevation-penumbra-map, $depth);
+	$ambient: map-get(settings.$elevation-ambient-map, $depth);
 
 	$umbra-shadow: '';
 	@each $px in $umbra {
-		$umbra-shadow: $umbra-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
+		$umbra-shadow: $umbra-shadow + (if( $px == 0, 0, functions.rem-calc( $px ) ) ) + ' ';
 	}
-	$umbra-shadow: $umbra-shadow + ' ' + $elevation-umbra-color;
+	$umbra-shadow: $umbra-shadow + ' ' + settings.$elevation-umbra-color;
 
 	$penumbra-shadow: '';
 	@each $px in $penumbra {
-		$penumbra-shadow: $penumbra-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
+		$penumbra-shadow: $penumbra-shadow + (if( $px == 0, 0, functions.rem-calc( $px ) ) ) + ' ';
 	}
-	$penumbra-shadow: $penumbra-shadow + ' ' + $elevation-penumbra-color;
+	$penumbra-shadow: $penumbra-shadow + ' ' + settings.$elevation-penumbra-color;
 
 	$ambient-shadow: '';
 	@each $px in $ambient {
-		$ambient-shadow: $ambient-shadow + (if( $px == 0, 0, rem-calc( $px ) ) ) + ' ';
+		$ambient-shadow: $ambient-shadow + (if( $px == 0, 0, functions.rem-calc( $px ) ) ) + ' ';
 	}
-	$ambient-shadow: $ambient-shadow + ' ' + $elevation-ambient-color;
+	$ambient-shadow: $ambient-shadow + ' ' + settings.$elevation-ambient-color;
 
 	%z#{$depth} {
 		$shadow: $umbra-shadow + ', ' + $penumbra-shadow + ', ' + $ambient-shadow;
@@ -31,14 +36,14 @@
 		box-shadow: unquote($shadow);
 	}
 
-	@if(in-array($depth, $elevation-overlay)) {
+	@if(functions.in-array($depth, settings.$elevation-overlay)) {
 		%overlay#{$depth} {
-			@include overlay($depth);
+			@include mixins.overlay($depth);
 		}
 	}
 
-	@if(in-array(shadows, $foundation-settings)) {
-		@if (in-array($depth, $shadow-settings)) {
+	@if(functions.in-array(shadows, index.$foundation-settings)) {
+		@if (functions.in-array($depth, index.$shadow-settings)) {
 			.z#{$depth} {
 				@extend %z#{$depth};
 			}
@@ -60,7 +65,7 @@
 	}
 }
 
-@if(in-array(shadows, $foundation-settings)) {
+@if(functions.in-array(shadows, index.$foundation-settings)) {
 	.z0 {
 		box-shadow: none !important;
 	}

@@ -1,18 +1,3 @@
-//Check if value is in a array
-// TODO place in some partial file
-@function in-array( $value, $array ) {
-	@if(type_of($array) == list and index($array, $value)) {
-		@return true;
-	}
-
-	@if(type_of($array) == map and map_has_key($array, $value))
-	{
-		@return true;
-	}
-
-	@return false;
-}
-
 $media-themes: (dark, light) !default;
 $class-themes: (dark, light) !default;
 $color-settings: (color, variables, "red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown", "grey", "blue-grey", "shades") !default;
@@ -57,22 +42,18 @@ $margin-padding-sizes: (0, 4, 8, 12, 16, 20, 24);
 $position-settings: (static, relative, absolute, sticky, fixed) !default;
 $white-space-settings: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit) !default;
 
-@import 'colors/index';
+@forward 'colors/index';
 
-@import 'properties/index';
+@forward 'properties/index';
 
-@import 'helpers/index';
+@forward 'grid/index';
 
-@import 'foundation/settings';
+@forward 'foundation/normalize';
+@forward 'foundation/typography';
+@forward 'foundation/shapes';
+@forward 'foundation/shadows';
+@forward 'foundation/variables';
+@forward 'foundation/ripple';
+@forward 'foundation/iconography';
 
-@import 'grid/index';
-
-@import 'foundation/normalize';
-@import 'foundation/typography';
-@import 'foundation/shapes';
-@import 'foundation/shadows';
-@import 'foundation/variables';
-@import 'foundation/ripple';
-@import 'foundation/iconography';
-
-@import 'components/index';
+@forward 'components/index';

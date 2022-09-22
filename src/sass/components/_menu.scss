@@ -1,32 +1,38 @@
-@if (in-array(menu, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../index';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+
+@if (functions.in-array(menu, index.$component-settings)) {
 	.menu {
-		--menu-min-width: #{$menu-min-width};
-		--menu-max-width: #{$menu-max-width};
-		--menu-color: #{$menu-color};
-		--menu-left: #{$menu-left};
-		--menu-right: #{$menu-right};
-		--menu-padding: #{$menu-padding};
-		--menu-background: #{$menu-background};
-		--menu-border-radius: #{$menu-background};
+		--menu-min-width: #{settings.$menu-min-width};
+		--menu-max-width: #{settings.$menu-max-width};
+		--menu-color: #{settings.$menu-color};
+		--menu-left: #{settings.$menu-left};
+		--menu-right: #{settings.$menu-right};
+		--menu-padding: #{settings.$menu-padding};
+		--menu-background: #{settings.$menu-background};
+		--menu-border-radius: #{settings.$menu-background};
 
-		--menu__icon-margin: #{$menu__icon-margin};
+		--menu__icon-margin: #{settings.$menu__icon-margin};
 
-		--menu__divider-margin: #{$menu__divider-margin};
-		--menu__divider-height: #{$menu__divider-height};
+		--menu__divider-margin: #{settings.$menu__divider-margin};
+		--menu__divider-height: #{settings.$menu__divider-height};
 
-		--menu__content-font-size: #{$menu__content-font-size};
-		--menu__content-margin: #{$menu__content-margin};
+		--menu__content-font-size: #{settings.$menu__content-font-size};
+		--menu__content-margin: #{settings.$menu__content-margin};
 
-		--menu__icon-size: #{$menu__icon-size};
+		--menu__icon-size: #{settings.$menu__icon-size};
 
-		--menu__item-height: #{$menu__item-height};
-		--menu__item--hover-background: #{$menu__item--hover-background};
-		--menu__item--active-background: #{$menu__item--active-background};
+		--menu__item-height: #{settings.$menu__item-height};
+		--menu__item--hover-background: #{settings.$menu__item--hover-background};
+		--menu__item--active-background: #{settings.$menu__item--active-background};
 
-		@media #{$md-up} {
-			--menu-max-width: #{$menu-md-up-max-width};
-			--menu__icon-margin: #{$menu-md-up__icon-margin};
-			--menu__content-margin: #{$menu-md-up__content-margin};
+		@media #{media-queries.$md-up} {
+			--menu-max-width: #{settings.$menu-md-up-max-width};
+			--menu__icon-margin: #{settings.$menu-md-up__icon-margin};
+			--menu__content-margin: #{settings.$menu-md-up__content-margin};
 		}
 
 		$el: &;
@@ -45,10 +51,10 @@
 		left: var(--menu-left);
 		right: var(--menu-right);
 		z-index: 1;
-		transition: max-width .1s $easing-standard, max-height .1s $easing-standard;
+		transition: max-width .1s settings.$easing-standard, max-height .1s settings.$easing-standard;
 		pointer-events: none;
 
-		@if ($theme == dark) {
+		@if (settings.$theme == dark) {
 			@extend %overlay8;
 		}
 
@@ -100,7 +106,7 @@
 			grid-template-columns: auto 1fr auto;
 			height: var(--menu__item-height);
 			width: 100%;
-			transition: background .1s $easing-standard;
+			transition: background .1s settings.$easing-standard;
 			@extend %cursor--pointer;
 
 			&:hover {
@@ -121,14 +127,14 @@
 		}
 	}
 
-	@include dark-theme(menu) {
-		--menu-background: #{$menu--dark-background};
-		--menu-color: #{$menu--dark-color};
-		@include overlay(8);
+	@include mixins.dark-theme(menu) {
+		--menu-background: #{settings.$menu--dark-background};
+		--menu-color: #{settings.$menu--dark-color};
+		@include mixins.overlay(8);
 	}
 
-	@include light-theme(menu) {
-		--menu-background: #{$menu--light-background};
-		--menu-color: #{$menu--light-color};
+	@include mixins.light-theme(menu) {
+		--menu-background: #{settings.$menu--light-background};
+		--menu-color: #{settings.$menu--light-color};
 	}
 }
