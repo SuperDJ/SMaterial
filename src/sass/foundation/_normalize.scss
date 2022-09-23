@@ -1,6 +1,5 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../colors/colors';
 @use '../foundation/settings';
 @use '../grid/media-queries';
@@ -61,14 +60,14 @@ img {
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-background);
 
-	@if(index.$theme == light and functions.in-array(dark, index.$media-themes)) {
-		@media #{index.$dark} {
+	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
+		@media #{settings.$dark} {
 			--scrollbar-background: #{settings.$dark-scrollbar-background};
 		}
 	}
 
-	@if(index.$theme == dark and functions.in-array(light, index.$media-themes)) {
-		@media #{index.$light} {
+	@if(settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
+		@media #{settings.$light} {
 			--scrollbar-background: #{settings.$light-scrollbar-background};
 		}
 	}

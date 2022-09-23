@@ -1,11 +1,11 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
+@use '../foundation/ripple';
 @use '../colors/colors';
 @use '../grid/media-queries';
 
-@if (functions.in-array(chip, index.$component-settings)) {
+@if (functions.in-array(chip, settings.$component-settings)) {
 	.chip {
 		--chip-height: #{settings.$chip-height};
 		--chip-padding: #{settings.$chip-padding};
@@ -43,7 +43,7 @@
 		@extend %cursor--pointer;
 		user-select: none;
 		vertical-align: middle;
-		@include mixins.ripple();
+		@include ripple.ripple();
 		--ripple--hover-background: #{rgba(colors.$black, .04)};
 		--ripple--active-background: #{rgba(colors.$black, .16)};
 
@@ -51,7 +51,7 @@
 			@extend %disabled-color, %disabled-background;
 		}
 
-		@if (functions.in-array(thumbnail, index.$chip-settings)) {
+		@if (functions.in-array(thumbnail, settings.$chip-settings)) {
 			&__thumbnail {
 				@include mixins.chain(width, height, font-size, var(--chip__thumbnail-size));
 				margin: var(--chip__thumbnail-margin);
@@ -64,7 +64,7 @@
 			}
 		}
 
-		@if (functions.in-array(remove, index.$chip-settings)) {
+		@if (functions.in-array(remove, settings.$chip-settings)) {
 			&__remove {
 				@include mixins.chain(width, height, font-size, var(--chip__remove-size));
 				margin: var(--chip__remove-margin);
@@ -76,7 +76,7 @@
 			padding-right: var(--chip--remove-padding-right);
 		}
 
-		@if (functions.in-array(outlined, index.$chip-settings)) {
+		@if (functions.in-array(outlined, settings.$chip-settings)) {
 			&--outlined {
 				border: var(--chip--outlined-border);
 				background: transparent;
@@ -93,13 +93,13 @@
 					@extend %disabled-color, %disabled-background;
 				}
 
-				@if (functions.in-array(thumbnail, index.$chip-settings)) {
+				@if (functions.in-array(thumbnail, settings.$chip-settings)) {
 					&#{$el}--thumbnail {
 						padding-left: var(--chip--outlined--thumbnail-padding-left);
 					}
 				}
 
-				@if (functions.in-array(remove, index.$chip-settings)) {
+				@if (functions.in-array(remove, settings.$chip-settings)) {
 					&#{$el}--remove {
 						padding-right: var(--chip--outlined--remove-padding-right);
 					}

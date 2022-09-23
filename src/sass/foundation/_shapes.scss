@@ -1,53 +1,52 @@
 @use './settings';
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 
-@if(functions.in-array(shapes, index.$foundation-settings)) {
+@if(functions.in-array(shapes, settings.$foundation-settings)) {
 	.shape {
-		@if (functions.in-array(square, index.$shape-settings)) {
+		@if (functions.in-array(square, settings.$shape-settings)) {
 			&--square {
 				border-radius: functions.rem-calc(settings.$surface-corner);
 			}
 		}
 
-		@if (functions.in-array(circle, index.$shape-settings)) {
+		@if (functions.in-array(circle, settings.$shape-settings)) {
 			&--circle {
 				border-radius: 50%;
 			}
 		}
 
-		@if (functions.in-array(diamond, index.$shape-settings)) {
+		@if (functions.in-array(diamond, settings.$shape-settings)) {
 			&--diamond {
 				clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 			}
 		}
 
-		@if (functions.in-array(triangle, index.$shape-settings)) {
+		@if (functions.in-array(triangle, settings.$shape-settings)) {
 			&--triangle {
 				clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 			}
 		}
 
-		@if (functions.in-array(hexagon, index.$shape-settings)) {
+		@if (functions.in-array(hexagon, settings.$shape-settings)) {
 			&--hexagon {
 				clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 			}
 		}
 
-		@if (functions.in-array(heptagon, index.$shape-settings)) {
+		@if (functions.in-array(heptagon, settings.$shape-settings)) {
 			&--heptagon {
 				clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
 			}
 		}
 
-		@if (functions.in-array(octagon, index.$shape-settings)) {
+		@if (functions.in-array(octagon, settings.$shape-settings)) {
 			&--octagon {
 				clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
 			}
 		}
 
-		@if (functions.in-array(bevel, index.$shape-settings)) {
+		@if (functions.in-array(bevel, settings.$shape-settings)) {
 			&--bevel {
 				clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
 			}

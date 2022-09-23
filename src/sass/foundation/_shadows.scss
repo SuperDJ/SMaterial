@@ -1,7 +1,6 @@
 @use './settings';
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 
 @each $depth, $setting in settings.$elevation-umbra-map {
 	$umbra: map-get(settings.$elevation-umbra-map, $depth);
@@ -42,8 +41,8 @@
 		}
 	}
 
-	@if(functions.in-array(shadows, index.$foundation-settings)) {
-		@if (functions.in-array($depth, index.$shadow-settings)) {
+	@if(functions.in-array(shadows, settings.$foundation-settings)) {
+		@if (functions.in-array($depth, settings.$shadow-settings)) {
 			.z#{$depth} {
 				@extend %z#{$depth};
 			}
@@ -65,7 +64,7 @@
 	}
 }
 
-@if(functions.in-array(shadows, index.$foundation-settings)) {
+@if(functions.in-array(shadows, settings.$foundation-settings)) {
 	.z0 {
 		box-shadow: none !important;
 	}

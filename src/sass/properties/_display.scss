@@ -1,12 +1,12 @@
 @use '../helpers/functions';
-@use '../index';
+@use '../foundation/settings';
 
 $properties: (inline, block, contents, flex, grid, inline-block, inline-flex, inline-grid, inline-table, list-item, run-in, table, table-caption, table-column-group, table-header-group, table-footer-group, table-row-group, table-cell, table-column, table-row, none, initial, inherit);
 
 // Make class
-@if(functions.in-array(display, index.$property-settings)) {
+@if(functions.in-array(display, settings.$property-settings)) {
 	@each $property in $properties {
-		@if(functions.in-array($property, index.$display-settings)) {
+		@if(functions.in-array($property, settings.$display-settings)) {
 			.display--#{$property} {
 				display: $property !important;
 			}

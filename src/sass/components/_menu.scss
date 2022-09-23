@@ -1,10 +1,9 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 
-@if (functions.in-array(menu, index.$component-settings)) {
+@if (functions.in-array(menu, settings.$component-settings)) {
 	.menu {
 		--menu-min-width: #{settings.$menu-min-width};
 		--menu-max-width: #{settings.$menu-max-width};

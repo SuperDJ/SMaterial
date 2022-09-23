@@ -1,7 +1,6 @@
 @use './functions';
 @use '../foundation/settings';
 @use '../colors/colors';
-@use '../index';
 
 @mixin responsive-ratio($x,$y, $pseudo: false) {
 	$padding: unquote(( $y / $x ) * 100 + '%');
@@ -108,15 +107,15 @@
 }
 
 @mixin dark-theme( $class ) {
-	@if(settings.$theme == light and functions.in-array(dark, index.$media-themes)) {
+	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
 		.#{$class} {
-			@media #{index.$dark} {
+			@media #{settings.$dark} {
 				@content;
 			}
 		}
 	}
 
-	@if(settings.$theme == light and functions.in-array(dark, index.$class-themes)) {
+	@if(settings.$theme == light and functions.in-array(dark, settings.$class-themes)) {
 		.#{$class}--dark, .dark.#{$class}, .dark .#{$class} {
 			@content;
 		}
@@ -124,15 +123,15 @@
 }
 
 @mixin light-theme( $class ) {
-	@if(settings.$theme == dark and functions.in-array(light, index.$media-themes)) {
+	@if(settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
 		.#{$class} {
-			@media #{index.$light} {
+			@media #{settings.$light} {
 				@content;
 			}
 		}
 	}
 
-	@if(settings.$theme == dark and functions.in-array(light, index.$class-themes)) {
+	@if(settings.$theme == dark and functions.in-array(light, settings.$class-themes)) {
 		.#{$class}--light, .light.#{$class}, .light .#{$class} {
 			@content;
 		}

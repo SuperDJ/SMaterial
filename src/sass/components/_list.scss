@@ -1,11 +1,10 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 
 // TODO turn last values into variables
-@if (functions.in-array(list, index.$component-settings)) {
+@if (functions.in-array(list, settings.$component-settings)) {
 	.list {
 		--list-background: #{settings.$list-background};
 		--list-padding: #{settings.$list-padding};
@@ -17,7 +16,7 @@
 
 		--list-divider-border-bottom: #{settings.$list-divider-border-bottom};
 
-		@if (functions.in-array(single, index.$list-settings)) {
+		@if (functions.in-array(single, settings.$list-settings)) {
 			--list--single-line-height: #{settings.$list--single-line-height};
 			--list--single-line__content-height: #{settings.$list--single-line__content-height};
 			--list--single-line__control-padding: #{settings.$list--single-line__control-padding};
@@ -27,7 +26,7 @@
 			--list--single-line--support__control-padding: #{settings.$list--single-line--support__control-padding};
 		}
 
-		@if (functions.in-array(two, index.$list-settings)) {
+		@if (functions.in-array(two, settings.$list-settings)) {
 			--list--two-line-height: #{settings.$list--two-line-height};
 			--list--two-line__content-padding: #{settings.$list--two-line__content-padding};
 			--list--two-line__support-height: #{settings.$list--two-line__support-height};
@@ -40,7 +39,7 @@
 			--list--two-line__support__control-padding: #{settings.$list--two-line__support__control-padding};
 		}
 
-		@if (functions.in-array(three, index.$list-settings)) {
+		@if (functions.in-array(three, settings.$list-settings)) {
 			--list--three-line-height: #{settings.$list--three-line-height};
 			--list--three-line__content-padding: #{settings.$list--three-line__content-padding};
 			--list--three-line__support__icon-padding: #{settings.$list--three-line__support__icon-padding};
@@ -59,7 +58,7 @@
 		margin: 0;
 		background: var(--list-background);
 
-		@if (functions.in-array(single, index.$list-settings)) {
+		@if (functions.in-array(single, settings.$list-settings)) {
 			&--single-line {
 				height: var(--list--single-line-height);
 
@@ -132,7 +131,7 @@
 			}
 		}
 
-		@if (functions.in-array(two, index.$list-settings)) {
+		@if (functions.in-array(two, settings.$list-settings)) {
 			&--two-line {
 				height: var(--list--two-line-height);
 
@@ -171,7 +170,7 @@
 			}
 		}
 
-		@if (functions.in-array(three, index.$list-settings)) {
+		@if (functions.in-array(three, settings.$list-settings)) {
 			&--three-line {
 				height: var(--list--three-line-height);
 

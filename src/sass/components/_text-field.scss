@@ -1,10 +1,9 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../colors/colors';
 
-@if (functions.in-array(text-field, index.$component-settings)) {
+@if (functions.in-array(text-field, settings.$component-settings)) {
 	.text-field {
 		--text-field-height: #{settings.$text-field-height};
 
@@ -20,12 +19,12 @@
 		--text-field__input--focus__label-color: #{settings.$text-field__input--focus__label-color};
 		--text-field__input--focus__label-font-size: #{settings.$text-field__input--focus__label-font-size};
 
-		@if (functions.in-array(helper, index.$text-field-settings)) {
+		@if (functions.in-array(helper, settings.$text-field-settings)) {
 			--text-field__helper-text-padding: #{settings.$text-field__helper-text-padding};
 			--text-field__helper-text-height: #{settings.$text-field__helper-text-height};
 		}
 
-		@if (functions.in-array(filled, index.$text-field-settings)) {
+		@if (functions.in-array(filled, settings.$text-field-settings)) {
 			--text-field--filled__input-padding-top: #{settings.$text-field--filled__input-padding-top};
 			--text-field--filled__input-padding-sides: #{settings.$text-field--filled__input-padding-sides};
 			--text-field--filled__input-padding: #{settings.$text-field--filled__input-padding};
@@ -39,7 +38,7 @@
 			--text-field--filled__label-left: #{settings.$text-field--filled__label-left};
 		}
 
-		@if (functions.in-array(outlined, index.$text-field-settings)) {
+		@if (functions.in-array(outlined, settings.$text-field-settings)) {
 			--text-field--outlined__input-padding-top: #{settings.$text-field--outlined__input-padding-top};
 			--text-field--outlined__input-padding-sides: #{settings.$text-field--outlined__input-padding-sides};
 			--text-field--outlined__input-border: #{settings.$text-field--outlined__input-border};
@@ -58,7 +57,7 @@
 		@extend %display--grid;
 		grid-template-columns: 1fr auto;
 
-		@if (functions.in-array(filled, index.$text-field-settings)) {
+		@if (functions.in-array(filled, settings.$text-field-settings)) {
 			&--filled {
 				#{$el}__input {
 					padding: var(--text-field--filled__input-padding);
@@ -111,7 +110,7 @@
 			}
 		}
 
-		@if (functions.in-array(outlined, index.$text-field-settings)) {
+		@if (functions.in-array(outlined, settings.$text-field-settings)) {
 			&--outlined {
 				#{$el}__input {
 					background: transparent;
@@ -219,7 +218,7 @@
 			}
 		}
 
-		@if (functions.in-array(helper, index.$text-field-settings)) {
+		@if (functions.in-array(helper, settings.$text-field-settings)) {
 			&__helper-text {
 				@extend %display--block;
 				width: 100%;
@@ -252,7 +251,7 @@
 			overflow: hidden;
 		}
 
-		@if(functions.in-array(select, index.$text-field-settings) or functions.in-array(autocomplete, index.$text-field-settings))
+		@if(functions.in-array(select, settings.$text-field-settings) or functions.in-array(autocomplete, settings.$text-field-settings))
 		{
 			&--select, &--autocomplete {
 				#{$el}__options {
@@ -297,7 +296,7 @@
 			}
 		}
 
-		@if (functions.in-array(select, index.$text-field-settings)) {
+		@if (functions.in-array(select, settings.$text-field-settings)) {
 			&--select {
 				select, input {
 					@extend %display--none;
@@ -317,7 +316,7 @@
 		}
 	}
 
-	@if(functions.in-array(autocomplete, index.$text-field-settings))
+	@if(functions.in-array(autocomplete, settings.$text-field-settings))
 	{
 		datalist {
 			@extend %display--none;
@@ -328,14 +327,14 @@
 		--text-field__label-color: #{settings.$text-field--dark__label-color};
 		--text-field__input-color: #{settings.$text-field--dark__input-color};
 
-		@if (functions.in-array(filled, index.$text-field-settings)) {
+		@if (functions.in-array(filled, settings.$text-field-settings)) {
 			--text-field--filled__input-background: #{settings.$text-field--dark--filled__input-background};
 			--text-field--filled__input--border-bottom: #{settings.$text-field--dark--filled__input--border-bottom};
 			--text-field--filled__input--focus-border-bottom: #{settings.$text-field--dark--filled__input--focus-border-bottom};
 			--text-field--filled__input--active-background: #{settings.$text-field--dark--filled__input--active-background};
 		}
 
-		@if (functions.in-array(outlined, index.$text-field-settings)) {
+		@if (functions.in-array(outlined, settings.$text-field-settings)) {
 			--text-field--outlined__input-border: #{settings.$text-field--dark--outlined__input-border};
 			--text-field--outlined__input--active-border: #{settings.$text-field--dark--outlined__input--active-border};
 		}
@@ -345,14 +344,14 @@
 		--text-field__label-color: #{settings.$text-field--light__label-color};
 		--text-field__input-color: #{settings.$text-field--light__input-color};
 
-		@if (functions.in-array(filled, index.$text-field-settings)) {
+		@if (functions.in-array(filled, settings.$text-field-settings)) {
 			--text-field--filled__input-background: #{settings.$text-field--light--filled__input-background};
 			--text-field--filled__input--border-bottom: #{settings.$text-field--light--filled__input--border-bottom};
 			--text-field--filled__input--focus-border-bottom: #{settings.$text-field--light--filled__input--focus-border-bottom};
 			--text-field--filled__input--active-background: #{settings.$text-field--light--filled__input--active-background};
 		}
 
-		@if (functions.in-array(outlined, index.$text-field-settings)) {
+		@if (functions.in-array(outlined, settings.$text-field-settings)) {
 			--text-field--outlined__input-border: #{settings.$text-field--light--outlined__input-border};
 			--text-field--outlined__input--active-border: #{settings.$text-field--light--outlined__input--active-border};
 		}

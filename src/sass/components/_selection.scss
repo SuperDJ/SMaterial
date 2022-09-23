@@ -1,12 +1,11 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../colors/colors';
 
 // TODO fix naming variables
-@if (functions.in-array(selection, index.$component-settings)) {
+@if (functions.in-array(selection, settings.$component-settings)) {
 	.checkbox, .radio, .switch {
 		--checkbox-size: #{settings.$checkbox-size};
 		--checkbox-stroke: #{settings.$checkbox-stroke};
@@ -19,13 +18,13 @@
 		-webkit-appearance: none;
 		@include mixins.chain(padding, margin, 0);
 
-		@if (settings.$theme == light and functions.in-array(dark, index.$media-themes)) {
+		@if (settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
 			@media #{media-queries.$dark} {
 				--checkbox-border: #{settings.$checkbox--dark-border};
 			}
 		}
 
-		@if (settings.$theme == dark and functions.in-array(light, index.$media-themes)) {
+		@if (settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
 			@media #{media-queries.$light} {
 				--checkbox-border: #{settings.$checkbox--light-border};
 			}
@@ -49,7 +48,7 @@
 		}
 	}
 
-	@if (functions.in-array(checkbox, index.$selection-settings)) {
+	@if (functions.in-array(checkbox, settings.$selection-settings)) {
 		.checkbox {
 			--checkbox-border-radius: #{settings.$checkbox-border-radius};
 
@@ -134,7 +133,7 @@
 		}
 	}
 
-	@if (functions.in-array(radio, index.$selection-settings)) {
+	@if (functions.in-array(radio, settings.$selection-settings)) {
 		.radio {
 			--radio-size: #{settings.$radio-size};
 			--radio__radial-size: #{settings.$radio__radial-size};
@@ -206,7 +205,7 @@
 		}
 	}
 
-	@if (functions.in-array(switch, index.$selection-settings)) {
+	@if (functions.in-array(switch, settings.$selection-settings)) {
 		.switch {
 			--switch__radial-size: #{settings.$switch__radial-size};
 

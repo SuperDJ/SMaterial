@@ -1,12 +1,12 @@
 @use '../helpers/functions';
-@use '../index';
+@use '../foundation/settings';
 
 $properties: (left, right, none, inline-start, inline-end, inherit, initial, unset);
 
 // Make class
-@if(functions.in-array(float, index.$property-settings)) {
+@if(functions.in-array(float, settings.$property-settings)) {
 	@each $property in $properties {
-		@if(functions.in-array($property, index.$float-settings)) {
+		@if(functions.in-array($property, settings.$float-settings)) {
 			.float--#{$property} {
 				float: $property !important;
 			}

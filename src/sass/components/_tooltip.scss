@@ -1,10 +1,9 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 
-@if(functions.in-array(tooltip, index.$component-settings)) {
+@if(functions.in-array(tooltip, settings.$component-settings)) {
 	.tooltip {
 		--tooltip-height: #{settings.$tooltip-height};
 		--tooltip-padding: #{settings.$tooltip-padding};

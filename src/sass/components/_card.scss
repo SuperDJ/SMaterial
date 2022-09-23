@@ -1,11 +1,10 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../colors/colors';
 @use '../grid/media-queries';
 
-@if (functions.in-array(card, index.$component-settings)) {
+@if (functions.in-array(card, settings.$component-settings)) {
 	.card {
 		--card-background: #{settings.$card-background};
 		--card-border-radius: #{settings.$card-border-radius};
@@ -43,9 +42,9 @@
 			}
 
 			// TODO fix to extend
-			@if (settings.$theme == light and functions.in-array(dark, index.$media-themes)) {
+			@if (settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
 				@media #{media-queries.$dark} {
-					@include overlay(8);
+					@include mixins.overlay(8);
 				}
 			}
 		}
@@ -139,7 +138,7 @@
 		}
 
 		// TODO fix naming
-		@if (functions.in-array(default, index.$card-settings)) {
+		@if (functions.in-array(default, settings.$card-settings)) {
 			&--default {
 				#{$el}__header {
 					height: functions.rem-calc(72px);
@@ -150,7 +149,7 @@
 			}
 		}
 
-		@if (functions.in-array(simple, index.$card-settings)) {
+		@if (functions.in-array(simple, settings.$card-settings)) {
 			&--simple {
 				@extend %display--grid;
 				grid-template: "header media" "content media" "actions actions";
@@ -166,7 +165,7 @@
 			}
 		}
 
-		@if (functions.in-array(overline, index.$card-settings)) {
+		@if (functions.in-array(overline, settings.$card-settings)) {
 			&--overline {
 				@extend %display--grid;
 				grid-template: "overline media" "header media" "content media" "actions actions";
@@ -191,7 +190,7 @@
 			}
 		}
 
-		@if (functions.in-array(album, index.$card-settings)) {
+		@if (functions.in-array(album, settings.$card-settings)) {
 			&--album {
 				@extend %display--grid;
 				grid-template: "media header" "content content";
@@ -212,7 +211,7 @@
 			}
 		}
 
-		@if (functions.in-array(media, index.$card-settings)) {
+		@if (functions.in-array(media, settings.$card-settings)) {
 			&--media {
 				@extend %position--relative;
 				@extend %display--flex;

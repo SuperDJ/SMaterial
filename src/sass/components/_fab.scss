@@ -1,11 +1,10 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../foundation/ripple';
 
-@if(functions.in-array(fab, index.$component-settings)) {
+@if(functions.in-array(fab, settings.$component-settings)) {
 	.fab {
 		--fab-size: #{settings.$fab-size};
 		--fab-padding: #{settings.$fab-padding};
@@ -14,12 +13,12 @@
 		--fab--hover-background: #{settings.$fab--hover-background};
 		--fab--active-background: #{settings.$fab--active-background};
 
-		@if(functions.in-array(mini, index.$fab-settings)) {
+		@if(functions.in-array(mini, settings.$fab-settings)) {
 			--fab--mini-size: #{settings.$fab--mini-size};
 			--fab--mini-padding: #{settings.$fab--mini-padding};
 		}
 
-		@if(functions.in-array(extended, index.$fab-settings)) {
+		@if(functions.in-array(extended, settings.$fab-settings)) {
 			--fab--extended-height: #{settings.$fab--extended-height};
 			--fab--extended-border-radius: #{settings.$fab--extended-border-radius};
 			--fab--extended-padding: #{settings.$fab--extended-padding};
@@ -52,14 +51,14 @@
 			--icon-size: var(--fab__icon-size);
 		}
 
-		@if (functions.in-array(mini, index.$fab-settings)) {
+		@if (functions.in-array(mini, settings.$fab-settings)) {
 			&--mini {
 				@include mixins.chain(width, height, var(--fab--mini-size));
 				padding: var(--fab--mini-padding);
 			}
 		}
 
-		@if (functions.in-array(extended, index.$fab-settings)) {
+		@if (functions.in-array(extended, settings.$fab-settings)) {
 			&--extended {
 				width: auto;
 				height: var(--fab--extended-height);

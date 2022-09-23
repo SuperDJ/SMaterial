@@ -1,6 +1,5 @@
 @use './settings';
 @use '../helpers/functions';
-@use '../index';
 @use '../grid/media-queries';
 
 :root {
@@ -43,8 +42,8 @@
 		--margin: #{functions.rem-calc( settings.$xl-margin + 0px )};
 	}
 
-	@if(settings.$theme == light and functions.in-array(dark, index.$media-themes)) {
-		@media #{index.$dark} {
+	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
+		@media #{media-queries.$dark} {
 			--primary-color: #{settings.$dark-primary-color};
 			--primary-color-variant: #{settings.$dark-primary-color-variant};
 			--secondary-color: #{settings.$dark-secondary-color};
@@ -62,8 +61,8 @@
 		}
 	}
 
-	@if(settings.$theme == dark and functions.in-array(light, index.$media-themes)) {
-		@media #{index.$light} {
+	@if(settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
+		@media #{media-queries.$light} {
 			--primary-color: #{settings.$light-primary-color};
 			--primary-color-variant: #{settings.$light-primary-color-variant};
 			--secondary-color: #{settings.$light-secondary-color};

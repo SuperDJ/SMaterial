@@ -1,11 +1,10 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../colors/colors';
 
-@if(functions.in-array(slider, index.$component-settings)) {
+@if(functions.in-array(slider, settings.$component-settings)) {
 	.slider {
 		--slider__thumb-background: var(--primary-color);
 		--slider__thumb-size: #{functions.rem-calc(12px)};

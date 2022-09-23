@@ -1,40 +1,39 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../colors/colors';
 
-@if (functions.in-array(drawer, index.$component-settings)) {
+@if (functions.in-array(drawer, settings.$component-settings)) {
 	.drawer {
-		--drawer-background: #{index.$drawer-background};
-		--drawer-margin-right: #{index.$drawer-margin-right};
-		--drawer-border-right: #{index.$drawer-border-right};
+		--drawer-background: #{settings.$drawer-background};
+		--drawer-margin-right: #{settings.$drawer-margin-right};
+		--drawer-border-right: #{settings.$drawer-border-right};
 
-		--drawer__icon-size: #{index.$drawer__icon-size};
+		--drawer__icon-size: #{settings.$drawer__icon-size};
 
-		--drawer__item-margin: #{index.$drawer__item-margin};
-		--drawer__item-min-height: #{index.$drawer__item-min-height};
-		--drawer__item-width: #{index.$drawer__item-width};
-		--drawer__item--hover-background: #{index.$drawer__item--hover-background};
-		--drawer__item--click-background: #{index.$drawer__item--click-background};
-		--drawer__item--active-background: #{index.$drawer__item--active-background};
-		--drawer__item--active-color: #{index.$drawer__item--active-color};
-		--drawer__item--active--hover-color: #{index.$drawer__item--active--hover-color};
-		--drawer__item--active--active-color: #{index.$drawer__item--active--active-color};
-		--drawer__item__icon-margin: #{index.$drawer__item__icon-margin};
-		--drawer__item__arrow-margin: #{index.$drawer__item__arrow-margin};
-		--drawer__item__children-height: #{index.$drawer__item__children-height};
-		--drawer__item__content-color: #{index.$drawer__item__content-color};
-		--drawer__item__content-margin: #{index.$drawer__item__content-margin};
-		--drawer__item__content-height: #{index.$drawer__item__content-height};
+		--drawer__item-margin: #{settings.$drawer__item-margin};
+		--drawer__item-min-height: #{settings.$drawer__item-min-height};
+		--drawer__item-width: #{settings.$drawer__item-width};
+		--drawer__item--hover-background: #{settings.$drawer__item--hover-background};
+		--drawer__item--click-background: #{settings.$drawer__item--click-background};
+		--drawer__item--active-background: #{settings.$drawer__item--active-background};
+		--drawer__item--active-color: #{settings.$drawer__item--active-color};
+		--drawer__item--active--hover-color: #{settings.$drawer__item--active--hover-color};
+		--drawer__item--active--active-color: #{settings.$drawer__item--active--active-color};
+		--drawer__item__icon-margin: #{settings.$drawer__item__icon-margin};
+		--drawer__item__arrow-margin: #{settings.$drawer__item__arrow-margin};
+		--drawer__item__children-height: #{settings.$drawer__item__children-height};
+		--drawer__item__content-color: #{settings.$drawer__item__content-color};
+		--drawer__item__content-margin: #{settings.$drawer__item__content-margin};
+		--drawer__item__content-height: #{settings.$drawer__item__content-height};
 
-		--drawer__header-height: #{index.$drawer__header-height};
-		--drawer__header__profile-image-size: #{index.$drawer__header__profile-image-size};
-		--drawer__header__profile-name-color: #{index.$drawer__header__profile-name-color};
-		--drawer__header__profile-email-color: #{index.$drawer__header__profile-email-color};
+		--drawer__header-height: #{settings.$drawer__header-height};
+		--drawer__header__profile-image-size: #{settings.$drawer__header__profile-image-size};
+		--drawer__header__profile-name-color: #{settings.$drawer__header__profile-name-color};
+		--drawer__header__profile-email-color: #{settings.$drawer__header__profile-email-color};
 
-		--drawer__scrim-background: #{index.$drawer__scrim-background};
+		--drawer__scrim-background: #{settings.$drawer__scrim-background};
 
 		$el: &;
 		width: var(--drawer-width);
@@ -46,12 +45,12 @@
 		height: 100vh;
 		overflow-x: hidden;
 		overflow-y: auto;
-		transition: margin-left .3s index.$easing-accelerate;
+		transition: margin-left .3s settings.$easing-accelerate;
 		border-right: var(--drawer-border-right);
 
 		&--active {
 			margin-left: 0;
-			transition: margin-left .3s index.$easing-decelerate;
+			transition: margin-left .3s settings.$easing-decelerate;
 		}
 
 		&__item {
@@ -62,7 +61,7 @@
 			grid-template-columns: auto 1fr auto;
 			margin: var(--drawer__item-margin);
 			border-radius: var(--border-radius);
-			transition: background .1s index.$easing-standard, color .1s index.$easing-standard;
+			transition: background .1s settings.$easing-standard, color .1s settings.$easing-standard;
 			@extend %cursor--pointer;
 
 			.icon {
@@ -122,13 +121,13 @@
 			}
 
 			&__children {
-				transition: max-height .1s index.$easing-decelerate;
+				transition: max-height .1s settings.$easing-decelerate;
 				opacity: 0;
 				pointer-events: none;
 				overflow: hidden;
 
 				&.active {
-					transition: max-height .1s index.$easing-decelerate;
+					transition: max-height .1s settings.$easing-decelerate;
 					opacity: 1;
 					pointer-events: all;
 				}
@@ -164,7 +163,7 @@
 			}
 		}
 
-		@if (functions.in-array(modal, index.$drawer-settings)) {
+		@if (functions.in-array(modal, settings.$drawer-settings)) {
 			&--modal {
 				@extend %z16;
 				border-right: 0;
@@ -183,13 +182,13 @@
 			}
 		}
 
-		@if (functions.in-array(modal, index.$drawer-settings) or functions.in-array(full-height, index.$drawer-settings) or functions.in-array(fixed, index.$drawer-settings)) {
+		@if (functions.in-array(modal, settings.$drawer-settings) or functions.in-array(full-height, settings.$drawer-settings) or functions.in-array(fixed, settings.$drawer-settings)) {
 			&--modal, &--full-height, &--fixed {
 				@include mixins.chain(top, left, bottom, 0);
 			}
 		}
 
-		@if (functions.in-array(clipped, index.$drawer-settings)) {
+		@if (functions.in-array(clipped, settings.$drawer-settings)) {
 			&--clipped {
 				@include mixins.chain(left, bottom, 0);
 				top: var(--app-bar-height);
@@ -197,7 +196,7 @@
 			}
 		}
 
-		@if (functions.in-array(fixed, index.$drawer-settings)) {
+		@if (functions.in-array(fixed, settings.$drawer-settings)) {
 			&--fixed {
 				@media #{media-queries.$sm-up} {
 					margin-left: 0;
@@ -206,7 +205,7 @@
 			}
 		}
 
-		@if (functions.in-array(header, index.$drawer-settings)) {
+		@if (functions.in-array(header, settings.$drawer-settings)) {
 			&__header {
 				$header: &;
 				background: var(--drawer__header-background);
@@ -288,33 +287,33 @@
 	}
 
 	@include mixins.dark-theme(drawer) {
-		--drawer-background: #{index.$drawer--dark-background};
-		--drawer-border-right: #{index.$drawer--dark-border-right};
+		--drawer-background: #{settings.$drawer--dark-background};
+		--drawer-border-right: #{settings.$drawer--dark-border-right};
 
-		--drawer__item--hover-background: #{index.$drawer--dark__item--hover-background};
-		--drawer__item--click-background: #{index.$drawer--dark__item--click-background};
-		--drawer__item__content-color: #{index.$drawer--dark__item__content-color};
-		--drawer__header__profile-name-color: #{index.$drawer--dark__header__profile-name-color};
-		--drawer__header__profile-email-color: #{index.$drawer--dark__header__profile-email-color};
+		--drawer__item--hover-background: #{settings.$drawer--dark__item--hover-background};
+		--drawer__item--click-background: #{settings.$drawer--dark__item--click-background};
+		--drawer__item__content-color: #{settings.$drawer--dark__item__content-color};
+		--drawer__header__profile-name-color: #{settings.$drawer--dark__header__profile-name-color};
+		--drawer__header__profile-email-color: #{settings.$drawer--dark__header__profile-email-color};
 
-		--divider-background: #{index.$divider--dark-background};
+		--divider-background: #{settings.$divider--dark-background};
 
-		--scrollbar-background: #{index.$dark-scrollbar-background};
+		--scrollbar-background: #{settings.$dark-scrollbar-background};
 	}
 
 	@include mixins.light-theme(drawer) {
-		--drawer-background: #{index.$drawer--light-background};
-		--drawer-border-right: #{index.$drawer--light-border-right};
+		--drawer-background: #{settings.$drawer--light-background};
+		--drawer-border-right: #{settings.$drawer--light-border-right};
 
-		--drawer__item--hover-background: #{index.$drawer--light__item--hover-background};
-		--drawer__item--click-background: #{index.$drawer--light__item--click-background};
-		--drawer__item__content-color: #{index.$drawer--light__item__content-color};
-		--drawer__header__profile-name-color: #{index.$drawer--light__header__profile-name-color};
-		--drawer__header__profile-email-color: #{index.$drawer--light__header__profile-email-color};
+		--drawer__item--hover-background: #{settings.$drawer--light__item--hover-background};
+		--drawer__item--click-background: #{settings.$drawer--light__item--click-background};
+		--drawer__item__content-color: #{settings.$drawer--light__item__content-color};
+		--drawer__header__profile-name-color: #{settings.$drawer--light__header__profile-name-color};
+		--drawer__header__profile-email-color: #{settings.$drawer--light__header__profile-email-color};
 
-		--divider-background: #{index.$divider--light-background};
+		--divider-background: #{settings.$divider--light-background};
 
-		--scrollbar-background: #{index.$dark-scrollbar-background}
+		--scrollbar-background: #{settings.$dark-scrollbar-background}
 	}
 
 	:root {

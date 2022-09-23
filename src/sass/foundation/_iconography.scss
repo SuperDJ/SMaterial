@@ -1,10 +1,9 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../colors/colors';
 @use '../foundation/settings';
 
-@if(functions.in-array(icons, index.$foundation-settings)) {
+@if(functions.in-array(icons, settings.$foundation-settings)) {
 	.icon {
 		color: var(--icon-color);
 		vertical-align: middle;
@@ -18,25 +17,25 @@
 			color: var(--icon--active--focus-color);
 		}
 
-		@if (functions.in-array(18, index.$icon-settings)) {
+		@if (functions.in-array(18, settings.$icon-settings)) {
 			&--18 {
 				--icon-size: #{functions.rem-calc(18px)};
 			}
 		}
 
-		@if (functions.in-array(24, index.$icon-settings)) {
+		@if (functions.in-array(24, settings.$icon-settings)) {
 			&--24 {
 				--icon-size: #{functions.rem-calc(24px)};
 			}
 		}
 
-		@if (functions.in-array(36, index.$icon-settings)) {
+		@if (functions.in-array(36, settings.$icon-settings)) {
 			&--36 {
 				--icon-size: #{functions.rem-calc(36px)};
 			}
 		}
 
-		@if (functions.in-array(48, index.$icon-settings)) {
+		@if (functions.in-array(48, settings.$icon-settings)) {
 			&--48 {
 				--icon-size: #{functions.rem-calc(48px)};
 			}

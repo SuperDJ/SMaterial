@@ -1,12 +1,12 @@
 @use '../helpers/functions';
-@use '../index';
+@use '../foundation/settings';
 
 $properties: (static, relative, absolute, sticky, fixed);
 
 // Make class
-@if(functions.in-array(position, index.$property-settings)) {
+@if(functions.in-array(position, settings.$property-settings)) {
 	@each $property in $properties {
-		@if(functions.in-array($property, index.$position-settings)) {
+		@if(functions.in-array($property, settings.$position-settings)) {
 			.position--#{$property} {
 				position: $property !important;
 			}

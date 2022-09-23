@@ -1,10 +1,10 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
+@use '../colors/colors';
 
-@if (functions.in-array(bottom-sheet, index.$component-settings)) {
+@if (functions.in-array(bottom-sheet, settings.$component-settings)) {
 	.bottom-sheet {
 		--bottom-sheet-width: #{settings.$bottom-sheet-width};
 		--bottom-sheet-min-height: #{settings.$bottom-sheet-min-height};
@@ -20,14 +20,14 @@
 
 		--bottom-sheet__content-color: #{settings.$bottom-sheet__content-color};
 
-		@if (functions.in-array(list, index.$bottom-sheet-settings)) {
-			--bottom-sheet--list__item-height: #{$bottom-sheet--list__item-height};
-			--bottom-sheet--list__icon-margin: #{$bottom-sheet--list__icon-margin};
-			--bottom-sheet--list__content-size: #{$bottom-sheet--list__content-size};
-			--bottom-sheet--list__content-margin: #{$bottom-sheet--list__content-margin};
+		@if (functions.in-array(list, settings.$bottom-sheet-settings)) {
+			--bottom-sheet--list__item-height: #{settings.$bottom-sheet--list__item-height};
+			--bottom-sheet--list__icon-margin: #{settings.$bottom-sheet--list__icon-margin};
+			--bottom-sheet--list__content-size: #{settings.$bottom-sheet--list__content-size};
+			--bottom-sheet--list__content-margin: #{settings.$bottom-sheet--list__content-margin};
 		}
 
-		@if (functions.in-array(grid, index.$bottom-sheet-settings)) {
+		@if (functions.in-array(grid, settings.$bottom-sheet-settings)) {
 			--bottom-sheet--grid-padding: #{settings.$bottom-sheet--grid-padding};
 			--bottom-sheet--grid__icon-size: #{settings.$bottom-sheet--grid__icon-size};
 			--bottom-sheet--grid__content-padding: #{settings.$bottom-sheet--grid__content-padding};
@@ -67,7 +67,7 @@
 			pointer-events: all;
 		}
 
-		@if (functions.in-array(list, index.$bottom-sheet-settings)) {
+		@if (functions.in-array(list, settings.$bottom-sheet-settings)) {
 			&--list {
 				#{$el}__item {
 					height: var(--bottom-sheet--list__item-height);
@@ -88,7 +88,7 @@
 			}
 		}
 
-		@if (functions.in-array(grid, index.$bottom-sheet-settings)) {
+		@if (functions.in-array(grid, settings.$bottom-sheet-settings)) {
 			&--grid {
 				@extend %display--grid;
 				padding: var(--bottom-sheet--grid-padding);
@@ -119,7 +119,7 @@
 				top: 0;
 				width: 100%;
 				height: 100%;
-				background: rgba($black, .32);
+				background: rgba(colors.$black, .32);
 			}
 		}
 

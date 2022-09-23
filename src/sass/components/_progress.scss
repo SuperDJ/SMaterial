@@ -1,10 +1,9 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 
-@if(functions.in-array(progress, index.$component-settings)) {
+@if(functions.in-array(progress, settings.$component-settings)) {
 	//TODO add <progress> tag styling
 	.progress {
 		--progress-background: #{rgba(settings.$primary-color, .6)};
@@ -12,7 +11,7 @@
 
 		--progress__bar-background: #{var(--primary-color)};
 
-		@if(functions.in-array(cirlce, index.$progress-settings)) {
+		@if(functions.in-array(cirlce, settings.$progress-settings)) {
 			--progress--circle-size: #{functions.rem-calc(100px)};
 			--progress--circle--indeterminate-color1: #{var(--primary-color)};
 			--progress--circle--indeterminate-color2: #{var(--primary-color)};
@@ -34,7 +33,7 @@
 			background: var(--progress__bar-background);
 		}
 
-		@if(functions.in-array(determinate, index.$progress-settings) or functions.in-array(indeterminate, index.$progress-settings)) {
+		@if(functions.in-array(determinate, settings.$progress-settings) or functions.in-array(indeterminate, settings.$progress-settings)) {
 			&--determinate, &--indeterminate {
 				#{$el}__bar {
 					height: 100%;
@@ -43,14 +42,14 @@
 			}
 		}
 
-		@if(functions.in-array(determinate, index.$progress-settings)) {
+		@if(functions.in-array(determinate, settings.$progress-settings)) {
 			&--determinate #{$el}__bar {
 				width: var(--progress__bar--progress);
 				transition: width .1s settings.$easing-accelerate;
 			}
 		}
 
-		@if(functions.in-array(indeterminate, index.$progress-settings)) {
+		@if(functions.in-array(indeterminate, settings.$progress-settings)) {
 			&:indeterminate, &--indeterminate {
 				@extend %position--relative;
 				overflow: hidden;
@@ -75,7 +74,7 @@
 			}
 		}
 
-		@if(functions.in-array(circle, index.$progress-settings)) {
+		@if(functions.in-array(circle, settings.$progress-settings)) {
 			&--circle {
 				background: none;
 				@extend %position--relative;

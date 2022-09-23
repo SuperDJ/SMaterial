@@ -1,10 +1,10 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../colors/colors';
+@use '../foundation/ripple';
 
-@if (functions.in-array(button, index.$component-settings)) {
+@if (functions.in-array(button, settings.$component-settings)) {
 	.button {
 		--button-height: #{settings.$button-height};
 		--button-min-width: #{settings.$button-min-width};
@@ -12,7 +12,7 @@
 
 		--button__icon-size: #{settings.$button__icon-size};
 
-		@if (functions.in-array(contained, index.$button-settings)) {
+		@if (functions.in-array(contained, settings.$button-settings)) {
 			--button--contained-padding: #{settings.$button--contained-padding};
 			--button--contained--hover-background: #{settings.$button--contained--hover-background};
 			--button--contained--active-background: #{settings.$button--contained--active-background};
@@ -22,7 +22,7 @@
 			--button--contained--icon-right__icon-margin: #{settings.$button--contained--icon-right__icon-margin};
 		}
 
-		@if (functions.in-array(outlined, index.$button-settings)) {
+		@if (functions.in-array(outlined, settings.$button-settings)) {
 			--button--outlined-border: #{settings.$button--outlined-border};
 			--button--outlined-padding: #{settings.$button--outlined-padding};
 			--button--outlined--icon-left-padding: #{settings.$button--outlined--icon-left-padding};
@@ -31,7 +31,7 @@
 			--button--outlined--icon-right__icon-margin: #{settings.$button--outlined--icon-right__icon-margin};
 		}
 
-		@if (functions.in-array(text, index.$button-settings)) {
+		@if (functions.in-array(text, settings.$button-settings)) {
 			--button--text-padding: #{settings.$button--text-padding};
 			--button--text--icon-left-padding: #{settings.$button--text--icon-left-padding};
 			--button--text--icon-left__icon-margin: #{settings.$button--text--icon-left__icon-margin};
@@ -39,7 +39,7 @@
 			--button--text--icon-right__icon-margin: #{settings.$button--text--icon-right__icon-margin};
 		}
 
-		@if (functions.in-array(text, index.$button-settings) or functions.in-array(outlined, index.$button-settings)) {
+		@if (functions.in-array(text, settings.$button-settings) or functions.in-array(outlined, settings.$button-settings)) {
 			--button--text--outlined--hover-background: #{settings.$button--text--outlined--hover-background};
 			--button--text--outlined--active-background: #{settings.$button--text--outlined--active-background};
 			--button--text--outlined-color: #{settings.$button--text--outlined-color};
@@ -59,10 +59,10 @@
 		user-select: none;
 		@extend %display--inline-block;
 		vertical-align: middle;
-		@include ripple();
+		@include ripple.ripple();
 		white-space: nowrap;
 
-		@if (functions.in-array(contained, index.$button-settings)) {
+		@if (functions.in-array(contained, settings.$button-settings)) {
 			&--contained {
 				--ripple--hover-background: var(--button--contained--hover-background);
 				--ripple--active-background: var(--button--contained--active-background);
@@ -104,7 +104,7 @@
 			}
 		}
 
-		@if (functions.in-array(outlined, index.$button-settings)) {
+		@if (functions.in-array(outlined, settings.$button-settings)) {
 			&--outlined {
 				border: var(--button--outlined-border);
 				padding: var(--button--outlined-padding);
@@ -128,7 +128,7 @@
 			}
 		}
 
-		@if (functions.in-array(text, index.$button-settings)) {
+		@if (functions.in-array(text, settings.$button-settings)) {
 			&--text {
 				padding: var(--button--text-padding);
 				background: transparent;
@@ -151,7 +151,7 @@
 			}
 		}
 
-		@if (functions.in-array(toggle, index.$button-settings)) {
+		@if (functions.in-array(toggle, settings.$button-settings)) {
 			&--toggle {
 				@include mixins.chain(width, height, functions.rem-calc(48px));
 				padding: functions.rem-calc(12px);
@@ -177,7 +177,7 @@
 			}
 		}
 
-		@if (functions.in-array(text, index.$button-settings) or functions.in-array(outlined, index.$button-settings)) {
+		@if (functions.in-array(text, settings.$button-settings) or functions.in-array(outlined, settings.$button-settings)) {
 			&--text, &--outlined {
 				--ripple--hover-background: var(--button--text--outlined--hover-background);
 				--ripple--active-background: var(--button--text--outlined--active-background);
@@ -199,7 +199,7 @@
 			}
 		}
 
-		@if (functions.in-array(fluid, index.$button-settings)) {
+		@if (functions.in-array(fluid, settings.$button-settings)) {
 			&--fluid {
 				width: 100%;
 			}

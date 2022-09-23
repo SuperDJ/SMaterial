@@ -1,11 +1,10 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../colors/colors';
 @use '../grid/media-queries';
 
-@if (functions.in-array(dialog, index.$component-settings)) {
+@if (functions.in-array(dialog, settings.$component-settings)) {
 	.dialog {
 		--dialog-border-radius: #{settings.$dialog-border-radius};
 		--dialog-background: #{settings.$dialog-background};
@@ -31,16 +30,16 @@
 			--dialog-width: #{settings.$dialog-md-up-width};
 		}
 
-		@if (functions.in-array(simple, index.$dialog-settings)) {
+		@if (functions.in-array(simple, settings.$dialog-settings)) {
 			--dialog--simple__list__support__image-padding-left: #{settings.$dialog--simple__list__support__image-padding-left};
 			--dialog--simple__list__content-padding: #{settings.$dialog--simple__list__content-padding};
 		}
 
-		@if (functions.in-array(alert, index.$dialog-settings)) {
+		@if (functions.in-array(alert, settings.$dialog-settings)) {
 			--dialog--alert__content-height: #{settings.$dialog--alert__content-height};
 		}
 
-		@if (functions.in-array(full-screen, index.$dialog-settings)) {
+		@if (functions.in-array(full-screen, settings.$dialog-settings)) {
 			--dialog--full-screen__header-height: #{settings.$dialog--full-screen__header-height};
 			--dialog--full-screen__header-background: #{settings.$dialog--full-screen__header-background};
 			--dialog--full-screen__header-padding: #{settings.$dialog--full-screen__header-padding};
@@ -111,7 +110,7 @@
 			max-height: var(--dialog-max-height);
 		}
 
-		@if (functions.in-array(simple, index.$dialog-settings)) {
+		@if (functions.in-array(simple, settings.$dialog-settings)) {
 			&--simple {
 				grid-template-rows: var(--dialog__header-height) minmax(0, 1fr) 0;
 
@@ -127,7 +126,7 @@
 			}
 		}
 
-		@if (functions.in-array(alert, index.$dialog-settings)) {
+		@if (functions.in-array(alert, settings.$dialog-settings)) {
 			&--alert {
 				min-height: calc(var(--dialog--alert__content-height) + var(--dialog__actions-height));
 				grid-template-rows: 0 var(--dialog--alert__content-height) var(--dialog__actions-height);
@@ -138,13 +137,13 @@
 			}
 		}
 
-		@if (functions.in-array(confirm, index.$dialog-settings)) {
+		@if (functions.in-array(confirm, settings.$dialog-settings)) {
 			&--confirm {
 				grid-template-rows: var(--dialog__header-height) minmax(0, 1fr) var(--dialog__actions-height);
 			}
 		}
 
-		@if (functions.in-array(full-screen, index.$dialog-settings)) {
+		@if (functions.in-array(full-screen, settings.$dialog-settings)) {
 			&--full-screen {
 				@include mixins.chain(max-height, max-width, 100%);
 				@include mixins.chain(height, width, 100%);

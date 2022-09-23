@@ -1,12 +1,12 @@
 @use '../helpers/functions';
-@use '../index';
+@use '../foundation/settings';
 
 $properties: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit);
 
 // Make class
-@if(functions.in-array(white-space, index.$property-settings)) {
+@if(functions.in-array(white-space, settings.$property-settings)) {
 	@each $property in $properties {
-		@if(functions.in-array($property, index.$position-settings)) {
+		@if(functions.in-array($property, settings.$position-settings)) {
 			.white-space--#{$property} {
 				white-space: $property !important;
 			}

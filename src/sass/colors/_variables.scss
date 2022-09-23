@@ -1,11 +1,11 @@
 @use '../helpers/functions';
-@use '../index';
+@use '../foundation/settings';
 @use './colors';
 
-@if(functions.in-array(variables, index.$color-settings) and functions.in-array(colors, index.$color-settings)) {
+@if(functions.in-array(variables, settings.$color-settings) and functions.in-array(colors, settings.$color-settings)) {
 	:root {
 		@each $color-name, $color-swatch in colors.$colors {
-			@if(functions.in-array($color-name, index.$color-settings)) {
+			@if(functions.in-array($color-name, settings.$color-settings)) {
 				@each $color-type, $color-value in $color-swatch {
 					// Since base and 500 color are equal merge them together
 					@if ($color-type == 'base') {

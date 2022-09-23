@@ -1,9 +1,8 @@
 @use '../helpers/functions';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 
-@if (functions.in-array(divider, index.$component-settings)) {
+@if (functions.in-array(divider, settings.$component-settings)) {
 	.divider {
 		--divider-height: #{settings.$divider-height};
 		--divider-margin: #{settings.$divider-margin};
@@ -14,7 +13,7 @@
 		border: none 0;
 		margin: var(--divider-margin);
 
-		@if (functions.in-array(vertical, index.$divider-settings)) {
+		@if (functions.in-array(vertical, settings.$divider-settings)) {
 			&--vertical {
 				transform: rotate(90deg);
 			}
@@ -25,13 +24,13 @@
 :root {
 	--divider-background: #{settings.$divider-background};
 
-	@if (settings.$theme == light and functions.in-array(dark, index.$media-themes)) {
+	@if (settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
 		@media #{media-queries.$dark} {
 			--divider-background: #{settings.$divider--dark-background};
 		}
 	}
 
-	@if (settings.$theme == dark and functions.in-array(light, index.$media-themes)) {
+	@if (settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
 		@media #{media-queries.$light} {
 			--divider-background: #{settings.$divider--light-background}
 		}

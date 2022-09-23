@@ -1,9 +1,9 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
+@use '../foundation/settings';
 @use '../colors/colors';
 
-@if(functions.in-array(badge, index.$component-settings)) {
+@if(functions.in-array(badge, settings.$component-settings)) {
 	.badge {
 		--badge-font-size: #{functions.rem-calc(10px)};
 		--badge-color: #{colors.$white};

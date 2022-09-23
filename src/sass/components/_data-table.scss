@@ -1,11 +1,10 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
-@use '../index';
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../foundation/ripple';
 
-@if (functions.in-array(data-table, index.$component-settings)) {
+@if (functions.in-array(data-table, settings.$component-settings)) {
 	.data-table {
 		--data-table-border-radius: #{settings.$data-table-border-radius};
 		--data-table-border: #{settings.$data-table-border};
@@ -85,7 +84,7 @@
 			border-bottom: unset;
 		}
 
-		@if (functions.in-array(hover, index.$data-table-settings)) {
+		@if (functions.in-array(hover, settings.$data-table-settings)) {
 			&--hover {
 				tbody tr:hover {
 					transition: background .1s settings.$easing-standard;
@@ -94,7 +93,7 @@
 			}
 		}
 
-		@if (functions.in-array(numeric, index.$data-table-settings)) {
+		@if (functions.in-array(numeric, settings.$data-table-settings)) {
 			&--numeric {
 				text-align: right !important; // TODO Fix important
 			}

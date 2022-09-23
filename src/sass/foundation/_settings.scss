@@ -1117,3 +1117,48 @@ $tooltip-background-color: rgba(colors.$grey-700, .6) !default;
 $tooltip-md-up-height: functions.rem-calc(24px) !default;
 $tooltip-md-up-padding: 0 functions.rem-calc(8px) !default;
 $tooltip-md-up-font-size: functions.rem-calc(10px) !default;
+
+
+$media-themes: (dark, light) !default;
+$class-themes: (dark, light) !default;
+$color-settings: (color, variables, "red", "pink", "purple", "deep-purple", "indigo", "blue", "light-blue", "cyan", "teal", "green", "light-green", "lime", "yellow", "amber", "orange", "deep-orange", "brown", "grey", "blue-grey", "shades") !default;
+
+$component-settings: (app-bar, badge, banner, bottom-nav, bottom-sheet, button, card, chip, data-table, dialog, divider, drawer, fab, list, menu, notification, picker, progress, selection, slider, snackbar, tab, text-field, tooltip) !default;
+$app-bar-settings: (title, actions, fixed) !default;
+$banner-settings: (single, multi, image) !default;
+$bottom-sheet-settings: (list, grid) !default;
+$button-settings: (contained, text, outlined, toggle, fluid) !default;
+$card-settings: (default, simple, overline, album, media) !default;
+$chip-settings: (outlined, thumbnail, remove) !default;
+$data-table-settings: (numeric, hover) !default;
+$dialog-settings: (simple, alert, confirm, full-screen, scroll) !default;
+$divider-settings: (vertical) !default;
+$drawer-settings: (header, modal, full-height, fixed, clipped) !default;
+$fab-settings: (mini, extended) !default;
+$list-settings: (single, two, three) !default;
+$notification-settings: (standard, big-text, big-picture, progress, messaging) !default;
+$progress-settings: (determintate, indeterminate, circle) !default;
+$selection-settings: (checkbox, switch, radio) !default;
+$snackbar-settings: (two) !default;
+$tab-settings: (text, icon, icon-text, scroll) !default;
+$text-field-settings: (filled, outlined, helper, select) !default;
+
+$foundation-settings: (icons, shadows, shapes, typography) !default;
+$normalize-settings: (scrollbar) !default;
+$icon-settings: (18, 24, 36, 48) !default;
+$typography-settings: (h1, h2, h3, h4, h5, h6, subtitle-1, subtitle-2, body-1, body-2, button, caption, overline, left, right, center) !default;
+$shadow-settings: (1, 2, 3, 4, 6, 8, 9, 12, 16, 24) !default;
+$shape-settings: (square, circle, diamond, triangle, hexagon, heptagon, octagon, bevel) !default;
+
+$grid-settings: (fluid, masonry) !default;
+
+$helper-settings: (aspect-ratio) !default;
+
+$property-settings: (/*cursor, display, flex, float, mp, position, white-space*/) !default;
+$cursor-settings: (alias, all-scroll, auto, cell, context-menu, col-resize, copy, crosshair, default, e-resize, ew-resize, grab, grabbing, help, move, n-resize, ne-resize, nesw-resize, ns-resize, nw-resize, nwse-resize, no-drop, none, not-allowed, pointer, progress, row-resize, s-resize, se-resize, sw-resize, text, wait, zoom-in, zoom-out) !default;
+$display-settings: (inline, block, contents, flex, grid, inline-block, inline-flex, inline-grid, inline-table, list-item, run-in, table, table-caption, table-column-group, table-header-group, table-footer-group, table-row-group,table-cell, table-column, table-row, none, initial, inherit) !default;
+$float-settings: (left, right, none, inline-start, inline-end, inherit, initial, unset) !default;
+$mp-settings: (margin, padding) !default;
+$margin-padding-sizes: (0, 4, 8, 12, 16, 20, 24);
+$position-settings: (static, relative, absolute, sticky, fixed) !default;
+$white-space-settings: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit) !default;

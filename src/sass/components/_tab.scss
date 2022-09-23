@@ -1,9 +1,8 @@
 @use '../helpers/functions';
-@use '../index';
 @use '../foundation/settings';
 @use '../colors/colors';
 
-@if(functions.in-array(tab, index.$component-settings)) {
+@if(functions.in-array(tab, settings.$component-settings)) {
 	.tabs {
 		--tabs-background: var(--primary-color);
 
@@ -50,20 +49,20 @@
 			@extend %button;
 		}
 
-		@if(functions.in-array(text, index.$tab-settings)) {
+		@if(functions.in-array(text, settings.$tab-settings)) {
 			&--text-only #{$el}__content {
 				line-height: functions.rem-calc(48px);
 				padding: 0 functions.rem-calc(16px);
 			}
 		}
 
-		@if(functions.in-array(icon, index.$tab-settings)) {
+		@if(functions.in-array(icon, settings.$tab-settings)) {
 			&--icon-only #{$el}__icon {
 				padding: functions.rem-calc(12px) functions.rem-calc(16px) functions.rem-calc(12px) functions.rem-calc(16px);
 			}
 		}
 
-		@if(functions.in-array(icon-text, index.$tab-settings)) {
+		@if(functions.in-array(icon-text, settings.$tab-settings)) {
 			&--icon-text {
 				#{$el}__tab {
 					min-height: functions.rem-calc(72px);
@@ -79,13 +78,13 @@
 			}
 		}
 
-		@if(functions.in-array(text, index.$tab-settings) or functions.in-array(icon, index.$tab-settings)) {
+		@if(functions.in-array(text, settings.$tab-settings) or functions.in-array(icon, settings.$tab-settings)) {
 			&--text-only, &--icon-only {
 				min-height: functions.rem-calc(48px);
 			}
 		}
 
-		@if(functions.in-array(scroll, index.$tab-settings)) {
+		@if(functions.in-array(scroll, settings.$tab-settings)) {
 			&--scrollable {
 				overflow-x: auto;
 
