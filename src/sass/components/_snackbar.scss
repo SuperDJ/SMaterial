@@ -1,20 +1,28 @@
-@if (in-array(snackbar, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+@use '../foundation/typography';
+@use '../foundation/shadows';
+@use '../properties/display';
+
+@if (functions.in-array(snackbar, settings.$component-settings)) {
 	.snackbar {
-		--snackbar-width: #{$snackbar-width};
-		--snackbar-min-height: #{$snackbar-min-height};
-		--snackbar-background: #{$snackbar-background};
-		--snackbar-border-radius: #{$snackbar-border-radius};
+		--snackbar-width: #{settings.$snackbar-width};
+		--snackbar-min-height: #{settings.$snackbar-min-height};
+		--snackbar-background: #{settings.$snackbar-background};
+		--snackbar-border-radius: #{settings.$snackbar-border-radius};
 
-		--snackbar__content-color: #{$snackbar__content-color};
-		--snackbar__content-padding: #{$snackbar__content-padding};
+		--snackbar__content-color: #{settings.$snackbar__content-color};
+		--snackbar__content-padding: #{settings.$snackbar__content-padding};
 
-		--snackbar__actions-padding: #{$snackbar__actions-padding};
+		--snackbar__actions-padding: #{settings.$snackbar__actions-padding};
 
-		@if (in-array(two, $snackbar-settings)) {
-			--snackbar--two-line-min-height: #{$snackbar--two-line-min-height};
-			--snackbar--two-line__actions-padding: #{$snackbar--two-line__actions-padding};
-			--snackbar--two-line--long-action__content-padding: #{$snackbar--two-line--long-action__content-padding};
-			--snackbar--two-line--long-action__actions-padding: #{$snackbar--two-line--long-action__actions-padding};
+		@if (functions.in-array(two, settings.$snackbar-settings)) {
+			--snackbar--two-line-min-height: #{settings.$snackbar--two-line-min-height};
+			--snackbar--two-line__actions-padding: #{settings.$snackbar--two-line__actions-padding};
+			--snackbar--two-line--long-action__content-padding: #{settings.$snackbar--two-line--long-action__content-padding};
+			--snackbar--two-line--long-action__actions-padding: #{settings.$snackbar--two-line--long-action__actions-padding};
 		}
 
 		$el: &;
@@ -37,7 +45,7 @@
 			}
 		}
 
-		@if (in-array(two, $snackbar-settings)) {
+		@if (functions.in-array(two, settings.$snackbar-settings)) {
 			&--two-line {
 				min-height: var(--snackbar--two-line-min-height);
 
@@ -75,12 +83,12 @@
 		}
 	}
 
-	@include dark-theme(snackbar) {
-		--snackbar-background: #{$snackbar--dark-background};
-		@include overlay(6);
+	@include mixins.dark-theme(snackbar) {
+		--snackbar-background: #{settings.$snackbar--dark-background};
+		@include mixins.overlay(6);
 	}
 
-	@include light-theme(snackbar) {
-		--snackbar-background: #{$snackbar--light-background};
+	@include mixins.light-theme(snackbar) {
+		--snackbar-background: #{settings.$snackbar--light-background};
 	}
 }

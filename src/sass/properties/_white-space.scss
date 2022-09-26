@@ -1,9 +1,12 @@
-$properties: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit);
+@use '../helpers/functions';
+@use '../foundation/settings';
+
+$white-space-properties: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit);
 
 // Make class
-@if(in-array(white-space, $property-settings)) {
-	@each $property in $properties {
-		@if(in-array($property, $position-settings)) {
+@if(functions.in-array(white-space, settings.$property-settings)) {
+	@each $property in $white-space-properties {
+		@if(functions.in-array($property, settings.$position-settings)) {
 			.white-space--#{$property} {
 				white-space: $property !important;
 			}
@@ -12,7 +15,7 @@ $properties: (normal, nowrap, pre, pre-line, pre-wrap, initial, inherit);
 }
 
 // Make extend
-@each $property in $properties {
+@each $property in $white-space-properties {
 	%white-space--#{$property} {
 		white-space: $property;
 	}

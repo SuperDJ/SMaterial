@@ -1,7 +1,11 @@
-@if (in-array(divider, $component-settings)) {
+@use '../helpers/functions';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+
+@if (functions.in-array(divider, settings.$component-settings)) {
 	.divider {
-		--divider-height: #{$divider-height};
-		--divider-margin: #{$divider-margin};
+		--divider-height: #{settings.$divider-height};
+		--divider-margin: #{settings.$divider-margin};
 
 		width: 100%;
 		height: var(--divider-height);
@@ -9,7 +13,7 @@
 		border: none 0;
 		margin: var(--divider-margin);
 
-		@if (in-array(vertical, $divider-settings)) {
+		@if (functions.in-array(vertical, settings.$divider-settings)) {
 			&--vertical {
 				transform: rotate(90deg);
 			}
@@ -18,17 +22,17 @@
 }
 
 :root {
-	--divider-background: #{$divider-background};
+	--divider-background: #{settings.$divider-background};
 
-	@if ($theme == light and in-array(dark, $media-themes)) {
-		@media #{$dark} {
-			--divider-background: #{$divider--dark-background};
+	@if (settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
+		@media #{media-queries.$dark} {
+			--divider-background: #{settings.$divider--dark-background};
 		}
 	}
 
-	@if ($theme == dark and in-array(light, $media-themes)) {
-		@media #{$light} {
-			--divider-background: #{$divider--light-background}
+	@if (settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
+		@media #{media-queries.$light} {
+			--divider-background: #{settings.$divider--light-background}
 		}
 	}
 }
@@ -42,13 +46,13 @@
 }
 
 %divider-border {
-	border: rem-calc(1px) solid var(--divider-background);
+	border: functions.rem-calc(1px) solid var(--divider-background);
 }
 
 %divider-top-border {
-	border-top: rem-calc(1px) solid var(--divider-background);
+	border-top: functions.rem-calc(1px) solid var(--divider-background);
 }
 
 %divider-bottom-border {
-	border-bottom: rem-calc(1px) solid var(--divider-background);
+	border-bottom: functions.rem-calc(1px) solid var(--divider-background);
 }

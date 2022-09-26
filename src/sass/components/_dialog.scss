@@ -1,46 +1,56 @@
-@if (in-array(dialog, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../foundation/settings';
+@use '../colors/colors';
+@use '../grid/media-queries';
+@use '../foundation/typography';
+@use '../foundation/shadows';
+@use '../properties/display';
+@use '../properties/position';
+
+@if (functions.in-array(dialog, settings.$component-settings)) {
 	.dialog {
-		--dialog-border-radius: #{$dialog-border-radius};
-		--dialog-background: #{$dialog-background};
-		--dialog-width: #{$dialog-width};
-		--dialog-max-height: #{$dialog-max-height};
+		--dialog-border-radius: #{settings.$dialog-border-radius};
+		--dialog-background: #{settings.$dialog-background};
+		--dialog-width: #{settings.$dialog-width};
+		--dialog-max-height: #{settings.$dialog-max-height};
 
-		--dialog__header-color: #{$dialog__header-color};
-		--dialog__header-height: #{$dialog__header-height};
-		--dialog__header-padding: #{$dialog__header-padding};
+		--dialog__header-color: #{settings.$dialog__header-color};
+		--dialog__header-height: #{settings.$dialog__header-height};
+		--dialog__header-padding: #{settings.$dialog__header-padding};
 
-		--dialog__content-color: #{$dialog__content-color};
-		--dialog__content-padding: #{$dialog__content-padding};
+		--dialog__content-color: #{settings.$dialog__content-color};
+		--dialog__content-padding: #{settings.$dialog__content-padding};
 
-		--dialog__actions-height: #{$dialog__actions-height};
-		--dialog__actions-padding: #{$dialog__actions-padding};
-		--dialog__actions-margin-left: #{$dialog__actions-margin-left};
+		--dialog__actions-height: #{settings.$dialog__actions-height};
+		--dialog__actions-padding: #{settings.$dialog__actions-padding};
+		--dialog__actions-margin-left: #{settings.$dialog__actions-margin-left};
 
-		--dialog--scroll__header-border-bottom: #{$dialog--scroll__header-border-bottom};
-		--dialog--scroll__actions-border-top: #{$dialog--scroll__actions-border-top};
-		--dialog--scroll__content-padding-bottom: #{$dialog--scroll__content-padding-bottom};
+		--dialog--scroll__header-border-bottom: #{settings.$dialog--scroll__header-border-bottom};
+		--dialog--scroll__actions-border-top: #{settings.$dialog--scroll__actions-border-top};
+		--dialog--scroll__content-padding-bottom: #{settings.$dialog--scroll__content-padding-bottom};
 
-		@media #{$md-and-up} {
-			--dialog-width: #{$dialog-md-up-width};
+		@media #{media-queries.$md-and-up} {
+			--dialog-width: #{settings.$dialog-md-up-width};
 		}
 
-		@if (in-array(simple, $dialog-settings)) {
-			--dialog--simple__list__support__image-padding-left: #{$dialog--simple__list__support__image-padding-left};
-			--dialog--simple__list__content-padding: #{$dialog--simple__list__content-padding};
+		@if (functions.in-array(simple, settings.$dialog-settings)) {
+			--dialog--simple__list__support__image-padding-left: #{settings.$dialog--simple__list__support__image-padding-left};
+			--dialog--simple__list__content-padding: #{settings.$dialog--simple__list__content-padding};
 		}
 
-		@if (in-array(alert, $dialog-settings)) {
-			--dialog--alert__content-height: #{$dialog--alert__content-height};
+		@if (functions.in-array(alert, settings.$dialog-settings)) {
+			--dialog--alert__content-height: #{settings.$dialog--alert__content-height};
 		}
 
-		@if (in-array(full-screen, $dialog-settings)) {
-			--dialog--full-screen__header-height: #{$dialog--full-screen__header-height};
-			--dialog--full-screen__header-background: #{$dialog--full-screen__header-background};
-			--dialog--full-screen__header-padding: #{$dialog--full-screen__header-padding};
-			--dialog--full-screen__header__icon-size: #{$dialog--full-screen__header__icon-size};
-			--dialog--full-screen__header__title-padding-left: #{$dialog--full-screen__header__title-padding-left};
-			--dialog--full-screen__header__color: #{$dialog--full-screen__header__color};
-			--dialog--full-screen__content-padding: #{$dialog--full-screen__content-padding};
+		@if (functions.in-array(full-screen, settings.$dialog-settings)) {
+			--dialog--full-screen__header-height: #{settings.$dialog--full-screen__header-height};
+			--dialog--full-screen__header-background: #{settings.$dialog--full-screen__header-background};
+			--dialog--full-screen__header-padding: #{settings.$dialog--full-screen__header-padding};
+			--dialog--full-screen__header__icon-size: #{settings.$dialog--full-screen__header__icon-size};
+			--dialog--full-screen__header__title-padding-left: #{settings.$dialog--full-screen__header__title-padding-left};
+			--dialog--full-screen__header__color: #{settings.$dialog--full-screen__header__color};
+			--dialog--full-screen__content-padding: #{settings.$dialog--full-screen__content-padding};
 		}
 
 
@@ -56,19 +66,19 @@
 		@extend %position--fixed;
 		opacity: 0;
 		pointer-events: none;
-		@include chain(top, left, 50%);
+		@include mixins.chain(top, left, 50%);
 		transform: translateX(-50%) translateY(-50%);
-		transition: max-height .1s $easing-standard, width .1s $easing-standard, opacity .1s $easing-standard;
+		transition: max-height .1s settings.$easing-standard, width .1s settings.$easing-standard, opacity .1s settings.$easing-standard;
 		@extend %display--grid;
 		grid-template-areas: "header" "content" "actions";
 
-		@if ($theme == dark) {
+		@if (settings.$theme == dark) {
 			@extend %overlay24;
 		}
 
 		&__header {
 			grid-area: header;
-			@include chain(height, line-height, var(--dialog__header-height));
+			@include mixins.chain(height, line-height, var(--dialog__header-height));
 			@extend %h6;
 			color: var(--dialog__header-color);
 			padding: var(--dialog__header-padding);
@@ -104,7 +114,7 @@
 			max-height: var(--dialog-max-height);
 		}
 
-		@if (in-array(simple, $dialog-settings)) {
+		@if (functions.in-array(simple, settings.$dialog-settings)) {
 			&--simple {
 				grid-template-rows: var(--dialog__header-height) minmax(0, 1fr) 0;
 
@@ -120,31 +130,31 @@
 			}
 		}
 
-		@if (in-array(alert, $dialog-settings)) {
+		@if (functions.in-array(alert, settings.$dialog-settings)) {
 			&--alert {
 				min-height: calc(var(--dialog--alert__content-height) + var(--dialog__actions-height));
 				grid-template-rows: 0 var(--dialog--alert__content-height) var(--dialog__actions-height);
 
 				#{$el}__content {
-					@include chain(height, line-height, var(--dialog--alert__content-height));
+					@include mixins.chain(height, line-height, var(--dialog--alert__content-height));
 				}
 			}
 		}
 
-		@if (in-array(confirm, $dialog-settings)) {
+		@if (functions.in-array(confirm, settings.$dialog-settings)) {
 			&--confirm {
 				grid-template-rows: var(--dialog__header-height) minmax(0, 1fr) var(--dialog__actions-height);
 			}
 		}
 
-		@if (in-array(full-screen, $dialog-settings)) {
+		@if (functions.in-array(full-screen, settings.$dialog-settings)) {
 			&--full-screen {
-				@include chain(max-height, max-width, 100%);
-				@include chain(height, width, 100%);
+				@include mixins.chain(max-height, max-width, 100%);
+				@include mixins.chain(height, width, 100%);
 				border-radius: 0;
 
 				#{$el}__header {
-					@include chain(height, line-height, var(--dialog--full-screen__header-height));
+					@include mixins.chain(height, line-height, var(--dialog--full-screen__header-height));
 					background: var(--dialog--full-screen__header-background);
 					@extend %display--grid;
 					grid-template-columns: auto 1fr 1fr;
@@ -198,25 +208,25 @@
 		}
 	}
 
-	@include dark-theme(dialog) {
-		--dialog-background: #{$dialog--dark-background};
+	@include mixins.dark-theme(dialog) {
+		--dialog-background: #{settings.$dialog--dark-background};
 
-		--dialog__header-color: #{$dialog--dark__header-color};
+		--dialog__header-color: #{settings.$dialog--dark__header-color};
 
-		--dialog__content-color: #{$dialog--dark__content-color};
+		--dialog__content-color: #{settings.$dialog--dark__content-color};
 
-		--dialog--scroll__header-border-bottom: #{$dialog--dark--scroll__header-border-bottom};
+		--dialog--scroll__header-border-bottom: #{settings.$dialog--dark--scroll__header-border-bottom};
 
-		@include overlay(24);
+		@include mixins.overlay(24);
 	}
 
-	@include light-theme(dialog) {
-		--dialog-background: #{$dialog--light-background};
+	@include mixins.light-theme(dialog) {
+		--dialog-background: #{settings.$dialog--light-background};
 
-		--dialog__header-color: #{$dialog--light__header-color};
+		--dialog__header-color: #{settings.$dialog--light__header-color};
 
-		--dialog__content-color: #{$dialog--light__content-color};
+		--dialog__content-color: #{settings.$dialog--light__content-color};
 
-		--dialog--scroll__header-border-bottom: #{$dialog--light--scroll__header-border-bottom};
+		--dialog--scroll__header-border-bottom: #{settings.$dialog--light--scroll__header-border-bottom};
 	}
 }

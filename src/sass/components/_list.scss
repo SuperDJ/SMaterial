@@ -1,49 +1,57 @@
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+@use '../foundation/typography';
+@use '../properties/display';
+@use '../foundation/shapes';
+
 // TODO turn last values into variables
-@if (in-array(list, $component-settings)) {
+@if (functions.in-array(list, settings.$component-settings)) {
 	.list {
-		--list-background: #{$list-background};
-		--list-padding: #{$list-padding};
-		--list__content-color: #{$list__content-color};
-		--list__content-padding-left: #{$list__content-padding-left};
-		--list__content__title-color: #{$list__content__title-color};
-		--list__content__text-color: #{$list__content__text-color};
-		--list__content__overline-color: #{$list__content__overline-color};
+		--list-background: #{settings.$list-background};
+		--list-padding: #{settings.$list-padding};
+		--list__content-color: #{settings.$list__content-color};
+		--list__content-padding-left: #{settings.$list__content-padding-left};
+		--list__content__title-color: #{settings.$list__content__title-color};
+		--list__content__text-color: #{settings.$list__content__text-color};
+		--list__content__overline-color: #{settings.$list__content__overline-color};
 
-		--list-divider-border-bottom: #{$list-divider-border-bottom};
+		--list-divider-border-bottom: #{settings.$list-divider-border-bottom};
 
-		@if (in-array(single, $list-settings)) {
-			--list--single-line-height: #{$list--single-line-height};
-			--list--single-line__content-height: #{$list--single-line__content-height};
-			--list--single-line__control-padding: #{$list--single-line__control-padding};
-			--list--single-line--support-height: #{$list--single-line--support-height};
-			--list--single-line--support__icon-padding: #{$list--single-line--support__icon-padding};
-			--list--single-line--support__image-padding: #{$list--single-line--support__image-padding};
-			--list--single-line--support__control-padding: #{$list--single-line--support__control-padding};
+		@if (functions.in-array(single, settings.$list-settings)) {
+			--list--single-line-height: #{settings.$list--single-line-height};
+			--list--single-line__content-height: #{settings.$list--single-line__content-height};
+			--list--single-line__control-padding: #{settings.$list--single-line__control-padding};
+			--list--single-line--support-height: #{settings.$list--single-line--support-height};
+			--list--single-line--support__icon-padding: #{settings.$list--single-line--support__icon-padding};
+			--list--single-line--support__image-padding: #{settings.$list--single-line--support__image-padding};
+			--list--single-line--support__control-padding: #{settings.$list--single-line--support__control-padding};
 		}
 
-		@if (in-array(two, $list-settings)) {
-			--list--two-line-height: #{$list--two-line-height};
-			--list--two-line__content-padding: #{$list--two-line__content-padding};
-			--list--two-line__support-height: #{$list--two-line__support-height};
-			--list--two-line__support__icon-padding: #{$list--two-line__support__icon-padding};
-			--list--two-line__support__image-padding: #{$list--two-line__support__image-padding};
-			--list--two-line__support__image__img-size: #{$list--two-line__support__image__img-size};
-			--list--two-line__support__image--large-padding: #{$list--two-line__support__image--large-padding};
-			--list--two-line__support__image--large__img-width: #{$list--two-line__support__image--large__img-width};
-			--list--two-line__support__image--large__img-height: #{$list--two-line__support__image--large__img-height};
-			--list--two-line__support__control-padding: #{$list--two-line__support__control-padding};
+		@if (functions.in-array(two, settings.$list-settings)) {
+			--list--two-line-height: #{settings.$list--two-line-height};
+			--list--two-line__content-padding: #{settings.$list--two-line__content-padding};
+			--list--two-line__support-height: #{settings.$list--two-line__support-height};
+			--list--two-line__support__icon-padding: #{settings.$list--two-line__support__icon-padding};
+			--list--two-line__support__image-padding: #{settings.$list--two-line__support__image-padding};
+			--list--two-line__support__image__img-size: #{settings.$list--two-line__support__image__img-size};
+			--list--two-line__support__image--large-padding: #{settings.$list--two-line__support__image--large-padding};
+			--list--two-line__support__image--large__img-width: #{settings.$list--two-line__support__image--large__img-width};
+			--list--two-line__support__image--large__img-height: #{settings.$list--two-line__support__image--large__img-height};
+			--list--two-line__support__control-padding: #{settings.$list--two-line__support__control-padding};
 		}
 
-		@if (in-array(three, $list-settings)) {
-			--list--three-line-height: #{$list--three-line-height};
-			--list--three-line__content-padding: #{$list--three-line__content-padding};
-			--list--three-line__support__icon-padding: #{$list--three-line__support__icon-padding};
-			--list--three-line__support__image-padding: #{$list--three-line__support__image-padding};
-			--list--three-line__support__image__img-size: #{$list--three-line__support__image__img-size};
-			--list--three-line__support__image--large-padding: #{$list--three-line__support__image--large-padding};
-			--list--three-line__support__image--large__img-width: #{$list--three-line__support__image--large__img-width};
-			--list--three-line__support__image--large__img-height: #{$list--three-line__support__image--large__img-height};
-			--list--three-line__support__control-padding: #{$list--three-line__support__control-padding};
+		@if (functions.in-array(three, settings.$list-settings)) {
+			--list--three-line-height: #{settings.$list--three-line-height};
+			--list--three-line__content-padding: #{settings.$list--three-line__content-padding};
+			--list--three-line__support__icon-padding: #{settings.$list--three-line__support__icon-padding};
+			--list--three-line__support__image-padding: #{settings.$list--three-line__support__image-padding};
+			--list--three-line__support__image__img-size: #{settings.$list--three-line__support__image__img-size};
+			--list--three-line__support__image--large-padding: #{settings.$list--three-line__support__image--large-padding};
+			--list--three-line__support__image--large__img-width: #{settings.$list--three-line__support__image--large__img-width};
+			--list--three-line__support__image--large__img-height: #{settings.$list--three-line__support__image--large__img-height};
+			--list--three-line__support__control-padding: #{settings.$list--three-line__support__control-padding};
 		}
 
 		$el: &;
@@ -53,12 +61,12 @@
 		margin: 0;
 		background: var(--list-background);
 
-		@if (in-array(single, $list-settings)) {
+		@if (functions.in-array(single, settings.$list-settings)) {
 			&--single-line {
 				height: var(--list--single-line-height);
 
 				#{$el}__content {
-					@include chain(height, line-height, var(--list--single-line__content-height));
+					@include mixins.chain(height, line-height, var(--list--single-line__content-height));
 				}
 
 				#{$el}__control {
@@ -77,13 +85,13 @@
 						overflow: hidden;
 
 						img {
-							@include chain(width, height, rem-calc(40px));
+							@include mixins.chain(width, height, functions.rem-calc(40px));
 							@extend %shape--circle;
 						}
 					}
 
 					#{$el}__content {
-						@include chain(height, line-height, var(--list--single-line--support-height));
+						@include mixins.chain(height, line-height, var(--list--single-line--support-height));
 					}
 
 					#{$el}__control {
@@ -91,21 +99,21 @@
 					}
 
 					&--large {
-						height: rem-calc(72px);
+						height: functions.rem-calc(72px);
 
 						#{$el}__support__image {
-							padding: rem-calc(8px) 0 rem-calc(8px) rem-calc(16px);
+							padding: functions.rem-calc(8px) 0 functions.rem-calc(8px) functions.rem-calc(16px);
 
 							img {
-								@include chain(width, height, var(--list--single-line--support-height));
+								@include mixins.chain(width, height, var(--list--single-line--support-height));
 							}
 						}
 
 						#{$el}__support__image--large {
-							padding: rem-calc(8px) 0;
+							padding: functions.rem-calc(8px) 0;
 
 							img {
-								width: rem-calc(100px);
+								width: functions.rem-calc(100px);
 								height: var(--list--single-line--support-height);
 							}
 						}
@@ -115,18 +123,18 @@
 						}
 
 						#{$el}__content {
-							@include chain(height, line-height, rem-calc(72px));
+							@include mixins.chain(height, line-height, functions.rem-calc(72px));
 						}
 
 						#{$el}__control {
-							padding: rem-calc(24px) rem-calc(16px);
+							padding: functions.rem-calc(24px) functions.rem-calc(16px);
 						}
 					}
 				}
 			}
 		}
 
-		@if (in-array(two, $list-settings)) {
+		@if (functions.in-array(two, settings.$list-settings)) {
 			&--two-line {
 				height: var(--list--two-line-height);
 
@@ -145,7 +153,7 @@
 						padding: var(--list--two-line__support__image-padding);
 
 						img {
-							@include chain(width, height, var(--list--two-line__support__image__img-size));
+							@include mixins.chain(width, height, var(--list--two-line__support__image__img-size));
 						}
 
 						&--large {
@@ -165,7 +173,7 @@
 			}
 		}
 
-		@if (in-array(three, $list-settings)) {
+		@if (functions.in-array(three, settings.$list-settings)) {
 			&--three-line {
 				height: var(--list--three-line-height);
 
@@ -182,7 +190,7 @@
 						padding: var(--list--three-line__support__image-padding);
 
 						img {
-							@include chain(width, height, var(--list--three-line__support__image__img-size));
+							@include mixins.chain(width, height, var(--list--three-line__support__image__img-size));
 						}
 
 						&--large {
@@ -248,21 +256,21 @@
 		}
 	}
 
-	@include dark-theme(list) {
-		--list-background: #{$list--dark-background};
+	@include mixins.dark-theme(list) {
+		--list-background: #{settings.$list--dark-background};
 
-		--list__content-color: #{$list--dark__content-color};
-		--list__content__text-color: #{$list--dark__content__text-color};
+		--list__content-color: #{settings.$list--dark__content-color};
+		--list__content__text-color: #{settings.$list--dark__content__text-color};
 
-		--list-divider-border-bottom: #{$list--dark-divider-border-bottom};
+		--list-divider-border-bottom: #{settings.$list--dark-divider-border-bottom};
 	}
 
-	@include light-theme(list) {
-		--list-background: #{$list--light-background};
+	@include mixins.light-theme(list) {
+		--list-background: #{settings.$list--light-background};
 
-		--list__content-color: #{$list--light__content-color};
-		--list__content__text-color: #{$list--light__content__text-color};
+		--list__content-color: #{settings.$list--light__content-color};
+		--list__content__text-color: #{settings.$list--light__content__text-color};
 
-		--list-divider-border-bottom: #{$list--light-divider-border-bottom};
+		--list-divider-border-bottom: #{settings.$list--light-divider-border-bottom};
 	}
 }

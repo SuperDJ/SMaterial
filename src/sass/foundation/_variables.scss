@@ -1,78 +1,82 @@
+@use './settings';
+@use '../helpers/functions';
+@use '../grid/media-queries';
+
 :root {
-	--primary-color: #{$primary-color};
-	--primary-color-variant: #{$primary-color-variant};
-	--secondary-color: #{$secondary-color};
-	--secondary-color-variant: #{$secondary-color-variant};
-	--background-color: #{$background-color};
-	--surface-color: #{$surface-color};
-	--error-color: #{$error-color};
-	--font-on-primary: #{$font-on-primary};
-	--font-on-secondary: #{$font-on-secondary};
-	--font-on-background: #{rgba($font-on-background, .87)};
-	--font-on-surface: #{rgba($font-on-surface, .87)};
-	--font-on-error: #{$font-on-error};
-	--border-radius: #{rem-calc($surface-corner)};
-	--disabled-color: #{$disabled-color};
-	--disabled-background: #{$disabled-background};
+	--primary-color: #{settings.$primary-color};
+	--primary-color-variant: #{settings.$primary-color-variant};
+	--secondary-color: #{settings.$secondary-color};
+	--secondary-color-variant: #{settings.$secondary-color-variant};
+	--background-color: #{settings.$background-color};
+	--surface-color: #{settings.$surface-color};
+	--error-color: #{settings.$error-color};
+	--font-on-primary: #{settings.$font-on-primary};
+	--font-on-secondary: #{settings.$font-on-secondary};
+	--font-on-background: #{rgba(settings.$font-on-background, .87)};
+	--font-on-surface: #{rgba(settings.$font-on-surface, .87)};
+	--font-on-error: #{settings.$font-on-error};
+	--border-radius: #{functions.rem-calc(settings.$surface-corner)};
+	--disabled-color: #{settings.$disabled-color};
+	--disabled-background: #{settings.$disabled-background};
 
-	--gutter: #{rem-calc( $xs-gutter + 0px )};
-	--margin: #{rem-calc( $xs-margin + 0px )};
+	--gutter: #{functions.rem-calc( settings.$xs-gutter + 0px )};
+	--margin: #{functions.rem-calc( settings.$xs-margin + 0px )};
 
-	@media #{$sm-and-up} {
-		--gutter: #{rem-calc( $sm-gutter + 0px )};
-		--margin: #{rem-calc( $sm-margin + 0px )};
+	@media #{media-queries.$sm-and-up} {
+		--gutter: #{functions.rem-calc( settings.$sm-gutter + 0px )};
+		--margin: #{functions.rem-calc( settings.$sm-margin + 0px )};
 	}
 
-	@media #{$md-and-up} {
-		--gutter: #{rem-calc( $md-gutter + 0px )};
-		--margin: #{rem-calc( $md-margin + 0px )};
+	@media #{media-queries.$md-and-up} {
+		--gutter: #{functions.rem-calc( settings.$md-gutter + 0px )};
+		--margin: #{functions.rem-calc( settings.$md-margin + 0px )};
 	}
 
-	@media #{$lg-and-up} {
-		--gutter: #{rem-calc( $lg-gutter + 0px )};
-		--margin: #{rem-calc( $lg-margin + 0px )};
+	@media #{media-queries.$lg-and-up} {
+		--gutter: #{functions.rem-calc( settings.$lg-gutter + 0px )};
+		--margin: #{functions.rem-calc( settings.$lg-margin + 0px )};
 	}
 
-	@media #{$xl-and-up} {
-		--gutter: #{rem-calc( $xl-gutter + 0px )};
-		--margin: #{rem-calc( $xl-margin + 0px )};
+	@media #{media-queries.$xl-and-up} {
+		--gutter: #{functions.rem-calc( settings.$xl-gutter + 0px )};
+		--margin: #{functions.rem-calc( settings.$xl-margin + 0px )};
 	}
 
-	@if($theme == light and in-array(dark, $media-themes)) {
-		@media #{$dark} {
-			--primary-color: #{$dark-primary-color};
-			--primary-color-variant: #{$dark-primary-color-variant};
-			--secondary-color: #{$dark-secondary-color};
-			--secondary-color-variant: #{$dark-secondary-color-variant};
-			--background-color: #{$dark-background-color};
-			--surface-color: #{$dark-surface-color};
-			--error-color: #{$dark-error-color};
-			--font-on-primary: #{$dark-font-on-primary};
-			--font-on-secondary: #{$dark-font-on-secondary};
-			--font-on-background: #{rgba($dark-font-on-background, .87)};
-			--font-on-surface: #{rgba($dark-font-on-surface, .87)};
-			--font-on-error: #{$dark-font-on-error};
-			--disabled-color: #{$disabled--dark-color};
-			--disabled-background: #{$disabled--dark-background};
+	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
+		@media #{media-queries.$dark} {
+			--primary-color: #{settings.$dark-primary-color};
+			--primary-color-variant: #{settings.$dark-primary-color-variant};
+			--secondary-color: #{settings.$dark-secondary-color};
+			--secondary-color-variant: #{settings.$dark-secondary-color-variant};
+			--background-color: #{settings.$dark-background-color};
+			--surface-color: #{settings.$dark-surface-color};
+			--error-color: #{settings.$dark-error-color};
+			--font-on-primary: #{settings.$dark-font-on-primary};
+			--font-on-secondary: #{settings.$dark-font-on-secondary};
+			--font-on-background: #{rgba(settings.$dark-font-on-background, .87)};
+			--font-on-surface: #{rgba(settings.$dark-font-on-surface, .87)};
+			--font-on-error: #{settings.$dark-font-on-error};
+			--disabled-color: #{settings.$disabled--dark-color};
+			--disabled-background: #{settings.$disabled--dark-background};
 		}
 	}
 
-	@if($theme == dark and in-array(light, $media-themes)) {
-		@media #{$light} {
-			--primary-color: #{$light-primary-color};
-			--primary-color-variant: #{$light-primary-color-variant};
-			--secondary-color: #{$light-secondary-color};
-			--secondary-color-variant: #{$light-secondary-color-variant};
-			--background-color: #{$light-background-color};
-			--surface-color: #{$light-surface-color};
-			--error-color: #{$light-error-color};
-			--font-on-primary: #{$light-font-on-primary};
-			--font-on-secondary: #{$light-font-on-secondary};
-			--font-on-background: #{rgba($light-font-on-background, .87)};
-			--font-on-surface: #{rgba($light-font-on-surface, .87)};
-			--font-on-error: #{$light-font-on-error};
-			--disabled-color: #{$disabled--light-color};
-			--disabled-background: #{$disabled--light-background};
+	@if(settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
+		@media #{media-queries.$light} {
+			--primary-color: #{settings.$light-primary-color};
+			--primary-color-variant: #{settings.$light-primary-color-variant};
+			--secondary-color: #{settings.$light-secondary-color};
+			--secondary-color-variant: #{settings.$light-secondary-color-variant};
+			--background-color: #{settings.$light-background-color};
+			--surface-color: #{settings.$light-surface-color};
+			--error-color: #{settings.$light-error-color};
+			--font-on-primary: #{settings.$light-font-on-primary};
+			--font-on-secondary: #{settings.$light-font-on-secondary};
+			--font-on-background: #{rgba(settings.$light-font-on-background, .87)};
+			--font-on-surface: #{rgba(settings.$light-font-on-surface, .87)};
+			--font-on-error: #{settings.$light-font-on-error};
+			--disabled-color: #{settings.$disabled--light-color};
+			--disabled-background: #{settings.$disabled--light-background};
 		}
 	}
 }

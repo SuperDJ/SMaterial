@@ -1,9 +1,12 @@
-$properties: (inline, block, contents, flex, grid, inline-block, inline-flex, inline-grid, inline-table, list-item, run-in, table, table-caption, table-column-group, table-header-group, table-footer-group, table-row-group, table-cell, table-column, table-row, none, initial, inherit);
+@use '../helpers/functions';
+@use '../foundation/settings';
+
+$display-properties: (inline, block, contents, flex, grid, inline-block, inline-flex, inline-grid, inline-table, list-item, run-in, table, table-caption, table-column-group, table-header-group, table-footer-group, table-row-group, table-cell, table-column, table-row, none, initial, inherit);
 
 // Make class
-@if(in-array(display, $property-settings)) {
-	@each $property in $properties {
-		@if(in-array($property, $display-settings)) {
+@if(functions.in-array(display, settings.$property-settings)) {
+	@each $property in $display-properties {
+		@if(functions.in-array($property, settings.$display-settings)) {
 			.display--#{$property} {
 				display: $property !important;
 			}
@@ -12,7 +15,7 @@ $properties: (inline, block, contents, flex, grid, inline-block, inline-flex, in
 }
 
 // Make extend
-@each $property in $properties {
+@each $property in $display-properties {
 	%display--#{$property} {
 		display: $property;
 	}

@@ -1,26 +1,37 @@
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+@use '../colors/colors';
+@use '../foundation/shadows';
+@use '../properties/position';
+@use '../properties/cursor';
+@use '../helpers/placeholders';
+@use '../foundation/shapes';
+
 // TODO fix naming variables
-@if (in-array(selection, $component-settings)) {
+@if (functions.in-array(selection, settings.$component-settings)) {
 	.checkbox, .radio, .switch {
-		--checkbox-size: #{$checkbox-size};
-		--checkbox-stroke: #{$checkbox-stroke};
-		--checkbox__radial-size: #{$checkbox__radial-size};
-		--checkbox-border: #{$checkbox-border};
+		--checkbox-size: #{settings.$checkbox-size};
+		--checkbox-stroke: #{settings.$checkbox-stroke};
+		--checkbox__radial-size: #{settings.$checkbox__radial-size};
+		--checkbox-border: #{settings.$checkbox-border};
 
 		@extend %cursor--pointer;
 		@extend %position--relative;
 		vertical-align: text-bottom;
 		-webkit-appearance: none;
-		@include chain(padding, margin, 0);
+		@include mixins.chain(padding, margin, 0);
 
-		@if ($theme == light and in-array(dark, $media-themes)) {
-			@media #{$dark} {
-				--checkbox-border: #{$checkbox--dark-border};
+		@if (settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
+			@media #{media-queries.$dark} {
+				--checkbox-border: #{settings.$checkbox--dark-border};
 			}
 		}
 
-		@if ($theme == dark and in-array(light, $media-themes)) {
-			@media #{$light} {
-				--checkbox-border: #{$checkbox--light-border};
+		@if (settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
+			@media #{media-queries.$light} {
+				--checkbox-border: #{settings.$checkbox--light-border};
 			}
 		}
 
@@ -36,24 +47,24 @@
 		&:before {
 			pointer-events: none;
 
-			@media #{$md-up} {
+			@media #{media-queries.$md-up} {
 				content: unset;
 			}
 		}
 	}
 
-	@if (in-array(checkbox, $selection-settings)) {
+	@if (functions.in-array(checkbox, settings.$selection-settings)) {
 		.checkbox {
-			--checkbox-border-radius: #{$checkbox-border-radius};
+			--checkbox-border-radius: #{settings.$checkbox-border-radius};
 
-			--checkbox--disabled-color: #{$checkbox--disabled-color};
+			--checkbox--disabled-color: #{settings.$checkbox--disabled-color};
 
-			--checkbox__radial--hover-background: #{$checkbox__radial--hover-background};
-			--checkbox__radial--active-background: #{$checkbox__radial--active-background};
-			--checkbox__radial--checked--hover: #{$checkbox__radial--checked--hover};
-			--checkbox__radial--checked--active: #{$checkbox__radial--checked--active};
+			--checkbox__radial--hover-background: #{settings.$checkbox__radial--hover-background};
+			--checkbox__radial--active-background: #{settings.$checkbox__radial--active-background};
+			--checkbox__radial--checked--hover: #{settings.$checkbox__radial--checked--hover};
+			--checkbox__radial--checked--active: #{settings.$checkbox__radial--checked--active};
 
-			@include chain(width, height, var(--checkbox-size));
+			@include mixins.chain(width, height, var(--checkbox-size));
 			-webkit-appearance: none;
 			border: var(--checkbox-border);
 			border-radius: var(--checkbox-border-radius);
@@ -65,20 +76,20 @@
 			// Radial
 			&:before {
 				border-radius: 50%;
-				@include chain(top, left, calc((-1 * var(--checkbox-stroke)) + (-1 * (var(--checkbox__radial-size) / 2))));
-				@include chain(width, height, calc(var(--checkbox-size) + var(--checkbox__radial-size)));
-				transition: background .1s $easing-standard;
+				@include mixins.chain(top, left, calc((-1 * var(--checkbox-stroke)) + (-1 * (var(--checkbox__radial-size) / 2))));
+				@include mixins.chain(width, height, calc(var(--checkbox-size) + var(--checkbox__radial-size)));
+				transition: background .1s settings.$easing-standard;
 			}
 
 			&:after {
 				width: calc(var(--checkbox-size) / 4);
 				height: calc(var(--checkbox-size) / 2);
 				transform: rotate(45deg);
-				border-bottom: rem-calc(1px) solid var(--background-color);
-				border-right: rem-calc(1px) solid var(--background-color);
+				border-bottom: functions.rem-calc(1px) solid var(--background-color);
+				border-right: functions.rem-calc(1px) solid var(--background-color);
 				left: calc(var(--checkbox-size) / 4);
 				opacity: 0;
-				transition: opacity .1s $easing-standard;
+				transition: opacity .1s settings.$easing-standard;
 			}
 
 			&:before, &:after {
@@ -95,7 +106,7 @@
 			}
 
 			&:checked {
-				@include chain(border-color, background, var(--primary-color));
+				@include mixins.chain(border-color, background, var(--primary-color));
 
 				&:hover:before {
 					background: var(--checkbox__radial--checked--hover);
@@ -116,52 +127,52 @@
 			}
 		}
 
-		@include dark-theme(checkbox) {
-			--checkbox__radial--hover-background: #{$checkbox--dark__radial--hover-background};
-			--checkbox__radial--active-background: #{$checkbox--dark__radial--active-background};
+		@include mixins.dark-theme(checkbox) {
+			--checkbox__radial--hover-background: #{settings.$checkbox--dark__radial--hover-background};
+			--checkbox__radial--active-background: #{settings.$checkbox--dark__radial--active-background};
 		}
 
-		@include light-theme(checkbox) {
-			--checkbox__radial--hover-background: #{$checkbox--light__radial--hover-background};
-			--checkbox__radial--active-background: #{$checkbox--light__radial--active-background};
+		@include mixins.light-theme(checkbox) {
+			--checkbox__radial--hover-background: #{settings.$checkbox--light__radial--hover-background};
+			--checkbox__radial--active-background: #{settings.$checkbox--light__radial--active-background};
 		}
 	}
 
-	@if (in-array(radio, $selection-settings)) {
+	@if (functions.in-array(radio, settings.$selection-settings)) {
 		.radio {
-			--radio-size: #{$radio-size};
-			--radio__radial-size: #{$radio__radial-size};
-			--radio-stroke: #{$radio-stroke};
-			--radio--checked-color: #{$radio--checked-color};
+			--radio-size: #{settings.$radio-size};
+			--radio__radial-size: #{settings.$radio__radial-size};
+			--radio-stroke: #{settings.$radio-stroke};
+			--radio--checked-color: #{settings.$radio--checked-color};
 
-			--radio__radial--hover-background: #{$radio__radial--hover-background};
-			--radio__radial--active-background: #{$radio__radial--active-background};
-			--radio__radial--checked--hover-background: #{$radio__radial--checked--hover-background};
-			--radio__radial--checked--active-background: #{$radio__radial--checked--active-background};
+			--radio__radial--hover-background: #{settings.$radio__radial--hover-background};
+			--radio__radial--active-background: #{settings.$radio__radial--active-background};
+			--radio__radial--checked--hover-background: #{settings.$radio__radial--checked--hover-background};
+			--radio__radial--checked--active-background: #{settings.$radio__radial--checked--active-background};
 
-			@include chain(width, height, var(--radio-size));
+			@include mixins.chain(width, height, var(--radio-size));
 			border: var(--checkbox-border);
 			border-radius: 50%;
-			transition: border-color .1s $easing-standard;
+			transition: border-color .1s settings.$easing-standard;
 
 			&:disabled {
 				@extend %disabled-border-color;
 			}
 
 			&:after {
-				@include chain(width, height, calc(var(--radio-size) / 2));
-				@include chain(left, bottom, calc(#{rem-calc(-2px)} + (var(--radio-size) / 4)));
+				@include mixins.chain(width, height, calc(var(--radio-size) / 2));
+				@include mixins.chain(left, bottom, calc(#{functions.rem-calc(-2px)} + (var(--radio-size) / 4)));
 			}
 
 			// Radial
 			&:before {
-				@include chain(width, height, calc(var(--radio-size) + var(--radio__radial-size)));
-				@include chain(left, top, calc((-1 * var(--radio-stroke)) + (-1 * (var(--radio__radial-size) / 2))));
+				@include mixins.chain(width, height, calc(var(--radio-size) + var(--radio__radial-size)));
+				@include mixins.chain(left, top, calc((-1 * var(--radio-stroke)) + (-1 * (var(--radio__radial-size) / 2))));
 			}
 
 			&:after, &:before {
 				background: transparent;
-				transition: background .1s $easing-standard;
+				transition: background .1s settings.$easing-standard;
 				border-radius: 50%;
 			}
 
@@ -199,32 +210,32 @@
 		}
 	}
 
-	@if (in-array(switch, $selection-settings)) {
+	@if (functions.in-array(switch, settings.$selection-settings)) {
 		.switch {
-			--switch__radial-size: #{$switch__radial-size};
+			--switch__radial-size: #{settings.$switch__radial-size};
 
-			--switch__knob-size: #{$switch__knob-size};
-			--switch__knob--checked-color: #{$switch__knob--checked-color};
+			--switch__knob-size: #{settings.$switch__knob-size};
+			--switch__knob--checked-color: #{settings.$switch__knob--checked-color};
 
-			--switch__track-width: #{$switch__track-width};
-			--switch__track-height: #{$switch__track-height};
-			--switch__track--checked-background: #{$switch__track--checked-background};
+			--switch__track-width: #{settings.$switch__track-width};
+			--switch__track-height: #{settings.$switch__track-height};
+			--switch__track--checked-background: #{settings.$switch__track--checked-background};
 
-			--switch--disabled-background: #{$switch--disabled-background};
-			--switch--disabled__after-background: #{$switch--disabled__after-background};
-			--switch--checked--disabled-background: #{$switch--checked--disabled-background};
-			--switch--checked--disabled__knob-background: #{$switch--checked--disabled__knob-background};
+			--switch--disabled-background: #{settings.$switch--disabled-background};
+			--switch--disabled__after-background: #{settings.$switch--disabled__after-background};
+			--switch--checked--disabled-background: #{settings.$switch--checked--disabled-background};
+			--switch--checked--disabled__knob-background: #{settings.$switch--checked--disabled__knob-background};
 
-			--switch__radial--hover-background: #{$switch__radial--hover-background};
-			--switch__radial--active-background: #{$switch__radial--active-background};
-			--switch__radial--checked--hover-background: #{$switch__radial--checked--hover-background};
-			--switch__radial--checked--active-background: #{$switch__radial--checked--active-background};
+			--switch__radial--hover-background: #{settings.$switch__radial--hover-background};
+			--switch__radial--active-background: #{settings.$switch__radial--active-background};
+			--switch__radial--checked--hover-background: #{settings.$switch__radial--checked--hover-background};
+			--switch__radial--checked--active-background: #{settings.$switch__radial--checked--active-background};
 
 			width: var(--switch__track-width);
 			height: var(--switch__track-height);
-			background: lighten($black, 100% - 38%);
+			background: lighten(colors.$black, 100% - 38%);
 			border-radius: calc(var(--switch__track-height) / 2);
-			transition: background .1s $easing-standard;
+			transition: background .1s settings.$easing-standard;
 
 			&:disabled {
 				background: var(--switch--disabled-background);
@@ -236,7 +247,7 @@
 
 			// Radial
 			&:before {
-				@include chain(width, height, calc(var(--switch__knob-size) + var(--switch__radial-size)));
+				@include mixins.chain(width, height, calc(var(--switch__knob-size) + var(--switch__radial-size)));
 				background: transparent;
 				left: calc(-1 * (var(--switch__radial-size) / 2));
 				top: calc(-1 * (var(--switch__radial-size) / 2) - ((var(--switch__knob-size) - var(--switch__track-height)) / 2));
@@ -252,12 +263,12 @@
 
 			// Knob
 			&:after {
-				@include chain(width, height, var(--switch__knob-size));
+				@include mixins.chain(width, height, var(--switch__knob-size));
 				background: var(--background-color);
 				@extend %z2;
 				left: 0;
 				top: calc(-1 * ((var(--switch__knob-size) - var(--switch__track-height)) / 2));
-				transition: background .1s $easing-standard, left .1s $easing-standard;
+				transition: background .1s settings.$easing-standard, left .1s settings.$easing-standard;
 			}
 
 			&:after, &:before {

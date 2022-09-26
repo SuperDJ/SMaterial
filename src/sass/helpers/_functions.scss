@@ -1,6 +1,7 @@
 @use "sass:math";
+
 // Convert unit to rem
-@function rem-calc( $sp, $default: $font-size ) {
+@function rem-calc( $sp, $default: 16 ) {
 	@if(not is-number( $sp ) ) {
 	        @warn "Wrong unit type passed to rem-calc";
 	}
@@ -17,7 +18,7 @@
 }
 
 // Convert unit to em
-@function em-calc( $sp, $default: $font-size ) {
+@function em-calc( $sp, $default: 16 ) {
 	@if(not is-number( $sp ) ) {
 		@warn "Wrong unit type passed to em-calc";
 	}
@@ -177,4 +178,20 @@
 
 @function is-position($value) {
 	@return is-length($value) or is-percentage($value) or index('top' 'right' 'bottom' 'left' 'center', $value) != null;
+}
+
+/**
+ * Check if value is in a array
+ */
+@function in-array( $value, $array ) {
+	@if(type_of($array) == list and index($array, $value)) {
+		@return true;
+	}
+
+	@if(type_of($array) == map and map_has_key($array, $value))
+	{
+		@return true;
+	}
+
+	@return false;
 }

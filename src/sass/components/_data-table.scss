@@ -1,25 +1,33 @@
-@if (in-array(data-table, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+@use '../foundation/ripple';
+@use '../properties/display';
+@use '../properties/cursor';
+
+@if (functions.in-array(data-table, settings.$component-settings)) {
 	.data-table {
-		--data-table-border-radius: #{$data-table-border-radius};
-		--data-table-border: #{$data-table-border};
-		--data-table-background: #{$data-table-background};
+		--data-table-border-radius: #{settings.$data-table-border-radius};
+		--data-table-border: #{settings.$data-table-border};
+		--data-table-background: #{settings.$data-table-background};
 
-		--data-table__header-font-size: #{$data-table__header-font-size};
-		--data-table__header-color: #{$data-table__header-color};
-		--data-table__header-background: #{$data-table__header-background};
-		--data-table__header-font-weight: #{$data-table__header-font-weight};
-		--data-table__header--hover-color: #{$data-table__header--hover-color};
-		--data-table__header-height: #{$data-table__header-height};
+		--data-table__header-font-size: #{settings.$data-table__header-font-size};
+		--data-table__header-color: #{settings.$data-table__header-color};
+		--data-table__header-background: #{settings.$data-table__header-background};
+		--data-table__header-font-weight: #{settings.$data-table__header-font-weight};
+		--data-table__header--hover-color: #{settings.$data-table__header--hover-color};
+		--data-table__header-height: #{settings.$data-table__header-height};
 
-		--data-table__body-color: #{$data-table__body-color};
-		--data-table__body-font-size: #{$data-table__body-font-size};
+		--data-table__body-color: #{settings.$data-table__body-color};
+		--data-table__body-font-size: #{settings.$data-table__body-font-size};
 
-		--data-table__row-height: #{$data-table__row-height};
-		--data-table__row-border-bottom: #{$data-table__row-border-bottom};
-		--data-table__row__icon-size: #{$data-table__row__icon-size};
-		--data-table__row--hover-background: #{$data-table__row--hover-background};
+		--data-table__row-height: #{settings.$data-table__row-height};
+		--data-table__row-border-bottom: #{settings.$data-table__row-border-bottom};
+		--data-table__row__icon-size: #{settings.$data-table__row__icon-size};
+		--data-table__row--hover-background: #{settings.$data-table__row--hover-background};
 
-		--data-table__column-padding: #{$data-table__column-padding};
+		--data-table__column-padding: #{settings.$data-table__column-padding};
 
 		width: 100%;
 		border-collapse: separate;
@@ -33,7 +41,7 @@
 			color: var(--data-table__header-color);
 			font-weight: var(--data-table__header-font-weight);
 			text-align: left;
-			transition: color .1s $easing-standard;
+			transition: color .1s settings.$easing-standard;
 			@extend %cursor--pointer;
 
 			&:hover, &:hover .icon {
@@ -45,7 +53,7 @@
 			@extend %display--block;
 		}
 
-		@media #{$lg-and-up} {
+		@media #{media-queries.$lg-and-up} {
 			th {
 				position: sticky;
 				top: var(--app-bar-height);
@@ -57,11 +65,11 @@
 		td {
 			color: var(--data-table__body-color);
 			font-size: var(--data-table__body-font-size);
-			@include chain(min-height, line-height, var(--data-table__row-height));
+			@include mixins.chain(min-height, line-height, var(--data-table__row-height));
 		}
 
 		th {
-			@include chain(height, line-height, var(--data-table__header-height));
+			@include mixins.chain(height, line-height, var(--data-table__header-height));
 		}
 
 		td, th {
@@ -78,53 +86,53 @@
 			border-bottom: unset;
 		}
 
-		@if (in-array(hover, $data-table-settings)) {
+		@if (functions.in-array(hover, settings.$data-table-settings)) {
 			&--hover {
 				tbody tr:hover {
-					transition: background .1s $easing-standard;
+					transition: background .1s settings.$easing-standard;
 					background: var(--data-table__row--hover-background);
 				}
 			}
 		}
 
-		@if (in-array(numeric, $data-table-settings)) {
+		@if (functions.in-array(numeric, settings.$data-table-settings)) {
 			&--numeric {
 				text-align: right !important; // TODO Fix important
 			}
 		}
 
-		@media #{$md-and-down} {
+		@media #{media-queries.$md-and-down} {
 			&--responsive {
 				overflow-x: auto;
 			}
 		}
 	}
 
-	@include dark-theme(data-table) {
-		--data-table-border: #{$data-table--dark-border};
-		--data-table-background: #{$data-table--dark-background};
+	@include mixins.dark-theme(data-table) {
+		--data-table-border: #{settings.$data-table--dark-border};
+		--data-table-background: #{settings.$data-table--dark-background};
 
-		--data-table__header-color: #{$data-table--dark__header-color};
-		--data-table__header--hover-color: #{$data-table--dark__header--hover-color};
-		--data-table__header-background: #{$data-table--dark__header-background};
+		--data-table__header-color: #{settings.$data-table--dark__header-color};
+		--data-table__header--hover-color: #{settings.$data-table--dark__header--hover-color};
+		--data-table__header-background: #{settings.$data-table--dark__header-background};
 
-		--data-table__body-color: #{$data-table--dark__body-color};
+		--data-table__body-color: #{settings.$data-table--dark__body-color};
 
-		--data-table__row-border-bottom: #{$data-table--dark__row-border-bottom};
-		--data-table__row--hover-background: #{$data-table--dark__row--hover-background};
+		--data-table__row-border-bottom: #{settings.$data-table--dark__row-border-bottom};
+		--data-table__row--hover-background: #{settings.$data-table--dark__row--hover-background};
 	}
 
-	@include light-theme(data-table) {
-		--data-table-border: #{$data-table--light-border};
-		--data-table-background: #{$data-table--light-background};
+	@include mixins.light-theme(data-table) {
+		--data-table-border: #{settings.$data-table--light-border};
+		--data-table-background: #{settings.$data-table--light-background};
 
-		--data-table__header-color: #{$data-table--light__header-color};
-		--data-table__header--hover-color: #{$data-table--light__header--hover-color};
-		--data-table__header-background: #{$data-table--light__header-background};
+		--data-table__header-color: #{settings.$data-table--light__header-color};
+		--data-table__header--hover-color: #{settings.$data-table--light__header--hover-color};
+		--data-table__header-background: #{settings.$data-table--light__header-background};
 
-		--data-table__body-color: #{$data-table--light__body-color};
+		--data-table__body-color: #{settings.$data-table--light__body-color};
 
-		--data-table__row-border-bottom: #{$data-table--light__row-border-bottom};
-		--data-table__row--hover-background: #{$data-table--light__row--hover-background};
+		--data-table__row-border-bottom: #{settings.$data-table--light__row-border-bottom};
+		--data-table__row--hover-background: #{settings.$data-table--light__row--hover-background};
 	}
 }

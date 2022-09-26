@@ -1,9 +1,12 @@
-$properties: (left, right, none, inline-start, inline-end, inherit, initial, unset);
+@use '../helpers/functions';
+@use '../foundation/settings';
+
+$float-properties: (left, right, none, inline-start, inline-end, inherit, initial, unset);
 
 // Make class
-@if(in-array(float, $property-settings)) {
-	@each $property in $properties {
-		@if(in-array($property, $float-settings)) {
+@if(functions.in-array(float, settings.$property-settings)) {
+	@each $property in $float-properties {
+		@if(functions.in-array($property, settings.$float-settings)) {
 			.float--#{$property} {
 				float: $property !important;
 			}
@@ -12,7 +15,7 @@ $properties: (left, right, none, inline-start, inline-end, inherit, initial, uns
 }
 
 // Make extend
-@each $property in $properties {
+@each $property in $float-properties {
 	%float--#{$property} {
 		float: $property;
 	}

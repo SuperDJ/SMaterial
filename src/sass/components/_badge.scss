@@ -1,9 +1,16 @@
-@if(in-array(badge, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../foundation/settings';
+@use '../colors/colors';
+@use '../foundation/shadows';
+@use '../properties/position';
+
+@if(functions.in-array(badge, settings.$component-settings)) {
 	.badge {
-		--badge-font-size: #{rem-calc(10px)};
-		--badge-color: #{$white};
-		--badge-background: #{$red};
-		--badge__content-size: #{rem-calc(20px)};
+		--badge-font-size: #{functions.rem-calc(10px)};
+		--badge-color: #{colors.$white};
+		--badge-background: #{colors.$red};
+		--badge__content-size: #{functions.rem-calc(20px)};
 		--badge-vertical-center: calc(var(--badge-height) / 2);
 		--badge-horizontal-center: calc(var(--badge-width) / 2);
 		--badge__content-center: calc(var(--badge__content-size) / 2);
@@ -15,7 +22,7 @@
 			color: var(--badge-color);
 			font-size: var(--badge-font-size);
 			background: var(--badge-background);
-			@include chain(width, height, line-height, var(--badge__content-size));
+			@include mixins.chain(width, height, line-height, var(--badge__content-size));
 			text-align: center;
 			@extend %z2;
 		}

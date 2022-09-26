@@ -1,6 +1,13 @@
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../colors/colors';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+@use '../properties/display';
+
 html, body {
-    font-size: $font-size + 0px;
-	@include chain(padding, margin, 0);
+    font-size: settings.$font-size + 0px;
+	@include mixins.chain(padding, margin, 0);
 	background: var(--background-color);
     color-adjust: exact;
     print-color-adjust: exact;
@@ -20,7 +27,7 @@ html, body {
 a {
     text-decoration: none;
     color: var(--primary-color);
-    transition: color .1s $easing-standard;
+    transition: color .1s settings.$easing-standard;
 
     &:hover {
         color: var(--secondary-color);
@@ -42,35 +49,35 @@ img {
 }
 
 ::-webkit-scrollbar {
-    width: rem-calc(3px);
-    height: rem-calc(3px);
+    width: functions.rem-calc(3px);
+    height: functions.rem-calc(3px);
 
-    @media #{$sm-up} {
-        width: rem-calc(10px);
-        height: rem-calc(10px);
+    @media #{media-queries.$sm-up} {
+        width: functions.rem-calc(10px);
+        height: functions.rem-calc(10px);
     }
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-background);
 
-	@if($theme == light and in-array(dark, $media-themes)) {
-		@media #{$dark} {
-			--scrollbar-background: #{$dark-scrollbar-background};
+	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
+		@media #{media-queries.$dark} {
+			--scrollbar-background: #{settings.$dark-scrollbar-background};
 		}
 	}
 
-	@if($theme == dark and in-array(light, $media-themes)) {
-		@media #{$light} {
-			--scrollbar-background: #{$light-scrollbar-background};
+	@if(settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
+		@media #{media-queries.$light} {
+			--scrollbar-background: #{settings.$light-scrollbar-background};
 		}
 	}
 }
 
 :root {
-	--scrollbar-background: #{$scrollbar-background};
+	--scrollbar-background: #{settings.$scrollbar-background};
 }
 
 ::selection {
-	background: rgba($primary-color, .12);
+	background: rgba(settings.$primary-color, .12);
 }

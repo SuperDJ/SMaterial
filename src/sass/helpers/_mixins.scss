@@ -1,3 +1,8 @@
+@use './functions';
+@use '../foundation/settings';
+@use '../colors/colors';
+@use '../grid/media-queries';
+
 @mixin responsive-ratio($x,$y, $pseudo: false) {
 	$padding: unquote(( $y / $x ) * 100 + '%');
 	@if $pseudo {
@@ -85,7 +90,7 @@
 }
 
 @mixin overlay( $depth ) {
-	@if(not in-array($depth, $elevation-overlay)) {
+	@if(not functions.in-array($depth, settings.$elevation-overlay)) {
 		@error '#{$depth} not available';
 	}
 
@@ -94,24 +99,24 @@
 		@include chain(top, left, 0);
 		@include chain(width, height, 100%);
 		position: absolute;
-		$alpha: map_get($elevation-overlay, $depth);
-		background: rgba($white, $alpha);
-		transition: background $easing-standard .1s;
+		$alpha: map-get(settings.$elevation-overlay, $depth);
+		background: rgba(colors.$white, $alpha);
+		transition: background settings.$easing-standard .1s;
 		pointer-events: none;
 		// TODO fix height to equal to that of the parent
 	}
 }
 
 @mixin dark-theme( $class ) {
-	@if($theme == light and in-array(dark, $media-themes)) {
+	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
 		.#{$class} {
-			@media #{$dark} {
+			@media #{media-queries.$dark} {
 				@content;
 			}
 		}
 	}
 
-	@if($theme == light and in-array(dark, $class-themes)) {
+	@if(settings.$theme == light and functions.in-array(dark, settings.$class-themes)) {
 		.#{$class}--dark, .dark.#{$class}, .dark .#{$class} {
 			@content;
 		}
@@ -119,15 +124,15 @@
 }
 
 @mixin light-theme( $class ) {
-	@if($theme == dark and in-array(light, $media-themes)) {
+	@if(settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
 		.#{$class} {
-			@media #{$light} {
+			@media #{media-queries.$light} {
 				@content;
 			}
 		}
 	}
 
-	@if($theme == dark and in-array(light, $class-themes)) {
+	@if(settings.$theme == dark and functions.in-array(light, settings.$class-themes)) {
 		.#{$class}--light, .light.#{$class}, .light .#{$class} {
 			@content;
 		}

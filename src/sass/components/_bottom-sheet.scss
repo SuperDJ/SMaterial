@@ -1,33 +1,44 @@
-@if (in-array(bottom-sheet, $component-settings)) {
+@use '../helpers/functions';
+@use '../helpers/mixins';
+@use '../foundation/settings';
+@use '../grid/media-queries';
+@use '../colors/colors';
+@use '../foundation/typography';
+@use '../properties/display';
+@use '../properties/position';
+@use '../properties/cursor';
+@use '../foundation/shadows';
+
+@if (functions.in-array(bottom-sheet, settings.$component-settings)) {
 	.bottom-sheet {
-		--bottom-sheet-width: #{$bottom-sheet-width};
-		--bottom-sheet-min-height: #{$bottom-sheet-min-height};
-		--bottom-sheet-max-height: #{$bottom-sheet-max-height};
-		--bottom-sheet-background: #{$bottom-sheet-background};
+		--bottom-sheet-width: #{settings.$bottom-sheet-width};
+		--bottom-sheet-min-height: #{settings.$bottom-sheet-min-height};
+		--bottom-sheet-max-height: #{settings.$bottom-sheet-max-height};
+		--bottom-sheet-background: #{settings.$bottom-sheet-background};
 
-		--bottom-sheet__item--hover-background: #{$bottom-sheet__item--hover-background};
-		--bottom-sheet__item--active-background: #{$bottom-sheet__item--active-background};
+		--bottom-sheet__item--hover-background: #{settings.$bottom-sheet__item--hover-background};
+		--bottom-sheet__item--active-background: #{settings.$bottom-sheet__item--active-background};
 
-		--bottom-sheet__header-color: #{$bottom-sheet__header-color};
-		--bottom-sheet__header-size: #{$bottom-sheet__header-size};
-		--bottom-sheet__header-padding: #{$bottom-sheet__header-padding};
+		--bottom-sheet__header-color: #{settings.$bottom-sheet__header-color};
+		--bottom-sheet__header-size: #{settings.$bottom-sheet__header-size};
+		--bottom-sheet__header-padding: #{settings.$bottom-sheet__header-padding};
 
-		--bottom-sheet__content-color: #{$bottom-sheet__content-color};
+		--bottom-sheet__content-color: #{settings.$bottom-sheet__content-color};
 
-		@if (in-array(list, $bottom-sheet-settings)) {
-			--bottom-sheet--list__item-height: #{$bottom-sheet--list__item-height};
-			--bottom-sheet--list__icon-margin: #{$bottom-sheet--list__icon-margin};
-			--bottom-sheet--list__content-size: #{$bottom-sheet--list__content-size};
-			--bottom-sheet--list__content-margin: #{$bottom-sheet--list__content-margin};
+		@if (functions.in-array(list, settings.$bottom-sheet-settings)) {
+			--bottom-sheet--list__item-height: #{settings.$bottom-sheet--list__item-height};
+			--bottom-sheet--list__icon-margin: #{settings.$bottom-sheet--list__icon-margin};
+			--bottom-sheet--list__content-size: #{settings.$bottom-sheet--list__content-size};
+			--bottom-sheet--list__content-margin: #{settings.$bottom-sheet--list__content-margin};
 		}
 
-		@if (in-array(grid, $bottom-sheet-settings)) {
-			--bottom-sheet--grid-padding: #{$bottom-sheet--grid-padding};
-			--bottom-sheet--grid__icon-size: #{$bottom-sheet--grid__icon-size};
-			--bottom-sheet--grid__content-padding: #{$bottom-sheet--grid__content-padding};
+		@if (functions.in-array(grid, settings.$bottom-sheet-settings)) {
+			--bottom-sheet--grid-padding: #{settings.$bottom-sheet--grid-padding};
+			--bottom-sheet--grid__icon-size: #{settings.$bottom-sheet--grid__icon-size};
+			--bottom-sheet--grid__content-padding: #{settings.$bottom-sheet--grid__content-padding};
 		}
 
-		@media #{$md-and-up} {
+		@media #{media-queries.$md-and-up} {
 			--bottom-sheet-width: 75%;
 			left: 50%;
 			transform: translateX(-50%);
@@ -42,26 +53,26 @@
 		@extend %position--fixed;
 		@extend %display--inline-block;
 		z-index: 2;
-		@include chain(left, bottom, 0);
+		@include mixins.chain(left, bottom, 0);
 		margin: 0 0 -102% 0;
 		padding: 0;
 		@extend %z8;
 		background: var(--bottom-sheet-background);
 		pointer-events: none;
-		transition: margin .1s $easing-standard;
-		@include border-top-radius(var(--border-radius));
+		transition: margin .1s settings.$easing-standard;
+		@include mixins.border-top-radius(var(--border-radius));
 
-		@if ($theme == dark) {
+		@if (settings.$theme == dark) {
 			@extend %overlay8;
 		}
 
 		&--active {
-			transition: margin .1s $easing-standard;
+			transition: margin .1s settings.$easing-standard;
 			margin: 0;
 			pointer-events: all;
 		}
 
-		@if (in-array(list, $bottom-sheet-settings)) {
+		@if (functions.in-array(list, settings.$bottom-sheet-settings)) {
 			&--list {
 				#{$el}__item {
 					height: var(--bottom-sheet--list__item-height);
@@ -76,20 +87,20 @@
 
 				#{$el}__content {
 					grid-column-start: 2;
-					@include chain(height, line-height, var(--bottom-sheet--list__content-size));
+					@include mixins.chain(height, line-height, var(--bottom-sheet--list__content-size));
 					margin-left: var(--bottom-sheet--list__content-margin);
 				}
 			}
 		}
 
-		@if (in-array(grid, $bottom-sheet-settings)) {
+		@if (functions.in-array(grid, settings.$bottom-sheet-settings)) {
 			&--grid {
 				@extend %display--grid;
 				padding: var(--bottom-sheet--grid-padding);
 				grid-template-columns: repeat(3, 1fr);
 
 				.icon {
-					@include chain(width, height, font-size, var(--bottom-sheet--grid__icon-size));
+					@include mixins.chain(width, height, font-size, var(--bottom-sheet--grid__icon-size));
 				}
 
 				#{$el}__item {
@@ -113,7 +124,7 @@
 				top: 0;
 				width: 100%;
 				height: 100%;
-				background: rgba($black, .32);
+				background: rgba(colors.$black, .32);
 			}
 		}
 
@@ -121,7 +132,7 @@
 			@extend %display--block;
 			@extend %cursor--pointer;
 			background: transparent;
-			transition: background .1s $easing-standard;
+			transition: background .1s settings.$easing-standard;
 
 			&:hover {
 				background: var(--bottom-sheet__item--hover-background);
@@ -135,7 +146,7 @@
 		&__header {
 			color: var(--bottom-sheet__header-color);
 			width: 100%;
-			@include chain(height, line-height, var(--bottom-sheet__header-size));
+			@include mixins.chain(height, line-height, var(--bottom-sheet__header-size));
 			padding: var(--bottom-sheet__header-padding);
 		}
 
@@ -148,26 +159,26 @@
 		}
 	}
 
-	@include dark-theme(bottom-sheet) {
-		--bottom-sheet-background: #{$bottom-sheet--dark-background};
+	@include mixins.dark-theme(bottom-sheet) {
+		--bottom-sheet-background: #{settings.$bottom-sheet--dark-background};
 
-		--bottom-sheet__item--hover-background: #{$bottom-sheet--dark__item--hover-background};
-		--bottom-sheet__item--active-background: #{$bottom-sheet--dark__item--active-background};
+		--bottom-sheet__item--hover-background: #{settings.$bottom-sheet--dark__item--hover-background};
+		--bottom-sheet__item--active-background: #{settings.$bottom-sheet--dark__item--active-background};
 
-		--bottom-sheet__header-color: #{$bottom-sheet--dark__header-color};
+		--bottom-sheet__header-color: #{settings.$bottom-sheet--dark__header-color};
 
-		--bottom-sheet__content-color: #{$bottom-sheet--dark__content-color};
-		@include overlay(8);
+		--bottom-sheet__content-color: #{settings.$bottom-sheet--dark__content-color};
+		@include mixins.overlay(8);
 	}
 
-	@include light-theme(bottom-sheet) {
-		--bottom-sheet-background: #{$bottom-sheet--light-background};
+	@include mixins.light-theme(bottom-sheet) {
+		--bottom-sheet-background: #{settings.$bottom-sheet--light-background};
 
-		--bottom-sheet__item--hover-background: #{$bottom-sheet--light__item--hover-background};
-		--bottom-sheet__item--active-background: #{$bottom-sheet--light__item--active-background};
+		--bottom-sheet__item--hover-background: #{settings.$bottom-sheet--light__item--hover-background};
+		--bottom-sheet__item--active-background: #{settings.$bottom-sheet--light__item--active-background};
 
-		--bottom-sheet__header-color: #{$bottom-sheet--light__header-color};
+		--bottom-sheet__header-color: #{settings.$bottom-sheet--light__header-color};
 
-		--bottom-sheet__content-color: #{$bottom-sheet--light__content-color};
+		--bottom-sheet__content-color: #{settings.$bottom-sheet--light__content-color};
 	}
 }

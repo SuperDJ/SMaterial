@@ -1,7 +1,7 @@
-@import 'cursor';
-@import 'display';
-@import 'flex';
-@import 'float';
-@import 'margin-padding';
-@import 'position';
-@import 'white-space';
+@forward 'cursor';
+@forward 'display';
+@forward 'flex';
+@forward 'float';
+@forward 'margin-padding';
+@forward 'position';
+@forward 'white-space';

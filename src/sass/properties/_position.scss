@@ -1,9 +1,12 @@
-$properties: (static, relative, absolute, sticky, fixed);
+@use '../helpers/functions';
+@use '../foundation/settings';
+
+$position-properties: (static, relative, absolute, sticky, fixed);
 
 // Make class
-@if(in-array(position, $property-settings)) {
-	@each $property in $properties {
-		@if(in-array($property, $position-settings)) {
+@if(functions.in-array(position, settings.$property-settings)) {
+	@each $property in $position-properties {
+		@if(functions.in-array($property, settings.$position-settings)) {
 			.position--#{$property} {
 				position: $property !important;
 			}
@@ -12,7 +15,7 @@ $properties: (static, relative, absolute, sticky, fixed);
 }
 
 // Make extend
-@each $property in $properties {
+@each $property in $position-properties {
 	%position--#{$property} {
 		position: $property;
 	}
