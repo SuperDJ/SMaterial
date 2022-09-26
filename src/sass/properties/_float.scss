@@ -1,11 +1,11 @@
 @use '../helpers/functions';
 @use '../foundation/settings';
 
-$properties: (left, right, none, inline-start, inline-end, inherit, initial, unset);
+$float-properties: (left, right, none, inline-start, inline-end, inherit, initial, unset);
 
 // Make class
 @if(functions.in-array(float, settings.$property-settings)) {
-	@each $property in $properties {
+	@each $property in $float-properties {
 		@if(functions.in-array($property, settings.$float-settings)) {
 			.float--#{$property} {
 				float: $property !important;
@@ -15,7 +15,7 @@ $properties: (left, right, none, inline-start, inline-end, inherit, initial, uns
 }
 
 // Make extend
-@each $property in $properties {
+@each $property in $float-properties {
 	%float--#{$property} {
 		float: $property;
 	}

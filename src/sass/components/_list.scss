@@ -2,6 +2,9 @@
 @use '../helpers/mixins';
 @use '../foundation/settings';
 @use '../grid/media-queries';
+@use '../foundation/typography';
+@use '../properties/display';
+@use '../foundation/shapes';
 
 // TODO turn last values into variables
 @if (functions.in-array(list, settings.$component-settings)) {

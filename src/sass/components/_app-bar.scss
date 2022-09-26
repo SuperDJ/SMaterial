@@ -1,6 +1,11 @@
 @use '../helpers/functions';
 @use '../grid/media-queries';
 @use '../foundation/settings';
+@use '../properties/display';
+@use '../properties/position';
+@use '../foundation/shadows';
+@use '../properties/cursor';
+@use '../foundation/typography';
 
 @if(functions.in-array(app-bar, settings.$component-settings)) {
 	.app-bar {

@@ -2,6 +2,9 @@
 @use '../helpers/mixins';
 @use '../foundation/settings';
 @use '../grid/media-queries';
+@use '../foundation/typography';
+@use '../foundation/shadows';
+@use '../properties/display';
 
 @if (functions.in-array(snackbar, settings.$component-settings)) {
 	.snackbar {

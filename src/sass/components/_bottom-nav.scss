@@ -1,6 +1,9 @@
 @use '../helpers/functions';
 @use '../helpers/mixins';
 @use '../foundation/settings';
+@use '../foundation/shadows';
+@use '../properties/display';
+@use '../properties/position';
 
 @if (functions.in-array(bottom-nav, settings.$component-settings)) {
 	.bottom-nav {

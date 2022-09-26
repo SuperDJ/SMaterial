@@ -3,6 +3,11 @@
 @use '../foundation/settings';
 @use '../colors/colors';
 @use '../grid/media-queries';
+@use '../foundation/shadows';
+@use '../properties/display';
+@use '../properties/position';
+@use '../foundation/shapes';
+@use '../foundation/typography';
 
 @if (functions.in-array(card, settings.$component-settings)) {
 	.card {
@@ -17,8 +22,8 @@
 
 		--card__subtitle-color: #{settings.$card__subtitle-color};
 
-		--card__content-color: #{$card__content-color};
-		--card__content-padding: #{$card__content-padding};
+		--card__content-color: #{settings.$card__content-color};
+		--card__content-padding: #{settings.$card__content-padding};
 
 		$el: &;
 		background: var(--card-background);

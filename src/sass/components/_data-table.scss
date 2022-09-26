@@ -3,6 +3,8 @@
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../foundation/ripple';
+@use '../properties/display';
+@use '../properties/cursor';
 
 @if (functions.in-array(data-table, settings.$component-settings)) {
 	.data-table {

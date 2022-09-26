@@ -3,6 +3,10 @@
 @use '../foundation/settings';
 @use '../colors/colors';
 @use '../grid/media-queries';
+@use '../foundation/typography';
+@use '../foundation/shadows';
+@use '../properties/display';
+@use '../properties/position';
 
 @if (functions.in-array(dialog, settings.$component-settings)) {
 	.dialog {

@@ -2,6 +2,8 @@
 @use '../helpers/mixins';
 @use '../foundation/settings';
 @use '../colors/colors';
+@use '../foundation/shadows';
+@use '../properties/position';
 
 @if(functions.in-array(badge, settings.$component-settings)) {
 	.badge {

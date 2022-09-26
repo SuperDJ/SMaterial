@@ -1,5 +1,6 @@
 @use './settings';
 @use '../helpers/functions';
+@use '../grid/media-queries';
 
 @each $scale, $setting in settings.$type-scale {
 	%#{$scale} {
@@ -140,7 +141,7 @@
 	color: rgba(settings.$font-on-background, .87);
 
 	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
-		@media #{settings.$dark} {
+		@media #{media-queries.$dark} {
 			color: rgba(settings.$dark-font-on-background, .87);
 		}
 	}
@@ -150,7 +151,7 @@
 	color: rgba(settings.$font-on-background, .6);
 
 	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
-		@media #{settings.$dark} {
+		@media #{media-queries.$dark} {
 			color: rgba(settings.$dark-font-on-background, .6);
 		}
 	}
@@ -160,7 +161,7 @@
 	color: rgba(settings.$font-on-background, .38);
 
 	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
-		@media #{settings.$dark} {
+		@media #{media-queries.$dark} {
 			color: rgba(settings.$dark-font-on-background, .38);
 		}
 	}

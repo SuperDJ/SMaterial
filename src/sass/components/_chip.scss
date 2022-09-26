@@ -4,6 +4,10 @@
 @use '../foundation/ripple';
 @use '../colors/colors';
 @use '../grid/media-queries';
+@use '../foundation/typography';
+@use '../properties/display';
+@use '../properties/cursor';
+@use '../helpers/placeholders';
 
 @if (functions.in-array(chip, settings.$component-settings)) {
 	.chip {

@@ -1,6 +1,7 @@
 @use './media-queries';
 @use '../helpers/functions';
 @use '../foundation/settings';
+@use '../properties/display';
 
 .container {
 	--container--large-width: 80%;
@@ -10,7 +11,7 @@
 	width: 100%;
 	padding: var(--margin) 0;
 
-	@media #{$sm-up} {
+	@media #{media-queries.$sm-up} {
 		width: var(--container--large-width);
 		margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc((100% - var(--container--large-width)) / 2);
 	}
@@ -24,7 +25,7 @@
 
 	@if(functions.in-array(fixed, settings.$drawer-settings)) {
 		&-drawer--fixed {
-			@media #{$sm-up} {
+			@media #{media-queries.$sm-up} {
 				margin: var(--app-bar-height) calc((100% - var(--container--large-width)) / 2) 0 calc(calc((100% - var(--container--large-width)) / 2) + var(--drawer-width));
 				width: calc(var(--container--large-width) - var(--drawer-width));
 			}
@@ -33,7 +34,7 @@
 
 	@if(functions.in-array(fluid, settings.$grid-settings) and functions.in-array(fixed, settings.$drawer-settings)) {
 		&--fluid#{$el}-drawer--fixed {
-			@media #{$sm-up} {
+			@media #{media-queries.$sm-up} {
 				width: calc(100% - var(--drawer-width));
 				margin: var(--app-bar-height) 0 0 var(--drawer-width);
 			}

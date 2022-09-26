@@ -3,6 +3,12 @@
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../colors/colors';
+@use '../foundation/typography';
+@use '../foundation/shadows';
+@use '../properties/display';
+@use '../properties/position';
+@use '../properties/cursor';
+@use '../components/divider';
 
 @if (functions.in-array(drawer, settings.$component-settings)) {
 	.drawer {

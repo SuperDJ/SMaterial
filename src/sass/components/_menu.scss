@@ -2,6 +2,13 @@
 @use '../helpers/mixins';
 @use '../foundation/settings';
 @use '../grid/media-queries';
+@use '../foundation/typography';
+@use '../foundation/shadows';
+@use '../properties/display';
+@use '../properties/position';
+@use '../properties/cursor';
+@use '../helpers/placeholders';
+@use '../components/divider';
 
 @if (functions.in-array(menu, settings.$component-settings)) {
 	.menu {

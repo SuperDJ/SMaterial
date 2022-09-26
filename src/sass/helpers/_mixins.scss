@@ -1,6 +1,7 @@
 @use './functions';
 @use '../foundation/settings';
 @use '../colors/colors';
+@use '../grid/media-queries';
 
 @mixin responsive-ratio($x,$y, $pseudo: false) {
 	$padding: unquote(( $y / $x ) * 100 + '%');
@@ -109,7 +110,7 @@
 @mixin dark-theme( $class ) {
 	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
 		.#{$class} {
-			@media #{settings.$dark} {
+			@media #{media-queries.$dark} {
 				@content;
 			}
 		}
@@ -125,7 +126,7 @@
 @mixin light-theme( $class ) {
 	@if(settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
 		.#{$class} {
-			@media #{settings.$light} {
+			@media #{media-queries.$light} {
 				@content;
 			}
 		}

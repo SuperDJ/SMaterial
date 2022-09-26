@@ -3,6 +3,12 @@
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../foundation/ripple';
+@use '../foundation/shadows';
+@use '../foundation/typography';
+@use '../properties/display';
+@use '../properties/position';
+@use '../properties/cursor';
+@use '../helpers/placeholders';
 
 @if(functions.in-array(fab, settings.$component-settings)) {
 	.fab {

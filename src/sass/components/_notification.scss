@@ -2,6 +2,8 @@
 @use '../helpers/mixins';
 @use '../foundation/settings';
 @use '../grid/media-queries';
+@use '../foundation/shadows';
+@use '../properties/display';
 
 @if(functions.in-array(notification, settings.$component-settings)) {
 	.notification {

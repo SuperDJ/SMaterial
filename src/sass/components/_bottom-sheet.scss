@@ -3,6 +3,11 @@
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../colors/colors';
+@use '../foundation/typography';
+@use '../properties/display';
+@use '../properties/position';
+@use '../properties/cursor';
+@use '../foundation/shadows';
 
 @if (functions.in-array(bottom-sheet, settings.$component-settings)) {
 	.bottom-sheet {

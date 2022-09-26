@@ -2,6 +2,8 @@
 @use '../helpers/mixins';
 @use '../foundation/settings';
 @use '../grid/media-queries';
+@use '../properties/display';
+@use '../properties/position';
 
 @if(functions.in-array(tooltip, settings.$component-settings)) {
 	.tooltip {

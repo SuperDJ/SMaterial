@@ -1,9 +1,7 @@
 @use "sass:math";
-@use '../foundation/settings';
-@use '../colors/colors';
 
 // Convert unit to rem
-@function rem-calc( $sp, $default: settings.$font-size ) {
+@function rem-calc( $sp, $default: 16 ) {
 	@if(not is-number( $sp ) ) {
 	        @warn "Wrong unit type passed to rem-calc";
 	}
@@ -20,7 +18,7 @@
 }
 
 // Convert unit to em
-@function em-calc( $sp, $default: settings.$font-size ) {
+@function em-calc( $sp, $default: 16 ) {
 	@if(not is-number( $sp ) ) {
 		@warn "Wrong unit type passed to em-calc";
 	}
@@ -105,7 +103,7 @@
 }
 
 // Find a specific color
-@function color( $color, $accent, $colors: colors.$colors ) {
+@function color( $color, $accent, $colors: $colors ) {
 	$color-search: null; // Store color name array
 	$accent: '#{$accent}';
 

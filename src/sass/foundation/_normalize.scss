@@ -3,6 +3,7 @@
 @use '../colors/colors';
 @use '../foundation/settings';
 @use '../grid/media-queries';
+@use '../properties/display';
 
 html, body {
     font-size: settings.$font-size + 0px;
@@ -61,13 +62,13 @@ img {
     background: var(--scrollbar-background);
 
 	@if(settings.$theme == light and functions.in-array(dark, settings.$media-themes)) {
-		@media #{settings.$dark} {
+		@media #{media-queries.$dark} {
 			--scrollbar-background: #{settings.$dark-scrollbar-background};
 		}
 	}
 
 	@if(settings.$theme == dark and functions.in-array(light, settings.$media-themes)) {
-		@media #{settings.$light} {
+		@media #{media-queries.$light} {
 			--scrollbar-background: #{settings.$light-scrollbar-background};
 		}
 	}

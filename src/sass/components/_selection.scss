@@ -3,6 +3,11 @@
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../colors/colors';
+@use '../foundation/shadows';
+@use '../properties/position';
+@use '../properties/cursor';
+@use '../helpers/placeholders';
+@use '../foundation/shapes';
 
 // TODO fix naming variables
 @if (functions.in-array(selection, settings.$component-settings)) {

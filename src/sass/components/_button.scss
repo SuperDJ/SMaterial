@@ -3,6 +3,13 @@
 @use '../foundation/settings';
 @use '../colors/colors';
 @use '../foundation/ripple';
+@use '../properties/display';
+@use '../properties/cursor';
+@use '../properties/position';
+@use '../foundation/typography';
+@use '../helpers/placeholders';
+@use '../foundation/shadows';
+@use '../properties/float';
 
 @if (functions.in-array(button, settings.$component-settings)) {
 	.button {

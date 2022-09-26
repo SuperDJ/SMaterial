@@ -1,13 +1,13 @@
 @use '../helpers/functions';
 @use '../foundation/settings';
 
-$properties: (margin, padding);
+$mp-properties: (margin, padding);
 $directions: (top, left, bottom, right);
 
 // Make classes
 @if(functions.in-array(mp, settings.$property-settings)) {
 	@each $size in settings.$margin-padding-sizes {
-		@each $property in $properties {
+		@each $property in $mp-properties {
 			@if(functions.in-array($property, settings.$mp-settings)) {
 				.#{$property}--#{$size} {
 					#{$property}: functions.rem-calc($size);
@@ -16,7 +16,7 @@ $directions: (top, left, bottom, right);
 		}
 
 		@each $direction in $directions {
-			@each $property in $properties {
+			@each $property in $mp-properties {
 				@if(functions.in-array($property, settings.$mp-settings)) {
 					.#{$property}--#{$direction}-#{$size} {
 						#{$property}-#{$direction}: functions.rem-calc($size);
@@ -29,14 +29,14 @@ $directions: (top, left, bottom, right);
 
 // Make extends
 @each $size in settings.$margin-padding-sizes {
-	@each $property in $properties {
+	@each $property in $mp-properties {
 		%#{$property}--#{$size} {
 			 #{$property}: functions.rem-calc($size);
 		}
 	}
 
 	@each $direction in $directions {
-		@each $property in $properties {
+		@each $property in $mp-properties {
 			%#{$property}--#{$direction}-#{$size} {
 				 #{$property}-#{$direction}: functions.rem-calc($size);
 			 }

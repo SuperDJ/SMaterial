@@ -3,6 +3,8 @@
 @use '../foundation/settings';
 @use '../grid/media-queries';
 @use '../colors/colors';
+@use '../properties/display';
+@use '../properties/position';
 
 @if(functions.in-array(slider, settings.$component-settings)) {
 	.slider {

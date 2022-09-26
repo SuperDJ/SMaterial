@@ -2,6 +2,9 @@
 @use '../helpers/mixins';
 @use '../grid/media-queries';
 @use '../foundation/settings';
+@use '../foundation/typography';
+@use '../properties/display';
+@use '../components/divider';
 
 @if(functions.in-array(banner, settings.$component-settings)) {
 	.banner {

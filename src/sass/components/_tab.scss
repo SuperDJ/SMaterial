@@ -1,6 +1,10 @@
 @use '../helpers/functions';
 @use '../foundation/settings';
+@use '../foundation/ripple';
 @use '../colors/colors';
+@use '../properties/display';
+@use '../properties/position';
+@use '../foundation/typography';
 
 @if(functions.in-array(tab, settings.$component-settings)) {
 	.tabs {
@@ -32,7 +36,7 @@
 			@extend %position--relative;
 			min-width: var(--tabs__tab-min-width);
 			max-width: var(--tabs__tab-max-width);
-			@include ripple();
+			@include ripple.ripple();
 			--ripple--hover-background: var(--tabs__tab--hover-background);
 			--ripple--active-background: var(--tabs__tab--active-background);
 

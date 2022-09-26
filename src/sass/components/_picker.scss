@@ -2,6 +2,12 @@
 @use '../helpers/mixins';
 @use '../foundation/settings';
 @use '../grid/media-queries';
+@use '../foundation/shadows';
+@use '../properties/display';
+@use '../properties/position';
+@use '../properties/cursor';
+@use '../foundation/shapes';
+@use '../foundation/typography';
 
 @if(functions.in-array(picker, settings.$component-settings)) {
 	.picker {

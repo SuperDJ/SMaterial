@@ -95,8 +95,12 @@
 							for(var i = 0; i < $styles.length; i++) {
 								if( $styles[i].getAttribute('href') === './dist/css/material-light.css' ) {
 									$styles[i].setAttribute('href', './dist/css/material-dark.css');
+                                    console.log(1, $styles[i].getAttribute('href'));
+                                    return;
 								} else if( $styles[i].getAttribute('href') === './dist/css/material-dark.css' ) {
 									$styles[i].setAttribute('href', './dist/css/material-light.css');
+                                    console.log(2, $styles[i].getAttribute('href'));
+                                    return;
 								}
 							}
 						});
